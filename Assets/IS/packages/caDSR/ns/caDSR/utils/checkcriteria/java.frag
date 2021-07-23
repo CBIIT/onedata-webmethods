@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="name">checkcriteria</value>
+  <value name="encodeutf8">true</value>
+  <value name="body">Ly8gcGlwZWxpbmUNClN0cmluZyBpc1ZhbGlkID0gInRydWUiOw0KDQpJRGF0YUN1cnNvciBwaXBl
+bGluZUN1cnNvciA9IHBpcGVsaW5lLmdldEN1cnNvcigpOw0KU3RyaW5nCWNyaXRlcmlhID0gSURh
+dGFVdGlsLmdldFN0cmluZyggcGlwZWxpbmVDdXJzb3IsICJjcml0ZXJpYSIgKTsNCmludCBmaXJz
+dE9wZW5CcmFjZSwgbGFzdE9wZW5CcmFjZSA9IDA7DQppZiggY3JpdGVyaWEgIT0gbnVsbCApew0K
+CWZpcnN0T3BlbkJyYWNlID0gY3JpdGVyaWEuaW5kZXhPZignWycpOw0KCWlmKCBmaXJzdE9wZW5C
+cmFjZSA+IDAgKXsNCgkJaWYoIGNyaXRlcmlhLmxhc3RJbmRleE9mKCddJykgIT0gKGNyaXRlcmlh
+Lmxlbmd0aCgpIC0gMSkgKXsNCgkJCWlzVmFsaWQgPSAiZmFsc2UiOw0KCQl9DQoJfWVsc2UNCgkJ
+aXNWYWxpZCA9ICJmYWxzZSI7DQp9ZWxzZQ0KCWlzVmFsaWQgPSAiZmFsc2UiOw0KDQpJRGF0YVV0
+aWwucHV0KCBwaXBlbGluZUN1cnNvciwgImlzVmFsaWQiLCBpc1ZhbGlkICk7DQpwaXBlbGluZUN1
+cnNvci5kZXN0cm95KCk7DQoJ</value>
+</Values>
