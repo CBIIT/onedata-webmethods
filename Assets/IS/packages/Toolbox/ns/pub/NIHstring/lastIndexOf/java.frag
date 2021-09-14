@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="name">lastIndexOf</value>
+  <value name="encodeutf8">true</value>
+  <value name="body">Ly8gcGlwZWxpbmUNCklEYXRhQ3Vyc29yIHBpcGVsaW5lQ3Vyc29yID0gcGlwZWxpbmUuZ2V0Q3Vy
+c29yKCk7DQpTdHJpbmcJaW5TdHJpbmcgPSBJRGF0YVV0aWwuZ2V0U3RyaW5nKCBwaXBlbGluZUN1
+cnNvciwgImluU3RyaW5nIiApOw0KU3RyaW5nIGRlbGltID0gSURhdGFVdGlsLmdldFN0cmluZygg
+cGlwZWxpbmVDdXJzb3IsICJkZWxpbSIgKTsNCmlmKCBpblN0cmluZyA9PSBudWxsICl7DQoJSURh
+dGFVdGlsLnB1dCggcGlwZWxpbmVDdXJzb3IsICJ2YWx1ZSIsICItMSIgKTsNCn0gZWxzZSB7DQoJ
+aWYoIGRlbGltID09IG51bGwgKXsNCgkJSURhdGFVdGlsLnB1dCggcGlwZWxpbmVDdXJzb3IsICJ2
+YWx1ZSIsICItMSIgKTsNCgl9IGVsc2Ugew0KCQlJRGF0YVV0aWwucHV0KCBwaXBlbGluZUN1cnNv
+ciwgInZhbHVlIiwgSW50ZWdlci50b1N0cmluZyhpblN0cmluZy5sYXN0SW5kZXhPZihkZWxpbSkp
+ICk7DQoJfQ0KfQ0KcGlwZWxpbmVDdXJzb3IuZGVzdHJveSgpOw0KCQ==</value>
+</Values>
