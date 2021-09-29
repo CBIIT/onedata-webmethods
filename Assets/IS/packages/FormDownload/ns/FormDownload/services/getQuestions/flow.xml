@@ -3179,19 +3179,19 @@
 </MAP>
 </MAPINVOKE>
 
-<MAPCOPY FROM="/selectNCI_ADMIN_ITEM_REL_ALT_KEYOutput;2;0/results[0];2;1/DEFLT_VAL;1;0" TO="/questions;4;0;FormDownload.docs:question/default;1;0">
+<MAPCOPY FROM="/selectNCI_ADMIN_ITEM_REL_ALT_KEYOutput;2;0/results[0];2;1/DEFLT_VAL;1;0" TO="/questions;4;0;FormDownload.docs:question/default;1;0" CONDITION="%selectNCI_ADMIN_ITEM_REL_ALT_KEYOutput/results[0]/DEFLT_VAL% != $null">
 </MAPCOPY>
 
 <MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/ITEM_ID;1;0" TO="/questions;4;0;FormDownload.docs:question/cdePublicId;1;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/selectNCI_ADMIN_ITEM_REL_ALT_KEYOutput;2;0/results[0];2;1/INSTR;1;0" TO="/questions;4;0;FormDownload.docs:question/instructions;1;0">
+<MAPCOPY FROM="/selectNCI_ADMIN_ITEM_REL_ALT_KEYOutput;2;0/results[0];2;1/INSTR;1;0" TO="/questions;4;0;FormDownload.docs:question/instructions;1;0" CONDITION="%selectNCI_ADMIN_ITEM_REL_ALT_KEYOutput/results[0]/INSTR% != $null">
 </MAPCOPY>
 
 <MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/ITEM_NM;1;0" TO="/questions;4;0;FormDownload.docs:question/cde;1;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/selectNCI_ADMIN_ITEM_REL_ALT_KEYOutput;2;0/results[0];2;1/ITEM_LONG_NM;1;0" TO="/questions;4;0;FormDownload.docs:question/question;1;0">
+<MAPCOPY FROM="/selectNCI_ADMIN_ITEM_REL_ALT_KEYOutput;2;0/results[0];2;1/ITEM_LONG_NM;1;0" TO="/questions;4;0;FormDownload.docs:question/question;1;0" CONDITION="%selectNCI_ADMIN_ITEM_REL_ALT_KEYOutput/results[0]/ITEM_LONG_NM% != $null">
 </MAPCOPY>
 
 <MAPINVOKE SERVICE="pub.string:lookupTable" VALIDATE-IN="$none" VALIDATE-OUT="$none" INVOKE-ORDER="0">
@@ -3938,8 +3938,64 @@
 </MAP>
 </MAPINVOKE>
 
-<MAPCOPY FROM="/selectNCI_ADMIN_ITEM_REL_ALT_KEYOutput;2;0/results[0];2;1/DISP_ORD;1;0" TO="/questions;4;0;FormDownload.docs:question/displayOrder;1;0">
+<MAPCOPY FROM="/selectNCI_ADMIN_ITEM_REL_ALT_KEYOutput;2;0/results[0];2;1/DISP_ORD;1;0" TO="/questions;4;0;FormDownload.docs:question/displayOrder;1;0" CONDITION="%selectNCI_ADMIN_ITEM_REL_ALT_KEYOutput/results[0]/DISP_ORD% != $null">
 </MAPCOPY>
+
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/questions;4;0;FormDownload.docs:question/default;1;0">
+  <DATA ENCODING="XMLValues" I18N="true">
+
+<Values version="2.0">
+  <value name="xml"> </value>
+  <record name="type" javaclass="com.wm.util.Values">
+    <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
+    <value name="node_comment"></value>
+    <record name="node_hints" javaclass="com.wm.util.Values">
+      <value name="field_usereditable">true</value>
+      <value name="field_largerEditor">false</value>
+      <value name="field_password">false</value>
+    </record>
+    <value name="is_public">false</value>
+    <value name="field_name">default</value>
+    <value name="field_type">string</value>
+    <value name="field_dim">0</value>
+    <array name="field_options" type="value" depth="1">
+    </array>
+    <value name="nillable">true</value>
+    <value name="form_qualified">false</value>
+    <value name="is_global">false</value>
+  </record>
+</Values>
+</DATA>
+</MAPSET>
+
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/questions;4;0;FormDownload.docs:question/instructions;1;0">
+  <DATA ENCODING="XMLValues" I18N="true">
+
+<Values version="2.0">
+  <value name="xml"> </value>
+  <record name="type" javaclass="com.wm.util.Values">
+    <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
+    <value name="node_comment"></value>
+    <record name="node_hints" javaclass="com.wm.util.Values">
+      <value name="field_usereditable">true</value>
+      <value name="field_largerEditor">false</value>
+      <value name="field_password">false</value>
+    </record>
+    <value name="is_public">false</value>
+    <value name="field_name">instructions</value>
+    <value name="field_type">string</value>
+    <value name="field_dim">0</value>
+    <array name="field_options" type="value" depth="1">
+    </array>
+    <value name="nillable">true</value>
+    <value name="form_qualified">false</value>
+    <value name="is_global">false</value>
+  </record>
+</Values>
+</DATA>
+</MAPSET>
 </MAP>
 
 <INVOKE TIMEOUT="" SERVICE="FormDownload.services:getValueDomains" VALIDATE-IN="$none" VALIDATE-OUT="$none">
@@ -4976,89 +5032,4 @@
 </SEQUENCE>
 </BRANCH>
 </LOOP>
-
-<INVOKE TIMEOUT="" SERVICE="pub.flow:clearPipeline" VALIDATE-IN="$none" VALIDATE-OUT="$none" DISABLED="true">
-  <COMMENT></COMMENT>
-
-  <!-- nodes -->
-
-<MAP MODE="INPUT">
-  <MAPTARGET>
-
-<Values version="2.0">
-  <record name="xml" javaclass="com.wm.util.Values">
-    <value name="node_type">record</value>
-    <value name="node_subtype">unknown</value>
-    <value name="is_public">false</value>
-    <value name="field_name">clearPipelineInput</value>
-    <value name="field_type">record</value>
-    <value name="field_dim">0</value>
-    <value name="nillable">true</value>
-    <value name="form_qualified">false</value>
-    <value name="is_global">false</value>
-    <array name="rec_fields" type="record" depth="1">
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">field</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">preserve</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">1</value>
-        <value name="field_opt">true</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <value name="is_soap_array_encoding_used">false</value>
-      </record>
-    </array>
-    <value name="modifiable">true</value>
-  </record>
-</Values>
-</MAPTARGET>
-  <MAPSOURCE>
-
-<Values version="2.0">
-  <record name="xml" javaclass="com.wm.util.Values">
-    <value name="node_type">record</value>
-    <value name="node_subtype">unknown</value>
-    <value name="is_public">false</value>
-    <value name="field_type">record</value>
-    <value name="field_dim">0</value>
-    <value name="nillable">true</value>
-    <value name="form_qualified">false</value>
-    <value name="is_global">false</value>
-    <array name="rec_fields" type="record" depth="1">
-    </array>
-    <value name="modifiable">true</value>
-  </record>
-</Values>
-</MAPSOURCE>
-
-  <!-- nodes -->
-
-<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/preserve;1;1">
-  <DATA ENCODING="XMLValues" I18N="true">
-
-<Values version="2.0">
-  <array name="xml" type="value" depth="1">
-    <value>questions</value>
-  </array>
-  <record name="type" javaclass="com.wm.util.Values">
-    <value name="node_type">field</value>
-    <value name="node_subtype">unknown</value>
-    <value name="is_public">false</value>
-    <value name="field_name">preserve</value>
-    <value name="field_type">string</value>
-    <value name="field_dim">1</value>
-    <value name="field_opt">true</value>
-    <value name="nillable">true</value>
-    <value name="form_qualified">false</value>
-    <value name="is_global">false</value>
-    <value name="is_soap_array_encoding_used">false</value>
-  </record>
-</Values>
-</DATA>
-</MAPSET>
-</MAP>
-</INVOKE>
 </FLOW>
