@@ -6,7 +6,7 @@
 <h2>Examples</h2>
 <h3>Example 1 - Find Data Element by Public ID and Version</h3>
 <p>The following examples find a Data Element where Public Id = 62 and Version=6 and display the basic metadata attributes.Either the CDE Browser or the caDSR REST API can be used to satisfy this query and results from both are shown below.</p>
-<pre><a href="%value /serverInfo/protocol%://%value /serverInfo/host%/invoke/caDSR/GetXML?query=DataElement[@publicId=62,@version=6]" target="_blank" rel="noopener noreferrer">%value /serverInfo/protocol%://%value /serverInfo/host%/invoke/caDSR/GetXML?query=DataElement[@publicId=62,@version=6]</a>
+<pre><a href="%value /serverInfo/protocol%://%value /serverInfo/host%/invoke/caDSR/GetXML?query=DataElement[@publicId=62,@version=6]" target="_blank" rel="noopener noreferrer">%value /serverInfo/protocol%://%value /serverInfo/host%/invoke/caDSR/getXML?query=DataElement[@publicId=62,@version=6]</a>
 </pre>
 
 <h3>Example 2 - Find Data Element by Public ID</h3>
