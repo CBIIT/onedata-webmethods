@@ -1,0 +1,200 @@
+<asset_composite xmlns="http://namespaces.softwareag.com/acdl/1.0" targetNamespace="http://namespaces.softwareag.com/webMethods/IS" name="Toolbox" runtimeVersion="10.5.0.0">
+  <implementation.generic type="ispackage" />
+  <buildInfo name="build.version" value="10.5.29" />
+  <buildInfo name="BuildVersion" value="10.5.29" />
+  <buildInfo name="BuildTimestamp" value="2021-09-15T13:16:28" />
+  <buildInfo name="MinimumTargetRuntimeVersion" value="10.5.0.0" />
+  <property name="activatePkgOnInstall" displayName="Activate Package On Install">
+    <value>true</value>
+  </property>
+  <property name="archivePkgOnInstall" displayName="Archive Package On Install">
+    <value>true</value>
+  </property>
+  <property name="compilePackage" displayName="Compile Package On Install">
+    <value>true</value>
+  </property>
+  <property name="fragPackage" displayName="Fragment Package On Install">
+    <value>true</value>
+  </property>
+  <property name="clearACLs" displayName="Delete ACLs for the assets from the target Integration Server">
+    <value>false</value>
+  </property>
+  <property name="disallowActivePackageInstall" displayName="Disallow Active Package Install">
+    <value>false</value>
+  </property>
+  <property name="packageExecutionCheck" displayName="Package Execution Check">
+    <value>0</value>
+  </property>
+  <property name="suspendTriggersDuringDeploy" displayName="Suspend Triggers During Deployment">
+    <value>false</value>
+  </property>
+  <property name="syncDocTypesToBroker" displayName="Synchronize Document Types During Deployment">
+    <value>true</value>
+  </property>
+  <property name="restartRuntimes" displayName="restartRuntimes">
+    <value>false</value>
+  </property>
+  <asset name="ISPackage.Toolbox" displayName="Toolbox">
+    <implementation.generic type="ispackage" />
+    <dependsOn>IS:ISPackage.WmPublic</dependsOn>
+  </asset>
+  <asset name="pub.property.getPropertyValue" displayName="pub.property:getPropertyValue">
+    <implementation.generic type="isjavaservice" />
+    <dependsOn>IS:Toolbox.code.source.pub.property.java</dependsOn>
+    <dependsOn>IS:Toolbox.code.classes.pub.property.class</dependsOn>
+  </asset>
+  <asset name="pub.translators.somethingToYesNo" displayName="pub.translators:somethingToYesNo">
+    <implementation.generic type="isflowservice" />
+  </asset>
+  <asset name="pub.translators.YesNotoSomething" displayName="pub.translators:YesNotoSomething">
+    <implementation.generic type="isflowservice" />
+  </asset>
+  <asset name="pub.mail.createSubject_MN" displayName="pub.mail:createSubject_MN">
+    <implementation.generic type="isflowservice" />
+  </asset>
+  <asset name="pub.mail.createSubject" displayName="pub.mail:createSubject">
+    <implementation.generic type="isflowservice" />
+  </asset>
+  <asset name="pub.mail.sendMail" displayName="pub.mail:sendMail">
+    <implementation.generic type="isflowservice" />
+  </asset>
+  <asset name="pub.NIHList.contains" displayName="pub.NIHList:contains">
+    <implementation.generic type="isjavaservice" />
+    <dependsOn>IS:Toolbox.code.source.pub.NIHList.java</dependsOn>
+    <dependsOn>IS:Toolbox.code.classes.pub.NIHList.class</dependsOn>
+  </asset>
+  <asset name="pub.service.doThread" displayName="pub.service:doThread">
+    <implementation.generic type="isjavaservice" />
+    <dependsOn>IS:Toolbox.code.source.pub.service.java</dependsOn>
+    <dependsOn>IS:Toolbox.code.classes.pub.service.class</dependsOn>
+  </asset>
+  <asset name="pub.bytes.toHex" displayName="pub.bytes:toHex">
+    <implementation.generic type="isjavaservice" />
+    <dependsOn>IS:Toolbox.code.source.pub.bytes.java</dependsOn>
+    <dependsOn>IS:Toolbox.code.classes.pub.bytes.class</dependsOn>
+  </asset>
+  <asset name="pub.timeZone.getAvailableIDs" displayName="pub.timeZone:getAvailableIDs">
+    <implementation.generic type="isjavaservice" />
+    <dependsOn>IS:Toolbox.code.source.pub.timeZone.java</dependsOn>
+    <dependsOn>IS:Toolbox.code.classes.pub.timeZone.class</dependsOn>
+  </asset>
+  <asset name="pub.excelXML.createDataCell" displayName="pub.excelXML:createDataCell">
+    <implementation.generic type="isjavaservice" />
+    <dependsOn>IS:nci.als.docs.row</dependsOn>
+    <dependsOn>IS:nci.als.docs.cell</dependsOn>
+    <dependsOn>IS:Toolbox.code.source.pub.excelXML.java</dependsOn>
+    <dependsOn>IS:Toolbox.code.classes.pub.excelXML.class</dependsOn>
+  </asset>
+  <asset name="pub.odcommon.fixoutput" displayName="pub.odcommon:fixoutput">
+    <implementation.generic type="isjavaservice" />
+    <dependsOn>IS:Toolbox.code.source.pub.odcommon.java</dependsOn>
+    <dependsOn>IS:Toolbox.code.classes.pub.odcommon.class</dependsOn>
+  </asset>
+  <asset name="pub.NIHstring.lastIndexOf" displayName="pub.NIHstring:lastIndexOf">
+    <implementation.generic type="isjavaservice" />
+    <dependsOn>IS:Toolbox.code.source.pub.NIHstring.java</dependsOn>
+    <dependsOn>IS:Toolbox.code.classes.pub.NIHstring.class</dependsOn>
+  </asset>
+  <asset name="pub.NIHstring.contains" displayName="pub.NIHstring:contains">
+    <implementation.generic type="isjavaservice" />
+    <dependsOn>IS:Toolbox.code.source.pub.NIHstring.java</dependsOn>
+    <dependsOn>IS:Toolbox.code.classes.pub.NIHstring.class</dependsOn>
+  </asset>
+  <asset name="admin.emailServerLogs" displayName="admin:emailServerLogs">
+    <implementation.generic type="isflowservice" />
+  </asset>
+  <asset name="admin.getPackageConfigDir" displayName="admin:getPackageConfigDir">
+    <implementation.generic type="isjavaservice" />
+    <dependsOn>IS:Toolbox.code.source.admin.java</dependsOn>
+    <dependsOn>IS:Toolbox.code.classes.admin.class</dependsOn>
+    <dependsOn>IS:admin.getHostname</dependsOn>
+  </asset>
+  <asset name="admin.getHostname" displayName="admin:getHostname">
+    <implementation.generic type="isjavaservice" />
+    <dependsOn>IS:Toolbox.code.source.admin.java</dependsOn>
+    <dependsOn>IS:Toolbox.code.classes.admin.class</dependsOn>
+    <dependsOn>IS:admin.getPackageConfigDir</dependsOn>
+  </asset>
+  <asset name="Toolbox.code" displayName="code">
+    <implementation.generic type="isfolder" />
+  </asset>
+  <asset name="Toolbox.code.source" displayName="code/source">
+    <implementation.generic type="isfolder" />
+  </asset>
+  <asset name="Toolbox.code.source.admin.java" displayName="code/source/admin.java">
+    <implementation.generic type="isfile" />
+  </asset>
+  <asset name="Toolbox.code.source.pub.NIHstring.java" displayName="code/source/pub/NIHstring.java">
+    <implementation.generic type="isfile" />
+  </asset>
+  <asset name="Toolbox.code.source.pub.bytes.java" displayName="code/source/pub/bytes.java">
+    <implementation.generic type="isfile" />
+  </asset>
+  <asset name="Toolbox.code.source.pub.service.java" displayName="code/source/pub/service.java">
+    <implementation.generic type="isfile" />
+  </asset>
+  <asset name="Toolbox.code.source.pub.NIHList.java" displayName="code/source/pub/NIHList.java">
+    <implementation.generic type="isfile" />
+  </asset>
+  <asset name="Toolbox.code.source.pub.odcommon.java" displayName="code/source/pub/odcommon.java">
+    <implementation.generic type="isfile" />
+  </asset>
+  <asset name="Toolbox.code.source.pub.timeZone.java" displayName="code/source/pub/timeZone.java">
+    <implementation.generic type="isfile" />
+  </asset>
+  <asset name="Toolbox.code.source.pub.excelXML.java" displayName="code/source/pub/excelXML.java">
+    <implementation.generic type="isfile" />
+  </asset>
+  <asset name="Toolbox.code.source.pub.property.java" displayName="code/source/pub/property.java">
+    <implementation.generic type="isfile" />
+  </asset>
+  <asset name="Toolbox.code.classes" displayName="code/classes">
+    <implementation.generic type="isfolder" />
+  </asset>
+  <asset name="Toolbox.code.classes.pub.bytes.class" displayName="code/classes/pub/bytes.class">
+    <implementation.generic type="isfile" />
+  </asset>
+  <asset name="Toolbox.code.classes.pub.property.class" displayName="code/classes/pub/property.class">
+    <implementation.generic type="isfile" />
+  </asset>
+  <asset name="Toolbox.code.classes.pub.NIHList.class" displayName="code/classes/pub/NIHList.class">
+    <implementation.generic type="isfile" />
+  </asset>
+  <asset name="Toolbox.code.classes.pub.timeZone.class" displayName="code/classes/pub/timeZone.class">
+    <implementation.generic type="isfile" />
+  </asset>
+  <asset name="Toolbox.code.classes.pub.odcommon.class" displayName="code/classes/pub/odcommon.class">
+    <implementation.generic type="isfile" />
+  </asset>
+  <asset name="Toolbox.code.classes.pub.NIHstring.class" displayName="code/classes/pub/NIHstring.class">
+    <implementation.generic type="isfile" />
+  </asset>
+  <asset name="Toolbox.code.classes.pub.excelXML.class" displayName="code/classes/pub/excelXML.class">
+    <implementation.generic type="isfile" />
+  </asset>
+  <asset name="Toolbox.code.classes.pub.service.class" displayName="code/classes/pub/service.class">
+    <implementation.generic type="isfile" />
+  </asset>
+  <asset name="Toolbox.code.classes.admin.class" displayName="code/classes/admin.class">
+    <implementation.generic type="isfile" />
+  </asset>
+  <asset name="Toolbox.pub" displayName="pub">
+    <implementation.generic type="isfolder" />
+  </asset>
+  <asset name="Toolbox.config" displayName="config">
+    <implementation.generic type="isfolder" />
+  </asset>
+  <asset name="Toolbox.config.aclmap_pkg.cnf" displayName="config/aclmap_pkg.cnf">
+    <implementation.generic type="isfile" />
+  </asset>
+  <asset name="Toolbox.config.browsemap_pkg.cnf" displayName="config/browsemap_pkg.cnf">
+    <implementation.generic type="isfile" />
+  </asset>
+  <asset name="Toolbox.config.readmap_pkg.cnf" displayName="config/readmap_pkg.cnf">
+    <implementation.generic type="isfile" />
+  </asset>
+  <asset name="Toolbox.config.writemap_pkg.cnf" displayName="config/writemap_pkg.cnf">
+    <implementation.generic type="isfile" />
+  </asset>
+</asset_composite>
+

@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<project name="webMethodsBuild" default="about" basedir=".">
+	<!-- project.properties -->
+	<property file="project.properties" />
+	<!-- 	<import file="build-src-checkout.xml" /> -->
+
+	<property name="workspace.dir" location="." />
+
+	<!-- remap the VCS structure defined in project.properties to have absolute paths -->
+	<property name="isProjectsDir" location="${isPackages}" />
+	<property name="isConfigDir" location="${isConfig}" />
+	<property name="isTestDir" location="${isTests}" />
+	<property name="bpmProjectsDir" location="${bpmProjects}" />
+	<property name="mwsProjectsDir" location="${mwsProjects}" />
+	<property name="rulesProjectsDir" location="${rulesProjects}" />
+	<property name="umProjectsDir" location="${umProjects}" />
+	<property name="tnProjectsDir" location="${tnExport}" />
+        <property name="apigatewayProjectsDir" location="${apigatewayProjects}"/>
+
+	<property name="buildOutputDir" value="${workspace.dir}/target/${projectName}/build" />
+	<property name="repositoryName" value="${projectName}Repo" />
+	<property name="testPackageNamePattern" value="*_Test" />
+	<property name="jenkinsReportDir" value="${workspace.dir}/report" />
+
+	<target name="about" depends="">
+		<echo
+			message="Build scrip to checkout, build and deploy webMethods assets (IS, BMP, RULES, and UM)" />
+	</target>
+
+	<target name="checkoutsrc" depends="checkout">
+		<echo message="*** code checkout complete ***" />
+	</target>
+
+	<target name="checkoutBuildDeploy" depends="checkout, build, deploy">
+		<echo message="*** checkout, build and deploy complete *** " />
+	</target>
+
+	<target name="buildDeploy" depends="">
+		<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml"
+			target="buildDeploy" inheritAll="true" />
+	</target>
+
+	<target name="buildDeployTest" depends="">
+		<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml"
+			target="buildDeployTest" inheritAll="true" />
+	</target>
+
+	<target name="build" depends="">
+		<echo message="first build.xml"/>
+		<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml"
+			target="build" inheritAll="true" />
+	</target>
+
+	<target name="createProject" depends="">
+                <echo message="ant file: ${SAG_CI_HOME}/build.xml" />
+		<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="createProject" inheritAll="true" />
+	</target>
+	
+	<target name="variablesubstitution" depends="">
+                <echo message="ant file: ${SAG_CI_HOME}/build.xml" />
+                <echo message="Performing variable substitution for project ${projectName}"/>
+		<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="variablesubstitution" inheritAll="true" />
+	</target>
+
+	<target name="deployOnly" depends="">
+		<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml"
+			target="deployOnly" inheritAll="true" />
+	</target>
+
+	<target name="deploy" depends="">
+		<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml"
+			target="deploy" inheritAll="true" />
+	</target>
+
+	<target name="checkpoint" depends="">
+		<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml"
+			target="checkpoint" inheritAll="true"/>
+	</target>
+
+	<target name="report" depends="">
+		<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml"
+			target="report" inheritAll="true"/>
+	</target>
+
+	<target name="test" depends="">
+		<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml"
+			target="test" inheritAll="true" />
+	</target>
+
+	<target name="prepareStaging" depends="create-staging-dir, chk-asset-dir" unless="file.exists">
+		<mkdir dir="${isPackages}" />
+	<!--	<mkdir dir="${bpmProjects}" />
+		<mkdir dir="${rulesProjects}" />
+		<mkdir dir="${umProjects}" />
+		<mkdir dir="${tnProjects}" />
+                <mkdir dir="${apigatewayProjects}" />-->
+	</target>
+
+	<target name="chk-asset-dir">
+		<available file="${isPackages}"
+	property="file.exists" value="true" />
+	</target>
+
+	<!-- Git source checkout-->
+	<target depends="prepareStaging, ifOSWindows, ifOSNotWindows" name="checkout" />
+
+	<condition property="isOSUnix">
+		<os family="unix" />
+	</condition>
+
+	<condition property="isOSWindows">
+		<os family="windows" />
+	</condition>
+
+	<target name="ifOSWindows" if="isOSWindows">
+		<echo>is windows........</echo>
+		<antcall target="runscript.windows" />
+	</target>
+
+	<target name="ifOSNotWindows" if="isOSUnix">
+		<echo>is unix........</echo>
+		<antcall target="runscript.unix" />
+	</target>
+
+	<target name="runscript.windows">
+		<exec dir="." executable="cmd">
+			<arg line="/c test.bat ${isPackages}  ${bpmProjects}" />
+		</exec>
+	</target>
+
+	<target name="runscript.unix">
+		<exec dir="." executable="/bin/sh">
+			<arg line="-c test.sh '${stagingDir}'" />
+		</exec>
+	</target>
+
+	<target name="check-staging-dir">
+		<available property="no.staging.dir" file="${stagingDir}" type="dir"/>
+	</target>
+
+	<target name="create-staging-dir" depends="check-staging-dir" unless="no.staging.dir">
+		<mkdir dir="${stagingDir}"/>
+	</target>
+
+</project>
+
+
