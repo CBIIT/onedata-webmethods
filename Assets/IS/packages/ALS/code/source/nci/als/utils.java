@@ -32,32 +32,25 @@ public final class utils
 		// --- <<IS-START(checkForApply)>> ---
 		// @sigtype java 3.5
 		// [i] field:0:required string
-		// [o] field:0:required containsApply
+		// [o] field:0:required contains {"true","false"}
 		// pipeline input
 		IDataCursor pipelineCursor = pipeline.getCursor();
 		String	string = IDataUtil.getString( pipelineCursor, "string" );
-		string = string.toLowerCase();
-		
-		if(string == null) {
-			string = "false";
-		} else if(string.contains("apply")){
-			string = "true";
-		} else if(string.contains("code all")){
-			string = "true";
-		} else if(string.contains("check all")){
-				string = "true";
-		} else if(string.contains("mark all")){
-			string = "true";
-		} else if(string.contains("select all")){
-			string = "true";
-		} else if(string.contains("enter all")){
-			string = "true";
-		} else {
-			string = "false";
+		//string = string.toLowerCase();
+		Boolean found = false;
+		String[] checklist= {"that apply", "code all", "check all", "mark all", "select all", "enter all"};
+		Integer counter = 0;
+		if( string != null ){
+			string = string.toLowerCase();
+			while (counter < (checklist.length-1) && found != true) {
+				if (string.contains(checklist[counter])) {
+					found = true;
+				} else {
+					counter++;	
+				}
+			}
 		}
-		
-		// pipeline output
-		IDataUtil.put( pipelineCursor, "containsApply", string );
+		IDataUtil.put( pipelineCursor, "contains", Boolean.toString(found));
 		pipelineCursor.destroy();
 		// --- <<IS-END>> ---
 
