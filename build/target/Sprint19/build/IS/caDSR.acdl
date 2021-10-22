@@ -1,0 +1,787 @@
+<asset_composite xmlns="http://namespaces.softwareag.com/acdl/1.0" targetNamespace="http://namespaces.softwareag.com/webMethods/IS" name="caDSR" runtimeVersion="10.5.0.0">
+  <implementation.generic type="ispackage" />
+  <buildInfo name="build.version" value="10.5.29" />
+  <buildInfo name="BuildVersion" value="10.5.29" />
+  <buildInfo name="BuildTimestamp" value="2021-09-15T13:16:27" />
+  <buildInfo name="MinimumTargetRuntimeVersion" value="10.5.0.0" />
+  <property name="activatePkgOnInstall" displayName="Activate Package On Install">
+    <value>true</value>
+  </property>
+  <property name="archivePkgOnInstall" displayName="Archive Package On Install">
+    <value>true</value>
+  </property>
+  <property name="compilePackage" displayName="Compile Package On Install">
+    <value>true</value>
+  </property>
+  <property name="fragPackage" displayName="Fragment Package On Install">
+    <value>true</value>
+  </property>
+  <property name="clearACLs" displayName="Delete ACLs for the assets from the target Integration Server">
+    <value>false</value>
+  </property>
+  <property name="disallowActivePackageInstall" displayName="Disallow Active Package Install">
+    <value>false</value>
+  </property>
+  <property name="packageExecutionCheck" displayName="Package Execution Check">
+    <value>0</value>
+  </property>
+  <property name="suspendTriggersDuringDeploy" displayName="Suspend Triggers During Deployment">
+    <value>false</value>
+  </property>
+  <property name="syncDocTypesToBroker" displayName="Synchronize Document Types During Deployment">
+    <value>true</value>
+  </property>
+  <property name="restartRuntimes" displayName="restartRuntimes">
+    <value>false</value>
+  </property>
+  <asset name="ISPackage.caDSR" displayName="caDSR">
+    <implementation.generic type="ispackage" />
+    <dependsOn>IS:ISPackage.OneData</dependsOn>
+    <dependsOn>IS:ISPackage.Toolbox</dependsOn>
+    <dependsOn>IS:ISPackage.ALS_JDBC_Connections</dependsOn>
+  </asset>
+  <asset name="caDSR.Form.output" displayName="caDSR.Form:output">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.getXMLDoc</dependsOn>
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.docs.serverInfo</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectAdministeredItemByItem_IDandVER_NR</dependsOn>
+    <dependsOn>IS:caDSR.utils.fields.addField</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectSTUS_MSTR</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_FORM</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectOBJ_KEY</dependsOn>
+  </asset>
+  <asset name="caDSR.Form.getData" displayName="caDSR.Form:getData">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.utils.buildWhereClause</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectADMIN_ITEM</dependsOn>
+    <dependsOn>IS:caDSR.utils.getKeys</dependsOn>
+    <dependsOn>IS:caDSR.utils.filterOnCollectionKeys</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectVW_NCI_FORM_MODULE</dependsOn>
+  </asset>
+  <asset name="caDSR.ComponentConcept.getData" displayName="caDSR.ComponentConcept:getData">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.utils.buildWhereClause</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectComponentConcept</dependsOn>
+    <dependsOn>IS:caDSR.utils.getKeys</dependsOn>
+    <dependsOn>IS:caDSR.utils.filterOnCollectionKeys</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectCNCPT_ADMIN_ITEM</dependsOn>
+  </asset>
+  <asset name="caDSR.ComponentConcept.output" displayName="caDSR.ComponentConcept:output">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.getXMLDoc</dependsOn>
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.docs.serverInfo</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectAdministeredItemByItem_IDandVER_NR</dependsOn>
+    <dependsOn>IS:caDSR.utils.fields.addField</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectSTUS_MSTR</dependsOn>
+  </asset>
+  <asset name="caDSR.DataElement.output" displayName="caDSR.DataElement:output">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.getXMLDoc</dependsOn>
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.docs.serverInfo</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectAdministeredItemByItem_IDandVER_NR</dependsOn>
+    <dependsOn>IS:caDSR.utils.fields.addField</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectVW_NCI_DE_HORT</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectSTUS_MSTR</dependsOn>
+  </asset>
+  <asset name="caDSR.DataElement.getData" displayName="caDSR.DataElement:getData">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.utils.buildWhereClause</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectADMIN_ITEM</dependsOn>
+    <dependsOn>IS:caDSR.utils.getKeys</dependsOn>
+    <dependsOn>IS:caDSR.utils.filterOnCollectionKeys</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectDE</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectQUESTION</dependsOn>
+  </asset>
+  <asset name="caDSR.QuestionRepetition.output" displayName="caDSR.QuestionRepetition:output">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.getXMLDoc</dependsOn>
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.docs.serverInfo</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_QUEST_VV_REP</dependsOn>
+    <dependsOn>IS:caDSR.utils.fields.addField</dependsOn>
+  </asset>
+  <asset name="caDSR.QuestionRepetition.getData" displayName="caDSR.QuestionRepetition:getData">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.utils.buildWhereClause</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_QUEST_VV_REP</dependsOn>
+    <dependsOn>IS:caDSR.utils.getKeys</dependsOn>
+    <dependsOn>IS:caDSR.utils.filterOnCollectionKeys</dependsOn>
+  </asset>
+  <asset name="caDSR.ReferenceDocument.output" displayName="caDSR.ReferenceDocument:output">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.getXMLDoc</dependsOn>
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.docs.serverInfo</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectREF</dependsOn>
+    <dependsOn>IS:caDSR.utils.fields.addField</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectLANG</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectOBJ_KEY</dependsOn>
+  </asset>
+  <asset name="caDSR.ReferenceDocument.getData" displayName="caDSR.ReferenceDocument:getData">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.utils.buildWhereClause</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectREF</dependsOn>
+    <dependsOn>IS:caDSR.utils.getKeys</dependsOn>
+    <dependsOn>IS:caDSR.utils.filterOnCollectionKeys</dependsOn>
+  </asset>
+  <asset name="caDSR.ClassSchemeClassSchemeItem.getData" displayName="caDSR.ClassSchemeClassSchemeItem:getData">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.utils.buildWhereClause</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_CLSFCTN_SCHEM_ITEM</dependsOn>
+    <dependsOn>IS:caDSR.utils.getKeys</dependsOn>
+    <dependsOn>IS:caDSR.utils.filterOnCollectionKeys</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectDE</dependsOn>
+  </asset>
+  <asset name="caDSR.Question.getData" displayName="caDSR.Question:getData">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.utils.buildWhereClause</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectQUESTION</dependsOn>
+    <dependsOn>IS:caDSR.utils.getKeys</dependsOn>
+    <dependsOn>IS:caDSR.utils.filterOnCollectionKeys</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectVW_NCI_MODULE_QUEST</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_ADMIN_ITEM_REL_ALT_KEY</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectDE</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_QUEST_VALID_VALUE</dependsOn>
+  </asset>
+  <asset name="caDSR.Question.output" displayName="caDSR.Question:output">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.getXMLDoc</dependsOn>
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.docs.serverInfo</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_ADMIN_ITEM_REL_ALT_KEY</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectAdministeredItemByItem_IDandVER_NR</dependsOn>
+    <dependsOn>IS:caDSR.utils.fields.addField</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectSTUS_MSTR</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectVW_NCI_MODULE_QUEST</dependsOn>
+  </asset>
+  <asset name="caDSR.Definition.getData" displayName="caDSR.Definition:getData">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.utils.buildWhereClause</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectALT_DEF</dependsOn>
+    <dependsOn>IS:caDSR.utils.getKeys</dependsOn>
+    <dependsOn>IS:caDSR.utils.filterOnCollectionKeys</dependsOn>
+  </asset>
+  <asset name="caDSR.Definition.output" displayName="caDSR.Definition:output">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.getXMLDoc</dependsOn>
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.docs.serverInfo</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectALT_DEF</dependsOn>
+    <dependsOn>IS:caDSR.utils.fields.addField</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectLANG</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectOBJ_KEY</dependsOn>
+  </asset>
+  <asset name="caDSR.ValidValue.getData" displayName="caDSR.ValidValue:getData">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.utils.buildWhereClause</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_QUEST_VALID_VALUE</dependsOn>
+    <dependsOn>IS:caDSR.utils.getKeys</dependsOn>
+    <dependsOn>IS:caDSR.utils.filterOnCollectionKeys</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_QUEST_VV_REP</dependsOn>
+  </asset>
+  <asset name="caDSR.ValidValue.output" displayName="caDSR.ValidValue:output">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.getXMLDoc</dependsOn>
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.docs.serverInfo</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_QUEST_VALID_VALUE</dependsOn>
+    <dependsOn>IS:caDSR.utils.fields.addField</dependsOn>
+  </asset>
+  <asset name="caDSR.docs.restInput" displayName="caDSR.docs:restInput">
+    <implementation.generic type="isdocumenttype" />
+  </asset>
+  <asset name="caDSR.docs.keys" displayName="caDSR.docs:keys">
+    <implementation.generic type="isdocumenttype" />
+  </asset>
+  <asset name="caDSR.docs.fieldsDocTypeRef" displayName="caDSR.docs:fieldsDocTypeRef">
+    <implementation.generic type="isdocumenttype" />
+  </asset>
+  <asset name="caDSR.docs.getXMLDoc" displayName="caDSR.docs:getXMLDoc">
+    <implementation.generic type="isdocumenttype" />
+    <dependsOn>IS:caDSR.docs.classDocTypeRef</dependsOn>
+  </asset>
+  <asset name="caDSR.docs.filter" displayName="caDSR.docs:filter">
+    <implementation.generic type="isdocumenttype" />
+    <dependsOn>IS:caDSR.docs.fields</dependsOn>
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.docs.keys</dependsOn>
+  </asset>
+  <asset name="caDSR.docs.serverInfo" displayName="caDSR.docs:serverInfo">
+    <implementation.generic type="isdocumenttype" />
+  </asset>
+  <asset name="caDSR.docs.classDocTypeRef" displayName="caDSR.docs:classDocTypeRef">
+    <implementation.generic type="isdocumenttype" />
+    <dependsOn>IS:caDSR.docs.fieldsDocTypeRef</dependsOn>
+  </asset>
+  <asset name="caDSR.docs.selectAdministeredItemOutput" displayName="caDSR.docs:selectAdministeredItemOutput">
+    <implementation.generic type="isdocumenttype" />
+  </asset>
+  <asset name="caDSR.docs.fields" displayName="caDSR.docs:fields">
+    <implementation.generic type="isdocumenttype" />
+  </asset>
+  <asset name="caDSR.restapi.GetJSON_rest_.services.GetJSON" displayName="caDSR.restapi.GetJSON_rest_.services:GetJSON">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.getXMLDoc</dependsOn>
+    <dependsOn>IS:caDSR.work.GetXML</dependsOn>
+  </asset>
+  <asset name="caDSR.restapi.GetJSON_rest_.docTypes.GetXML_rest" displayName="caDSR.restapi.GetJSON_rest_.docTypes:GetXML_rest">
+    <implementation.generic type="isdocumenttype" />
+  </asset>
+  <asset name="caDSR.restapi.GetJSON_rest" displayName="caDSR.restapi:GetJSON_rest">
+    <implementation.generic type="isrestresource" />
+    <dependsOn>IS:caDSR.restapi.GetJSON_rest_.services.GetJSON</dependsOn>
+  </asset>
+  <asset name="caDSR.Organization.getData" displayName="caDSR.Organization:getData">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.utils.buildWhereClause</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_ORG</dependsOn>
+    <dependsOn>IS:caDSR.utils.getKeys</dependsOn>
+    <dependsOn>IS:caDSR.utils.filterOnCollectionKeys</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_PRSN</dependsOn>
+  </asset>
+  <asset name="caDSR.Organization.output" displayName="caDSR.Organization:output">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.getXMLDoc</dependsOn>
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.docs.serverInfo</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_ORG</dependsOn>
+    <dependsOn>IS:caDSR.utils.fields.addField</dependsOn>
+  </asset>
+  <asset name="caDSR.DataElementConcept.getData" displayName="caDSR.DataElementConcept:getData">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectADMIN_ITEM</dependsOn>
+    <dependsOn>IS:caDSR.utils.buildWhereClause</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectDE_CONC</dependsOn>
+    <dependsOn>IS:caDSR.utils.getKeys</dependsOn>
+    <dependsOn>IS:caDSR.utils.filterOnCollectionKeys</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectDE</dependsOn>
+  </asset>
+  <asset name="caDSR.DataElementConcept.output" displayName="caDSR.DataElementConcept:output">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.getXMLDoc</dependsOn>
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.docs.serverInfo</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectAdministeredItemByItem_IDandVER_NR</dependsOn>
+    <dependsOn>IS:caDSR.utils.fields.addField</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectSTUS_MSTR</dependsOn>
+  </asset>
+  <asset name="caDSR.work.GetXML" displayName="caDSR.work:GetXML">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.getXMLDoc</dependsOn>
+    <dependsOn>IS:caDSR.utils.createServerInfo</dependsOn>
+    <dependsOn>IS:caDSR.utils.parseQueryString</dependsOn>
+    <dependsOn>IS:caDSR.utils.criteria.parseCriteria</dependsOn>
+    <dependsOn>IS:caDSR.utils.reverseListOrder</dependsOn>
+  </asset>
+  <asset name="caDSR.utils.criteria.validateCriteria" displayName="caDSR.utils.criteria:validateCriteria">
+    <implementation.generic type="isflowservice" />
+  </asset>
+  <asset name="caDSR.utils.criteria.parseCriteria" displayName="caDSR.utils.criteria:parseCriteria">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.utils.checkcriteria</dependsOn>
+    <dependsOn>IS:caDSR.utils.getTableName</dependsOn>
+    <dependsOn>IS:caDSR.utils.criteria.parseIntoCollectionandFilters</dependsOn>
+    <dependsOn>IS:caDSR.utils.transformDateForSQLQuery</dependsOn>
+    <dependsOn>IS:caDSR.utils.criteria.determineOperation</dependsOn>
+    <dependsOn>IS:caDSR.utils.criteria.validateCriteria</dependsOn>
+    <dependsOn>IS:caDSR.utils.criteria.parseCriteria</dependsOn>
+    <dependsOn>IS:caDSR.utils.validateCollections</dependsOn>
+  </asset>
+  <asset name="caDSR.utils.criteria.parseIntoCollectionandFilters" displayName="caDSR.utils.criteria:parseIntoCollectionandFilters">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.utils.removeTableName</dependsOn>
+  </asset>
+  <asset name="caDSR.utils.criteria.determineOperation" displayName="caDSR.utils.criteria:determineOperation">
+    <implementation.generic type="isflowservice" />
+  </asset>
+  <asset name="caDSR.utils.fields.addField" displayName="caDSR.utils.fields:addField">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.classDocTypeRef</dependsOn>
+    <dependsOn>IS:caDSR.docs.serverInfo</dependsOn>
+  </asset>
+  <asset name="caDSR.utils.filterOnCollectionKeys" displayName="caDSR.utils:filterOnCollectionKeys">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.keys</dependsOn>
+    <dependsOn>IS:caDSR.docs.fields</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectDE</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_ADMIN_ITEM_REL</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectCNCPT_ADMIN_ITEM</dependsOn>
+  </asset>
+  <asset name="caDSR.utils.validateCollections" displayName="caDSR.utils:validateCollections">
+    <implementation.generic type="isflowservice" />
+  </asset>
+  <asset name="caDSR.utils.transformDateForSQLQuery" displayName="caDSR.utils:transformDateForSQLQuery">
+    <implementation.generic type="isflowservice" />
+  </asset>
+  <asset name="caDSR.utils.getDataTypebyAdminItemType" displayName="caDSR.utils:getDataTypebyAdminItemType">
+    <implementation.generic type="isflowservice" />
+  </asset>
+  <asset name="caDSR.utils.checkcriteria" displayName="caDSR.utils:checkcriteria">
+    <implementation.generic type="isjavaservice" />
+    <dependsOn>IS:caDSR.code.source.caDSR.utils.java</dependsOn>
+    <dependsOn>IS:caDSR.code.classes.caDSR.utils.class</dependsOn>
+    <dependsOn>IS:caDSR.utils.reverseListOrder</dependsOn>
+  </asset>
+  <asset name="caDSR.utils.buildWhereClause" displayName="caDSR.utils:buildWhereClause">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+  </asset>
+  <asset name="caDSR.utils.createServerInfo" displayName="caDSR.utils:createServerInfo">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.serverInfo</dependsOn>
+  </asset>
+  <asset name="caDSR.utils.parseQueryString" displayName="caDSR.utils:parseQueryString">
+    <implementation.generic type="isflowservice" />
+  </asset>
+  <asset name="caDSR.utils.reverseListOrder" displayName="caDSR.utils:reverseListOrder">
+    <implementation.generic type="isjavaservice" />
+    <dependsOn>IS:caDSR.code.source.caDSR.utils.java</dependsOn>
+    <dependsOn>IS:caDSR.code.classes.caDSR.utils.class</dependsOn>
+    <dependsOn>IS:caDSR.utils.checkcriteria</dependsOn>
+  </asset>
+  <asset name="caDSR.utils.removeTableName" displayName="caDSR.utils:removeTableName">
+    <implementation.generic type="isflowservice" />
+  </asset>
+  <asset name="caDSR.utils.getKeys" displayName="caDSR.utils:getKeys">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.DataElement.getData</dependsOn>
+    <dependsOn>IS:caDSR.DataElementConcept.getData</dependsOn>
+    <dependsOn>IS:caDSR.ObjectClass.getData</dependsOn>
+    <dependsOn>IS:caDSR.Form.getData</dependsOn>
+    <dependsOn>IS:caDSR.ComponentConcept.getData</dependsOn>
+    <dependsOn>IS:caDSR.Concept.getData</dependsOn>
+    <dependsOn>IS:caDSR.Module.getData</dependsOn>
+    <dependsOn>IS:caDSR.Protocol.getData</dependsOn>
+    <dependsOn>IS:caDSR.Question.getData</dependsOn>
+    <dependsOn>IS:caDSR.ClassSchemeClassSchemeItem.getData</dependsOn>
+    <dependsOn>IS:caDSR.AdministeredComponentClassSchemeItem.getData</dependsOn>
+    <dependsOn>IS:caDSR.AdministeredComponent.getData</dependsOn>
+  </asset>
+  <asset name="caDSR.utils.getTableName" displayName="caDSR.utils:getTableName">
+    <implementation.generic type="isflowservice" />
+  </asset>
+  <asset name="caDSR.Designation.getData" displayName="caDSR.Designation:getData">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.utils.buildWhereClause</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectALT_NMS</dependsOn>
+    <dependsOn>IS:caDSR.utils.getKeys</dependsOn>
+    <dependsOn>IS:caDSR.utils.filterOnCollectionKeys</dependsOn>
+  </asset>
+  <asset name="caDSR.Designation.output" displayName="caDSR.Designation:output">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.getXMLDoc</dependsOn>
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.docs.serverInfo</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectALT_NMS</dependsOn>
+    <dependsOn>IS:caDSR.utils.fields.addField</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectLANG</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectOBJ_KEY</dependsOn>
+  </asset>
+  <asset name="caDSR.ContactCommunication.output" displayName="caDSR.ContactCommunication:output">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.getXMLDoc</dependsOn>
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.docs.serverInfo</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_ENTTY_COMM</dependsOn>
+    <dependsOn>IS:caDSR.utils.fields.addField</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectOBJ_KEY</dependsOn>
+  </asset>
+  <asset name="caDSR.ContactCommunication.getData" displayName="caDSR.ContactCommunication:getData">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.utils.buildWhereClause</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_PRSN</dependsOn>
+    <dependsOn>IS:caDSR.utils.getKeys</dependsOn>
+    <dependsOn>IS:caDSR.utils.filterOnCollectionKeys</dependsOn>
+  </asset>
+  <asset name="caDSR.Concept.output" displayName="caDSR.Concept:output">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.getXMLDoc</dependsOn>
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.docs.serverInfo</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectAdministeredItemByItem_IDandVER_NR</dependsOn>
+    <dependsOn>IS:caDSR.utils.fields.addField</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectSTUS_MSTR</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectCNCPT</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectOBJ_KEY</dependsOn>
+  </asset>
+  <asset name="caDSR.Concept.getData" displayName="caDSR.Concept:getData">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.utils.buildWhereClause</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectADMIN_ITEM</dependsOn>
+    <dependsOn>IS:caDSR.utils.getKeys</dependsOn>
+    <dependsOn>IS:caDSR.utils.filterOnCollectionKeys</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectCNCPT_ADMIN_ITEM</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectPERM_VAL</dependsOn>
+  </asset>
+  <asset name="caDSR.PermissibleValue.output" displayName="caDSR.PermissibleValue:output">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.getXMLDoc</dependsOn>
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.docs.serverInfo</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectPERM_VAL</dependsOn>
+    <dependsOn>IS:caDSR.utils.fields.addField</dependsOn>
+  </asset>
+  <asset name="caDSR.PermissibleValue.getData" displayName="caDSR.PermissibleValue:getData">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.utils.buildWhereClause</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectPERM_VAL</dependsOn>
+    <dependsOn>IS:caDSR.utils.getKeys</dependsOn>
+    <dependsOn>IS:caDSR.utils.filterOnCollectionKeys</dependsOn>
+  </asset>
+  <asset name="caDSR.AdministeredComponentContact.output" displayName="caDSR.AdministeredComponentContact:output">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.getXMLDoc</dependsOn>
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.docs.serverInfo</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_PRSN</dependsOn>
+    <dependsOn>IS:caDSR.utils.fields.addField</dependsOn>
+  </asset>
+  <asset name="caDSR.AdministeredComponentContact.getData" displayName="caDSR.AdministeredComponentContact:getData">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.utils.buildWhereClause</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_PRSN</dependsOn>
+    <dependsOn>IS:caDSR.utils.getKeys</dependsOn>
+    <dependsOn>IS:caDSR.utils.filterOnCollectionKeys</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectAdministeredItemByItem_IDandVER_NR</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_ADMIN_ITEM_REL_ALT_KEY</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectREF</dependsOn>
+  </asset>
+  <asset name="caDSR.Context.output" displayName="caDSR.Context:output">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.getXMLDoc</dependsOn>
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.docs.serverInfo</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectVW_CNTXT</dependsOn>
+    <dependsOn>IS:caDSR.utils.fields.addField</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectCNTXT</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectLANG</dependsOn>
+  </asset>
+  <asset name="caDSR.Context.getData" displayName="caDSR.Context:getData">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.utils.buildWhereClause</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectVW_CNTXT</dependsOn>
+    <dependsOn>IS:caDSR.utils.getKeys</dependsOn>
+    <dependsOn>IS:caDSR.utils.filterOnCollectionKeys</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectAdministeredItemByItem_IDandVER_NR</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectALT_DEF</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_ADMIN_ITEM_REL_ALT_KEY</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectREF</dependsOn>
+  </asset>
+  <asset name="caDSR.Protocol.getData" displayName="caDSR.Protocol:getData">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.utils.buildWhereClause</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectADMIN_ITEM</dependsOn>
+    <dependsOn>IS:caDSR.utils.getKeys</dependsOn>
+    <dependsOn>IS:caDSR.utils.filterOnCollectionKeys</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_ADMIN_ITEM_REL</dependsOn>
+  </asset>
+  <asset name="caDSR.Protocol.output" displayName="caDSR.Protocol:output">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.getXMLDoc</dependsOn>
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.docs.serverInfo</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectAdministeredItemByItem_IDandVER_NR</dependsOn>
+    <dependsOn>IS:caDSR.utils.fields.addField</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectSTUS_MSTR</dependsOn>
+  </asset>
+  <asset name="caDSR.ValueDomainPermissibleValue.output" displayName="caDSR.ValueDomainPermissibleValue:output">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.getXMLDoc</dependsOn>
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.docs.serverInfo</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectPERM_VAL</dependsOn>
+    <dependsOn>IS:caDSR.utils.fields.addField</dependsOn>
+  </asset>
+  <asset name="caDSR.ValueDomainPermissibleValue.getData" displayName="caDSR.ValueDomainPermissibleValue:getData">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.utils.buildWhereClause</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectPERM_VAL</dependsOn>
+    <dependsOn>IS:caDSR.utils.getKeys</dependsOn>
+    <dependsOn>IS:caDSR.utils.filterOnCollectionKeys</dependsOn>
+  </asset>
+  <asset name="caDSR.ObjectClass.getData" displayName="caDSR.ObjectClass:getData">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.utils.buildWhereClause</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectADMIN_ITEM</dependsOn>
+    <dependsOn>IS:caDSR.utils.getKeys</dependsOn>
+    <dependsOn>IS:caDSR.utils.filterOnCollectionKeys</dependsOn>
+  </asset>
+  <asset name="caDSR.ObjectClass.output" displayName="caDSR.ObjectClass:output">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.getXMLDoc</dependsOn>
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.docs.serverInfo</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectAdministeredItemByItem_IDandVER_NR</dependsOn>
+    <dependsOn>IS:caDSR.utils.fields.addField</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectSTUS_MSTR</dependsOn>
+  </asset>
+  <asset name="caDSR.Module.getData" displayName="caDSR.Module:getData">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.utils.buildWhereClause</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectADMIN_ITEM</dependsOn>
+    <dependsOn>IS:caDSR.utils.getKeys</dependsOn>
+    <dependsOn>IS:caDSR.utils.filterOnCollectionKeys</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectVW_NCI_FORM_MODULE</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectVW_NCI_MODULE_QUEST</dependsOn>
+  </asset>
+  <asset name="caDSR.Module.output" displayName="caDSR.Module:output">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.getXMLDoc</dependsOn>
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.docs.serverInfo</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectAdministeredItemByItem_IDandVER_NR</dependsOn>
+    <dependsOn>IS:caDSR.utils.fields.addField</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectSTUS_MSTR</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectVW_NCI_FORM_MODULE</dependsOn>
+  </asset>
+  <asset name="caDSR.AdministeredComponentClassSchemeItem.output" displayName="caDSR.AdministeredComponentClassSchemeItem:output">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.getXMLDoc</dependsOn>
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.docs.serverInfo</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectVW_CLSFCTN_SCHM_ITEM</dependsOn>
+    <dependsOn>IS:caDSR.utils.fields.addField</dependsOn>
+  </asset>
+  <asset name="caDSR.AdministeredComponentClassSchemeItem.getData" displayName="caDSR.AdministeredComponentClassSchemeItem:getData">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.utils.buildWhereClause</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectVW_CLSFCTN_SCHM_ITEM</dependsOn>
+    <dependsOn>IS:caDSR.utils.getKeys</dependsOn>
+    <dependsOn>IS:caDSR.utils.filterOnCollectionKeys</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_ADMIN_ITEM_REL</dependsOn>
+  </asset>
+  <asset name="caDSR.Registration.getData" displayName="caDSR.Registration:getData">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.utils.getKeys</dependsOn>
+    <dependsOn>IS:caDSR.utils.filterOnCollectionKeys</dependsOn>
+  </asset>
+  <asset name="caDSR.Registration.output" displayName="caDSR.Registration:output">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.getXMLDoc</dependsOn>
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.docs.serverInfo</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectAdministeredItemByItem_IDandVER_NR</dependsOn>
+    <dependsOn>IS:caDSR.utils.fields.addField</dependsOn>
+  </asset>
+  <asset name="caDSR.Property.output" displayName="caDSR.Property:output">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.getXMLDoc</dependsOn>
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.docs.serverInfo</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectAdministeredItemByItem_IDandVER_NR</dependsOn>
+    <dependsOn>IS:caDSR.utils.fields.addField</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectSTUS_MSTR</dependsOn>
+  </asset>
+  <asset name="caDSR.Property.getData" displayName="caDSR.Property:getData">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.utils.buildWhereClause</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectADMIN_ITEM</dependsOn>
+    <dependsOn>IS:caDSR.utils.getKeys</dependsOn>
+    <dependsOn>IS:caDSR.utils.filterOnCollectionKeys</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectDE_CONC</dependsOn>
+  </asset>
+  <asset name="caDSR.AdministeredComponent.output" displayName="caDSR.AdministeredComponent:output">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.getXMLDoc</dependsOn>
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.docs.serverInfo</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectAdministeredItemByItem_IDandVER_NR</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectSTUS_MSTR</dependsOn>
+    <dependsOn>IS:caDSR.utils.fields.addField</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_FORM</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectOBJ_KEY</dependsOn>
+  </asset>
+  <asset name="caDSR.AdministeredComponent.getData" displayName="caDSR.AdministeredComponent:getData">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.utils.buildWhereClause</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectADMIN_ITEM</dependsOn>
+    <dependsOn>IS:caDSR.utils.getDataTypebyAdminItemType</dependsOn>
+    <dependsOn>IS:caDSR.utils.getKeys</dependsOn>
+    <dependsOn>IS:caDSR.utils.filterOnCollectionKeys</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectAdministeredItemByItem_IDandVER_NR</dependsOn>
+  </asset>
+  <asset name="caDSR.ValueMeaning.output" displayName="caDSR.ValueMeaning:output">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.getXMLDoc</dependsOn>
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.docs.serverInfo</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectAdministeredItemByItem_IDandVER_NR</dependsOn>
+    <dependsOn>IS:caDSR.utils.fields.addField</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectSTUS_MSTR</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectVW_VAL_MEAN</dependsOn>
+  </asset>
+  <asset name="caDSR.ValueMeaning.getData" displayName="caDSR.ValueMeaning:getData">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.utils.buildWhereClause</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectADMIN_ITEM</dependsOn>
+    <dependsOn>IS:caDSR.utils.getKeys</dependsOn>
+    <dependsOn>IS:caDSR.utils.filterOnCollectionKeys</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectPERM_VAL</dependsOn>
+  </asset>
+  <asset name="caDSR.ValueDomain.output" displayName="caDSR.ValueDomain:output">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.getXMLDoc</dependsOn>
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.docs.serverInfo</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectAdministeredItemByItem_IDandVER_NR</dependsOn>
+    <dependsOn>IS:caDSR.utils.fields.addField</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectSTUS_MSTR</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectVALUE_DOM</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectDATA_TYP</dependsOn>
+  </asset>
+  <asset name="caDSR.ValueDomain.getData" displayName="caDSR.ValueDomain:getData">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.utils.buildWhereClause</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectADMIN_ITEM</dependsOn>
+    <dependsOn>IS:caDSR.utils.getKeys</dependsOn>
+    <dependsOn>IS:caDSR.utils.filterOnCollectionKeys</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectDE</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectPERM_VAL</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_ADMIN_ITEM_REL_ALT_KEY</dependsOn>
+  </asset>
+  <asset name="caDSR.Address.output" displayName="caDSR.Address:output">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.getXMLDoc</dependsOn>
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.docs.serverInfo</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_ENTTY_ADDR</dependsOn>
+    <dependsOn>IS:caDSR.utils.fields.addField</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectOBJ_KEY</dependsOn>
+  </asset>
+  <asset name="caDSR.Address.getData" displayName="caDSR.Address:getData">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.utils.buildWhereClause</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_ENTTY_ADDR</dependsOn>
+    <dependsOn>IS:caDSR.utils.getKeys</dependsOn>
+    <dependsOn>IS:caDSR.utils.filterOnCollectionKeys</dependsOn>
+  </asset>
+  <asset name="caDSR.Instruction.getData" displayName="caDSR.Instruction:getData">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.utils.getKeys</dependsOn>
+    <dependsOn>IS:caDSR.utils.filterOnCollectionKeys</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_FORM</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_ADMIN_ITEM_REL_ALT_KEY</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_ADMIN_ITEM_REL</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_QUEST_VALID_VALUE</dependsOn>
+  </asset>
+  <asset name="caDSR.Instruction.output" displayName="caDSR.Instruction:output">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.getXMLDoc</dependsOn>
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.docs.serverInfo</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_FORM</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_ADMIN_ITEM_REL</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_ADMIN_ITEM_REL_ALT_KEY</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_QUEST_VALID_VALUE</dependsOn>
+    <dependsOn>IS:caDSR.utils.fields.addField</dependsOn>
+  </asset>
+  <asset name="caDSR.Person.getData" displayName="caDSR.Person:getData">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.utils.buildWhereClause</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_PRSN</dependsOn>
+    <dependsOn>IS:caDSR.utils.getKeys</dependsOn>
+    <dependsOn>IS:caDSR.utils.filterOnCollectionKeys</dependsOn>
+  </asset>
+  <asset name="caDSR.Person.output" displayName="caDSR.Person:output">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.docs.getXMLDoc</dependsOn>
+    <dependsOn>IS:caDSR.docs.filter</dependsOn>
+    <dependsOn>IS:caDSR.docs.serverInfo</dependsOn>
+    <dependsOn>IS:onedata.jdbc.selectNCI_PRSN</dependsOn>
+    <dependsOn>IS:caDSR.utils.fields.addField</dependsOn>
+  </asset>
+  <asset name="caDSR.GetXML" displayName="caDSR:GetXML">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.work.GetXML</dependsOn>
+  </asset>
+  <asset name="caDSR.GetJSON" displayName="caDSR:GetJSON">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.work.GetXML</dependsOn>
+  </asset>
+  <asset name="caDSR.GetHTML" displayName="caDSR:GetHTML">
+    <implementation.generic type="isflowservice" />
+    <dependsOn>IS:caDSR.work.GetXML</dependsOn>
+    <dependsOn>IS:caDSR.utils.createServerInfo</dependsOn>
+  </asset>
+  <asset name="caDSR.templates" displayName="templates">
+    <implementation.generic type="isfolder" />
+  </asset>
+  <asset name="caDSR.code" displayName="code">
+    <implementation.generic type="isfolder" />
+  </asset>
+  <asset name="caDSR.code.source" displayName="code/source">
+    <implementation.generic type="isfolder" />
+  </asset>
+  <asset name="caDSR.code.source.caDSR.utils.java" displayName="code/source/caDSR/utils.java">
+    <implementation.generic type="isfile" />
+  </asset>
+  <asset name="caDSR.code.classes" displayName="code/classes">
+    <implementation.generic type="isfolder" />
+  </asset>
+  <asset name="caDSR.code.classes.caDSR.utils.class" displayName="code/classes/caDSR/utils.class">
+    <implementation.generic type="isfile" />
+  </asset>
+  <asset name="caDSR.images" displayName="images">
+    <implementation.generic type="isfolder" />
+  </asset>
+  <asset name="caDSR.resources" displayName="resources">
+    <implementation.generic type="isfolder" />
+  </asset>
+  <asset name="caDSR.pub" displayName="pub">
+    <implementation.generic type="isfolder" />
+  </asset>
+  <asset name="caDSR.config" displayName="config">
+    <implementation.generic type="isfolder" />
+  </asset>
+  <asset name="caDSR.config.urlalias.cnf" displayName="config/urlalias.cnf">
+    <implementation.generic type="isfile" />
+  </asset>
+  <asset name="caDSR.config.aclmap_pkg.cnf" displayName="config/aclmap_pkg.cnf">
+    <implementation.generic type="isfile" />
+  </asset>
+  <asset name="caDSR.config.browsemap_pkg.cnf" displayName="config/browsemap_pkg.cnf">
+    <implementation.generic type="isfile" />
+  </asset>
+  <asset name="caDSR.config.readmap_pkg.cnf" displayName="config/readmap_pkg.cnf">
+    <implementation.generic type="isfile" />
+  </asset>
+  <asset name="caDSR.config.writemap_pkg.cnf" displayName="config/writemap_pkg.cnf">
+    <implementation.generic type="isfile" />
+  </asset>
+</asset_composite>
+

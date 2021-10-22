@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<project name="Build and Deploy Solution" default="buildDeployTest" basedir="." >
+	<property file="${project.properties}"/>
+	<property file="System.properties"/>
+        
+	<import file="buildInitProject.xml"/>
+	<import file="buildCallABE.xml"/>
+	<import file="buildDeployer.xml"/>
+	<import file="buildTest.xml"/>
+	
+	<taskdef classpath="lib/ant-contrib.jar" resource="net/sf/antcontrib/antlib.xml"/>
+
+	<target name="build" depends="initProject,buildWM">		
+		<description>Build project.</description>
+	</target>
+		
+	<target name="deploy" depends="initProject,deployWM">
+		<description>Create Project and Deploy project.</description>
+	</target>
+
+	<target name="deployOnly" depends="deployWMOnly">
+		<description>Only Deploy project.</description>
+	</target>
+
+	<target name="createProject" depends="createProjectWM">
+		<description>Create Project.</description>
+	</target>
+
+	<target name="variablesubstitution" depends="performvariablesubstitionNew">
+		<description>Perform variable substitution after project creation.</description>
+	</target>
+
+	<target name="checkpoint" depends="CreateCheckpoint">
+		<description>Create Checkpoint for Manual Recovery</description>	</target>
+	
+	<target name="report" depends="RetrieveReport">
+		<description>Retrieve Deployment report</description>
+	</target>
+
+        <target name="test" depends="initProject,startTest">
+		<description>Run tests.</description>
+	</target>	
+	
+	<target name="buildDeploy" depends="build, deploy">
+		<description>Build and deploy the project.</description>
+	</target>
+	
+	<target name="buildDeployTest" depends="build, deploy, test">
+		<description>Build and deploy the project.</description>
+	</target>
+	
+</project>

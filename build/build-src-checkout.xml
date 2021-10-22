@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project default="checkout">
+	<property file="project.properties" />
+
+	<tstamp>
+		<format property="SYSDT" pattern="yyyyMMdd-HHmmss" />
+	</tstamp>
+
+	<macrodef name = "git">
+		<attribute name = "command" />
+		<attribute name = "dir" default = "" />
+		<element name = "args" optional = "true" />
+		<sequential>
+			<echo message = "git @{command}" />
+			<exec executable = "git" dir = "@{dir}">
+				<arg value = "@{command}" />
+				<args/>
+			</exec>
+		</sequential>
+	</macrodef>
+
+	<macrodef name = "git-clone-pull">
+		<attribute name = "repository" />
+		<attribute name = "dest" />
+		<sequential>
+			<git command = "clone">
+				<args>
+					<arg value = "@{repository}" />
+					<arg value = "@{dest}" />
+				</args>
+			</git>
+			<git command = "pull" dir = "@{dest}" />
+		</sequential>
+	</macrodef>
+
+    <target name="checkout" depends="dir.check" unless="stagingDir.exists">
+		<echo message="Checking out source from VCS" />
+		<git command = "clone">
+			<args>
+				<arg value = "${projectUrl}" />
+				<arg value = "${stagingDir}" />
+			</args>
+		</git>
+	</target>
+
+	
+	<target name="clean" description="clean" depends="dir.check" if="stagingDir.exists">
+		<!-- <delete dir="${stagingDir}" /> -->
+		<echo> ${stagingDir} exists</echo>
+		<echo>"moving ${stagingDir} to ${stagingDir}_${SYSDT}"</echo>
+		<move file="${stagingDir}" todir="${stagingDir}_${SYSDT}"/>
+	</target>
+
+	<target name="dir.check">
+		<condition property="stagingDir.exists">
+			<available file="${stagingDir}" type="dir"/>
+		</condition>
+	</target>
+
+	<target name="deploy" depends="file-checks, local-file, git-file"/>
+
+	<target name="file-checks">
+		<available file="${stagingDir}"  property="file.found"/>
+	</target>
+
+	<target name="local-file" if="file.found">
+		<echo message="File is available in Local" />
+	</target>
+
+	<target name="git-file" unless="file.found">
+		<echo message="No" />
+		<!-- 
+		<git command = "pull">
+		-->
+		<git command = "clone">
+			<args>
+				<arg value = "${gitProjectUrl}" />
+				<arg value = "${stagingDir}" />
+			</args>
+		</git>
+	</target>
+</project>

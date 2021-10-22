@@ -80,15 +80,17 @@ public final class utils
 			String[]	stringArray = IDataUtil.getStringArray( pipelineCursor, "stringArray" );
 			int itemCount = 0;
 			int i = 0;
-			while (i < stringArray.length){
-				if (inString != null) {
+			if (stringArray != null) {
+				while (i < stringArray.length){
+					if (inString != null) {
 					
-					if (stringArray[i].equals(inString)) {
+						if (stringArray[i].equals(inString)) {
 		
-						itemCount++;
-						}
+							itemCount++;
+							}
+					}
+					i++;
 				}
-				i++;
 			}
 		// pipeline
 			String outString = String.valueOf(itemCount);
