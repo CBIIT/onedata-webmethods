@@ -69,7 +69,8 @@ public final class transformers
 		IDataCursor pipelineCursor = pipeline.getCursor();
 		String	string = IDataUtil.getString( pipelineCursor, "string" );
 		if (string!=null){
-			string = string.replace(',', '@').replace(';', '#');
+			string = string.replaceAll(",", "@@").replaceAll(";", "##");
+		
 		}
 		
 		// pipeline output
@@ -166,12 +167,17 @@ public final class transformers
 		// --- <<IS-START(replacementRule)>> ---
 		// @sigtype java 3.5
 		// [i] field:0:required string
+		// [i] field:0:required convertToUpper {"false","true"}
 		// [o] field:0:required transformedString
 		// pipeline input
 		IDataCursor pipelineCursor = pipeline.getCursor();
 		String	string = IDataUtil.getString( pipelineCursor, "string" );
+		boolean convertToUpper = Boolean.parseBoolean(IDataUtil.getString( pipelineCursor, "convertToUpper"));
 		if (string!=null){
-		string = string.replace(' ', '_').replace(';', '_').replace('/', '_').replace('(', '_').replace('.', '_').replace('-', '_').replace(':',  '_');
+			string = string.replace(' ', '_').replace(';', '_').replace('/', '_').replace('(', '_').replace('.', '_').replace('-', '_').replace(':',  '_').replace(',', '_').replace('&', '_').replace(')', '_').replaceAll("\u2122", "");
+			if( convertToUpper ){
+				string = string.toUpperCase();
+			}
 		} else if (string==null) {
 			string = " ";
 		}
