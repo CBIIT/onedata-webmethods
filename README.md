@@ -5,18 +5,18 @@ This repository is the version control for the NCI CBIIT caDSR metadata registry
 
 caDSR2 Integration Server (IS) deployment readme
 
-Sprint version = 1.20.0
+Sprint version = 1.20.1
 
 Packages to deploy:
 CTSU 1.20 
-ALS 1.20.0
+ALS 1.20.1
 ONEDATA 1.20
 FORMDOWNLOAD 1.20.0
 
 SMOKE TEST:
 1) Check all elements loaded as expected.
 CTSU= 25 elements
-ALS= 72 elements
+ALS= 69 elements
 ONEDATA= 45 elements
 FORMDOWNLOA= 22 elements
 
