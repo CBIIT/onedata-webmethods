@@ -174,7 +174,7 @@ public final class transformers
 		String	string = IDataUtil.getString( pipelineCursor, "string" );
 		boolean convertToUpper = Boolean.parseBoolean(IDataUtil.getString( pipelineCursor, "convertToUpper"));
 		if (string!=null){
-			string = string.replace(' ', '_').replace(';', '_').replace('/', '_').replace('(', '_').replace('.', '_').replace('-', '_').replace(':',  '_').replace(',', '_').replace('&', '_').replace(')', '_').replaceAll("\u2122", "");
+			string = string.replace(' ', '_').replace(';', '_').replace('/', '_').replace('(', '_').replace('.', '_').replace('-', '_').replace(':',  '_').replace(',', '_').replace('&', '_').replace(')', '_').replaceAll("\u2122", "_").replaceAll("[^\\w\\xAE\\xA9~. -]", "_");
 			if( convertToUpper ){
 				string = string.toUpperCase();
 			}
