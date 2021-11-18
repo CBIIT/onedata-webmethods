@@ -14292,11 +14292,18 @@ If you have any issues with this file please contact the person who sent you the
 <MAPCOPY FROM="/EMAIL_ADDR;1;0" TO="/to;1;0">
 </MAPCOPY>
 
+<MAPDELETE FIELD="/attachments;2;1">
+</MAPDELETE>
+
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="true" GLOBALVARIABLES="false" FIELD="/body;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
-  <value name="xml">This is your requested %lastError/pipeline/collectionFormat% collection from caDSR, sent to you by %lastError/pipeline/user_name% on %lastError/pipeline/TTimeStamp%.
+  <value name="xml">This is your requested %lastError/pipeline/collectionFormat% collection download sent to you by %lastError/pipeline/user_name% at %lastError/pipeline/timestamp%
+
+	Collection Name: %lastError/pipeline/collectionName%
+	Collection ID: %lastError/pipeline/collectionID%
+	Component Type: Form
 
 An error occurred during the creation of your request.
 %lastError/localizedError%
@@ -14324,9 +14331,6 @@ Please contact the NCI Applications Support desk at NCIAppSupport@nih.gov.</valu
 </Values>
 </DATA>
 </MAPSET>
-
-<MAPDELETE FIELD="/attachments;2;1">
-</MAPDELETE>
 </MAP>
 
 <MAP MODE="OUTPUT">
