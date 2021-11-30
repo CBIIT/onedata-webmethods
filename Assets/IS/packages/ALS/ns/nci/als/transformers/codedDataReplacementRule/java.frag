@@ -2,11 +2,12 @@
 
 <Values version="2.0">
   <value name="name">codedDataReplacementRule</value>
+  <value name="sigtype">java 3.5</value>
   <value name="encodeutf8">true</value>
-  <value name="body">Ly8gcGlwZWxpbmUgaW5wdXQNCklEYXRhQ3Vyc29yIHBpcGVsaW5lQ3Vyc29yID0gcGlwZWxpbmUu
-Z2V0Q3Vyc29yKCk7DQpTdHJpbmcJc3RyaW5nID0gSURhdGFVdGlsLmdldFN0cmluZyggcGlwZWxp
-bmVDdXJzb3IsICJzdHJpbmciICk7DQppZiAoc3RyaW5nIT1udWxsKXsNCglzdHJpbmcgPSBzdHJp
-bmcucmVwbGFjZUFsbCgiLCIsICJAQCIpLnJlcGxhY2VBbGwoIjsiLCAiIyMiKTsNCg0KfQ0KDQov
-LyBwaXBlbGluZSBvdXRwdXQNCklEYXRhVXRpbC5wdXQoIHBpcGVsaW5lQ3Vyc29yLCAidHJhbnNm
-b3JtZWRTdHJpbmciLCBzdHJpbmcgKTsNCnBpcGVsaW5lQ3Vyc29yLmRlc3Ryb3koKTsNCgk=</value>
+  <value name="body">Ly8gcGlwZWxpbmUgaW5wdXQKSURhdGFDdXJzb3IgcGlwZWxpbmVDdXJzb3IgPSBwaXBlbGluZS5n
+ZXRDdXJzb3IoKTsKU3RyaW5nCXN0cmluZyA9IElEYXRhVXRpbC5nZXRTdHJpbmcoIHBpcGVsaW5l
+Q3Vyc29yLCAic3RyaW5nIiApOwppZiAoc3RyaW5nIT1udWxsKXsKCXN0cmluZyA9IHN0cmluZy5y
+ZXBsYWNlQWxsKCIsIiwgIkBAIikucmVwbGFjZUFsbCgiOyIsICIjIyIpOwoKfQoKLy8gcGlwZWxp
+bmUgb3V0cHV0CklEYXRhVXRpbC5wdXQoIHBpcGVsaW5lQ3Vyc29yLCAidHJhbnNmb3JtZWRTdHJp
+bmciLCBzdHJpbmcgKTsKcGlwZWxpbmVDdXJzb3IuZGVzdHJveSgpOwoJCg==</value>
 </Values>

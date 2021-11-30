@@ -161,6 +161,35 @@ public final class transformers
 
 
 
+	public static final void replaceSpecialCharacters (IData pipeline)
+        throws ServiceException
+	{
+		// --- <<IS-START(replaceSpecialCharacters)>> ---
+		// @sigtype java 3.5
+		// [i] field:0:required inString
+		// [o] field:0:required outString
+		// pipeline
+				IDataCursor pipelineCursor = pipeline.getCursor();
+				String	inString = IDataUtil.getString( pipelineCursor, "inString" );
+				
+				if (inString!=null){
+					//inString = inString.replaceAll("\u2122", "TM");
+					inString = inString.replaceAll("\u2122", " TM").replaceAll("[^\\w\\xAE\\xA9~. -]", " TM");
+				} else if (inString==null) {
+					inString = " ";
+				}
+				// pipeline output
+				IDataUtil.put( pipelineCursor, "outString", inString );
+				pipelineCursor.destroy();
+		
+			
+		// --- <<IS-END>> ---
+
+                
+	}
+
+
+
 	public static final void replacementRule (IData pipeline)
         throws ServiceException
 	{
@@ -174,7 +203,7 @@ public final class transformers
 		String	string = IDataUtil.getString( pipelineCursor, "string" );
 		boolean convertToUpper = Boolean.parseBoolean(IDataUtil.getString( pipelineCursor, "convertToUpper"));
 		if (string!=null){
-			string = string.replace(' ', '_').replace(';', '_').replace('/', '_').replace('(', '_').replace('.', '_').replace('-', '_').replace(':',  '_').replace(',', '_').replace('&', '_').replace(')', '_').replaceAll("\u2122", "_").replaceAll("[^\\w\\xAE\\xA9~. -]", "_");
+			string = string.replace(' ', '_').replace(';', '_').replace('/', '_').replace('(', '_').replace('.', '_').replace('-', '_').replace(':',  '_').replace(',', '_').replace('&', '_').replace(')', '_').replaceAll("\u2122", "_TM").replaceAll("[^\\w\\xAE\\xA9~. -]", "_TM");
 			if( convertToUpper ){
 				string = string.toUpperCase();
 			}
@@ -184,6 +213,7 @@ public final class transformers
 		// pipeline output
 		IDataUtil.put( pipelineCursor, "transformedString", string );
 		pipelineCursor.destroy();
+			
 			
 		// --- <<IS-END>> ---
 

@@ -2,12 +2,12 @@
 
 <Values version="2.0">
   <value name="name">VV2array</value>
+  <value name="sigtype">java 3.5</value>
   <value name="encodeutf8">true</value>
-  <value name="body">Ly8gcGlwZWxpbmUNCklEYXRhQ3Vyc29yIHBpcGVsaW5lQ3Vyc29yID0gcGlwZWxpbmUuZ2V0Q3Vy
-c29yKCk7DQoJU3RyaW5nCWluU3RyaW5nID0gSURhdGFVdGlsLmdldFN0cmluZyggcGlwZWxpbmVD
-dXJzb3IsICJpblN0cmluZyIgKTsNCglTdHJpbmdbXSBzdHJpbmdMaXN0ID0geyJpbml0In07DQoN
-Ci8vIHBpcGVsaW5lDQppZihpblN0cmluZyE9bnVsbCl7DQoJc3RyaW5nTGlzdCA9IGluU3RyaW5n
-LnNwbGl0KCJcXHxcXHwiKTsNCn0NCklEYXRhVXRpbC5wdXQoIHBpcGVsaW5lQ3Vyc29yLCAic3Ry
-aW5nTGlzdCIsIHN0cmluZ0xpc3QgKTsNCnBpcGVsaW5lQ3Vyc29yLmRlc3Ryb3koKTsNCg0KDQoJ
-</value>
+  <value name="body">Ly8gcGlwZWxpbmUKSURhdGFDdXJzb3IgcGlwZWxpbmVDdXJzb3IgPSBwaXBlbGluZS5nZXRDdXJz
+b3IoKTsKCVN0cmluZwlpblN0cmluZyA9IElEYXRhVXRpbC5nZXRTdHJpbmcoIHBpcGVsaW5lQ3Vy
+c29yLCAiaW5TdHJpbmciICk7CglTdHJpbmdbXSBzdHJpbmdMaXN0ID0geyJpbml0In07CgovLyBw
+aXBlbGluZQppZihpblN0cmluZyE9bnVsbCl7CglzdHJpbmdMaXN0ID0gaW5TdHJpbmcuc3BsaXQo
+IlxcfFxcfCIpOwp9CklEYXRhVXRpbC5wdXQoIHBpcGVsaW5lQ3Vyc29yLCAic3RyaW5nTGlzdCIs
+IHN0cmluZ0xpc3QgKTsKcGlwZWxpbmVDdXJzb3IuZGVzdHJveSgpOwoKCgkK</value>
 </Values>

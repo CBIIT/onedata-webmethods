@@ -2,11 +2,12 @@
 
 <Values version="2.0">
   <value name="name">versionTransformer</value>
+  <value name="sigtype">java 3.5</value>
   <value name="encodeutf8">true</value>
-  <value name="body">Ly8gcGlwZWxpbmUgaW5wdXQNCklEYXRhQ3Vyc29yIHBpcGVsaW5lQ3Vyc29yID0gcGlwZWxpbmUu
-Z2V0Q3Vyc29yKCk7DQpTdHJpbmcJc3RyaW5nID0gSURhdGFVdGlsLmdldFN0cmluZyggcGlwZWxp
-bmVDdXJzb3IsICJzdHJpbmciICk7DQppZihzdHJpbmcgIT0gbnVsbCkgew0KCWlmKHN0cmluZy5s
-ZW5ndGgoKT09MSl7DQoJCXN0cmluZz1zdHJpbmcrIi4wIjsNCgl9DQp9DQoNCi8vIHBpcGVsaW5l
-IG91dHB1dA0KSURhdGFVdGlsLnB1dCggcGlwZWxpbmVDdXJzb3IsICJ0cmFuc2Zvcm1lZFN0cmlu
-ZyIsIHN0cmluZyApOw0KcGlwZWxpbmVDdXJzb3IuZGVzdHJveSgpOw0KCQ==</value>
+  <value name="body">Ly8gcGlwZWxpbmUgaW5wdXQKSURhdGFDdXJzb3IgcGlwZWxpbmVDdXJzb3IgPSBwaXBlbGluZS5n
+ZXRDdXJzb3IoKTsKU3RyaW5nCXN0cmluZyA9IElEYXRhVXRpbC5nZXRTdHJpbmcoIHBpcGVsaW5l
+Q3Vyc29yLCAic3RyaW5nIiApOwppZihzdHJpbmcgIT0gbnVsbCkgewoJaWYoc3RyaW5nLmxlbmd0
+aCgpPT0xKXsKCQlzdHJpbmc9c3RyaW5nKyIuMCI7Cgl9Cn0KCi8vIHBpcGVsaW5lIG91dHB1dApJ
+RGF0YVV0aWwucHV0KCBwaXBlbGluZUN1cnNvciwgInRyYW5zZm9ybWVkU3RyaW5nIiwgc3RyaW5n
+ICk7CnBpcGVsaW5lQ3Vyc29yLmRlc3Ryb3koKTsKCQo=</value>
 </Values>
