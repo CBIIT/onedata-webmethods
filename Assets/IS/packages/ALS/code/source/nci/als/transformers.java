@@ -174,7 +174,8 @@ public final class transformers
 				
 				if (inString!=null){
 					//inString = inString.replaceAll("\u2122", "TM");
-					inString = inString.replaceAll("\u2122", " TM").replaceAll("[^\\w\\xAE\\xA9~. -]", " TM");
+					inString = inString.replaceAll("\u2122", " TM ").replaceAll("[^\\w\\xAE\\xA9~. -]", " TM ");
+					inString = inString.replaceAll("  ", " ");
 				} else if (inString==null) {
 					inString = " ";
 				}
@@ -203,7 +204,8 @@ public final class transformers
 		String	string = IDataUtil.getString( pipelineCursor, "string" );
 		boolean convertToUpper = Boolean.parseBoolean(IDataUtil.getString( pipelineCursor, "convertToUpper"));
 		if (string!=null){
-			string = string.replace(' ', '_').replace(';', '_').replace('/', '_').replace('(', '_').replace('.', '_').replace('-', '_').replace(':',  '_').replace(',', '_').replace('&', '_').replace(')', '_').replaceAll("\u2122", "_TM").replaceAll("[^\\w\\xAE\\xA9~. -]", "_TM");
+			string = string.replaceAll("\u2122", "_TM_").replaceAll("[^\\w\\xAE\\xA9~. -]", "_TM_").replace(' ', '_').replace(';', '_').replace('/', '_').replace('(', '_').replace('.', '_').replace('-', '_').replace(':',  '_').replace(',', '_').replace('&', '_').replace(')', '_');
+			string = string.replaceAll("__", "_");
 			if( convertToUpper ){
 				string = string.toUpperCase();
 			}
