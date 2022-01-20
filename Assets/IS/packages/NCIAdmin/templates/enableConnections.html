@@ -1,0 +1,30 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <p>The below adapters on %hotname% could not be enabled and have reached the max retry count of %value maxRetryCount%.  Please log into the Integration and check.
+    <table border="1">
+      <tr>
+        <th>Adapter Type Name</th>
+        <th>Connection List</th>
+      </tr>
+      %loop adapterListNew%
+      <tr>
+        <td>%value adapterTypeName%</td>
+        <td>
+          <table cellpadding="3">
+            %loop connectionAliasInfo%
+              %ifvar sendNotification -notempty%
+              <tr>
+                <td>%value connectionAlias%</td>
+                <td>%value error%</td>
+              </tr>
+              %endif%
+            %endloop%
+          </table>
+        </td>
+      </tr>
+      %endloop%
+    </table>
+  <body>
+</html>
