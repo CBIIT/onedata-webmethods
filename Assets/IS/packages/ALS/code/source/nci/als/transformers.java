@@ -174,8 +174,8 @@ public final class transformers
 				
 				if (inString!=null){
 					//inString = inString.replaceAll("\u2122", "TM");
-					inString = inString.replaceAll("\u2122", " TM ").replaceAll("[^\\w\\xAE\\xA9~. -]", " TM ");
-					inString = inString.replaceAll("  ", " ");
+					inString = inString.replaceAll("\u2122", "TM").replaceAll("[^\\w\\xAE\\xA9~. -]", "TM");
+					//inString = inString.replaceAll("  ", " ");
 				} else if (inString==null) {
 					inString = " ";
 				}
@@ -203,9 +203,11 @@ public final class transformers
 		IDataCursor pipelineCursor = pipeline.getCursor();
 		String	string = IDataUtil.getString( pipelineCursor, "string" );
 		boolean convertToUpper = Boolean.parseBoolean(IDataUtil.getString( pipelineCursor, "convertToUpper"));
+		// create regex string to catch trailing spaces
+		String regex = "\\s+$";
 		if (string!=null){
-			string = string.replaceAll("\u2122", "_TM_").replaceAll("[^\\w\\xAE\\xA9~. -]", "_TM_").replace(' ', '_').replace(';', '_').replace('/', '_').replace('(', '_').replace('.', '_').replace('-', '_').replace(':',  '_').replace(',', '_').replace('&', '_').replace(')', '_');
-			string = string.replaceAll("__", "_");
+			string = string.replaceAll("\u2122", "_TM_").replaceAll("[^\\w\\xAE\\xA9~. -]", "_TM_").replaceAll(regex, "").replace(' ', '_').replace(';', '_').replace('/', '_').replace('(', '_').replace('.', '_').replace('-', '_').replace(':',  '_').replace(',', '_').replace('&', '_').replace(')', '_');
+			//string = string.replaceAll("__", "_");
 			if( convertToUpper ){
 				string = string.toUpperCase();
 			}

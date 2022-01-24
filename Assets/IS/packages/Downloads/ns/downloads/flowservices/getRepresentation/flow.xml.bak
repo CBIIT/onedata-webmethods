@@ -292,6 +292,20 @@
 </MAP>
 </INVOKE>
 
+<BRANCH TIMEOUT="" SWITCH="/selectVALUE_DOMOutput/results[0]/REP_CLS_ITEM_ID">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<SEQUENCE NAME="$null" TIMEOUT="" EXIT-ON="FAILURE">
+  <COMMENT></COMMENT>
+</SEQUENCE>
+
+<SEQUENCE NAME="$default" TIMEOUT="" EXIT-ON="FAILURE">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
 <INVOKE TIMEOUT="" SERVICE="onedata.jdbc:selectAdministeredItemByItem_IDandVER_NR" VALIDATE-IN="$none" VALIDATE-OUT="$none">
   <COMMENT></COMMENT>
 
@@ -2590,6 +2604,8 @@
 </MAP>
 </INVOKE>
 </LOOP>
+</SEQUENCE>
+</BRANCH>
 
 <INVOKE TIMEOUT="" SERVICE="pub.flow:clearPipeline" VALIDATE-IN="$none" VALIDATE-OUT="$none">
   <COMMENT></COMMENT>
