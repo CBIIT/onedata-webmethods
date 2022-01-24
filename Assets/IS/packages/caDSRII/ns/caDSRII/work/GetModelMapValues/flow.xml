@@ -1253,10 +1253,9 @@
 <Values version="2.0">
   <value name="xml">--Find classification item ID based on Model name, version number and table name 
 select cs.item_long_nm, csi.item_nm, cs.item_id cs_item_id, cs.ver_nr cs_ver_nr, csi.item_id csi_item_id, csi.ver_nr csi_item_ver_nr 
-from VW_CLSFCTN_SCHM cs, VW_CLSFCTN_SCHM_ITEM csi, admin_item ai
+from VW_CLSFCTN_SCHM cs, VW_CLSFCTN_SCHM_ITEM csi
 where cs.item_id = csi.cs_item_id
 and cs.ver_nr = csi.cs_item_ver_nr
-and ai.item_id = cs.item_id
 </value>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">unknown</value>
@@ -4027,9 +4026,8 @@ and ai.item_id = cs.item_id
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
-  <value name="xml">and upper(cs.item_long_nm) like upper ('%apiParameters/sourceModelName%%%')
-and upper(csi.item_nm) = upper('%apiParameters/tableName%') 
-and ai.ver_nr = %apiParameters/sourceModelVerNr%</value>
+  <value name="xml">and upper(cs.item_long_nm) like upper ('%apiParameters/sourceModelName%%%%apiParameters/sourceModelVerNr%%%')
+and upper(csi.item_nm) = upper('%apiParameters/tableName%') </value>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">field</value>
     <value name="node_subtype">unknown</value>
