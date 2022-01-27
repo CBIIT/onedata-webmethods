@@ -311,10 +311,16 @@
 
   <!-- nodes -->
 
+<MAPDELETE FIELD="/fromList;3;1">
+</MAPDELETE>
+
+<MAPDELETE FIELD="/size;1;0">
+</MAPDELETE>
+
 <MAPCOPY FROM="/size;1;0" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/recordCounter[0];1;1">
 </MAPCOPY>
 
-<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryRequest;2;0/query;2;0/class;1;0">
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryRequest;4;0;caDSR.docs:queryRequest/query;2;0/class;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
@@ -332,6 +338,7 @@
     <value name="field_name">class</value>
     <value name="field_type">string</value>
     <value name="field_dim">0</value>
+    <value name="field_opt">true</value>
     <array name="field_options" type="value" depth="1">
     </array>
     <value name="nillable">true</value>
@@ -341,12 +348,6 @@
 </Values>
 </DATA>
 </MAPSET>
-
-<MAPDELETE FIELD="/fromList;3;1">
-</MAPDELETE>
-
-<MAPDELETE FIELD="/size;1;0">
-</MAPDELETE>
 </MAP>
 </INVOKE>
 
@@ -7983,37 +7984,6 @@
 </MAP>
 </MAPINVOKE>
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryRequest;2;0/query;2;0/class;1;0" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef/@name;1;0">
-</MAPCOPY>
-
-<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="true" GLOBALVARIABLES="false" FIELD="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef/@recordNumber;1;0">
-  <DATA ENCODING="XMLValues" I18N="true">
-
-<Values version="2.0">
-  <value name="xml">%$iteration%</value>
-  <record name="type" javaclass="com.wm.util.Values">
-    <value name="node_type">unknown</value>
-    <value name="node_subtype">unknown</value>
-    <value name="node_comment"></value>
-    <record name="node_hints" javaclass="com.wm.util.Values">
-      <value name="field_usereditable">true</value>
-      <value name="field_largerEditor">false</value>
-      <value name="field_password">false</value>
-    </record>
-    <value name="is_public">false</value>
-    <value name="field_name">@recordNumber</value>
-    <value name="field_type">string</value>
-    <value name="field_dim">0</value>
-    <array name="field_options" type="value" depth="1">
-    </array>
-    <value name="nillable">true</value>
-    <value name="form_qualified">false</value>
-    <value name="is_global">false</value>
-  </record>
-</Values>
-</DATA>
-</MAPSET>
-
 <MAPINVOKE SERVICE="pub.date:dateTimeFormat" VALIDATE-IN="$none" VALIDATE-OUT="$none" INVOKE-ORDER="0">
 
   <!-- nodes -->
@@ -11033,6 +11003,37 @@
 </MAPCOPY>
 </MAP>
 </MAPINVOKE>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryRequest;4;0;caDSR.docs:queryRequest/query;2;0/class;1;0" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef/@name;1;0">
+</MAPCOPY>
+
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="true" GLOBALVARIABLES="false" FIELD="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef/@recordNumber;1;0">
+  <DATA ENCODING="XMLValues" I18N="true">
+
+<Values version="2.0">
+  <value name="xml">%$iteration%</value>
+  <record name="type" javaclass="com.wm.util.Values">
+    <value name="node_type">unknown</value>
+    <value name="node_subtype">unknown</value>
+    <value name="node_comment"></value>
+    <record name="node_hints" javaclass="com.wm.util.Values">
+      <value name="field_usereditable">true</value>
+      <value name="field_largerEditor">false</value>
+      <value name="field_password">false</value>
+    </record>
+    <value name="is_public">false</value>
+    <value name="field_name">@recordNumber</value>
+    <value name="field_type">string</value>
+    <value name="field_dim">0</value>
+    <array name="field_options" type="value" depth="1">
+    </array>
+    <value name="nillable">true</value>
+    <value name="form_qualified">false</value>
+    <value name="is_global">false</value>
+  </record>
+</Values>
+</DATA>
+</MAPSET>
 </MAP>
 
 <INVOKE TIMEOUT="" SERVICE="caDSR.utils.fields:addField" VALIDATE-IN="$none" VALIDATE-OUT="$none">
@@ -11857,9 +11858,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -11889,6 +11887,9 @@
 </MAPSET>
 
 <MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/EFF_DT;1;0" TO="/body;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPCOPY>
 </MAP>
 
@@ -12080,9 +12081,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -12091,6 +12089,9 @@
 
 <MAPDELETE FIELD="/body;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
@@ -12916,9 +12917,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -12948,6 +12946,9 @@
 </MAPSET>
 
 <MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/CHNG_DESC_TXT;1;0" TO="/body;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPCOPY>
 </MAP>
 
@@ -13139,9 +13140,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -13150,6 +13148,9 @@
 
 <MAPDELETE FIELD="/body;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
@@ -13975,9 +13976,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -14007,6 +14005,9 @@
 </MAPSET>
 
 <MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/CREAT_USR_ID;1;0" TO="/body;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPCOPY>
 </MAP>
 
@@ -14198,9 +14199,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -14209,6 +14207,9 @@
 
 <MAPDELETE FIELD="/body;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
@@ -15034,9 +15035,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -15066,6 +15064,9 @@
 </MAPSET>
 
 <MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/CREAT_DT;1;0" TO="/body;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPCOPY>
 </MAP>
 
@@ -15257,9 +15258,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -15268,6 +15266,9 @@
 
 <MAPDELETE FIELD="/body;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
@@ -16093,9 +16094,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -16125,6 +16123,9 @@
 </MAPSET>
 
 <MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/LST_UPD_DT;1;0" TO="/body;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPCOPY>
 </MAP>
 
@@ -16316,9 +16317,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -16327,6 +16325,9 @@
 
 <MAPDELETE FIELD="/body;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
@@ -17152,9 +17153,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/FLD_DELETE;1;0" TO="/body;1;0">
 </MAPCOPY>
 
@@ -17185,6 +17183,9 @@
 </Values>
 </DATA>
 </MAPSET>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 
 <MAP MODE="OUTPUT">
@@ -17375,9 +17376,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -17386,6 +17384,9 @@
 
 <MAPDELETE FIELD="/body;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
@@ -18211,9 +18212,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -18243,6 +18241,9 @@
 </MAPSET>
 
 <MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/UNTL_DT;1;0" TO="/body;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPCOPY>
 </MAP>
 
@@ -18434,9 +18435,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -18445,6 +18443,9 @@
 
 <MAPDELETE FIELD="/body;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
@@ -19270,9 +19271,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -19302,6 +19300,9 @@
 </MAPSET>
 
 <MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/NCI_IDSEQ;1;0" TO="/body;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPCOPY>
 </MAP>
 
@@ -19493,9 +19494,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -19504,6 +19502,9 @@
 
 <MAPDELETE FIELD="/body;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
@@ -20329,9 +20330,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -20361,6 +20359,9 @@
 </MAPSET>
 
 <MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/CURRNT_VER_IND;1;0" TO="/body;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPCOPY>
 </MAP>
 
@@ -20552,9 +20553,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -20563,6 +20561,9 @@
 
 <MAPDELETE FIELD="/body;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
@@ -21388,9 +21389,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -21420,6 +21418,9 @@
 </MAPSET>
 
 <MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/ITEM_NM;1;0" TO="/body;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPCOPY>
 </MAP>
 
@@ -21611,9 +21612,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -21622,6 +21620,9 @@
 
 <MAPDELETE FIELD="/body;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
@@ -22447,9 +22448,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -22479,6 +22477,9 @@
 </MAPSET>
 
 <MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/LST_UPD_USR_ID;1;0" TO="/body;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPCOPY>
 </MAP>
 
@@ -22670,9 +22671,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -22681,6 +22679,9 @@
 
 <MAPDELETE FIELD="/body;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
@@ -23506,9 +23507,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -23538,6 +23536,9 @@
 </MAPSET>
 
 <MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/ORIGIN_ID_DN;1;0" TO="/body;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPCOPY>
 </MAP>
 
@@ -23729,9 +23730,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -23740,6 +23738,9 @@
 
 <MAPDELETE FIELD="/body;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
@@ -24295,9 +24296,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -24327,6 +24325,9 @@
 </MAPSET>
 
 <MAPCOPY FROM="/selectVW_NCI_DE_HORTOutput;2;0/results;2;1/DEC_ITEM_DESC;1;0" TO="/body;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPCOPY>
 </MAP>
 
@@ -24546,9 +24547,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -24557,6 +24555,9 @@
 
 <MAPDELETE FIELD="/body;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
@@ -25410,9 +25411,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -25442,6 +25440,9 @@
 </MAPSET>
 
 <MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/ITEM_LONG_NM;1;0" TO="/body;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPCOPY>
 </MAP>
 
@@ -25661,9 +25662,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -25672,6 +25670,9 @@
 
 <MAPDELETE FIELD="/body;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
@@ -26525,9 +26526,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/ITEM_ID;1;0" TO="/body;1;0">
 </MAPCOPY>
 
@@ -26558,6 +26556,9 @@
 </Values>
 </DATA>
 </MAPSET>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 
 <MAP MODE="OUTPUT">
@@ -26776,9 +26777,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -26787,6 +26785,9 @@
 
 <MAPDELETE FIELD="/body;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
@@ -27640,9 +27641,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -27672,6 +27670,9 @@
 </MAPSET>
 
 <MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/REGSTR_STUS_NM_DN;1;0" TO="/body;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPCOPY>
 </MAP>
 
@@ -27891,9 +27892,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -27902,6 +27900,9 @@
 
 <MAPDELETE FIELD="/body;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
@@ -28755,9 +28756,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -28787,6 +28785,9 @@
 </MAPSET>
 
 <MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/UNRSLVD_ISSUE;1;0" TO="/body;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPCOPY>
 </MAP>
 
@@ -29006,9 +29007,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -29017,6 +29015,9 @@
 
 <MAPDELETE FIELD="/body;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
@@ -29870,9 +29871,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -29902,6 +29900,9 @@
 </MAPSET>
 
 <MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/VER_NR;1;0" TO="/body;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPCOPY>
 </MAP>
 
@@ -30121,9 +30122,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -30132,6 +30130,9 @@
 
 <MAPDELETE FIELD="/body;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
@@ -31478,9 +31479,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -31510,6 +31508,9 @@
 </MAPSET>
 
 <MAPCOPY FROM="/selectSTUS_MSTROutput;2;0/results;2;1/STUS_DESC;1;0" TO="/body;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPCOPY>
 </MAP>
 
@@ -31769,9 +31770,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -31783,6 +31781,9 @@
 
 <MAPDELETE FIELD="/selectSTUS_MSTROutput;2;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 </BRANCH>
@@ -32637,9 +32638,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -32670,6 +32668,9 @@
 
 <MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/ADMIN_STUS_NM_DN;1;0" TO="/body;1;0">
 </MAPCOPY>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 
 <MAP MODE="OUTPUT">
@@ -32888,9 +32889,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -32899,20 +32897,23 @@
 
 <MAPDELETE FIELD="/body;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
-<BRANCH TIMEOUT="" SWITCH="/selectAdministeredItemOutput/results[0]/REGSTR_STUS_NM_DN">
+<BRANCH TIMEOUT="" SWITCH="/selectAdministeredItemOutput/results[0]/REGSTR_STUS_NM_DN" DISABLED="true">
   <COMMENT></COMMENT>
 
   <!-- nodes -->
 
-<SEQUENCE NAME="$null" TIMEOUT="" EXIT-ON="FAILURE">
+<SEQUENCE NAME="$null" TIMEOUT="" EXIT-ON="FAILURE" DISABLED="true">
   <COMMENT></COMMENT>
 
   <!-- nodes -->
 
-<INVOKE TIMEOUT="" SERVICE="caDSR.utils.fields:addField" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+<INVOKE TIMEOUT="" SERVICE="caDSR.utils.fields:addField" VALIDATE-IN="$none" VALIDATE-OUT="$none" DISABLED="true">
   <COMMENT>registrations</COMMENT>
 
   <!-- nodes -->
@@ -33189,17 +33190,6 @@
         </array>
         <value name="modifiable">true</value>
       </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">$iteration</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
     </array>
     <value name="modifiable">true</value>
   </record>
@@ -33207,9 +33197,6 @@
 </MAPSOURCE>
 
   <!-- nodes -->
-
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
 
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
@@ -33238,6 +33225,9 @@
 </Values>
 </DATA>
 </MAPSET>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 
 <MAP MODE="OUTPUT">
@@ -33257,63 +33247,6 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">class</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">caDSR.docs:classDocTypeRef</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">name</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">selectVW_NCI_DE_HORTInput</value>
-        <value name="field_type">record</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <array name="rec_fields" type="record" depth="1">
-        </array>
-        <value name="modifiable">true</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
-        <value name="field_name">transport</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="wrapper_type">IData</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">pub.flow:transportInfo</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_largerEditor">false</value>
@@ -33329,107 +33262,6 @@
         <value name="is_global">false</value>
         <value name="modifiable">true</value>
         <value name="rec_ref">caDSR.docs:getXMLDoc</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
-        <value name="field_name">filter</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="wrapper_type">IData</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <value name="rec_closed">true</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">caDSR.docs:filter</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
-        <value name="field_name">serverInfo</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="wrapper_type">IData</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <value name="rec_closed">true</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">caDSR.docs:serverInfo</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">selectAdministeredItemOutput</value>
-        <value name="field_type">record</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <array name="rec_fields" type="record" depth="1">
-        </array>
-        <value name="modifiable">true</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">body</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">type</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">href</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">selectVW_NCI_DE_HORTOutput</value>
-        <value name="field_type">record</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <array name="rec_fields" type="record" depth="1">
-        </array>
-        <value name="modifiable">true</value>
       </record>
     </array>
     <value name="modifiable">true</value>
@@ -33478,9 +33310,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -33495,16 +33324,19 @@
 
 <MAPDELETE FIELD="/type;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 </SEQUENCE>
 
-<SEQUENCE NAME="$default" TIMEOUT="" EXIT-ON="FAILURE">
+<SEQUENCE NAME="$default" TIMEOUT="" EXIT-ON="FAILURE" DISABLED="true">
   <COMMENT></COMMENT>
 
   <!-- nodes -->
 
-<INVOKE TIMEOUT="" SERVICE="caDSR.utils.fields:addField" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+<INVOKE TIMEOUT="" SERVICE="caDSR.utils.fields:addField" VALIDATE-IN="$none" VALIDATE-OUT="$none" DISABLED="true">
   <COMMENT>registrations</COMMENT>
 
   <!-- nodes -->
@@ -33781,17 +33613,6 @@
         </array>
         <value name="modifiable">true</value>
       </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">$iteration</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
     </array>
     <value name="modifiable">true</value>
   </record>
@@ -33799,9 +33620,6 @@
 </MAPSOURCE>
 
   <!-- nodes -->
-
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
 
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
@@ -33917,6 +33735,9 @@
 </Values>
 </DATA>
 </MAPSET>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 
 <MAP MODE="OUTPUT">
@@ -33936,96 +33757,6 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">class</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">caDSR.docs:classDocTypeRef</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">name</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">body</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">type</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">href</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">selectVW_NCI_DE_HORTInput</value>
-        <value name="field_type">record</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <array name="rec_fields" type="record" depth="1">
-        </array>
-        <value name="modifiable">true</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
-        <value name="field_name">transport</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="wrapper_type">IData</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">pub.flow:transportInfo</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_largerEditor">false</value>
@@ -34041,74 +33772,6 @@
         <value name="is_global">false</value>
         <value name="modifiable">true</value>
         <value name="rec_ref">caDSR.docs:getXMLDoc</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
-        <value name="field_name">filter</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="wrapper_type">IData</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <value name="rec_closed">true</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">caDSR.docs:filter</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
-        <value name="field_name">serverInfo</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="wrapper_type">IData</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <value name="rec_closed">true</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">caDSR.docs:serverInfo</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">selectAdministeredItemOutput</value>
-        <value name="field_type">record</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <array name="rec_fields" type="record" depth="1">
-        </array>
-        <value name="modifiable">true</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">selectVW_NCI_DE_HORTOutput</value>
-        <value name="field_type">record</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <array name="rec_fields" type="record" depth="1">
-        </array>
-        <value name="modifiable">true</value>
       </record>
     </array>
     <value name="modifiable">true</value>
@@ -34157,9 +33820,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -34174,6 +33834,9 @@
 
 <MAPDELETE FIELD="/type;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 </SEQUENCE>
@@ -34475,9 +34138,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -34592,6 +34252,9 @@
 </Values>
 </DATA>
 </MAPSET>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 
 <MAP MODE="OUTPUT">
@@ -34832,9 +34495,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -34849,10 +34509,13 @@
 
 <MAPDELETE FIELD="/type;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
-<INVOKE TIMEOUT="" SERVICE="caDSR.utils.fields:addField" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+<INVOKE TIMEOUT="" SERVICE="caDSR.utils.fields:addField" VALIDATE-IN="$none" VALIDATE-OUT="$none" DISABLED="true">
   <COMMENT>referenceDocumentCollection</COMMENT>
 
   <!-- nodes -->
@@ -35148,9 +34811,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -35265,6 +34925,9 @@
 </Values>
 </DATA>
 </MAPSET>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 
 <MAP MODE="OUTPUT">
@@ -35505,9 +35168,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -35522,10 +35182,13 @@
 
 <MAPDELETE FIELD="/type;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
-<INVOKE TIMEOUT="" SERVICE="caDSR.utils.fields:addField" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+<INVOKE TIMEOUT="" SERVICE="caDSR.utils.fields:addField" VALIDATE-IN="$none" VALIDATE-OUT="$none" DISABLED="true">
   <COMMENT>administeredComponentClassSchemeItemCollection</COMMENT>
 
   <!-- nodes -->
@@ -35821,9 +35484,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -35938,6 +35598,9 @@
 </Values>
 </DATA>
 </MAPSET>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 
 <MAP MODE="OUTPUT">
@@ -36178,9 +35841,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -36189,10 +35849,13 @@
 
 <MAPDELETE FIELD="/body;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
-<INVOKE TIMEOUT="" SERVICE="caDSR.utils.fields:addField" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+<INVOKE TIMEOUT="" SERVICE="caDSR.utils.fields:addField" VALIDATE-IN="$none" VALIDATE-OUT="$none" DISABLED="true">
   <COMMENT>context</COMMENT>
 
   <!-- nodes -->
@@ -36350,28 +36013,6 @@
     <value name="is_global">false</value>
     <array name="rec_fields" type="record" depth="1">
       <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">type</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">href</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
@@ -36510,9 +36151,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -36627,6 +36265,9 @@
 </Values>
 </DATA>
 </MAPSET>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 
 <MAP MODE="OUTPUT">
@@ -36867,9 +36508,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -36884,10 +36522,13 @@
 
 <MAPDELETE FIELD="/type;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
-<INVOKE TIMEOUT="" SERVICE="caDSR.utils.fields:addField" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+<INVOKE TIMEOUT="" SERVICE="caDSR.utils.fields:addField" VALIDATE-IN="$none" VALIDATE-OUT="$none" DISABLED="true">
   <COMMENT>definitionCollection</COMMENT>
 
   <!-- nodes -->
@@ -37183,9 +36824,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -37300,6 +36938,9 @@
 </Values>
 </DATA>
 </MAPSET>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 
 <MAP MODE="OUTPUT">
@@ -37540,9 +37181,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -37557,10 +37195,13 @@
 
 <MAPDELETE FIELD="/type;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
-<INVOKE TIMEOUT="" SERVICE="caDSR.utils.fields:addField" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+<INVOKE TIMEOUT="" SERVICE="caDSR.utils.fields:addField" VALIDATE-IN="$none" VALIDATE-OUT="$none" DISABLED="true">
   <COMMENT>administeredComponentContactCollection</COMMENT>
 
   <!-- nodes -->
@@ -37856,9 +37497,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -37973,6 +37611,9 @@
 </Values>
 </DATA>
 </MAPSET>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 
 <MAP MODE="OUTPUT">
@@ -38213,9 +37854,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -38230,10 +37868,13 @@
 
 <MAPDELETE FIELD="/type;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
-<INVOKE TIMEOUT="" SERVICE="caDSR.utils.fields:addField" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+<INVOKE TIMEOUT="" SERVICE="caDSR.utils.fields:addField" VALIDATE-IN="$none" VALIDATE-OUT="$none" DISABLED="true">
   <COMMENT>valueDomain</COMMENT>
 
   <!-- nodes -->
@@ -38529,9 +38170,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -38646,6 +38284,9 @@
 </Values>
 </DATA>
 </MAPSET>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 
 <MAP MODE="OUTPUT">
@@ -38886,9 +38527,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -38903,10 +38541,13 @@
 
 <MAPDELETE FIELD="/href;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
-<INVOKE TIMEOUT="" SERVICE="caDSR.utils.fields:addField" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+<INVOKE TIMEOUT="" SERVICE="caDSR.utils.fields:addField" VALIDATE-IN="$none" VALIDATE-OUT="$none" DISABLED="true">
   <COMMENT>parentDataElementRelationshipsCollection - No Map</COMMENT>
 
   <!-- nodes -->
@@ -39202,9 +38843,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -39232,6 +38870,9 @@
 </Values>
 </DATA>
 </MAPSET>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 
 <MAP MODE="OUTPUT">
@@ -39450,9 +39091,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -39461,10 +39099,13 @@
 
 <MAPDELETE FIELD="/body;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
-<INVOKE TIMEOUT="" SERVICE="caDSR.utils.fields:addField" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+<INVOKE TIMEOUT="" SERVICE="caDSR.utils.fields:addField" VALIDATE-IN="$none" VALIDATE-OUT="$none" DISABLED="true">
   <COMMENT>questionCollection</COMMENT>
 
   <!-- nodes -->
@@ -39760,9 +39401,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -39877,6 +39515,9 @@
 </Values>
 </DATA>
 </MAPSET>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 
 <MAP MODE="OUTPUT">
@@ -40117,9 +39758,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -40134,10 +39772,13 @@
 
 <MAPDELETE FIELD="/type;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
-<INVOKE TIMEOUT="" SERVICE="caDSR.utils.fields:addField" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+<INVOKE TIMEOUT="" SERVICE="caDSR.utils.fields:addField" VALIDATE-IN="$none" VALIDATE-OUT="$none" DISABLED="true">
   <COMMENT>dataElementDerivationCollection - No Map</COMMENT>
 
   <!-- nodes -->
@@ -40433,9 +40074,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -40463,6 +40101,9 @@
 </Values>
 </DATA>
 </MAPSET>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 
 <MAP MODE="OUTPUT">
@@ -40681,9 +40322,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -40692,10 +40330,13 @@
 
 <MAPDELETE FIELD="/body;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
-<INVOKE TIMEOUT="" SERVICE="caDSR.utils.fields:addField" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+<INVOKE TIMEOUT="" SERVICE="caDSR.utils.fields:addField" VALIDATE-IN="$none" VALIDATE-OUT="$none" DISABLED="true">
   <COMMENT>childDataElementRelationshipsCollection - No Map</COMMENT>
 
   <!-- nodes -->
@@ -40991,9 +40632,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -41021,6 +40659,9 @@
 </Values>
 </DATA>
 </MAPSET>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 
 <MAP MODE="OUTPUT">
@@ -41239,9 +40880,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -41250,10 +40888,13 @@
 
 <MAPDELETE FIELD="/body;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
-<INVOKE TIMEOUT="" SERVICE="caDSR.utils.fields:addField" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+<INVOKE TIMEOUT="" SERVICE="caDSR.utils.fields:addField" VALIDATE-IN="$none" VALIDATE-OUT="$none" DISABLED="true">
   <COMMENT>derivedDataElement - No Map</COMMENT>
 
   <!-- nodes -->
@@ -41549,9 +41190,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -41579,6 +41217,9 @@
 </Values>
 </DATA>
 </MAPSET>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 
 <MAP MODE="OUTPUT">
@@ -41797,9 +41438,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -41808,10 +41446,13 @@
 
 <MAPDELETE FIELD="/body;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
-<INVOKE TIMEOUT="" SERVICE="caDSR.utils.fields:addField" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+<INVOKE TIMEOUT="" SERVICE="caDSR.utils.fields:addField" VALIDATE-IN="$none" VALIDATE-OUT="$none" DISABLED="true">
   <COMMENT>attributeMetadata - No Map</COMMENT>
 
   <!-- nodes -->
@@ -42107,9 +41748,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/name;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -42137,6 +41775,9 @@
 </Values>
 </DATA>
 </MAPSET>
+
+<MAPCOPY FROM="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef" TO="/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 
 <MAP MODE="OUTPUT">
@@ -42355,9 +41996,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/class;4;0;caDSR.docs:classDocTypeRef">
 </MAPDELETE>
 
@@ -42366,10 +42004,13 @@
 
 <MAPDELETE FIELD="/body;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/class;4;0;caDSR.docs:classDocTypeRef" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/class;4;0;caDSR.docs:classDocTypeRef">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
-<INVOKE TIMEOUT="" SERVICE="caDSR.utils.fields:addField" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+<INVOKE TIMEOUT="" SERVICE="caDSR.utils.fields:addField" VALIDATE-IN="$none" VALIDATE-OUT="$none" DISABLED="true">
   <COMMENT>dataElementConcept</COMMENT>
 
   <!-- nodes -->

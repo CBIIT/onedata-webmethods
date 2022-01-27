@@ -125,7 +125,7 @@
 </DATA>
 </MAPSET>
 
-<MAPCOPY FROM="/query;1;0" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryRequest;2;0/query;2;0/queryString;1;0">
+<MAPCOPY FROM="/query;1;0" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryRequest;4;0;caDSR.docs:queryRequest/query;2;0/queryString;1;0">
 </MAPCOPY>
 </MAP>
 
@@ -307,7 +307,7 @@
 <MAPDELETE FIELD="/size;1;0">
 </MAPDELETE>
 
-<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryRequest;2;0/query;2;0/queryString;1;0">
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryRequest;4;0;caDSR.docs:queryRequest/query;2;0/queryString;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
@@ -315,10 +315,19 @@
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">unknown</value>
     <value name="node_subtype">unknown</value>
+    <value name="node_comment"></value>
+    <record name="node_hints" javaclass="com.wm.util.Values">
+      <value name="field_usereditable">true</value>
+      <value name="field_largerEditor">false</value>
+      <value name="field_password">false</value>
+    </record>
     <value name="is_public">false</value>
     <value name="field_name">queryString</value>
     <value name="field_type">string</value>
     <value name="field_dim">0</value>
+    <value name="field_opt">true</value>
+    <array name="field_options" type="value" depth="1">
+    </array>
     <value name="nillable">true</value>
     <value name="form_qualified">false</value>
     <value name="is_global">false</value>
@@ -327,7 +336,7 @@
 </DATA>
 </MAPSET>
 
-<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryRequest;2;0/criteria;1;0">
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryRequest;4;0;caDSR.docs:queryRequest/criteria;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
@@ -335,10 +344,19 @@
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">unknown</value>
     <value name="node_subtype">unknown</value>
+    <value name="node_comment"></value>
+    <record name="node_hints" javaclass="com.wm.util.Values">
+      <value name="field_usereditable">true</value>
+      <value name="field_largerEditor">false</value>
+      <value name="field_password">false</value>
+    </record>
     <value name="is_public">false</value>
     <value name="field_name">criteria</value>
     <value name="field_type">string</value>
     <value name="field_dim">0</value>
+    <value name="field_opt">true</value>
+    <array name="field_options" type="value" depth="1">
+    </array>
     <value name="nillable">true</value>
     <value name="form_qualified">false</value>
     <value name="is_global">false</value>
@@ -562,11 +580,11 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/criteria;1;0" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryRequest;2;0/criteria;1;0">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/query;1;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/criteria;1;0" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryRequest;4;0;caDSR.docs:queryRequest/criteria;1;0">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
@@ -944,7 +962,6 @@
     <value name="field_name">appendToStringListInput</value>
     <value name="field_type">record</value>
     <value name="field_dim">0</value>
-    <value name="wrapper_type">IData</value>
     <value name="nillable">true</value>
     <value name="form_qualified">false</value>
     <value name="is_global">false</value>
@@ -1308,7 +1325,6 @@
     <value name="field_name">appendToStringListOutput</value>
     <value name="field_type">record</value>
     <value name="field_dim">0</value>
-    <value name="wrapper_type">IData</value>
     <value name="nillable">true</value>
     <value name="form_qualified">false</value>
     <value name="is_global">false</value>
@@ -4167,9 +4183,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/lastError;4;0;pub.event:exceptionInfo/error;1;0" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/xlink:httpQuery;2;0/queryResponse;2;0/Errors;2;0/Error[0];2;1/ErrorMessage;1;0">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/@encoding;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -4197,6 +4210,9 @@
 </Values>
 </DATA>
 </MAPSET>
+
+<MAPCOPY FROM="/lastError;4;0;pub.event:exceptionInfo/error;1;0" TO="/getXMLDocnew;4;0;caDSR.docs:getXMLDoc/httpQuery;2;0/queryResponse;2;0/Errors;2;0/Error[0];2;1/ErrorMessage;1;0">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 </SEQUENCE>
