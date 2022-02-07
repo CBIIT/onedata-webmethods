@@ -19505,26 +19505,6 @@
           <value name="field_password">false</value>
         </record>
         <value name="is_public">false</value>
-        <value name="field_name">forms</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="wrapper_type">IData</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <value name="rec_closed">true</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">FormDownload.docs:forms</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
         <value name="field_name">workbook</value>
         <value name="field_type">object</value>
         <value name="field_dim">0</value>
@@ -19571,7 +19551,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">forms</value>
+        <value name="field_name">formXML</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -19997,13 +19977,16 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/forms;4;0;FormDownload.docs:forms/formCollectionName;1;0" TO="/forms(1);2;0/forms;2;0/formCollectionName;1;0">
+<MAPDELETE FIELD="/forms;4;0;FormDownload.docs:forms">
+</MAPDELETE>
+
+<MAPCOPY FROM="/forms;4;0;FormDownload.docs:forms/formCollectionName;1;0" TO="/formXML;2;0/forms;2;0/formCollectionName;1;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/forms;4;0;FormDownload.docs:forms/formCollectionDescription;1;0" TO="/forms(1);2;0/forms;2;0/formCollectionDescription;1;0">
+<MAPCOPY FROM="/forms;4;0;FormDownload.docs:forms/formCollectionDescription;1;0" TO="/formXML;2;0/forms;2;0/formCollectionDescription;1;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/forms;4;0;FormDownload.docs:forms/form;4;1;FormDownload.docs:form" TO="/forms(1);2;0/forms;2;0/form;4;1;FormDownload.docs:form">
+<MAPCOPY FROM="/forms;4;0;FormDownload.docs:forms/form;4;1;FormDownload.docs:form" TO="/formXML;2;0/forms;2;0/form;4;1;FormDownload.docs:form">
 </MAPCOPY>
 </MAP>
 
@@ -20508,26 +20491,6 @@
           <value name="field_password">false</value>
         </record>
         <value name="is_public">false</value>
-        <value name="field_name">forms</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="wrapper_type">IData</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <value name="rec_closed">true</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">FormDownload.docs:forms</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
         <value name="field_name">workbook</value>
         <value name="field_type">object</value>
         <value name="field_dim">0</value>
@@ -20574,13 +20537,27 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">forms</value>
+        <value name="field_name">formXML</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
         <array name="rec_fields" type="record" depth="1">
+          <record javaclass="com.wm.util.Values">
+            <value name="node_type">record</value>
+            <value name="node_subtype">unknown</value>
+            <value name="is_public">false</value>
+            <value name="field_name">forms</value>
+            <value name="field_type">record</value>
+            <value name="field_dim">0</value>
+            <value name="nillable">true</value>
+            <value name="form_qualified">false</value>
+            <value name="is_global">false</value>
+            <array name="rec_fields" type="record" depth="1">
+            </array>
+            <value name="modifiable">true</value>
+          </record>
         </array>
         <value name="modifiable">true</value>
       </record>
@@ -20592,29 +20569,11 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/forms;4;0;FormDownload.docs:forms" TO="/document;2;0">
+<MAPCOPY FROM="/formXML;2;0" TO="/document;2;0">
 </MAPCOPY>
+</MAP>
 
-<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/documentTypeName;1;0">
-  <DATA ENCODING="XMLValues" I18N="true">
-
-<Values version="2.0">
-  <value name="xml">FormDownload.docs:forms</value>
-  <record name="type" javaclass="com.wm.util.Values">
-    <value name="node_type">field</value>
-    <value name="node_subtype">unknown</value>
-    <value name="is_public">false</value>
-    <value name="field_name">documentTypeName</value>
-    <value name="field_type">string</value>
-    <value name="field_dim">0</value>
-    <value name="field_opt">true</value>
-    <value name="nillable">true</value>
-    <value name="form_qualified">false</value>
-    <value name="is_global">false</value>
-  </record>
-</Values>
-</DATA>
-</MAPSET>
+<MAP MODE="OUTPUT">
 </MAP>
 </INVOKE>
 
@@ -20798,17 +20757,6 @@
         <value name="field_dim">0</value>
         <array name="field_options" type="value" depth="1">
         </array>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">documentTypeName</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
@@ -21009,26 +20957,6 @@
           <value name="field_password">false</value>
         </record>
         <value name="is_public">false</value>
-        <value name="field_name">forms</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="wrapper_type">IData</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <value name="rec_closed">true</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">FormDownload.docs:forms</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
         <value name="field_name">workbook</value>
         <value name="field_type">object</value>
         <value name="field_dim">0</value>
@@ -21075,7 +21003,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">forms</value>
+        <value name="field_name">formXML</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -21431,17 +21359,6 @@
         <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">documentTypeName</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
@@ -21637,26 +21554,6 @@
           <value name="field_password">false</value>
         </record>
         <value name="is_public">false</value>
-        <value name="field_name">forms</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="wrapper_type">IData</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <value name="rec_closed">true</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">FormDownload.docs:forms</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
         <value name="field_name">workbook</value>
         <value name="field_type">object</value>
         <value name="field_dim">0</value>
@@ -21700,6 +21597,20 @@
         <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">formXML</value>
+        <value name="field_type">record</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <array name="rec_fields" type="record" depth="1">
+        </array>
+        <value name="modifiable">true</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
@@ -21709,20 +21620,6 @@
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">forms</value>
-        <value name="field_type">record</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <array name="rec_fields" type="record" depth="1">
-        </array>
-        <value name="modifiable">true</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">field</value>
@@ -21972,17 +21869,6 @@
         <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">documentTypeName</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
@@ -22178,26 +22064,6 @@
           <value name="field_password">false</value>
         </record>
         <value name="is_public">false</value>
-        <value name="field_name">forms</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="wrapper_type">IData</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <value name="rec_closed">true</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">FormDownload.docs:forms</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
         <value name="field_name">workbook</value>
         <value name="field_type">object</value>
         <value name="field_dim">0</value>
@@ -22244,7 +22110,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">forms</value>
+        <value name="field_name">formXML</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -22466,17 +22332,6 @@
         <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">documentTypeName</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
@@ -22687,26 +22542,6 @@
           <value name="field_password">false</value>
         </record>
         <value name="is_public">false</value>
-        <value name="field_name">forms</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="wrapper_type">IData</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <value name="rec_closed">true</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">FormDownload.docs:forms</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
         <value name="field_name">workbook</value>
         <value name="field_type">object</value>
         <value name="field_dim">0</value>
@@ -22753,7 +22588,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">forms</value>
+        <value name="field_name">formXML</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -23174,17 +23009,6 @@
         <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">documentTypeName</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
@@ -23333,26 +23157,6 @@
           <value name="field_password">false</value>
         </record>
         <value name="is_public">false</value>
-        <value name="field_name">forms</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="wrapper_type">IData</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <value name="rec_closed">true</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">FormDownload.docs:forms</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
         <value name="field_name">workbook</value>
         <value name="field_type">object</value>
         <value name="field_dim">0</value>
@@ -23383,7 +23187,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">forms</value>
+        <value name="field_name">formXML</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -23613,17 +23417,6 @@
         <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">documentTypeName</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
@@ -23772,26 +23565,6 @@
           <value name="field_password">false</value>
         </record>
         <value name="is_public">false</value>
-        <value name="field_name">forms</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="wrapper_type">IData</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <value name="rec_closed">true</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">FormDownload.docs:forms</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
         <value name="field_name">workbook</value>
         <value name="field_type">object</value>
         <value name="field_dim">0</value>
@@ -23822,7 +23595,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">forms</value>
+        <value name="field_name">formXML</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -24050,17 +23823,6 @@
         <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">documentTypeName</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
@@ -24154,17 +23916,6 @@
         <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">fileByteArray</value>
-        <value name="field_type">object</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
@@ -24177,6 +23928,17 @@
         <array name="rec_fields" type="record" depth="1">
         </array>
         <value name="modifiable">true</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">fileByteArray</value>
+        <value name="field_type">object</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
@@ -24220,26 +23982,6 @@
           <value name="field_password">false</value>
         </record>
         <value name="is_public">false</value>
-        <value name="field_name">forms</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="wrapper_type">IData</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <value name="rec_closed">true</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">FormDownload.docs:forms</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
         <value name="field_name">workbook</value>
         <value name="field_type">object</value>
         <value name="field_dim">0</value>
@@ -24270,7 +24012,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">forms</value>
+        <value name="field_name">formXML</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -24551,17 +24293,6 @@
         <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">documentTypeName</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
@@ -24644,6 +24375,17 @@
         <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">TTimeStamp</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
@@ -24691,28 +24433,6 @@
         <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">TTimeStamp</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">fileByteArray</value>
-        <value name="field_type">object</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
@@ -24725,6 +24445,17 @@
         <array name="rec_fields" type="record" depth="1">
         </array>
         <value name="modifiable">true</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">fileByteArray</value>
+        <value name="field_type">object</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
@@ -24768,26 +24499,6 @@
           <value name="field_password">false</value>
         </record>
         <value name="is_public">false</value>
-        <value name="field_name">forms</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="wrapper_type">IData</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <value name="rec_closed">true</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">FormDownload.docs:forms</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
         <value name="field_name">workbook</value>
         <value name="field_type">object</value>
         <value name="field_dim">0</value>
@@ -24818,7 +24529,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">forms</value>
+        <value name="field_name">formXML</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -24965,17 +24676,6 @@
         <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">documentTypeName</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
@@ -25069,17 +24769,6 @@
         <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">fileByteArray</value>
-        <value name="field_type">object</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
@@ -25092,6 +24781,17 @@
         <array name="rec_fields" type="record" depth="1">
         </array>
         <value name="modifiable">true</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">fileByteArray</value>
+        <value name="field_type">object</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
@@ -25135,26 +24835,6 @@
           <value name="field_password">false</value>
         </record>
         <value name="is_public">false</value>
-        <value name="field_name">forms</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="wrapper_type">IData</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <value name="rec_closed">true</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">FormDownload.docs:forms</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
         <value name="field_name">workbook</value>
         <value name="field_type">object</value>
         <value name="field_dim">0</value>
@@ -25185,7 +24865,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">forms</value>
+        <value name="field_name">formXML</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -25437,17 +25117,6 @@
         <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">documentTypeName</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
@@ -25530,6 +25199,17 @@
         <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">TTimeStamp</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
@@ -25555,28 +25235,6 @@
         <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">TTimeStamp</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">fileByteArray</value>
-        <value name="field_type">object</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
@@ -25589,6 +25247,17 @@
         <array name="rec_fields" type="record" depth="1">
         </array>
         <value name="modifiable">true</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">fileByteArray</value>
+        <value name="field_type">object</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
@@ -25632,26 +25301,6 @@
           <value name="field_password">false</value>
         </record>
         <value name="is_public">false</value>
-        <value name="field_name">forms</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="wrapper_type">IData</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <value name="rec_closed">true</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">FormDownload.docs:forms</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
         <value name="field_name">workbook</value>
         <value name="field_type">object</value>
         <value name="field_dim">0</value>
@@ -25682,7 +25331,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">forms</value>
+        <value name="field_name">formXML</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -26250,17 +25899,6 @@
         <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">documentTypeName</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
@@ -26343,6 +25981,17 @@
         <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">TTimeStamp</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
@@ -26390,28 +26039,6 @@
         <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">TTimeStamp</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">fileByteArray</value>
-        <value name="field_type">object</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
@@ -26424,6 +26051,17 @@
         <array name="rec_fields" type="record" depth="1">
         </array>
         <value name="modifiable">true</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">fileByteArray</value>
+        <value name="field_type">object</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
@@ -26467,26 +26105,6 @@
           <value name="field_password">false</value>
         </record>
         <value name="is_public">false</value>
-        <value name="field_name">forms</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="wrapper_type">IData</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <value name="rec_closed">true</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">FormDownload.docs:forms</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
         <value name="field_name">workbook</value>
         <value name="field_type">object</value>
         <value name="field_dim">0</value>
@@ -26517,7 +26135,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">forms</value>
+        <value name="field_name">formXML</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -26762,17 +26380,6 @@ If you have any issues with this file please contact the person who sent you the
         <value name="modifiable">true</value>
       </record>
       <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">documentTypeName</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
@@ -26855,6 +26462,17 @@ If you have any issues with this file please contact the person who sent you the
         <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">TTimeStamp</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
@@ -26902,28 +26520,6 @@ If you have any issues with this file please contact the person who sent you the
         <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">TTimeStamp</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">fileByteArray</value>
-        <value name="field_type">object</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
@@ -26936,6 +26532,17 @@ If you have any issues with this file please contact the person who sent you the
         <array name="rec_fields" type="record" depth="1">
         </array>
         <value name="modifiable">true</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">fileByteArray</value>
+        <value name="field_type">object</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
@@ -26979,26 +26586,6 @@ If you have any issues with this file please contact the person who sent you the
           <value name="field_password">false</value>
         </record>
         <value name="is_public">false</value>
-        <value name="field_name">forms</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="wrapper_type">IData</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <value name="rec_closed">true</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">FormDownload.docs:forms</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
         <value name="field_name">workbook</value>
         <value name="field_type">object</value>
         <value name="field_dim">0</value>
@@ -27029,7 +26616,7 @@ If you have any issues with this file please contact the person who sent you the
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">forms</value>
+        <value name="field_name">formXML</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -27241,17 +26828,6 @@ If you have any issues with this file please contact the person who sent you the
         <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">documentTypeName</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
@@ -27326,17 +26902,6 @@ If you have any issues with this file please contact the person who sent you the
         <value name="node_type">unknown</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">now</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
         <value name="field_name">user_name</value>
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
@@ -27348,7 +26913,7 @@ If you have any issues with this file please contact the person who sent you the
         <value name="node_type">unknown</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">timestamp</value>
+        <value name="field_name">now</value>
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -27370,8 +26935,8 @@ If you have any issues with this file please contact the person who sent you the
         <value name="node_type">unknown</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">fileByteArray</value>
-        <value name="field_type">object</value>
+        <value name="field_name">timestamp</value>
+        <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
@@ -27390,6 +26955,17 @@ If you have any issues with this file please contact the person who sent you the
         <array name="rec_fields" type="record" depth="1">
         </array>
         <value name="modifiable">true</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">fileByteArray</value>
+        <value name="field_type">object</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
@@ -27429,26 +27005,6 @@ If you have any issues with this file please contact the person who sent you the
         <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
         <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
-        <value name="field_name">forms</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="wrapper_type">IData</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <value name="rec_closed">true</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">FormDownload.docs:forms</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
           <value name="field_largerEditor">false</value>
           <value name="field_password">false</value>
@@ -27467,7 +27023,7 @@ If you have any issues with this file please contact the person who sent you the
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">forms</value>
+        <value name="field_name">formXML</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -27756,17 +27312,6 @@ If you have any issues with this file please contact the person who sent you the
         <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">documentTypeName</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
@@ -27841,17 +27386,6 @@ If you have any issues with this file please contact the person who sent you the
         <value name="node_type">unknown</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">now</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
         <value name="field_name">user_name</value>
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
@@ -27863,7 +27397,7 @@ If you have any issues with this file please contact the person who sent you the
         <value name="node_type">unknown</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">timestamp</value>
+        <value name="field_name">now</value>
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -27885,8 +27419,8 @@ If you have any issues with this file please contact the person who sent you the
         <value name="node_type">unknown</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">fileByteArray</value>
-        <value name="field_type">object</value>
+        <value name="field_name">timestamp</value>
+        <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
@@ -27905,6 +27439,17 @@ If you have any issues with this file please contact the person who sent you the
         <array name="rec_fields" type="record" depth="1">
         </array>
         <value name="modifiable">true</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">fileByteArray</value>
+        <value name="field_type">object</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
@@ -27944,26 +27489,6 @@ If you have any issues with this file please contact the person who sent you the
         <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
         <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
-        <value name="field_name">forms</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="wrapper_type">IData</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <value name="rec_closed">true</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">FormDownload.docs:forms</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
           <value name="field_largerEditor">false</value>
           <value name="field_password">false</value>
@@ -27982,7 +27507,7 @@ If you have any issues with this file please contact the person who sent you the
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">forms</value>
+        <value name="field_name">formXML</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -28296,17 +27821,6 @@ If you have any issues with this file please contact the person who sent you the
         <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">documentTypeName</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
@@ -28381,17 +27895,6 @@ If you have any issues with this file please contact the person who sent you the
         <value name="node_type">unknown</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">now</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
         <value name="field_name">user_name</value>
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
@@ -28403,7 +27906,7 @@ If you have any issues with this file please contact the person who sent you the
         <value name="node_type">unknown</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">timestamp</value>
+        <value name="field_name">now</value>
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -28425,8 +27928,8 @@ If you have any issues with this file please contact the person who sent you the
         <value name="node_type">unknown</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">fileByteArray</value>
-        <value name="field_type">object</value>
+        <value name="field_name">timestamp</value>
+        <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
@@ -28445,6 +27948,17 @@ If you have any issues with this file please contact the person who sent you the
         <array name="rec_fields" type="record" depth="1">
         </array>
         <value name="modifiable">true</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">fileByteArray</value>
+        <value name="field_type">object</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
@@ -28484,26 +27998,6 @@ If you have any issues with this file please contact the person who sent you the
         <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
         <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
-        <value name="field_name">forms</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="wrapper_type">IData</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <value name="rec_closed">true</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">FormDownload.docs:forms</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
           <value name="field_largerEditor">false</value>
           <value name="field_password">false</value>
@@ -28522,7 +28016,7 @@ If you have any issues with this file please contact the person who sent you the
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">forms</value>
+        <value name="field_name">formXML</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -28763,17 +28257,6 @@ If you have any issues with this file please contact the person who sent you the
         <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">documentTypeName</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
@@ -28848,17 +28331,6 @@ If you have any issues with this file please contact the person who sent you the
         <value name="node_type">unknown</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">now</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
         <value name="field_name">user_name</value>
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
@@ -28870,7 +28342,7 @@ If you have any issues with this file please contact the person who sent you the
         <value name="node_type">unknown</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">timestamp</value>
+        <value name="field_name">now</value>
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -28892,8 +28364,8 @@ If you have any issues with this file please contact the person who sent you the
         <value name="node_type">unknown</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">fileByteArray</value>
-        <value name="field_type">object</value>
+        <value name="field_name">timestamp</value>
+        <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
@@ -28912,6 +28384,17 @@ If you have any issues with this file please contact the person who sent you the
         <array name="rec_fields" type="record" depth="1">
         </array>
         <value name="modifiable">true</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">fileByteArray</value>
+        <value name="field_type">object</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
@@ -28951,26 +28434,6 @@ If you have any issues with this file please contact the person who sent you the
         <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
         <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
-        <value name="field_name">forms</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="wrapper_type">IData</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <value name="rec_closed">true</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">FormDownload.docs:forms</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
           <value name="field_largerEditor">false</value>
           <value name="field_password">false</value>
@@ -28989,7 +28452,7 @@ If you have any issues with this file please contact the person who sent you the
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">forms</value>
+        <value name="field_name">formXML</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -29641,17 +29104,6 @@ If you have any issues with this file please contact the person who sent you the
         <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">documentTypeName</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
@@ -29690,28 +29142,8 @@ If you have any issues with this file please contact the person who sent you the
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
         <value name="is_public">false</value>
-        <value name="field_name">forms</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="wrapper_type">IData</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <value name="rec_closed">true</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">FormDownload.docs:forms</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">forms</value>
+        <value name="field_name">formXML</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
