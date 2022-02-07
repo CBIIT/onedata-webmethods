@@ -1252,10 +1252,13 @@
 
 <Values version="2.0">
   <value name="xml">--Find classification item ID based on Model name, version number and table name 
-select cs.item_long_nm, csi.item_nm, cs.item_id cs_item_id, cs.ver_nr cs_ver_nr, csi.item_id csi_item_id, csi.ver_nr csi_item_ver_nr 
-from VW_CLSFCTN_SCHM cs, VW_CLSFCTN_SCHM_ITEM csi
-where cs.item_id = csi.cs_item_id
-and cs.ver_nr = csi.cs_item_ver_nr
+Select csai.item_long_nm, csiai.item_nm, csi.cs_item_id, csai.ver_nr cs_ver_nr, csi.item_id csi_item_id, csi.ver_nr csi_item_ver_nr
+from nci_clsfctn_schm_item csi, admin_item csiai, admin_item csai  
+where csai.item_id = csi.cs_item_id 
+and csai.ver_nr  = csi.cs_item_ver_nr
+and csiai.item_id = csi.item_id 
+and csiai.ver_nr  = csi. ver_nr
+
 </value>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">unknown</value>
@@ -4026,8 +4029,9 @@ and cs.ver_nr = csi.cs_item_ver_nr
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
-  <value name="xml">and upper(cs.item_long_nm) like upper ('%apiParameters/sourceModelName%%%%apiParameters/sourceModelVerNr%%%')
-and upper(csi.item_nm) = upper('%apiParameters/tableName%') </value>
+  <value name="xml">and csai.ver_nr = %apiParameters/sourceModelVerNr% 
+and upper(csai.item_long_nm) like upper ('%apiParameters/sourceModelName%%%')    
+and upper(csiai.item_nm) = upper('%apiParameters/tableName%') </value>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">field</value>
     <value name="node_subtype">unknown</value>
@@ -10817,7 +10821,7 @@ order by alt.item_id</value>
             <value name="node_type">unknown</value>
             <value name="node_subtype">unknown</value>
             <value name="is_public">false</value>
-            <value name="field_name">PublidID</value>
+            <value name="field_name">PubicID</value>
             <value name="field_type">string</value>
             <value name="field_dim">0</value>
             <value name="nillable">true</value>
@@ -11209,7 +11213,7 @@ order by alt.item_id</value>
 <Values version="2.0">
   <record name="xml" javaclass="com.wm.util.Values">
     <value name="@num"></value>
-    <value name="PublidID"></value>
+    <value name="PubicID"></value>
     <value name="Version"></value>
     <value name="TargetTable"></value>
     <value name="TargetAttribute"></value>
@@ -11243,7 +11247,7 @@ order by alt.item_id</value>
         <value name="node_type">unknown</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">PublidID</value>
+        <value name="field_name">PubicID</value>
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -13568,7 +13572,7 @@ order by alt.item_id</value>
             <value name="node_type">unknown</value>
             <value name="node_subtype">unknown</value>
             <value name="is_public">false</value>
-            <value name="field_name">PublidID</value>
+            <value name="field_name">PubicID</value>
             <value name="field_type">string</value>
             <value name="field_dim">0</value>
             <value name="nillable">true</value>
@@ -14042,7 +14046,7 @@ order by alt.item_id</value>
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/dynamicSqlOutput;2;0/results;2;0/CS_ITEM_ID;1;0" TO="/DataElement;2;0/PublidID;1;0">
+<MAPCOPY FROM="/dynamicSqlOutput;2;0/results;2;0/CS_ITEM_ID;1;0" TO="/DataElement;2;0/PubicID;1;0">
 </MAPCOPY>
 
 <MAPCOPY FROM="/dynamicSqlOutput;2;0/results;2;0/CS_VER_NR;1;0" TO="/DataElement;2;0/Version;1;0">
@@ -14312,7 +14316,7 @@ order by alt.item_id</value>
             <value name="node_type">unknown</value>
             <value name="node_subtype">unknown</value>
             <value name="is_public">false</value>
-            <value name="field_name">PublidID</value>
+            <value name="field_name">PubicID</value>
             <value name="field_type">string</value>
             <value name="field_dim">0</value>
             <value name="nillable">true</value>
@@ -15048,7 +15052,7 @@ order by alt.item_id</value>
             <value name="node_type">unknown</value>
             <value name="node_subtype">unknown</value>
             <value name="is_public">false</value>
-            <value name="field_name">PublidID</value>
+            <value name="field_name">PubicID</value>
             <value name="field_type">string</value>
             <value name="field_dim">0</value>
             <value name="nillable">true</value>
@@ -15791,7 +15795,7 @@ order by alt.item_id</value>
             <value name="node_type">unknown</value>
             <value name="node_subtype">unknown</value>
             <value name="is_public">false</value>
-            <value name="field_name">PublidID</value>
+            <value name="field_name">PubicID</value>
             <value name="field_type">string</value>
             <value name="field_dim">0</value>
             <value name="nillable">true</value>
@@ -16855,7 +16859,7 @@ order by alt.item_id</value>
             <value name="node_type">unknown</value>
             <value name="node_subtype">unknown</value>
             <value name="is_public">false</value>
-            <value name="field_name">PublidID</value>
+            <value name="field_name">PubicID</value>
             <value name="field_type">string</value>
             <value name="field_dim">0</value>
             <value name="nillable">true</value>
@@ -17326,7 +17330,7 @@ order by alt.item_id</value>
             <value name="node_type">unknown</value>
             <value name="node_subtype">unknown</value>
             <value name="is_public">false</value>
-            <value name="field_name">PublidID</value>
+            <value name="field_name">PubicID</value>
             <value name="field_type">string</value>
             <value name="field_dim">0</value>
             <value name="nillable">true</value>
@@ -17728,7 +17732,7 @@ order by alt.item_id</value>
             <value name="node_type">unknown</value>
             <value name="node_subtype">unknown</value>
             <value name="is_public">false</value>
-            <value name="field_name">PublidID</value>
+            <value name="field_name">PubicID</value>
             <value name="field_type">string</value>
             <value name="field_dim">0</value>
             <value name="nillable">true</value>
@@ -18146,7 +18150,7 @@ order by alt.item_id</value>
             <value name="node_type">unknown</value>
             <value name="node_subtype">unknown</value>
             <value name="is_public">false</value>
-            <value name="field_name">PublidID</value>
+            <value name="field_name">PubicID</value>
             <value name="field_type">string</value>
             <value name="field_dim">0</value>
             <value name="nillable">true</value>
@@ -18274,7 +18278,7 @@ order by alt.item_id</value>
 <Values version="2.0">
   <record name="xml" javaclass="com.wm.util.Values">
     <value name="@num"></value>
-    <value name="PublidID"></value>
+    <value name="PubicID"></value>
     <value name="Version"></value>
     <value name="TargetTable"></value>
     <value name="TargetAttribute"></value>
@@ -18313,7 +18317,7 @@ order by alt.item_id</value>
         <value name="node_type">unknown</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">PublidID</value>
+        <value name="field_name">PubicID</value>
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -18660,7 +18664,7 @@ order by alt.item_id</value>
             <value name="node_type">unknown</value>
             <value name="node_subtype">unknown</value>
             <value name="is_public">false</value>
-            <value name="field_name">PublidID</value>
+            <value name="field_name">PubicID</value>
             <value name="field_type">string</value>
             <value name="field_dim">0</value>
             <value name="nillable">true</value>
@@ -19396,7 +19400,7 @@ order by alt.item_id</value>
             <value name="node_type">unknown</value>
             <value name="node_subtype">unknown</value>
             <value name="is_public">false</value>
-            <value name="field_name">PublidID</value>
+            <value name="field_name">PubicID</value>
             <value name="field_type">string</value>
             <value name="field_dim">0</value>
             <value name="nillable">true</value>
@@ -20135,7 +20139,7 @@ order by alt.item_id</value>
             <value name="node_type">unknown</value>
             <value name="node_subtype">unknown</value>
             <value name="is_public">false</value>
-            <value name="field_name">PublidID</value>
+            <value name="field_name">PubicID</value>
             <value name="field_type">string</value>
             <value name="field_dim">0</value>
             <value name="nillable">true</value>
@@ -20590,7 +20594,7 @@ order by alt.item_id</value>
 <MAPCOPY FROM="/curPid;1;0" TO="/prvPid;1;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/dynamicSqlOutput;2;0/results;2;0/CS_ITEM_ID;1;0" TO="/DataElement;2;0/PublidID;1;0">
+<MAPCOPY FROM="/dynamicSqlOutput;2;0/results;2;0/CS_ITEM_ID;1;0" TO="/DataElement;2;0/PubicID;1;0">
 </MAPCOPY>
 
 <MAPCOPY FROM="/dynamicSqlOutput;2;0/results;2;0/CS_VER_NR;1;0" TO="/DataElement;2;0/Version;1;0">
@@ -20880,7 +20884,7 @@ order by alt.item_id</value>
             <value name="node_type">unknown</value>
             <value name="node_subtype">unknown</value>
             <value name="is_public">false</value>
-            <value name="field_name">PublidID</value>
+            <value name="field_name">PubicID</value>
             <value name="field_type">string</value>
             <value name="field_dim">0</value>
             <value name="nillable">true</value>
@@ -21889,7 +21893,7 @@ order by alt.item_id</value>
             <value name="node_type">unknown</value>
             <value name="node_subtype">unknown</value>
             <value name="is_public">false</value>
-            <value name="field_name">PublidID</value>
+            <value name="field_name">PubicID</value>
             <value name="field_type">string</value>
             <value name="field_dim">0</value>
             <value name="nillable">true</value>
@@ -22352,7 +22356,7 @@ order by alt.item_id</value>
             <value name="node_type">unknown</value>
             <value name="node_subtype">unknown</value>
             <value name="is_public">false</value>
-            <value name="field_name">PublidID</value>
+            <value name="field_name">PubicID</value>
             <value name="field_type">string</value>
             <value name="field_dim">0</value>
             <value name="nillable">true</value>
