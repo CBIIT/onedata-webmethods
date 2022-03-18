@@ -206,7 +206,7 @@ public final class transformers
 		// create regex string to catch trailing spaces
 		String regex = "\\s+$";
 		if (string!=null){
-			string = string.replaceAll("\u2122", "_TM_").replaceAll("[^\\w\\xAE\\xA9~. -]", "_TM_").replaceAll(regex, "").replace(' ', '_').replace(';', '_').replace('/', '_').replace('(', '_').replace('.', '_').replace('-', '_').replace(':',  '_').replace(',', '_').replace('&', '_').replace(')', '_');
+			string = string.replaceAll(regex, "").replace(' ', '_').replace(';', '_').replace('/', '_').replace('(', '_').replace('.', '_').replace('-', '_').replace(':',  '_').replace(',', '_').replace('&', '_').replace(')', '_').replaceAll("\u2122", "_TM_").replaceAll("[^\\w\\xAE\\xA9~. -]", "_TM_");
 			//string = string.replaceAll("__", "_");
 			if( convertToUpper ){
 				string = string.toUpperCase();

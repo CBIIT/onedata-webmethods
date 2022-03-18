@@ -37,6 +37,9 @@ public final class excelXML
 		// [i] recref:0:required row nci.als.docs:row
 		// [i] field:0:required dataValue
 		// [i] field:0:optional StyleID
+		// [i] field:0:optional Index
+		// [i] field:0:optional Formula
+		// [i] field:0:optional cellType
 		// [o] recref:0:required row nci.als.docs:row
 		// [o] recref:0:required Cell nci.als.docs:cell
 		// pipeline
@@ -54,8 +57,13 @@ public final class excelXML
 		}
 		String	dataValue = IDataUtil.getString( pipelineCursor, "dataValue" );
 		String	StyleID = IDataUtil.getString( pipelineCursor, "StyleID" );
+		String  Index = IDataUtil.getString(pipelineCursor,"Index");
+		String  Formula = IDataUtil.getString(pipelineCursor,"Formula");
+		String  cellType = IDataUtil.getString(pipelineCursor, "cellType");
 		if(StyleID == null)
 			StyleID = "Default";
+		if(cellType == null)
+			cellType = "String";
 		pipelineCursor.destroy();
 		
 		// row
@@ -73,14 +81,20 @@ public final class excelXML
 		IData Celli = IDataFactory.create();
 		IDataCursor CelliCursor = Celli.getCursor();
 		IDataUtil.put( CelliCursor, "@ss:StyleID", StyleID );
+		if( Index != null)
+			IDataUtil.put(CelliCursor, "@ss:Index", Index);
+		if( Formula != null)
+			IDataUtil.put(CelliCursor, "@ss:Formula", Formula);
 		
 		// Cell.Data
-		IData celldata = IDataFactory.create();
-		IDataCursor celldataCursor = celldata.getCursor();
-		IDataUtil.put( celldataCursor, "@ss:Type", "String" );
-		IDataUtil.put( celldataCursor, "*body", dataValue );
-		celldataCursor.destroy();
-		IDataUtil.put( CelliCursor, "Data", celldata );
+		if( dataValue != null ){
+			IData celldata = IDataFactory.create();
+			IDataCursor celldataCursor = celldata.getCursor();
+			IDataUtil.put( celldataCursor, "@ss:Type", cellType );
+			IDataUtil.put( celldataCursor, "*body", dataValue );
+			celldataCursor.destroy();
+			IDataUtil.put( CelliCursor, "Data", celldata );
+		}
 		CelliCursor.destroy();
 		
 		//Input Cell as been built
