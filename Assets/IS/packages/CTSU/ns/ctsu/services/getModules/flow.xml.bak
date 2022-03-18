@@ -488,6 +488,17 @@
                 <value name="form_qualified">false</value>
                 <value name="is_global">false</value>
               </record>
+              <record javaclass="com.wm.util.Values">
+                <value name="node_type">unknown</value>
+                <value name="node_subtype">unknown</value>
+                <value name="is_public">false</value>
+                <value name="field_name">ITEM_NM</value>
+                <value name="field_type">string</value>
+                <value name="field_dim">0</value>
+                <value name="nillable">true</value>
+                <value name="form_qualified">false</value>
+                <value name="is_global">false</value>
+              </record>
             </array>
             <value name="modifiable">true</value>
           </record>
@@ -979,6 +990,17 @@
                 <value name="node_subtype">unknown</value>
                 <value name="is_public">false</value>
                 <value name="field_name">P_ITEM_ID</value>
+                <value name="field_type">string</value>
+                <value name="field_dim">0</value>
+                <value name="nillable">true</value>
+                <value name="form_qualified">false</value>
+                <value name="is_global">false</value>
+              </record>
+              <record javaclass="com.wm.util.Values">
+                <value name="node_type">unknown</value>
+                <value name="node_subtype">unknown</value>
+                <value name="is_public">false</value>
+                <value name="field_name">ITEM_NM</value>
                 <value name="field_type">string</value>
                 <value name="field_dim">0</value>
                 <value name="nillable">true</value>
@@ -1619,9 +1641,6 @@
 </MAPCOPY>
 
 <MAPCOPY FROM="/selectVW_NCI_FORM_MODULEOutput;2;0/results;2;0/DISP_ORD;1;0" TO="/modules;4;0;ctsu.docs:module/displayOrder;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/selectVW_NCI_FORM_MODULEOutput;2;0/results;2;0/REP_NO;1;0" TO="/modules;4;0;ctsu.docs:module/questionRepeat;1;0">
 </MAPCOPY>
 
 <MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/ITEM_DESC;1;0" TO="/modules;4;0;ctsu.docs:module/preferredDefinition;1;0">
@@ -3396,6 +3415,9 @@
 
 <MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/ORIGIN_ID_DN;1;0" TO="/modules;4;0;ctsu.docs:module/origin;1;0">
 </MAPCOPY>
+
+<MAPCOPY FROM="/selectVW_NCI_FORM_MODULEOutput;2;0/results;2;0/REP_NO;1;0" TO="/modules;4;0;ctsu.docs:module/maximumQuestionRepeat;1;0">
+</MAPCOPY>
 </MAP>
 
 <INVOKE TIMEOUT="" SERVICE="onedata.jdbc:selectNCI_ADMIN_ITEM_REL" VALIDATE-IN="$none" VALIDATE-OUT="$none">
@@ -3499,7 +3521,7 @@
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
-  <value name="xml">p_item_id = %selectAdministeredItemOutput/results[0]/ITEM_ID% and p_item_ver_nr = %selectAdministeredItemOutput/results[0]/VER_NR%</value>
+  <value name="xml">c_item_id = %selectAdministeredItemOutput/results[0]/ITEM_ID% and c_item_ver_nr = %selectAdministeredItemOutput/results[0]/VER_NR%</value>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">unknown</value>
     <value name="node_subtype">unknown</value>
@@ -6249,6 +6271,17 @@ VER_NR = %selectVW_NCI_FORM_MODULEOutput/results/VER_NR%</value>
                 <value name="form_qualified">false</value>
                 <value name="is_global">false</value>
               </record>
+              <record javaclass="com.wm.util.Values">
+                <value name="node_type">unknown</value>
+                <value name="node_subtype">unknown</value>
+                <value name="is_public">false</value>
+                <value name="field_name">ITEM_NM</value>
+                <value name="field_type">string</value>
+                <value name="field_dim">0</value>
+                <value name="nillable">true</value>
+                <value name="form_qualified">false</value>
+                <value name="is_global">false</value>
+              </record>
             </array>
             <value name="modifiable">true</value>
           </record>
@@ -6862,6 +6895,17 @@ VER_NR = %selectVW_NCI_FORM_MODULEOutput/results/VER_NR%</value>
                 <value name="node_subtype">unknown</value>
                 <value name="is_public">false</value>
                 <value name="field_name">P_ITEM_ID</value>
+                <value name="field_type">string</value>
+                <value name="field_dim">0</value>
+                <value name="nillable">true</value>
+                <value name="form_qualified">false</value>
+                <value name="is_global">false</value>
+              </record>
+              <record javaclass="com.wm.util.Values">
+                <value name="node_type">unknown</value>
+                <value name="node_subtype">unknown</value>
+                <value name="is_public">false</value>
+                <value name="field_name">ITEM_NM</value>
                 <value name="field_type">string</value>
                 <value name="field_dim">0</value>
                 <value name="nillable">true</value>
