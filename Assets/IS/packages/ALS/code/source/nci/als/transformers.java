@@ -29,35 +29,6 @@ public final class transformers
 
 
 
-	public static final void VV2array (IData pipeline)
-        throws ServiceException
-	{
-		// --- <<IS-START(VV2array)>> ---
-		// @sigtype java 3.5
-		// [i] field:0:required inString
-		// [i] field:0:required delimiter
-		// [o] field:1:required stringList
-		// pipeline
-		IDataCursor pipelineCursor = pipeline.getCursor();
-			String	inString = IDataUtil.getString( pipelineCursor, "inString" );
-			String[] stringList = {"init"};
-		
-		// pipeline
-		if(inString!=null){
-			stringList = inString.split("\\|\\|");
-		}
-		IDataUtil.put( pipelineCursor, "stringList", stringList );
-		pipelineCursor.destroy();
-		
-		
-			
-		// --- <<IS-END>> ---
-
-                
-	}
-
-
-
 	public static final void codedDataReplacementRule (IData pipeline)
         throws ServiceException
 	{
