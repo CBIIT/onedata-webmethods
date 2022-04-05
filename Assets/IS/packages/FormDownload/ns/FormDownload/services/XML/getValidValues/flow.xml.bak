@@ -106,7 +106,7 @@
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
-  <value name="xml">Q_PUB_ID = %ITEM_ID% and Q_VER_NR = %VER_NR% ORDER BY DISP_ORD</value>
+  <value name="xml">Q_PUB_ID = %ITEM_ID% and Q_VER_NR = %VER_NR% ORDER BY DISP_ORD and fld_delete=0</value>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">unknown</value>
     <value name="node_subtype">unknown</value>
@@ -1532,7 +1532,7 @@
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
-  <value name="xml">SRC_PUB_ID = %selectNCI_QUEST_VALID_VALUEOutput/results/NCI_PUB_ID% and SRC_VER_NR = %selectNCI_QUEST_VALID_VALUEOutput/results/NCI_VER_NR%</value>
+  <value name="xml">SRC_PUB_ID = %selectNCI_QUEST_VALID_VALUEOutput/results/NCI_PUB_ID% and SRC_VER_NR = %selectNCI_QUEST_VALID_VALUEOutput/results/NCI_VER_NR% and fld_delete=0</value>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">unknown</value>
     <value name="node_subtype">unknown</value>
@@ -1854,9 +1854,9 @@
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
-  <value name="xml">MOD_ITEM_ID=%selectNCI_FORM_TAOutput/results[0]/TRGT_PUB_ID% AND MOD_VER_NR=%selectNCI_FORM_TAOutput/results[0]/TRGT_VER_NR%</value>
+  <value name="xml">MOD_ITEM_ID=%selectNCI_FORM_TAOutput/results[0]/TRGT_PUB_ID% AND MOD_VER_NR=%selectNCI_FORM_TAOutput/results[0]/TRGT_VER_NR% and fld_delete=0</value>
   <record name="type" javaclass="com.wm.util.Values">
-    <value name="node_type">record</value>
+    <value name="node_type">unknown</value>
     <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_name">whereclause</value>
@@ -3216,6 +3216,21 @@
 
 <MAPDELETE FIELD="/selectVW_NCI_FORM_FLATOutput;2;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/MOD_DISP_ORD;1;0" TO="/validValue;4;0;FormDownload.docs:validValueXML/triggerAction;2;0/targetModuleDisplayOrder;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/MOD_ITEM_NM;1;0" TO="/validValue;4;0;FormDownload.docs:validValueXML/triggerAction;2;0/targetModuleName;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/QUEST_DISP_ORD;1;0" TO="/validValue;4;0;FormDownload.docs:validValueXML/triggerAction;2;0/targetQuestionDisplayOrder;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/DE_ITEM_ID;1;0" TO="/validValue;4;0;FormDownload.docs:validValueXML/triggerAction;2;0/targetDataElementPublicID;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/MOD_ITEM_ID;1;0" TO="/validValue;4;0;FormDownload.docs:validValueXML/triggerAction;2;0/targetModulePublicId;1;0">
+</MAPCOPY>
 </MAP>
 </SEQUENCE>
 
@@ -3336,9 +3351,9 @@
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
-  <value name="xml">QUEST_ITEM_ID=%selectNCI_FORM_TAOutput/results[0]/TRGT_PUB_ID% AND QUEST_VER_NR=%selectNCI_FORM_TAOutput/results[0]/TRGT_VER_NR%</value>
+  <value name="xml">QUEST_ITEM_ID=%selectNCI_FORM_TAOutput/results[0]/TRGT_PUB_ID% AND QUEST_VER_NR=%selectNCI_FORM_TAOutput/results[0]/TRGT_VER_NR% and fld_delete=0</value>
   <record name="type" javaclass="com.wm.util.Values">
-    <value name="node_type">record</value>
+    <value name="node_type">unknown</value>
     <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_name">whereclause</value>
@@ -3685,145 +3700,6 @@
     <value name="form_qualified">false</value>
     <value name="is_global">false</value>
     <array name="rec_fields" type="record" depth="1">
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">selectVW_NCI_FORM_FLATOutput</value>
-        <value name="field_type">record</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <array name="rec_fields" type="record" depth="1">
-          <record javaclass="com.wm.util.Values">
-            <value name="node_type">unknown</value>
-            <value name="node_subtype">unknown</value>
-            <value name="is_public">false</value>
-            <value name="field_name">SQLStatement</value>
-            <value name="field_type">string</value>
-            <value name="field_dim">0</value>
-            <value name="nillable">true</value>
-            <value name="form_qualified">false</value>
-            <value name="is_global">false</value>
-          </record>
-          <record javaclass="com.wm.util.Values">
-            <value name="node_type">unknown</value>
-            <value name="node_subtype">unknown</value>
-            <value name="is_public">false</value>
-            <value name="field_name">sqlResult</value>
-            <value name="field_type">string</value>
-            <value name="field_dim">0</value>
-            <value name="nillable">true</value>
-            <value name="form_qualified">false</value>
-            <value name="is_global">false</value>
-          </record>
-          <record javaclass="com.wm.util.Values">
-            <value name="node_type">record</value>
-            <value name="node_subtype">unknown</value>
-            <value name="is_public">false</value>
-            <value name="field_name">results</value>
-            <value name="field_type">record</value>
-            <value name="field_dim">1</value>
-            <value name="nillable">true</value>
-            <value name="form_qualified">false</value>
-            <value name="is_global">false</value>
-            <value name="is_soap_array_encoding_used">false</value>
-            <array name="rec_fields" type="record" depth="1">
-              <record javaclass="com.wm.util.Values">
-                <value name="node_type">unknown</value>
-                <value name="node_subtype">unknown</value>
-                <value name="is_public">false</value>
-                <value name="field_name">MOD_ITEM_ID</value>
-                <value name="field_type">string</value>
-                <value name="field_dim">0</value>
-                <value name="nillable">true</value>
-                <value name="form_qualified">false</value>
-                <value name="is_global">false</value>
-              </record>
-              <record javaclass="com.wm.util.Values">
-                <value name="node_type">unknown</value>
-                <value name="node_subtype">unknown</value>
-                <value name="is_public">false</value>
-                <value name="field_name">MOD_VER_NR</value>
-                <value name="field_type">string</value>
-                <value name="field_dim">0</value>
-                <value name="nillable">true</value>
-                <value name="form_qualified">false</value>
-                <value name="is_global">false</value>
-              </record>
-              <record javaclass="com.wm.util.Values">
-                <value name="node_type">unknown</value>
-                <value name="node_subtype">unknown</value>
-                <value name="is_public">false</value>
-                <value name="field_name">DE_ITEM_ID</value>
-                <value name="field_type">string</value>
-                <value name="field_dim">0</value>
-                <value name="nillable">true</value>
-                <value name="form_qualified">false</value>
-                <value name="is_global">false</value>
-              </record>
-              <record javaclass="com.wm.util.Values">
-                <value name="node_type">unknown</value>
-                <value name="node_subtype">unknown</value>
-                <value name="is_public">false</value>
-                <value name="field_name">DE_VER_NR</value>
-                <value name="field_type">string</value>
-                <value name="field_dim">0</value>
-                <value name="nillable">true</value>
-                <value name="form_qualified">false</value>
-                <value name="is_global">false</value>
-              </record>
-              <record javaclass="com.wm.util.Values">
-                <value name="node_type">unknown</value>
-                <value name="node_subtype">unknown</value>
-                <value name="is_public">false</value>
-                <value name="field_name">QUEST_DISP_ORD</value>
-                <value name="field_type">string</value>
-                <value name="field_dim">0</value>
-                <value name="nillable">true</value>
-                <value name="form_qualified">false</value>
-                <value name="is_global">false</value>
-              </record>
-              <record javaclass="com.wm.util.Values">
-                <value name="node_type">unknown</value>
-                <value name="node_subtype">unknown</value>
-                <value name="is_public">false</value>
-                <value name="field_name">MOD_DISP_ORD</value>
-                <value name="field_type">string</value>
-                <value name="field_dim">0</value>
-                <value name="nillable">true</value>
-                <value name="form_qualified">false</value>
-                <value name="is_global">false</value>
-              </record>
-              <record javaclass="com.wm.util.Values">
-                <value name="node_type">unknown</value>
-                <value name="node_subtype">unknown</value>
-                <value name="is_public">false</value>
-                <value name="field_name">MOD_REP_NO</value>
-                <value name="field_type">string</value>
-                <value name="field_dim">0</value>
-                <value name="nillable">true</value>
-                <value name="form_qualified">false</value>
-                <value name="is_global">false</value>
-              </record>
-              <record javaclass="com.wm.util.Values">
-                <value name="node_type">unknown</value>
-                <value name="node_subtype">unknown</value>
-                <value name="is_public">false</value>
-                <value name="field_name">MOD_ITEM_NM</value>
-                <value name="field_type">string</value>
-                <value name="field_dim">0</value>
-                <value name="nillable">true</value>
-                <value name="form_qualified">false</value>
-                <value name="is_global">false</value>
-              </record>
-            </array>
-            <value name="modifiable">true</value>
-          </record>
-        </array>
-        <value name="modifiable">true</value>
-      </record>
     </array>
     <value name="modifiable">true</value>
   </record>
@@ -3831,21 +3707,6 @@
 </MAPSOURCE>
 
   <!-- nodes -->
-
-<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/MOD_ITEM_ID;1;0" TO="/validValue;4;0;FormDownload.docs:validValueXML/triggerAction;2;0/targetModulePublicId;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/MOD_ITEM_NM;1;0" TO="/validValue;4;0;FormDownload.docs:validValueXML/triggerAction;2;0/targetModuleName;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/MOD_DISP_ORD;1;0" TO="/validValue;4;0;FormDownload.docs:validValueXML/triggerAction;2;0/targetModuleDisplayOrder;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/QUEST_DISP_ORD;1;0" TO="/validValue;4;0;FormDownload.docs:validValueXML/triggerAction;2;0/targetQuestionDisplayOrder;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/DE_ITEM_ID;1;0" TO="/validValue;4;0;FormDownload.docs:validValueXML/triggerAction;2;0/targetDataElementPublicID;1;0">
-</MAPCOPY>
 
 <MAPDELETE FIELD="/selectVW_NCI_FORM_FLATInput;2;0">
 </MAPDELETE>
@@ -4647,6 +4508,21 @@
 
 <MAPDELETE FIELD="/selectVW_NCI_FORM_FLATOutput;2;0">
 </MAPDELETE>
+
+<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/MOD_DISP_ORD;1;0" TO="/validValue;4;0;FormDownload.docs:validValueXML/triggerAction;2;0/targetModuleDisplayOrder;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/MOD_ITEM_NM;1;0" TO="/validValue;4;0;FormDownload.docs:validValueXML/triggerAction;2;0/targetModuleName;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/MOD_ITEM_ID;1;0" TO="/validValue;4;0;FormDownload.docs:validValueXML/triggerAction;2;0/targetModulePublicId;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/QUEST_DISP_ORD;1;0" TO="/validValue;4;0;FormDownload.docs:validValueXML/triggerAction;2;0/targetQuestionDisplayOrder;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/DE_ITEM_ID;1;0" TO="/validValue;4;0;FormDownload.docs:validValueXML/triggerAction;2;0/targetDataElementPublicID;1;0">
+</MAPCOPY>
 </MAP>
 </SEQUENCE>
 </BRANCH>
