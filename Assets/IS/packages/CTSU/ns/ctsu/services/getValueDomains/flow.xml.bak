@@ -106,7 +106,7 @@
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
-  <value name="xml">NCI_PUB_ID = %ITEM_ID% and NCI_VER_NR = %VER_NR%</value>
+  <value name="xml">NCI_PUB_ID = %ITEM_ID% and NCI_VER_NR = %VER_NR% and FLD_DELETE = 0</value>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">unknown</value>
     <value name="node_subtype">unknown</value>
@@ -352,7 +352,7 @@
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
-  <value name="xml">ITEM_ID = %selectNCI_ADMIN_ITEM_REL_ALT_KEYOutput/results/C_ITEM_ID% and VER_NR = %selectNCI_ADMIN_ITEM_REL_ALT_KEYOutput/results/C_ITEM_VER_NR%</value>
+  <value name="xml">ITEM_ID = %selectNCI_ADMIN_ITEM_REL_ALT_KEYOutput/results/C_ITEM_ID% and VER_NR = %selectNCI_ADMIN_ITEM_REL_ALT_KEYOutput/results/C_ITEM_VER_NR% and FLD_DELETE = 0</value>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">unknown</value>
     <value name="node_subtype">unknown</value>
@@ -1880,9 +1880,6 @@
 </MAPCOPY>
 
 <MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/ORIGIN_ID_DN;1;0" TO="/valueDomain;4;0;ctsu.docs:valueDomain/origin;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/NCI_IDSEQ;1;0" TO="/valueDomain;4;0;ctsu.docs:valueDomain/id;1;0">
 </MAPCOPY>
 
 <MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/ITEM_DESC;1;0" TO="/valueDomain;4;0;ctsu.docs:valueDomain/preferredDefinition;1;0">
@@ -6396,48 +6393,8 @@
 <MAPCOPY FROM="/selectVW_CNTXTOutput;2;0/results[0];2;1/ITEM_DESC;1;0" TO="/valueDomain;4;0;ctsu.docs:valueDomain/context;1;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/selectVALUE_DOMOutput;2;0/results[0];2;1/CHAR_SET_ID;1;0" TO="/valueDomain;4;0;ctsu.docs:valueDomain/charactersetName;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/selectDATA_TYPOutput;2;0/results[0];2;1/DTTYPE_DESC;1;0" TO="/valueDomain;4;0;ctsu.docs:valueDomain/datatypeDescription;1;0">
-</MAPCOPY>
-
 <MAPCOPY FROM="/selectDATA_TYPOutput;2;0/results[0];2;1/DTTYPE_NM;1;0" TO="/valueDomain;4;0;ctsu.docs:valueDomain/datatypeName;1;0">
 </MAPCOPY>
-
-<MAPCOPY FROM="/selectDATA_TYPOutput;2;0/results[0];2;1/DTTYPE_ANNTTN;1;0" TO="/valueDomain;4;0;ctsu.docs:valueDomain/datatypeAnnotation;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/selectDATA_TYPOutput;2;0/results[0];2;1/DTTYPE_SCHM_REF;1;0" TO="/valueDomain;4;0;ctsu.docs:valueDomain/datatypeSchemeReference;1;0">
-</MAPCOPY>
-
-<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/valueDomain;4;0;ctsu.docs:valueDomain/datatypeIsCodegenCompatible;1;0">
-  <DATA ENCODING="XMLValues" I18N="true">
-
-<Values version="2.0">
-  <value name="xml">No</value>
-  <record name="type" javaclass="com.wm.util.Values">
-    <value name="node_type">record</value>
-    <value name="node_subtype">unknown</value>
-    <value name="node_comment"></value>
-    <record name="node_hints" javaclass="com.wm.util.Values">
-      <value name="field_usereditable">true</value>
-      <value name="field_largerEditor">false</value>
-      <value name="field_password">false</value>
-    </record>
-    <value name="is_public">false</value>
-    <value name="field_name">datatypeIsCodegenCompatible</value>
-    <value name="field_type">string</value>
-    <value name="field_dim">0</value>
-    <array name="field_options" type="value" depth="1">
-    </array>
-    <value name="nillable">true</value>
-    <value name="form_qualified">false</value>
-    <value name="is_global">false</value>
-  </record>
-</Values>
-</DATA>
-</MAPSET>
 </MAP>
 
 <BRANCH TIMEOUT="" SWITCH="/selectVALUE_DOMOutput/results[0]/UOM_ID">

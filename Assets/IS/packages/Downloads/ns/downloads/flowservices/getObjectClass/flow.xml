@@ -162,6 +162,16 @@
 </MAP>
 </INVOKE>
 
+<BRANCH TIMEOUT="" SWITCH="/selectAdministeredItemOutput/results[0]/FLD_DELETE">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<SEQUENCE NAME="0" TIMEOUT="" EXIT-ON="FAILURE">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
 <MAP TIMEOUT="" MODE="STANDALONE">
   <COMMENT></COMMENT>
   <MAPTARGET>
@@ -1022,7 +1032,7 @@
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
-  <value name="xml">ITEM_ID = %item_id% and VER_NR = %ver_nr% ORDER BY NCI_ORD DESC</value>
+  <value name="xml">ITEM_ID = %item_id% and VER_NR = %ver_nr% and FLD_DELETE = 0 ORDER BY NCI_ORD DESC </value>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">unknown</value>
     <value name="node_subtype">unknown</value>
@@ -1891,6 +1901,8 @@
 </MAP>
 </INVOKE>
 </LOOP>
+</SEQUENCE>
+</BRANCH>
 
 <INVOKE TIMEOUT="" SERVICE="pub.flow:clearPipeline" VALIDATE-IN="$none" VALIDATE-OUT="$none">
   <COMMENT></COMMENT>

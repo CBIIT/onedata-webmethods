@@ -136,7 +136,8 @@ function findPreviousTabStop(el) {
         %rename ../text text -copy%
         %rename ../url url -copy%
         %rename ../target target -copy%
-
+        %ifvar url equals('non')%
+        %else%
         <tr>
           <td id="i%value encode(htmlattr) url%" %ifvar url -notempty%
             class="menuitem %value classname%"
@@ -151,6 +152,7 @@ function findPreviousTabStop(el) {
           %endif%
         </td>
       </tr>
+      %endif%
     %endscope%
     %endloop%
 %endloop%

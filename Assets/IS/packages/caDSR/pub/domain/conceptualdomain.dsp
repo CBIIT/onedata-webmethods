@@ -17,7 +17,6 @@
         </tr>
 %include datecreated.dsp%
 %include datemodified.dsp%	   	
-%include deletedindicator.dsp%
 %include enddate.dsp%
         <tr>
           <td class="oddrow"><label for="id">id</label></td>

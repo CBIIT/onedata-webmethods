@@ -10,7 +10,6 @@
         </tr>
 %include datecreated.dsp%
 %include datemodified.dsp%
-%include deletedindicator.dsp%
         <tr>
           <td class="oddrow"><label for="displayOrder">displayOrder</label></td>
           <td class="oddrow-l" width="90%">

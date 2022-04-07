@@ -28,7 +28,6 @@
             <input type="text" name="imodifiedBy" id="modifiedBy" class="formFieldSized ">
           </td>
         </tr>
-%include deletedindicator.dsp%
         <tr>
           <td class="oddrow"><label for="publicID">publicID</label></td>
           <td class="oddrow-l" width="90%">

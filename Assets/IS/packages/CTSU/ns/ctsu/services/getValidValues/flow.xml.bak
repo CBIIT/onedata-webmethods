@@ -251,6 +251,20 @@
 
   <!-- nodes -->
 
+<BRANCH TIMEOUT="" SWITCH="/selectNCI_QUEST_VALID_VALUEOutput/results/VAL_MEAN_ITEM_ID">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<SEQUENCE NAME="$null" TIMEOUT="" EXIT-ON="FAILURE">
+  <COMMENT></COMMENT>
+</SEQUENCE>
+
+<SEQUENCE NAME="$default" TIMEOUT="" EXIT-ON="FAILURE">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
 <INVOKE TIMEOUT="" SERVICE="onedata.jdbc:selectCNCPT_ADMIN_ITEM" VALIDATE-IN="$none" VALIDATE-OUT="$none">
   <COMMENT></COMMENT>
 
@@ -525,16 +539,6 @@
 </MAPDELETE>
 </MAP>
 </INVOKE>
-
-<BRANCH TIMEOUT="" LABELEXPRESSIONS="true">
-  <COMMENT></COMMENT>
-
-  <!-- nodes -->
-
-<MAP NAME="%selectCNCPT_ADMIN_ITEMOutput/sqlResult% != 0" TIMEOUT="" MODE="STANDALONE">
-  <COMMENT></COMMENT>
-</MAP>
-</BRANCH>
 
 <INVOKE TIMEOUT="" SERVICE="onedata.jdbc:selectAdministeredItemByItem_IDandVER_NR" VALIDATE-IN="$none" VALIDATE-OUT="$none">
   <COMMENT></COMMENT>
@@ -1131,6 +1135,8 @@
 </MAPDELETE>
 </MAP>
 </INVOKE>
+</SEQUENCE>
+</BRANCH>
 
 <MAP TIMEOUT="" MODE="STANDALONE">
   <COMMENT></COMMENT>

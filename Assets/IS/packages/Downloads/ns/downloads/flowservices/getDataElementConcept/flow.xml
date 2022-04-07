@@ -106,7 +106,7 @@
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
-  <value name="xml">ITEM_ID = %item_id% and VER_NR = %ver_nr%</value>
+  <value name="xml">ITEM_ID = %item_id% and VER_NR = %ver_nr% and FLD_DELETE = 0</value>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">unknown</value>
     <value name="node_subtype">unknown</value>
@@ -245,6 +245,16 @@
 </MAPDELETE>
 </MAP>
 </INVOKE>
+
+<BRANCH TIMEOUT="" SWITCH="/selectDE_CONCOutput/sqlResult">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<SEQUENCE NAME="1" TIMEOUT="" EXIT-ON="FAILURE">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
 
 <INVOKE TIMEOUT="" SERVICE="onedata.jdbc:selectAdministeredItemByItem_IDandVER_NR" VALIDATE-IN="$none" VALIDATE-OUT="$none">
   <COMMENT></COMMENT>
@@ -560,6 +570,16 @@
 </MAPDELETE>
 </MAP>
 </INVOKE>
+
+<BRANCH TIMEOUT="" SWITCH="/selectAdministeredItemOutput/results[0]/FLD_DELETE">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<SEQUENCE NAME="0" TIMEOUT="" EXIT-ON="FAILURE">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
 
 <MAP TIMEOUT="" MODE="STANDALONE">
   <COMMENT></COMMENT>
@@ -3215,8 +3235,12 @@
 </MAPDELETE>
 </MAP>
 </INVOKE>
+</SEQUENCE>
+</BRANCH>
+</SEQUENCE>
+</BRANCH>
 
-<INVOKE TIMEOUT="" SERVICE="pub.flow:clearPipeline" VALIDATE-IN="$none" VALIDATE-OUT="$none" DISABLED="true">
+<INVOKE TIMEOUT="" SERVICE="pub.flow:clearPipeline" VALIDATE-IN="$none" VALIDATE-OUT="$none">
   <COMMENT></COMMENT>
 
   <!-- nodes -->
@@ -3232,6 +3256,7 @@
     <value name="field_name">clearPipelineInput</value>
     <value name="field_type">record</value>
     <value name="field_dim">0</value>
+    <value name="wrapper_type">IData</value>
     <value name="nillable">true</value>
     <value name="form_qualified">false</value>
     <value name="is_global">false</value>
