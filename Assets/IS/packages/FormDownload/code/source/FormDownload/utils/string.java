@@ -49,5 +49,32 @@ public final class string
 
                 
 	}
+
+
+
+	public static final void appendHeaderMDR (IData pipeline)
+        throws ServiceException
+	{
+		// --- <<IS-START(appendHeaderMDR)>> ---
+		// @sigtype java 3.5
+		// [i] field:1:required protocolList
+		// [o] field:0:required headerString
+		IDataCursor cursor = pipeline.getCursor();
+		String [] protocolList = IDataUtil.getStringArray(cursor, "protocolList");
+		String firstHeaders = "Context";
+		String lastHeaders = ",Form Long Name,Form Definition,Public ID,Version,Workflow,Type,Header Instructions,Footer Instructions,caDSR RAI";
+		StringBuffer headerString = new StringBuffer();
+		headerString.append(firstHeaders);
+		for (int i=0; i<protocolList.length ; i++)
+		{
+			headerString.append(",Protocol Long Name");
+		}
+		headerString.append(lastHeaders);
+		IDataUtil.put(cursor,  "headerString",  headerString.toString());
+		cursor.destroy();
+		// --- <<IS-END>> ---
+
+                
+	}
 }
 
