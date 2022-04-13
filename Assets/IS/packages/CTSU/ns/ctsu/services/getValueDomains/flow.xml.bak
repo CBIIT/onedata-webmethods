@@ -251,6 +251,20 @@
 
   <!-- nodes -->
 
+<BRANCH TIMEOUT="" SWITCH="/selectNCI_ADMIN_ITEM_REL_ALT_KEYOutput/results/C_ITEM_ID">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<SEQUENCE NAME="$null" TIMEOUT="" EXIT-ON="FAILURE">
+  <COMMENT></COMMENT>
+</SEQUENCE>
+
+<SEQUENCE NAME="$default" TIMEOUT="" EXIT-ON="FAILURE">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
 <INVOKE TIMEOUT="" SERVICE="onedata.jdbc:selectDE" VALIDATE-IN="$none" VALIDATE-OUT="$none">
   <COMMENT></COMMENT>
 
@@ -9606,6 +9620,8 @@
 </MAP>
 </INVOKE>
 </LOOP>
+</SEQUENCE>
+</BRANCH>
 </LOOP>
 
 <INVOKE TIMEOUT="" SERVICE="pub.flow:clearPipeline" VALIDATE-IN="$none" VALIDATE-OUT="$none">

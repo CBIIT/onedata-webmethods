@@ -292,6 +292,16 @@
 </MAP>
 </INVOKE>
 
+<BRANCH TIMEOUT="" SWITCH="/selectAdministeredItemOutput/results[0]/FLD_DELETE">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<SEQUENCE NAME="0" TIMEOUT="" EXIT-ON="FAILURE">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
 <INVOKE TIMEOUT="" SERVICE="onedata.jdbc:selectDE" VALIDATE-IN="$none" VALIDATE-OUT="$none">
   <COMMENT></COMMENT>
 
@@ -1496,7 +1506,7 @@
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
-  <value name="xml">ITEM_ID = %selectDEOutput/results[0]/DE_CONC_ITEM_ID% AND VER_NR = %selectDEOutput/results[0]/DE_CONC_VER_NR%</value>
+  <value name="xml">ITEM_ID = %selectDEOutput/results[0]/DE_CONC_ITEM_ID% AND VER_NR = %selectDEOutput/results[0]/DE_CONC_VER_NR% and FLD_DELETE = 0</value>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">unknown</value>
     <value name="node_subtype">unknown</value>
@@ -1624,6 +1634,16 @@
 </MAPDELETE>
 </MAP>
 </INVOKE>
+
+<BRANCH TIMEOUT="" SWITCH="/selectDE_CONCOutput/sqlResult">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<SEQUENCE NAME="1" TIMEOUT="" EXIT-ON="FAILURE">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
 
 <INVOKE TIMEOUT="" SERVICE="downloads.flowservices:getConcept" VALIDATE-IN="$none" VALIDATE-OUT="$none">
   <COMMENT></COMMENT>
@@ -4680,6 +4700,10 @@
 </MAPDELETE>
 </MAP>
 </INVOKE>
+</SEQUENCE>
+</BRANCH>
+</SEQUENCE>
+</BRANCH>
 
 <INVOKE TIMEOUT="" SERVICE="pub.flow:clearPipeline" VALIDATE-IN="$none" VALIDATE-OUT="$none">
   <COMMENT></COMMENT>
