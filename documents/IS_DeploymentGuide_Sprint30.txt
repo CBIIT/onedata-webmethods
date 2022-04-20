@@ -1,0 +1,79 @@
+Sprint 30 IS Deployment Guide
+1.	Log in to the remote server where Integration Server is installed.
+
+2.	Switch to the saguser account
+sudo su - saguser
+
+3.	Remove the existing onedata-webmethods directory. Skip if it does not exist.
+rm -rf onedata-webmethods
+
+4.	Clone a new repository
+git clone -b "master" https://github.com/CBIIT/onedata-webmethods.git
+
+5.	Switch to the build directory:
+cd build
+pwd
+  /local/home/saguser/build
+
+6.	Four build steps: the composites, the project, deployment, get the report
+Note: errors related to PrettyPrint are OK.
+Note: change the deployer password value <admin-password> as necessary
+
+./build.sh -b -DprojectName=Sprint30
+./build.sh -p -DprojectName=Sprint30 -DdeployerPassword=<admin-password>
+./build.sh -o -DprojectName=Sprint30 -DdeployerPassword=<admin-password>
+./build.sh -r -DprojectName=Sprint30 -DdeployerPassword=<admin-password>
+
+7.	Log in to the Integration Server Administrator UI. Navigate to Packages > Management.
+
+8.	
+Reload any package which has "Warnings" in "Loaded" column.
+Reload each package listed here and check attributes "Version" and "Elements Loaded" in "Package Information".
+
+"Elements Loaded" shall be greater than 0: 
+
+caDSR	1.30
+Downloads 1.30
+
+
+9.	Expand the Security tab from the left menu. Select ACLs.
+Security > Access Control Lists
+
+10.	Using the center drop-down "Select ACL", review the following ACLs and ensure that the correct group associations are allowed and the resulting users are granted access. 
+Use "Add" button dialogue under "Allowed" box to add any missing Role/Group.
+Note: after adding any missing group associations, be sure to click "Save Changes" before selecting a new ACL.
+Note: If a package was reloaded, check ACLs again.
+
+ALSiHOOK:
+  local/Administrators,
+  local/Developers,
+  local/iHook,
+  local/onedata,
+  system/My webMethods Administrators
+Resulting local users with access:
+  Administrators, Developers, emailUser, onedata
+
+onedata:
+  local/onedata
+Resulting local users with access:
+  emailUser, onedata
+
+11.	Perform Smoke Tests (see Appendix A).
+
+Appendix A
+Smoke Tests
+1) Check all elements loaded as expected.
+Note: if elements are not loaded, from the IS Administrator UI, navigate to Packages > Management. Find the package from the list and click on the 'Reload' icon. After a few moments, check to see that the elements loaded.
+2) Execute the following URL to test CTSU API, where <tier>= stage or prod:
+cadsrapi-<tier>.cancer.gov/invoke/caDSR/GetXML?query=DataElement[@publicId=62]
+Stage URL:
+https://cadsrapi-stage.cancer.gov/invoke/caDSR/GetXML?query=DataElement[@publicId=62]
+Prod URL:
+https://cadsrapi.cancer.gov/invoke/caDSR/GetXML?query=DataElement[@publicId=62]
+3) Execute the following URL to test the NCIPortal API, where
+<protocol>://<host>/NCIAPIPortal/listAPIs
+Stage URL:
+https://cadsrapi-stage.cancer.gov/NCIAPIPortal/listAPIs
+Prod URL:
+https://cadsrapi.cancer.gov/NCIAPIPortal/listAPIs
+
