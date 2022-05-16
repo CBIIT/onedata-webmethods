@@ -18612,7 +18612,7 @@ If you have any issues with this file please contact the person who sent you the
 </MAPINVOKE>
 </MAP>
 
-<INVOKE TIMEOUT="" SERVICE="FormDownload.db:updateNCI_DLOAD_HDR" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+<INVOKE TIMEOUT="" SERVICE="onedata.jdbc:updateNCI_DLOAD_HDR" VALIDATE-IN="$none" VALIDATE-OUT="$none">
   <COMMENT></COMMENT>
 
   <!-- nodes -->
@@ -18661,7 +18661,7 @@ If you have any issues with this file please contact the person who sent you the
             <value name="node_type">unknown</value>
             <value name="node_subtype">unknown</value>
             <value name="is_public">false</value>
-            <value name="field_name">FILE_NM</value>
+            <value name="field_name">HDR_ID_1</value>
             <value name="field_type">string</value>
             <value name="field_dim">0</value>
             <value name="nillable">true</value>
@@ -18672,8 +18672,8 @@ If you have any issues with this file please contact the person who sent you the
             <value name="node_type">unknown</value>
             <value name="node_subtype">unknown</value>
             <value name="is_public">false</value>
-            <value name="field_name">FILE_BLOB</value>
-            <value name="field_type">object</value>
+            <value name="field_name">FILE_NM</value>
+            <value name="field_type">string</value>
             <value name="field_dim">0</value>
             <value name="nillable">true</value>
             <value name="form_qualified">false</value>
@@ -18694,9 +18694,10 @@ If you have any issues with this file please contact the person who sent you the
             <value name="node_type">unknown</value>
             <value name="node_subtype">unknown</value>
             <value name="is_public">false</value>
-            <value name="field_name">HDR_ID</value>
-            <value name="field_type">string</value>
+            <value name="field_name">FILE_BLOB</value>
+            <value name="field_type">object</value>
             <value name="field_dim">0</value>
+            <value name="wrapper_type">byte []</value>
             <value name="nillable">true</value>
             <value name="form_qualified">false</value>
             <value name="is_global">false</value>
@@ -19066,9 +19067,6 @@ If you have any issues with this file please contact the person who sent you the
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/HDR_ID;1;0" TO="/updateNCI_DLOAD_HDRInput;2;0/HDR_ID;1;0">
-</MAPCOPY>
-
 <MAPCOPY FROM="/workbookName;1;0" TO="/updateNCI_DLOAD_HDRInput;2;0/FILE_NM;1;0">
 </MAPCOPY>
 
@@ -19076,6 +19074,9 @@ If you have any issues with this file please contact the person who sent you the
 </MAPCOPY>
 
 <MAPCOPY FROM="/fileByteArray;3;0" TO="/updateNCI_DLOAD_HDRInput;2;0/FILE_BLOB;3;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/HDR_ID;1;0" TO="/updateNCI_DLOAD_HDRInput;2;0/HDR_ID_1;1;0">
 </MAPCOPY>
 </MAP>
 
@@ -19108,7 +19109,7 @@ If you have any issues with this file please contact the person who sent you the
             <value name="node_type">unknown</value>
             <value name="node_subtype">unknown</value>
             <value name="is_public">false</value>
-            <value name="field_name">FILE_NM</value>
+            <value name="field_name">HDR_ID_1</value>
             <value name="field_type">string</value>
             <value name="field_dim">0</value>
             <value name="nillable">true</value>
@@ -19119,8 +19120,8 @@ If you have any issues with this file please contact the person who sent you the
             <value name="node_type">unknown</value>
             <value name="node_subtype">unknown</value>
             <value name="is_public">false</value>
-            <value name="field_name">FILE_BLOB</value>
-            <value name="field_type">object</value>
+            <value name="field_name">FILE_NM</value>
+            <value name="field_type">string</value>
             <value name="field_dim">0</value>
             <value name="nillable">true</value>
             <value name="form_qualified">false</value>
@@ -19141,8 +19142,8 @@ If you have any issues with this file please contact the person who sent you the
             <value name="node_type">unknown</value>
             <value name="node_subtype">unknown</value>
             <value name="is_public">false</value>
-            <value name="field_name">HDR_ID</value>
-            <value name="field_type">string</value>
+            <value name="field_name">FILE_BLOB</value>
+            <value name="field_type">object</value>
             <value name="field_dim">0</value>
             <value name="nillable">true</value>
             <value name="form_qualified">false</value>
@@ -19502,8 +19503,9 @@ If you have any issues with this file please contact the person who sent you the
             <value name="node_subtype">unknown</value>
             <value name="is_public">false</value>
             <value name="field_name">sqlResult</value>
-            <value name="field_type">string</value>
+            <value name="field_type">object</value>
             <value name="field_dim">0</value>
+            <value name="wrapper_type">java.lang.Integer</value>
             <value name="nillable">true</value>
             <value name="form_qualified">false</value>
             <value name="is_global">false</value>
@@ -19546,8 +19548,9 @@ If you have any issues with this file please contact the person who sent you the
             <value name="node_subtype">unknown</value>
             <value name="is_public">false</value>
             <value name="field_name">sqlResult</value>
-            <value name="field_type">string</value>
+            <value name="field_type">object</value>
             <value name="field_dim">0</value>
+            <value name="wrapper_type">java.lang.Integer</value>
             <value name="nillable">true</value>
             <value name="form_qualified">false</value>
             <value name="is_global">false</value>
