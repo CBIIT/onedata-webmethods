@@ -76,5 +76,26 @@ public final class string
 
                 
 	}
+
+
+
+	public static final void replaceSpecialChars (IData pipeline)
+        throws ServiceException
+	{
+		// --- <<IS-START(replaceSpecialChars)>> ---
+		// @sigtype java 3.5
+		// [i] field:0:required inputString
+		// [o] field:0:required outputString
+		// pipeline
+		IDataCursor pipelineCursor = pipeline.getCursor();
+		String	inputString = IDataUtil.getString( pipelineCursor, "inputString" );
+		inputString = inputString.replaceAll("[^a-zA-Z0-9]", "_");
+		IDataUtil.put( pipelineCursor, "outputString", inputString );
+		pipelineCursor.destroy();
+			
+		// --- <<IS-END>> ---
+
+                
+	}
 }
 
