@@ -547,6 +547,21 @@
 
 <MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/concept;4;0;downloads.docs:concept/conceptualDomain;4;0;downloads.docs:conceptualDomain/longName;1;0" TO="/DataElementList;4;0;downloads.cde.docs:xmlDocType/DataElementsList;2;0/DataElement;4;0;downloads.cde.docs:xmlDataElement/DATAELEMENTCONCEPT;2;0/ConceptualDomain;2;0/LongName;1;0">
 </MAPCOPY>
+
+<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/derivation_type;1;0" TO="/DataElementList;4;0;downloads.cde.docs:xmlDocType/DataElementsList;2;0/DataElement;4;0;downloads.cde.docs:xmlDataElement/DATAELEMENTDERIVATION;2;0/DerivationType;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/derivation_type;1;0" TO="/DataElementList;4;0;downloads.cde.docs:xmlDocType/DataElementsList;2;0/DataElement;4;0;downloads.cde.docs:xmlDataElement/DATAELEMENTDERIVATION;2;0/DerivationTypeDescription;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/derivation_method;1;0" TO="/DataElementList;4;0;downloads.cde.docs:xmlDocType/DataElementsList;2;0/DataElement;4;0;downloads.cde.docs:xmlDataElement/DATAELEMENTDERIVATION;2;0/Methods;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/derivation_rule;1;0" TO="/DataElementList;4;0;downloads.cde.docs:xmlDocType/DataElementsList;2;0/DataElement;4;0;downloads.cde.docs:xmlDataElement/DATAELEMENTDERIVATION;2;0/Rule;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/derivation_concat_char;1;0" TO="/DataElementList;4;0;downloads.cde.docs:xmlDocType/DataElementsList;2;0/DataElement;4;0;downloads.cde.docs:xmlDataElement/DATAELEMENTDERIVATION;2;0/ConcatenationCharacter;1;0">
+</MAPCOPY>
 </MAP>
 
 <LOOP TIMEOUT="" IN-ARRAY="/dataElements/objectClass/concepts" OUT-ARRAY="/DataElementList/DataElementsList/DataElement/DATAELEMENTCONCEPT/ObjectClass/ConceptDetails/ConceptDetails_ITEM">
@@ -1960,6 +1975,177 @@
 </MAPCOPY>
 
 <MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/classifications;4;0;downloads.docs:classification/schemeItemVersion;1;0" TO="/DataElementList;4;0;downloads.cde.docs:xmlDocType/DataElementsList;2;0/DataElement;4;0;downloads.cde.docs:xmlDataElement/CLASSIFICATIONSLIST;2;0/CLASSIFICATIONSLIST_ITEM;2;0/CsiVersion;1;0">
+</MAPCOPY>
+</MAP>
+</LOOP>
+
+<LOOP TIMEOUT="" IN-ARRAY="/dataElements/derivedDataElements" OUT-ARRAY="/DataElementList/DataElementsList/DataElement/DATAELEMENTDERIVATION/ComponentDataElementList/ComponentDataElementList_ITEM">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<MAP TIMEOUT="" MODE="STANDALONE">
+  <COMMENT></COMMENT>
+  <MAPTARGET>
+
+<Values version="2.0">
+  <record name="xml" javaclass="com.wm.util.Values">
+    <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
+    <value name="is_public">false</value>
+    <value name="field_type">record</value>
+    <value name="field_dim">0</value>
+    <value name="nillable">true</value>
+    <value name="form_qualified">false</value>
+    <value name="is_global">false</value>
+    <array name="rec_fields" type="record" depth="1">
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="node_comment"></value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+        </record>
+        <value name="is_public">false</value>
+        <value name="field_name">dataElements</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="wrapper_type">IData</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">downloads.docs:DataElement</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">DataElementList</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">downloads.cde.docs:xmlDocType</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">num</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+    </array>
+    <value name="modifiable">true</value>
+  </record>
+</Values>
+</MAPTARGET>
+  <MAPSOURCE>
+
+<Values version="2.0">
+  <record name="xml" javaclass="com.wm.util.Values">
+    <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
+    <value name="is_public">false</value>
+    <value name="field_type">record</value>
+    <value name="field_dim">0</value>
+    <value name="nillable">true</value>
+    <value name="form_qualified">false</value>
+    <value name="is_global">false</value>
+    <array name="rec_fields" type="record" depth="1">
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="node_comment"></value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+        </record>
+        <value name="is_public">false</value>
+        <value name="field_name">dataElements</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="wrapper_type">IData</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">downloads.docs:DataElement</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">DataElementList</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">downloads.cde.docs:xmlDocType</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">num</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">$iteration</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+    </array>
+    <value name="modifiable">true</value>
+  </record>
+</Values>
+</MAPSOURCE>
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/derivedDataElements;4;0;downloads.docs:derivedDataElement/publicId;1;0" TO="/DataElementList;4;0;downloads.cde.docs:xmlDocType/DataElementsList;2;0/DataElement;4;0;downloads.cde.docs:xmlDataElement/DATAELEMENTDERIVATION;2;0/ComponentDataElementList;2;0/ComponentDataElementList_ITEM;2;0/PublicId;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/derivedDataElements;4;0;downloads.docs:derivedDataElement/longName;1;0" TO="/DataElementList;4;0;downloads.cde.docs:xmlDocType/DataElementsList;2;0/DataElement;4;0;downloads.cde.docs:xmlDataElement/DATAELEMENTDERIVATION;2;0/ComponentDataElementList;2;0/ComponentDataElementList_ITEM;2;0/LongName;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/derivedDataElements;4;0;downloads.docs:derivedDataElement/version;1;0" TO="/DataElementList;4;0;downloads.cde.docs:xmlDocType/DataElementsList;2;0/DataElement;4;0;downloads.cde.docs:xmlDataElement/DATAELEMENTDERIVATION;2;0/ComponentDataElementList;2;0/ComponentDataElementList_ITEM;2;0/Version;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/derivedDataElements;4;0;downloads.docs:derivedDataElement/workflowStatus;1;0" TO="/DataElementList;4;0;downloads.cde.docs:xmlDocType/DataElementsList;2;0/DataElement;4;0;downloads.cde.docs:xmlDataElement/DATAELEMENTDERIVATION;2;0/ComponentDataElementList;2;0/ComponentDataElementList_ITEM;2;0/WorkflowStatus;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/derivedDataElements;4;0;downloads.docs:derivedDataElement/context;1;0" TO="/DataElementList;4;0;downloads.cde.docs:xmlDocType/DataElementsList;2;0/DataElement;4;0;downloads.cde.docs:xmlDataElement/DATAELEMENTDERIVATION;2;0/ComponentDataElementList;2;0/ComponentDataElementList_ITEM;2;0/ContextName;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/derivedDataElements;4;0;downloads.docs:derivedDataElement/displayOrder;1;0" TO="/DataElementList;4;0;downloads.cde.docs:xmlDocType/DataElementsList;2;0/DataElement;4;0;downloads.cde.docs:xmlDataElement/DATAELEMENTDERIVATION;2;0/ComponentDataElementList;2;0/ComponentDataElementList_ITEM;2;0/DisplayOrder;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/derivedDataElements;4;0;downloads.docs:derivedDataElement/preferredName;1;0" TO="/DataElementList;4;0;downloads.cde.docs:xmlDocType/DataElementsList;2;0/DataElement;4;0;downloads.cde.docs:xmlDataElement/DATAELEMENTDERIVATION;2;0/ComponentDataElementList;2;0/ComponentDataElementList_ITEM;2;0/PreferredName;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/derivedDataElements;4;0;downloads.docs:derivedDataElement/preferredDefinition;1;0" TO="/DataElementList;4;0;downloads.cde.docs:xmlDocType/DataElementsList;2;0/DataElement;4;0;downloads.cde.docs:xmlDataElement/DATAELEMENTDERIVATION;2;0/ComponentDataElementList;2;0/ComponentDataElementList_ITEM;2;0/PreferredDefinition;1;0">
 </MAPCOPY>
 </MAP>
 </LOOP>

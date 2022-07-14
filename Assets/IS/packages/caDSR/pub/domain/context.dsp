@@ -37,7 +37,7 @@
         <tr>
 	  <td class="oddrow"><label for="name">name</label></td>
 	  <td class="oddrow-l" width="90%">
-            <input type="text" name="iname" id="name">
+            <input type="text" name="ipreferredName" id="name">
 	  </td>
         </tr>
         <tr>
