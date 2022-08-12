@@ -15,7 +15,6 @@
       document.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"../css/layout-nonie.css\">");
     }
   </script>
-  <link rel="icon" HREF="favicon.ico" />
 </head>
 <body>
   <div><iframe class="top" src="top.dsp" id="top"></iframe></div>
