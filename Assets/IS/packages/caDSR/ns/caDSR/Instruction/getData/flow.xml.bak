@@ -3343,7 +3343,7 @@
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
-  <value name="xml">P_ITEM_ID = %tempkeys/ITEM_ID% and P_ITEM_VER_NR = %tempkeys/VER_NR%</value>
+  <value name="xml">C_ITEM_ID = %tempkeys/ITEM_ID% and C_ITEM_VER_NR = %tempkeys/VER_NR%</value>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">unknown</value>
     <value name="node_subtype">unknown</value>
@@ -3535,6 +3535,20 @@
 </INVOKE>
 
 <LOOP TIMEOUT="" IN-ARRAY="/selectNCI_ADMIN_ITEM_RELOutput/results">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<BRANCH TIMEOUT="" SWITCH="/selectNCI_ADMIN_ITEM_RELOutput/results/INSTR">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<SEQUENCE NAME="$null" TIMEOUT="" EXIT-ON="FAILURE">
+  <COMMENT></COMMENT>
+</SEQUENCE>
+
+<SEQUENCE NAME="$default" TIMEOUT="" EXIT-ON="FAILURE">
   <COMMENT></COMMENT>
 
   <!-- nodes -->
@@ -4548,6 +4562,8 @@
 </MAPDELETE>
 </MAP>
 </INVOKE>
+</SEQUENCE>
+</BRANCH>
 </LOOP>
 </SEQUENCE>
 
