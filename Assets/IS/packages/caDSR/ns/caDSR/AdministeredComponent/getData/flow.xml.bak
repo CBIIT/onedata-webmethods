@@ -291,7 +291,12 @@
 </MAP>
 </INVOKE>
 
-<LOOP TIMEOUT="" IN-ARRAY="/selectADMIN_ITEMOutput/results" OUT-ARRAY="/keys">
+<BRANCH TIMEOUT="" LABELEXPRESSIONS="true">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<LOOP NAME="%selectADMIN_ITEMOutput/sqlResult% > 0" TIMEOUT="" IN-ARRAY="/selectADMIN_ITEMOutput/results" OUT-ARRAY="/keys">
   <COMMENT></COMMENT>
 
   <!-- nodes -->
@@ -1789,6 +1794,17 @@
 </MAPINVOKE>
 </MAP>
 </LOOP>
+</BRANCH>
+
+<SEQUENCE NAME="$default" TIMEOUT="" EXIT-ON="FAILURE">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<INVOKE TIMEOUT="" SERVICE="caDSR.ValidValue:getData" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+  <COMMENT></COMMENT>
+</INVOKE>
+</SEQUENCE>
 
 <MAP TIMEOUT="" MODE="STANDALONE">
   <COMMENT></COMMENT>
@@ -13434,7 +13450,7 @@
 <MAPCOPY FROM="/selectADMIN_ITEMOutput;2;0/results;2;0/ITEM_ID;1;0" TO="/key;4;0;caDSR.docs:keys/ITEM_ID;1;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/selectADMIN_ITEMOutput;2;0/results;2;0/VER_NR;1;0" TO="/key;4;0;caDSR.docs:keys/OBJ_CLS_ITEM_ID;1;0">
+<MAPCOPY FROM="/selectADMIN_ITEMOutput;2;0/results;2;0/VER_NR;1;0" TO="/key;4;0;caDSR.docs:keys/VER_NR;1;0">
 </MAPCOPY>
 </MAP>
 

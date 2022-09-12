@@ -542,7 +542,7 @@
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
-  <value name="xml">&lt;tr&gt;&lt;td&gt;&lt;b&gt;Form Question Instrution:&lt;/td&gt;&lt;td&gt;%questions/instruction/text%&lt;/td&gt;&lt;/tr&gt;</value>
+  <value name="xml">&lt;tr&gt;&lt;td&gt;&lt;b&gt;Form Question Instruction:&lt;/td&gt;&lt;td&gt;%questions/instruction/text%&lt;/td&gt;&lt;/tr&gt;</value>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">field</value>
     <value name="node_subtype">unknown</value>
@@ -1277,7 +1277,16 @@
 </MAP>
 </INVOKE>
 
-<INVOKE TIMEOUT="" SERVICE="pub.list:appendToStringList" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+<BRANCH TIMEOUT="" SWITCH="/questions/dataElement">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<SEQUENCE NAME="$null" TIMEOUT="" EXIT-ON="FAILURE">
+  <COMMENT></COMMENT>
+</SEQUENCE>
+
+<INVOKE NAME="$default" TIMEOUT="" SERVICE="pub.list:appendToStringList" VALIDATE-IN="$none" VALIDATE-OUT="$none">
   <COMMENT>workflowStatusNAme</COMMENT>
 
   <!-- nodes -->
@@ -1569,6 +1578,7 @@
 </MAPCOPY>
 </MAP>
 </INVOKE>
+</BRANCH>
 
 <INVOKE TIMEOUT="" SERVICE="pub.list:appendToStringList" VALIDATE-IN="$none" VALIDATE-OUT="$none">
   <COMMENT>isMandatory</COMMENT>

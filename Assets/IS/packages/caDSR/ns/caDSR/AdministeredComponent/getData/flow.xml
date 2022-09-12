@@ -291,6 +291,16 @@
 </MAP>
 </INVOKE>
 
+<BRANCH TIMEOUT="" LABELEXPRESSIONS="true">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<SEQUENCE NAME="%selectADMIN_ITEMOutput/sqlResult% > 0" TIMEOUT="" EXIT-ON="FAILURE">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
 <LOOP TIMEOUT="" IN-ARRAY="/selectADMIN_ITEMOutput/results" OUT-ARRAY="/keys">
   <COMMENT></COMMENT>
 
@@ -1930,6 +1940,18 @@
 <MAPCOPY FROM="/keys;4;1;caDSR.docs:keys" TO="/filter;4;0;caDSR.docs:filter/keys;4;1;caDSR.docs:keys">
 </MAPCOPY>
 </MAP>
+</SEQUENCE>
+
+<SEQUENCE NAME="$default" TIMEOUT="" EXIT-ON="FAILURE">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<INVOKE TIMEOUT="" SERVICE="caDSR.ValidValue:getData" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+  <COMMENT></COMMENT>
+</INVOKE>
+</SEQUENCE>
+</BRANCH>
 
 <LOOP TIMEOUT="" IN-ARRAY="/filter/collectionFilters">
   <COMMENT></COMMENT>
