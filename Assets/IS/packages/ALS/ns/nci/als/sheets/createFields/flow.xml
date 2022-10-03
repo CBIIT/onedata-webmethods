@@ -2720,7 +2720,10 @@ VSourceUrlId</value>
 </DATA>
 </MAPSET>
 
-<MAPCOPY FROM="/Fields_DocList;4;0;nci.als.sheets.docs:Fields_Doc/FIELD_OID;1;0" TO="/argumentList[2];1;1">
+<MAPCOPY FROM="/Fields_DocList;4;0;nci.als.sheets.docs:Fields_Doc/CDE_SHORT_NAME_RAW;1;0" TO="/argumentList[2];1;1" CONDITION="%Fields_DocList/QUEST_SHORT_NAME% == $null">
+</MAPCOPY>
+
+<MAPCOPY FROM="/Fields_DocList;4;0;nci.als.sheets.docs:Fields_Doc/QUEST_SHORT_NAME;1;0" TO="/argumentList[2];1;1" CONDITION="%Fields_DocList/QUEST_SHORT_NAME% != null">
 </MAPCOPY>
 </MAP>
 
@@ -4698,7 +4701,7 @@ VSourceUrlId</value>
 <MAPCOPY FROM="/FLD_VAR_CountList;1;1" TO="/toList;1;1">
 </MAPCOPY>
 
-<MAPCOPY FROM="/Fields_DocList;4;0;nci.als.sheets.docs:Fields_Doc/FIELD_OID;1;0" TO="/fromItem;1;0">
+<MAPCOPY FROM="/FormIDVerCDEname_key;1;0" TO="/fromItem;1;0">
 </MAPCOPY>
 </MAP>
 
@@ -5011,10 +5014,10 @@ VSourceUrlId</value>
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/Fields_DocList;4;0;nci.als.sheets.docs:Fields_Doc/FIELD_OID;1;0" TO="/inString;1;0">
+<MAPCOPY FROM="/FLD_VAR_CountList;1;1" TO="/stringArray;1;1">
 </MAPCOPY>
 
-<MAPCOPY FROM="/FLD_VAR_CountList;1;1" TO="/stringArray;1;1">
+<MAPCOPY FROM="/FormIDVerCDEname_key;1;0" TO="/inString;1;0">
 </MAPCOPY>
 </MAP>
 
