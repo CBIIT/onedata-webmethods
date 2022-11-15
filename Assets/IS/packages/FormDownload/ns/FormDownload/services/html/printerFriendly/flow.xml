@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <FLOW VERSION="3.0" CLEANUP="true">
+  <COMMENT>create Header</COMMENT>
 
   <!-- nodes -->
 
@@ -84,9 +85,57 @@
 <Values version="2.0">
   <array name="xml" type="value" depth="1">
     <value>&lt;html&gt;</value>
-    <value>  &lt;head&gt;</value>
+    <value>    &lt;head&gt;</value>
+    <value>    &lt;meta charset="utf-8"&gt;</value>
+    <value>    &lt;meta http-equiv="Content-Type" content="text/html;charset=utf-8" /&gt;</value>
+    <value>    &lt;script type="text/javascript"&gt;
+      function expandcollapse(value){
+        var x=document.getElementById(value);
+        var y=document.getElementById(value+"btn");
+        if( x.style.display === "none" ) {
+          x.style.display="block";
+          y.innerHTML = "Collapse Valid Values";
+        } else {
+          x.style.display="none";
+          y.innerHTML = "Expand Valid Values";
+        }
+      }
+
+      function FormAll(classvalue,id){
+        var x=document.getElementById(id);
+        var expand=x.innerHTML.includes('Expand');
+        var divList=document.getElementsByClassName(classvalue);
+        for( var i=0; i&lt;divList.length; i++){
+          if( divList[i].id.includes("btn") ){
+            var text = divList[i].innerHTML;
+            if( expand ){
+              divList[i].innerHTML = text.replace("Expand","Collapse");
+            } else {
+              divList[i].innerHTML = text.replace("Collapse","Expand");
+            }
+          } else {
+            if( expand ){
+              if( divList[i].style.display === "none" ){
+                divList[i].style.display="block";
+              }
+            } else {
+              divList[i].style.display="none";
+            }
+          }
+        }
+      } 
+    &lt;/script&gt;</value>
+    <value>    &lt;/script&gt;</value>
+    <value>    &lt;style type="text/css"&gt;
+	div.ml40 {margin-left:40px;}
+       div.ml40hide {margin-left:40px;display:none}
+        td.td100px {width: 100px;}
+	td.td200px {width: 200px;}
+    &lt;/style&gt;
+</value>
     <value>  &lt;/head&gt;</value>
     <value>  &lt;body&gt;</value>
+    <value>&lt;button class="ALL" onclick="FormAll('ALL','ALLbtn')" id="ALLbtn"&gt;Expand All Valid Values on All Forms&lt;/button&gt;</value>
   </array>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">unknown</value>
