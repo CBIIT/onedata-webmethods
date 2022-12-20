@@ -13,6 +13,7 @@ import java.util.*;
 import java.util.Enumeration;
 import java.util.Vector;
 import com.wm.lang.ns.*;
+import java.nio.file.attribute.FileTime;
 // --- <<IS-END-IMPORTS>> ---
 
 public final class zip
@@ -28,6 +29,139 @@ public final class zip
 
 	// ---( server methods )---
 
+
+
+
+	public static final void getFileDate (IData pipeline)
+        throws ServiceException
+	{
+		// --- <<IS-START(getFileDate)>> ---
+		// @sigtype java 3.5
+		// [i] field:0:required zipFileName
+		// [i] field:0:required searchFileName
+		// [o] field:0:required fileDate
+		IDataCursor pipelineCursor = pipeline.getCursor();
+		
+		String strZipFileName = "";
+		String strTargetDirectory = "";
+		String strSearchFileName = "";
+		String strFileDate = "";
+		
+		
+		// pipeline
+		strZipFileName = IDataUtil.getString( pipelineCursor, "zipFileName" );
+		strTargetDirectory = IDataUtil.getString( pipelineCursor, "targetDirectory" );
+		strSearchFileName = IDataUtil.getString( pipelineCursor,"searchFileName");
+		
+		FileInputStream fileis = null;
+		try
+		{
+		  fileis = new FileInputStream(strZipFileName);
+		}
+		catch (FileNotFoundException e)
+		{
+		  throw new ServiceException("Could not find zip file: " + strZipFileName);
+		}
+		
+		BufferedInputStream buffileis = new BufferedInputStream(fileis);
+		ZipInputStream zipis = new ZipInputStream(buffileis);
+		
+		Vector vecUnzippedFileNames = new Vector();
+		BufferedOutputStream buffileos = null;
+		FileOutputStream fileos = null;
+		int intNumFilesProcessed = 0;
+		ZipEntry ze = null;
+		
+		try
+		{
+		  while ((ze = zipis.getNextEntry()) != null)
+		  {
+		    if (ze.isDirectory())
+		    {
+		      continue;
+		    }
+		
+		    // System.out.println("ZIP entry: " + ze.getName()); //debug
+		
+		    // Create output file
+		    if( ze.getName().equals(strSearchFileName) ){
+		    	FileTime ft = ze.getLastModifiedTime();
+		    	if( ft != null ){
+		    		strFileDate = ft.toString();
+		    	} else {
+		    		IDataUtil.put( pipelineCursor, "message", "getCreationTime() is null" );
+		    	}
+		    }
+		  }// end while
+		}
+		catch (IOException e)
+		{
+		  throw new ServiceException("Exception occurred while handling ZIP file: " + e);
+		}
+		finally
+		{
+		  if (buffileos != null)
+		  {
+		    try
+		    {
+		      buffileos.flush();
+		      buffileos.close();
+		    }
+		    catch (IOException e)
+		    {
+		    }
+		  }
+		  if (fileos != null)
+		  {
+		    try
+		    {
+		      fileos.close();
+		    }
+		    catch (IOException e)
+		    {
+		    }
+		  }
+		  if (zipis != null)
+		  {
+		    try
+		    {
+		      zipis.close();
+		    }
+		    catch (IOException e)
+		    {
+		    }
+		  }
+		  if (fileis != null)
+		  {
+		    try
+		    {
+		      fileis.close();
+		    }
+		    catch (IOException e)
+		    {
+		    }
+		  }
+		  if (buffileis != null)
+		  {
+		    try
+		    {
+		      buffileis.close();
+		    }
+		    catch (IOException e)
+		    {
+		    }
+		  }
+		}
+		
+		System.gc();
+		IDataUtil.put( pipelineCursor, "fileDate", strFileDate );
+		pipelineCursor.destroy();
+			
+			
+		// --- <<IS-END>> ---
+
+                
+	}
 
 
 
