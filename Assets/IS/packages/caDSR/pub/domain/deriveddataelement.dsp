@@ -53,10 +53,7 @@
 		<td class="oddrow-l" width="90%">
 			<select tabindex="100" class="formFieldSized" size="1" name="searchObj" id="searchObj" style="width:90%">
 	   			<option value="">Please choose</option>
-		   		<option value="DataElement>dataElement (gov.nih.nci.cadsr.domain.DataElement)</option>
-		   		<!--<option>derivationType (gov.nih.nci.cadsr.domain.DerivationType)</option>
-	   			<option>gov.nih.nci.cadsr.domain.DerivedDataElement</option>
-	   			<option>dataElementDerivationCollection (gov.nih.nci.cadsr.domain.DataElementDerivation)</option>-->
+		   		<option value="DataElement">dataElement (gov.nih.nci.cadsr.domain.DataElement)</option>
 			</select>
 		</td>
 	</tr>

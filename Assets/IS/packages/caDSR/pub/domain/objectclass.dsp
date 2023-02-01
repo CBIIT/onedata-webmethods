@@ -26,12 +26,6 @@
         </tr>
 %include latestversionindicator.dsp%		  
         <tr>
-          <td class="oddrow"><label for="latestVersionIndicator">latestVersionIndicator</label></td>
-          <td class="oddrow-l" width="90%">
-            <input type="text" name="ilatestVersionIndicator" id="latestVersionIndicator" class="formFieldSized ">
-          </td>
-        </tr>
-        <tr>
           <td class="oddrow"><label for="longName">longName</label></td>
           <td class="oddrow-l" width="90%">
             <input type="text" name="ilongName" id="longName" class="formFieldSized ">
@@ -112,13 +106,10 @@
    		<option value="DataElementConcept">dataElementConceptCollection (gov.nih.nci.cadsr.domain.DataElementConcept)</option>
    		<option value="Registration">registrations (gov.nih.nci.cadsr.domain.Registration)</option>
    		<option value="ObjectClass">gov.nih.nci.cadsr.domain.ObjectClass</option>
-<!--   		<option value="SourceObjectClassRelationship">sourcObjectClassRelationshipCollection (gov.nih.nci.cadsr.domain.ObjectClassRelationship)</option> -->
    		<option value="Context">context (gov.nih.nci.cadsr.domain.Context)</option>
    		<option value="Definition">definitionCollection (gov.nih.nci.cadsr.domain.Definition)</option>
    		<option value="AdministeredComponentClassSchemeItem">administeredComponentClassSchemeItemCollection (gov.nih.nci.cadsr.domain.AdministeredComponentClassSchemeItem)</option>
    		<option value="ReferenceDocument">referenceDocumentCollection (gov.nih.nci.cadsr.domain.ReferenceDocument)</option>
-<!--   		<option>conceptDerivationRule (gov.nih.nci.cadsr.domain.ConceptDerivationRule)</option>
-   		<option>targetObjectClassRelationshipCollection (gov.nih.nci.cadsr.domain.ObjectClassRelationship)</option>-->
    		<option value="Designation">designationCollection (gov.nih.nci.cadsr.domain.Designation)</option>
 	    </select>
           </td>

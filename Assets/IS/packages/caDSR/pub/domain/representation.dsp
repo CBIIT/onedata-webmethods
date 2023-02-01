@@ -108,7 +108,6 @@
    		<option value="Registration">registrations (gov.nih.nci.cadsr.domain.Registration)</option>
    		<option value="ReferenceDocument">referenceDocumentCollection (gov.nih.nci.cadsr.domain.ReferenceDocument)</option>
    		<option value="ValueDomain">valueDomainCollection (gov.nih.nci.cadsr.domain.ValueDomain)</option>
-<!--   		<option>conceptDerivationRule (gov.nih.nci.cadsr.domain.ConceptDerivationRule)</option>			   		-->
    		<option value="Context">context (gov.nih.nci.cadsr.domain.Context)</option>
    		<option value="Definition">definitionCollection (gov.nih.nci.cadsr.domain.Definition)</option>
    		<option value="AdministeredComponentClassSchemeItem">administeredComponentClassSchemeItemCollection (gov.nih.nci.cadsr.domain.AdministeredComponentClassSchemeItem)</option>

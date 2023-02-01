@@ -129,8 +129,6 @@
 		<option value="AdministeredComponentClassSchemeItem">administeredComponentClassSchemeItemCollection (gov.nih.nci.cadsr.domain.AdministeredComponentClassSchemeItem)</option>
 		<option value="QuestionRepetition">questionRepetitionCollection (gov.nih.nci.cadsr.domain.QuestionRepetition)</option>
 		<option value="TriggerAction">triggerActionCollection (gov.nih.nci.cadsr.domain.TriggerAction)</option>
-<!--		<option>questionComponentCollection (gov.nih.nci.cadsr.domain.QuestionConditionComponents)</option>
-		<option>questionCondition (gov.nih.nci.cadsr.domain.QuestionCondition)</option>-->
 		<option value="ValidValue">validValueCollection (gov.nih.nci.cadsr.domain.ValidValue)</option>
 		<option value="DataElement">dataElement (gov.nih.nci.cadsr.domain.DataElement)</option>
 		<option value="Question">gov.nih.nci.cadsr.domain.Question</option>

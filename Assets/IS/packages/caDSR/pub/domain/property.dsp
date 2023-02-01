@@ -101,17 +101,16 @@
           <td class="oddrow"><label for="searchObj">Search Object</label></td>
           <td class="oddrow-l" width="90%">
             <select tabindex="100" class="formFieldSized" size="1" name="searchObj" id="searchObj" style="width90%" >
-   		<option>Please choose</option>
-   		<option>administeredComponentContactCollection (gov.nih.nci.cadsr.domain.AdministeredComponentContact)</option>
-   		<option>dataElementConceptCollection (gov.nih.nci.cadsr.domain.DataElementConcept)</option>
-   		<option>registrations (gov.nih.nci.cadsr.domain.Registration)</option>
-   		<option>referenceDocumentCollection (gov.nih.nci.cadsr.domain.ReferenceDocument)</option>
-<!--   		<option>conceptDerivationRule (gov.nih.nci.cadsr.domain.ConceptDerivationRule)</option>-->
-   		<option>context (gov.nih.nci.cadsr.domain.Context)</option>
-   		<option>definitionCollection (gov.nih.nci.cadsr.domain.Definition)</option>
-  		<option>gov.nih.nci.cadsr.domain.Property</option>
-   		<option>administeredComponentClassSchemeItemCollection (gov.nih.nci.cadsr.domain.AdministeredComponentClassSchemeItem)</option>
-   		<option>designationCollection (gov.nih.nci.cadsr.domain.Designation)</option>
+   		<option value="">Please choose</option>
+   		<option value="AdministeredComponentContact">administeredComponentContactCollection (gov.nih.nci.cadsr.domain.AdministeredComponentContact)</option>
+   		<option value="DataElementConcept">dataElementConceptCollection (gov.nih.nci.cadsr.domain.DataElementConcept)</option>
+   		<option value="Registration">registrations (gov.nih.nci.cadsr.domain.Registration)</option>
+   		<option value="ReferenceDocument">referenceDocumentCollection (gov.nih.nci.cadsr.domain.ReferenceDocument)</option>
+   		<option value="Context">context (gov.nih.nci.cadsr.domain.Context)</option>
+   		<option value="Definition">definitionCollection (gov.nih.nci.cadsr.domain.Definition)</option>
+  		<option value="Property">gov.nih.nci.cadsr.domain.Property</option>
+   		<option value="AdministeredComponentClassSchemeItem">administeredComponentClassSchemeItemCollection (gov.nih.nci.cadsr.domain.AdministeredComponentClassSchemeItem)</option>
+   		<option value="Designation">designationCollection (gov.nih.nci.cadsr.domain.Designation)</option>
 	    </select>
           </td>
         </tr>

@@ -167,16 +167,13 @@
    		<option value="Representation">represention (gov.nih.nci.cadsr.domain.Representation)</option>
    		<option value="Question">questionCollection (gov.nih.nci.cadsr.domain.Question)</option>
    		<option value="ConceptualDomain">conceptualDomain (gov.nih.nci.cadsr.domain.ConceptualDomain)</option>
-<!--   		<option>parentValueDomainRelationshipCollection (gov.nih.nci.cadsr.domain.ValueDomainRelationship)</option>-->
    		<option value="Context">context (gov.nih.nci.cadsr.domain.Context)</option>
    		<option value="Definition">definitionCollection (gov.nih.nci.cadsr.domain.Definition)</option>
-<!--   		<option>childValueDomainRelationshipCollection (gov.nih.nci.cadsr.domain.ValueDomainRelationship)</option>-->
    		<option value="AdministeredComponentClassSchemeItem">administeredComponentClassSchemeItemCollection (gov.nih.nci.cadsr.domain.AdministeredComponentClassSchemeItem)</option>
    		<option value="DataElement">dataElementCollection (gov.nih.nci.cadsr.domain.DataElement)</option>
    		<option value="ValueDomain">gov.nih.nci.cadsr.domain.ValueDomain</option>
    		<option value="ReferenceDocument">referenceDocumentCollection (gov.nih.nci.cadsr.domain.ReferenceDocument)</option>
    		<option value="ConceptDerivationRule">conceptDerivationRule (gov.nih.nci.cadsr.domain.ConceptDerivationRule)</option>
-<!--   		<option>attributeTypeMetadata (gov.nih.nci.cadsr.umlproject.domain.AttributeTypeMetadata)</option>-->
    		<option value="Designation">designationCollection (gov.nih.nci.cadsr.domain.Designation)</option>
  	    </select>
           </td>

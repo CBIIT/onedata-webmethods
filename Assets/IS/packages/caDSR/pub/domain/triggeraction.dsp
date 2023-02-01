@@ -57,10 +57,6 @@
           <td class="oddrow-l" width="90%">
 	    <select tabindex="100" class="formFieldSized" size="1" name="searchObj" id="searchObj" style="width90%">
    		<option value="">Please choose</option>
-<!--   		<option value=">questionCondition (gov.nih.nci.cadsr.domain.QuestionCondition)</option>
-   		<option>enforcedCondition (gov.nih.nci.cadsr.domain.QuestionCondition)</option>
-   		<option>targetFormElement (gov.nih.nci.cadsr.domain.FormElement)</option>
-   		<option>sourceFormElement (gov.nih.nci.cadsr.domain.FormElement)</option>-->
    		<option value="AdministeredComponentClassSchemeItem">administeredComponentClassSchemeItemCollection (gov.nih.nci.cadsr.domain.AdministeredComponentClassSchemeItem)</option>
    		<option value="Protocol">protocolCollection (gov.nih.nci.cadsr.domain.Protocol)</option>
    		<option value="TriggerAction">gov.nih.nci.cadsr.domain.TriggerAction</option>

@@ -120,7 +120,6 @@
    		<option value="Question">question (gov.nih.nci.cadsr.domain.Question)</option>
    		<option value="ValueDomainPermissibleValue">valueDomainPermissibleValue (gov.nih.nci.cadsr.domain.ValueDomainPermissibleValue)</option>
    		<option value="ValidValue">gov.nih.nci.cadsr.domain.ValidValue</option>			   		
-<!--  		<option>conditionComponent (gov.nih.nci.cadsr.domain.QuestionConditionComponents)</option>-->
    		<option value="Context">context (gov.nih.nci.cadsr.domain.Context)</option>
    		<option value="Definition">definitionCollection (gov.nih.nci.cadsr.domain.Definition)</option>
    		<option value="AdministeredComponentClassSchemeItem">administeredComponentClassSchemeItemCollection (gov.nih.nci.cadsr.domain.AdministeredComponentClassSchemeItem)</option>
