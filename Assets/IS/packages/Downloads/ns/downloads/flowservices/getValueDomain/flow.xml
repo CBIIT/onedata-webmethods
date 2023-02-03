@@ -3385,27 +3385,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/selectVALUE_DOMOutput;2;0/results[0];2;1/UOM_ID;1;0" TO="/selectOBJ_KEYInput;2;0/OBJ_KEY_ID_1;1;0">
-</MAPCOPY>
-</MAP>
-
-<MAP MODE="INVOKEOUTPUT">
-
-  <!-- nodes -->
-
-<MAPCOPY FROM="/selectOBJ_KEYOutput;2;0/results[0];2;1/OBJ_KEY_DESC;1;0" TO="/valueDomain;4;0;downloads.docs:valueDomain/unitOfMeasure;1;0">
-</MAPCOPY>
-</MAP>
-</MAPINVOKE>
-
-<MAPINVOKE SERVICE="onedata.jdbc:selectOBJ_KEY" VALIDATE-IN="$none" VALIDATE-OUT="$none" INVOKE-ORDER="0">
-
-  <!-- nodes -->
-
-<MAP MODE="INVOKEINPUT">
-
-  <!-- nodes -->
-
 <MAPCOPY FROM="/selectVALUE_DOMOutput;2;0/results[0];2;1/CHAR_SET_ID;1;0" TO="/selectOBJ_KEYInput;2;0/OBJ_KEY_ID_1;1;0">
 </MAPCOPY>
 </MAP>
@@ -3514,6 +3493,27 @@
   <!-- nodes -->
 
 <MAPCOPY FROM="/selectFMTOutput;2;0/results[0];2;1/FMT_NM;1;0" TO="/valueDomain;4;0;downloads.docs:valueDomain/format;1;0">
+</MAPCOPY>
+</MAP>
+</MAPINVOKE>
+
+<MAPINVOKE SERVICE="onedata.jdbc:selectUOM" VALIDATE-IN="$none" VALIDATE-OUT="$none" INVOKE-ORDER="0">
+
+  <!-- nodes -->
+
+<MAP MODE="INVOKEINPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/selectVALUE_DOMOutput;2;0/results[0];2;1/UOM_ID;1;0" TO="/selectUOMInput;2;0/UOM_ID;1;0">
+</MAPCOPY>
+</MAP>
+
+<MAP MODE="INVOKEOUTPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/selectUOMOutput;2;0/results[0];2;1/UOM_NM;1;0" TO="/valueDomain;4;0;downloads.docs:valueDomain/unitOfMeasure;1;0">
 </MAPCOPY>
 </MAP>
 </MAPINVOKE>

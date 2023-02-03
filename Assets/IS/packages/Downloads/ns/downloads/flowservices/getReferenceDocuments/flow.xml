@@ -1373,9 +1373,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/selectREFOutput;2;0/results;2;0/REF_DESC;1;0" TO="/referenceDocuments;4;0;downloads.docs:referenceDocument/document;1;0">
-</MAPCOPY>
-
 <MAPCOPY FROM="/selectREFOutput;2;0/results;2;0/REF_NM;1;0" TO="/referenceDocuments;4;0;downloads.docs:referenceDocument/documentName;1;0">
 </MAPCOPY>
 
@@ -1390,6 +1387,27 @@
 
 <MAPCOPY FROM="/selectREFOutput;2;0/results;2;0/URL;1;0" TO="/referenceDocuments;4;0;downloads.docs:referenceDocument/url;1;0">
 </MAPCOPY>
+
+<MAPINVOKE SERVICE="pub.string:HTMLDecode" VALIDATE-IN="$none" VALIDATE-OUT="$none" INVOKE-ORDER="0">
+
+  <!-- nodes -->
+
+<MAP MODE="INVOKEINPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/selectREFOutput;2;0/results;2;0/REF_DESC;1;0" TO="/inString;1;0">
+</MAPCOPY>
+</MAP>
+
+<MAP MODE="INVOKEOUTPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/value;1;0" TO="/referenceDocuments;4;0;downloads.docs:referenceDocument/document;1;0">
+</MAPCOPY>
+</MAP>
+</MAPINVOKE>
 </MAP>
 </LOOP>
 
