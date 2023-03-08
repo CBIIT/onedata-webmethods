@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <FLOW VERSION="3.0" CLEANUP="true">
+  <COMMENT></COMMENT>
 
   <!-- nodes -->
 
 <INVOKE TIMEOUT="" SERVICE="pub.string:messageFormat" VALIDATE-IN="$none" VALIDATE-OUT="$none">
-  <COMMENT></COMMENT>
+  <COMMENT>TO_DATE(&#39;&#39;{0}&#39;&#39;,&#39;&#39;MM-DD-YYYY&#39;&#39;)  //&#34;double&#34; single-quote escape character</COMMENT>
 
   <!-- nodes -->
 
@@ -93,11 +94,14 @@
 
   <!-- nodes -->
 
-<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/pattern;1;0">
+<MAPCOPY FROM="/input;1;0" TO="/argumentList[0];1;1">
+</MAPCOPY>
+
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="true" GLOBALVARIABLES="false" FIELD="/pattern;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
-  <value name="xml">TO_DATE('{0]}','MM-DD-YYYY')</value>
+  <value name="xml">TO_DATE(''{0}'',''MM-DD-YYYY'')</value>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">field</value>
     <value name="node_subtype">unknown</value>
@@ -112,9 +116,6 @@
 </Values>
 </DATA>
 </MAPSET>
-
-<MAPCOPY FROM="/input;1;0" TO="/argumentList[0];1;1">
-</MAPCOPY>
 </MAP>
 
 <MAP MODE="OUTPUT">
