@@ -89,7 +89,10 @@ public final class string
 		// pipeline
 		IDataCursor pipelineCursor = pipeline.getCursor();
 		String	inputString = IDataUtil.getString( pipelineCursor, "inputString" );
-		inputString = inputString.replaceAll("[^a-zA-Z0-9]", "_");
+		if( inputString != null )
+			inputString = inputString.replaceAll("[^a-zA-Z0-9]", "_");
+		else
+			throw new ServiceException("inputString is null.");
 		IDataUtil.put( pipelineCursor, "outputString", inputString );
 		pipelineCursor.destroy();
 			

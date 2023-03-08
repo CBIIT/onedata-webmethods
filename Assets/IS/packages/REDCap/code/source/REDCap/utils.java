@@ -40,10 +40,11 @@ public final class utils
 			boolean convertToUpper = Boolean.parseBoolean(IDataUtil.getString( pipelineCursor, "convertToUpper"));
 			//String	convertToUpper = IDataUtil.getString( pipelineCursor, "convertToUpper" );
 			// create regex string to catch trailing spaces
+			//.replaceAll("[^\\w\\xAE\\xA9~. -]", "_TM_")
 			String regex = "\\s+$";
 			
 			if (instring!=null) {
-				instring = instring.replaceAll("\u2122", "_TM_").replaceAll("[^\\w\\xAE\\xA9~. -]", "_TM_").replaceAll(regex, "").replace(' ', '_').replace(';', '_').replace('/', '_').replace('[','_').replace(']', '_').replace('^', '_').replace('{', '_').replace('}', '_').replace('+', '_').replace('#','_').replace('(', ' ').replace('.', '_').replace('-', '_').replace(':',  '_').replace(',', '_').replace('&', '_').replace(')', '_').replaceAll("=", "EQ").replaceAll(">", "GT").replaceAll("<", "LT").replaceAll("mol-", "_minus").replaceAll("mol+", "_plus").replaceAll("%", "percent");
+				instring = instring.replaceAll("%", "_PR_").replaceAll("\u2122", "_TM_").replaceAll(regex, "").replace(' ', '_').replace(';', '_').replace('/', '_').replace('[','_').replace(']', '_').replace('^', '_').replace('{', '_').replace('}', '_').replace('+', '_').replace('#','_').replace('(', '_').replace('.', '_').replace('-', '_').replace(':', '_').replace(',', '_').replace('&', '_').replace(')', '_').replaceAll("=", "EQ").replaceAll(">", "GT").replaceAll("<", "LT").replaceAll("mol-", "_minus").replaceAll("mol+", "_plus");
 			
 				if (convertToUpper){
 					instring = instring.toUpperCase();
