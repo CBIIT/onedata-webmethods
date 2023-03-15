@@ -1,31 +1,79 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script type="text/javascript" src="scripts/FileSaver.js"></script>
   </head>
   <body>
     %invoke downloads.cde:direct%
       <textarea name="data" id="data">%value xmldata encode(none)%</textarea>
     %endinvoke%
+    <script src="scripts/FileSaver.js"></script>
     <script type="text/javascript">
+      const b64toBlob = (b64Data, contentType='', sliceSize=512) => {
+        const byteCharacters = atob(b64Data);
+        const byteArrays = [];
+
+        for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+          const slice = byteCharacters.slice(offset, offset + sliceSize);
+
+          const byteNumbers = new Array(slice.length);
+          for (let i = 0; i < slice.length; i++) {
+            byteNumbers[i] = slice.charCodeAt(i);
+          }
+
+          const byteArray = new Uint8Array(byteNumbers);
+          byteArrays.push(byteArray);
+        }
+
+      const blob = new Blob(byteArrays, {type: contentType});
+      return blob;
+    }
+
       %ifvar ErrorMessage%
         alert( "ErrorMessage:"+"%value ErrorMessage%");
       %else%
-        var hiddenElement = document.createElement('a');
-        
-        %ifvar formatid equals('104')%
-           var filename = "LegacyXML.xml";
-           hiddenElement.href = 'data:attachment/text;base64,' + document.getElementById('data').value;
-        %else%
-           %ifvar formatid equals('103')%
-             var filename = "LegacyXLS.xlsx";
-           %else%
-             var filename = "PriorXLS.xlsx";
-           %endif%
-           hiddenElement.href = 'data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,' + document.getElementById('data').value;
+        %ifvar type equals('usr')%
+          filename = "GuestCart_"
+          %ifvar formatid equals('103')%
+            filename = filename + "LegacyXLS_%value p_cart_nm%.xlsx";
+          %else%
+            %ifvar formatid equals('114')%
+              filename = filename + "PriorLegacyXLS_%value p_cart_nm%.xlsx";
+            %else%
+              filename = filename + "LegacyXML_%value p_cart_nm%.xml";
+            %endif%
+          %endif%
         %endif%
-        hiddenElement.target = '_blank';
-        hiddenElement.download = filename;
-        hiddenElement.click();
+        %ifvar type equals('csi')%  
+          filename = "Classifications_";
+          %ifvar formatid equals('103')%
+            filename = filename + "LegacyXLS.xlsx";
+          %else%
+            %ifvar formatid equals('114')%
+              filename = filename + "PriorLegacyXLS.xlsx";
+            %else%
+              filename = filename + "LegacyXML.xml";
+            %endif%
+          %endif%
+        %endif%
+        %ifvar type equals('frm')%  
+          filename = "Form_";
+          %ifvar formatid equals('103')%
+            filename = filename + "LegacyXLS.xlsx";
+          %else%
+            %ifvar formatid equals('114')%
+              filename = filename + "PriorLegacyXLS.xlsx";
+            %else%
+              filename = filename + "LegacyXML.xml";
+            %endif%
+          %endif%
+        %endif%
+        %ifvar formatid equals('104')%
+           const blob = b64toBlob(document.getElementById('data').value, "text/xml");
+        %else%
+           const blob = b64toBlob(document.getElementById('data').value, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+        %endif%
+        saveAs(blob, filename);
       %endif%
       window.close();
     </script>
