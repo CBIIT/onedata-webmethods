@@ -1,10 +1,85 @@
-CTYPE html>
+<!DOCTYPE html>
 <html>
-<body>
+  <head>
+    <script type="text/javascript" src="scripts/FileSaver.js"></script>
+  </head>
+  <body>
+    %invoke downloads.cde:direct%
+      <textarea name="data" id="data">%value xmldata encode(none)%</textarea>
+    %endinvoke%
+    <script src="scripts/FileSaver.js"></script>
+    <script type="text/javascript">
+      const b64toBlob = (b64Data, contentType='', sliceSize=512) => {
+        const byteCharacters = atob(b64Data);
+        const byteArrays = [];
 
-<h2>HTML Images</h2>
-<p>HTML images are defined with the img tag:</p>
-<a href="cde103.dsp?p_item_id=2184681&p_item_ver_nr=1&formatid=104" target="_blank">Click to test</a>
-</body>
+        for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+          const slice = byteCharacters.slice(offset, offset + sliceSize);
+
+          const byteNumbers = new Array(slice.length);
+          for (let i = 0; i < slice.length; i++) {
+            byteNumbers[i] = slice.charCodeAt(i);
+          }
+
+          const byteArray = new Uint8Array(byteNumbers);
+          byteArrays.push(byteArray);
+        }
+      
+      const blob = new Blob(byteArrays, {type: contentType});
+      return blob;
+    }
+
+      %ifvar ErrorMessage%
+        alert( "ErrorMessage:"+"%value ErrorMessage%");
+      %else%
+        %ifvar type equals('usr')%
+          filename = "GuestCart_"
+          %ifvar formatid equals('103')%
+            filename = filename + "LegacyXLS_%value p_cart_nm%.xlsx";
+          %else%
+            %ifvar formatid equals('114')%
+              filename = filename + "PriorLegacyXLS_%value p_cart_nm%.xlsx";
+            %else%
+              filename = filename + "LegacyXML_%value p_cart_nm%.xml";
+            %endif%
+          %endif%
+        %endif%
+        %ifvar type equals('csi')%  
+          filename = "Classifications_";
+          %ifvar formatid equals('103')%
+            filename = filename + "LegacyXLS.xlsx";
+          %else%
+            %ifvar formatid equals('114')%
+              filename = filename + "PriorLegacyXLS.xlsx";
+            %else%
+              filename = filename + "LegacyXML.xml";
+            %endif%
+          %endif%
+        %endif%
+        %ifvar type equals('frm')%  
+          filename = "Form_";
+          %ifvar formatid equals('103')%
+            filename = filename + "LegacyXLS.xlsx";
+          %else%
+            %ifvar formatid equals('114')%
+              filename = filename + "PriorLegacyXLS.xlsx";
+            %else%
+              filename = filename + "LegacyXML.xml";
+            %endif%
+          %endif%
+        %endif%
+        %ifvar xmldata isnull%
+          alert( "No data was downloaded!");
+        %else%
+          %ifvar formatid equals('104')%
+            const blob = b64toBlob(document.getElementById('data').value, "text/xml");
+          %else%
+            const blob = b64toBlob(document.getElementById('data').value, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+          %endif%
+          saveAs(blob, filename);
+        %endif%
+      %endif%
+      window.close();
+    </script>
+  </body>
 </html>
-

@@ -5,9 +5,8 @@
   </head>
   <body>
     %invoke downloads.cde:direct%
-      <textarea name="data" id="data">%value xmldata encode(none)%</textarea>
+      <textarea name="data" id="data" hidden>%value xmldata encode(none)%</textarea>
     %endinvoke%
-    <script src="scripts/FileSaver.js"></script>
     <script type="text/javascript">
       const b64toBlob = (b64Data, contentType='', sliceSize=512) => {
         const byteCharacters = atob(b64Data);
@@ -24,7 +23,7 @@
           const byteArray = new Uint8Array(byteNumbers);
           byteArrays.push(byteArray);
         }
-
+      
       const blob = new Blob(byteArrays, {type: contentType});
       return blob;
     }
@@ -33,7 +32,7 @@
         alert( "ErrorMessage:"+"%value ErrorMessage%");
       %else%
         %ifvar type equals('usr')%
-          filename = "GuestCart_"
+          filename = "Cart_"
           %ifvar formatid equals('103')%
             filename = filename + "LegacyXLS_%value p_cart_nm%.xlsx";
           %else%
@@ -57,7 +56,7 @@
           %endif%
         %endif%
         %ifvar type equals('frm')%  
-          filename = "Form_";
+          filename = "Protocol_";
           %ifvar formatid equals('103')%
             filename = filename + "LegacyXLS.xlsx";
           %else%
@@ -68,12 +67,16 @@
             %endif%
           %endif%
         %endif%
-        %ifvar formatid equals('104')%
-           const blob = b64toBlob(document.getElementById('data').value, "text/xml");
+        %ifvar xmldata isnull%
+          alert( "No data was downloaded!");
         %else%
-           const blob = b64toBlob(document.getElementById('data').value, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+          %ifvar formatid equals('104')%
+            const blob = b64toBlob(document.getElementById('data').value, "text/xml");
+          %else%
+            const blob = b64toBlob(document.getElementById('data').value, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+          %endif%
+          saveAs(blob, filename);
         %endif%
-        saveAs(blob, filename);
       %endif%
       window.close();
     </script>
