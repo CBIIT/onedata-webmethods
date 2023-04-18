@@ -34,36 +34,36 @@
         %ifvar type equals('usr')%
           filename = "Cart_"
           %ifvar formatid equals('103')%
-            filename = filename + "LegacyXLS_%value p_cart_nm%.xlsx";
+            filename = filename + "Legacy_CDE_XLS_%ifvar p_cart_nm equals('Default')%%value p_cntct_secu_id%%else%%value p_cart_nm%%endif%.xlsx";
           %else%
             %ifvar formatid equals('114')%
-              filename = filename + "PriorLegacyXLS_%value p_cart_nm%.xlsx";
+              filename = filename + "Prior_Legacy_CDE_Excel_%ifvar p_cart_nm equals('Default')%%value p_cntct_secu_id%%else%%value p_cart_nm%%endif%.xlsx";
             %else%
-              filename = filename + "LegacyXML_%value p_cart_nm%.xml";
+              filename = filename + "Legacy_CDE_XML_%ifvar p_cart_nm equals('Default')%%value p_cntct_secu_id%%else%%value p_cart_nm%%endif%.xml";
             %endif%
           %endif%
         %endif%
         %ifvar type equals('csi')%  
           filename = "Classifications_";
           %ifvar formatid equals('103')%
-            filename = filename + "LegacyXLS.xlsx";
+            filename = filename + "Legacy_CDE_XLS.xlsx";
           %else%
             %ifvar formatid equals('114')%
-              filename = filename + "PriorLegacyXLS.xlsx";
+              filename = filename + "Prior_Legacy_CDE_XLS.xlsx";
             %else%
-              filename = filename + "LegacyXML.xml";
+              filename = filename + "Legacy_CDE_XML.xml";
             %endif%
           %endif%
         %endif%
         %ifvar type equals('frm')%  
           filename = "Protocol_";
           %ifvar formatid equals('103')%
-            filename = filename + "LegacyXLS.xlsx";
+            filename = filename + "Legacy_CDE_XLS.xlsx";
           %else%
             %ifvar formatid equals('114')%
-              filename = filename + "PriorLegacyXLS.xlsx";
+              filename = filename + "Prior_Legacy_CDE_XLS.xlsx";
             %else%
-              filename = filename + "LegacyXML.xml";
+              filename = filename + "Legacy_CDE_XML.xml";
             %endif%
           %endif%
         %endif%

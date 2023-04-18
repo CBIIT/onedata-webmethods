@@ -94,13 +94,12 @@
         <tr>
           <td class="oddrow"><label for="type">type</label></td>
           <td class="oddrow-l" width="90%">
-            <select size="1"name="itype" id="type" style="width90%" required>
-              <option="Form">Form</option>
-              <option="Module">Module</option>
-	      <option="Question">Question</option>
-              <option="ValidValue">ValidValue</option>
+            <select size="1" class="formFieldSized" name="itype" id="type">
+              <option value="Form">Form</option>
+              <option value="Module">Module</option>
+	      <option value="Question">Question</option>
+              <option value="ValidValue">ValidValue</option>
             </select>
-            <input type="text" name="itype" id="type" class="formFieldSized ">
           </td>
         </tr>
         <tr>

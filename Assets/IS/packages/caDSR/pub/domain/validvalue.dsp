@@ -2,7 +2,7 @@
         <tr>
           <td class="heading" height="20" colspan="3">ValidValue</td>
 	</tr>
-%include begindate.dsp%
+<!--%include begindate.dsp%-->
         <tr>
           <td class="oddrow"><label for="changeNote">changeNote</label></td>
           <td class="oddrow-l" width="90%">
@@ -17,7 +17,7 @@
         </tr>
 %include datecreated.dsp%
 %include datemodified.dsp%		  
-%include enddate.dsp%		  
+<!--%include enddate.dsp%-->
         <tr>
           <td class="oddrow"><label for="id">id</label></td>
           <td class="oddrow-l" width="90%">

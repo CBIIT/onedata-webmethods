@@ -1454,7 +1454,7 @@
 </MAP>
 </LOOP>
 
-<LOOP TIMEOUT="" IN-ARRAY="/dataElements/valueDomain/validValues" OUT-ARRAY="/DataElementList/DataElementsList/DataElement/VALUEDOMAIN/PermissibleValues/PermissibleValues_ITEM">
+<LOOP TIMEOUT="" IN-ARRAY="/dataElements/valueDomain/permissibleValues" OUT-ARRAY="/DataElementList/DataElementsList/DataElement/VALUEDOMAIN/PermissibleValues/PermissibleValues_ITEM">
   <COMMENT></COMMENT>
 
   <!-- nodes -->
@@ -1599,27 +1599,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/validValues;4;0;downloads.docs:validValue/validValue;1;0" TO="/DataElementList;4;0;downloads.cde.docs:xmlDocType/DataElementsList;2;0/DataElement;4;0;downloads.cde.docs:xmlDataElement/VALUEDOMAIN;2;0/PermissibleValues;2;0/PermissibleValues_ITEM;2;0/VALIDVALUE;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/validValues;4;0;downloads.docs:validValue/ValueMeaningName;1;0" TO="/DataElementList;4;0;downloads.cde.docs:xmlDocType/DataElementsList;2;0/DataElement;4;0;downloads.cde.docs:xmlDataElement/VALUEDOMAIN;2;0/PermissibleValues;2;0/PermissibleValues_ITEM;2;0/VALUEMEANING;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/validValues;4;0;downloads.docs:validValue/valueMeaningDescription;1;0" TO="/DataElementList;4;0;downloads.cde.docs:xmlDocType/DataElementsList;2;0/DataElement;4;0;downloads.cde.docs:xmlDataElement/VALUEDOMAIN;2;0/PermissibleValues;2;0/PermissibleValues_ITEM;2;0/MEANINGDESCRIPTION;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/validValues;4;0;downloads.docs:validValue/pvBeginDate;1;0" TO="/DataElementList;4;0;downloads.cde.docs:xmlDocType/DataElementsList;2;0/DataElement;4;0;downloads.cde.docs:xmlDataElement/VALUEDOMAIN;2;0/PermissibleValues;2;0/PermissibleValues_ITEM;2;0/PVBEGINDATE;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/validValues;4;0;downloads.docs:validValue/pvEndDate;1;0" TO="/DataElementList;4;0;downloads.cde.docs:xmlDocType/DataElementsList;2;0/DataElement;4;0;downloads.cde.docs:xmlDataElement/VALUEDOMAIN;2;0/PermissibleValues;2;0/PermissibleValues_ITEM;2;0/PVENDDATE;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/validValues;4;0;downloads.docs:validValue/valueMeaningpublicId;1;0" TO="/DataElementList;4;0;downloads.cde.docs:xmlDocType/DataElementsList;2;0/DataElement;4;0;downloads.cde.docs:xmlDataElement/VALUEDOMAIN;2;0/PermissibleValues;2;0/PermissibleValues_ITEM;2;0/VMPUBLICID;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/validValues;4;0;downloads.docs:validValue/valueMeaningversion;1;0" TO="/DataElementList;4;0;downloads.cde.docs:xmlDocType/DataElementsList;2;0/DataElement;4;0;downloads.cde.docs:xmlDataElement/VALUEDOMAIN;2;0/PermissibleValues;2;0/PermissibleValues_ITEM;2;0/VMVERSION;1;0">
-</MAPCOPY>
-
 <MAPINVOKE SERVICE="pub.string:makeString" VALIDATE-IN="$none" VALIDATE-OUT="$none" INVOKE-ORDER="0">
 
   <!-- nodes -->
@@ -1627,9 +1606,6 @@
 <MAP MODE="INVOKEINPUT">
 
   <!-- nodes -->
-
-<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/validValues;4;0;downloads.docs:validValue/valueMeaningConcepts;1;1" TO="/elementList;1;1">
-</MAPCOPY>
 
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/separator;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
@@ -1650,6 +1626,9 @@
 </Values>
 </DATA>
 </MAPSET>
+
+<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/permissibleValues;4;0;downloads.docs:permissibleValue/valueMeaningConcepts;1;1" TO="/elementList;1;1">
+</MAPCOPY>
 </MAP>
 
 <MAP MODE="INVOKEOUTPUT">
@@ -1689,7 +1668,7 @@
 </DATA>
 </MAPSET>
 
-<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/validValues;4;0;downloads.docs:validValue/valueMeaningConceptOrigin;1;1" TO="/elementList;1;1">
+<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/permissibleValues;4;0;downloads.docs:permissibleValue/valueMeaningConceptOrigin;1;1" TO="/elementList;1;1">
 </MAPCOPY>
 </MAP>
 
@@ -1730,7 +1709,7 @@
 </DATA>
 </MAPSET>
 
-<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/validValues;4;0;downloads.docs:validValue/valueMeaningConceptDisplayOrder;1;1" TO="/elementList;1;1">
+<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/permissibleValues;4;0;downloads.docs:permissibleValue/valueMeaningConceptDisplayOrder;1;1" TO="/elementList;1;1">
 </MAPCOPY>
 </MAP>
 
@@ -1742,6 +1721,27 @@
 </MAPCOPY>
 </MAP>
 </MAPINVOKE>
+
+<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/permissibleValues;4;0;downloads.docs:permissibleValue/validValue;1;0" TO="/DataElementList;4;0;downloads.cde.docs:xmlDocType/DataElementsList;2;0/DataElement;4;0;downloads.cde.docs:xmlDataElement/VALUEDOMAIN;2;0/PermissibleValues;2;0/PermissibleValues_ITEM;2;0/VALIDVALUE;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/permissibleValues;4;0;downloads.docs:permissibleValue/ValueMeaningName;1;0" TO="/DataElementList;4;0;downloads.cde.docs:xmlDocType/DataElementsList;2;0/DataElement;4;0;downloads.cde.docs:xmlDataElement/VALUEDOMAIN;2;0/PermissibleValues;2;0/PermissibleValues_ITEM;2;0/VALUEMEANING;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/permissibleValues;4;0;downloads.docs:permissibleValue/valueMeaningDescription;1;0" TO="/DataElementList;4;0;downloads.cde.docs:xmlDocType/DataElementsList;2;0/DataElement;4;0;downloads.cde.docs:xmlDataElement/VALUEDOMAIN;2;0/PermissibleValues;2;0/PermissibleValues_ITEM;2;0/MEANINGDESCRIPTION;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/permissibleValues;4;0;downloads.docs:permissibleValue/pvEndDate;1;0" TO="/DataElementList;4;0;downloads.cde.docs:xmlDocType/DataElementsList;2;0/DataElement;4;0;downloads.cde.docs:xmlDataElement/VALUEDOMAIN;2;0/PermissibleValues;2;0/PermissibleValues_ITEM;2;0/PVENDDATE;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/permissibleValues;4;0;downloads.docs:permissibleValue/pvBeginDate;1;0" TO="/DataElementList;4;0;downloads.cde.docs:xmlDocType/DataElementsList;2;0/DataElement;4;0;downloads.cde.docs:xmlDataElement/VALUEDOMAIN;2;0/PermissibleValues;2;0/PermissibleValues_ITEM;2;0/PVBEGINDATE;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/permissibleValues;4;0;downloads.docs:permissibleValue/valueMeaningpublicId;1;0" TO="/DataElementList;4;0;downloads.cde.docs:xmlDocType/DataElementsList;2;0/DataElement;4;0;downloads.cde.docs:xmlDataElement/VALUEDOMAIN;2;0/PermissibleValues;2;0/PermissibleValues_ITEM;2;0/VMPUBLICID;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/dataElements;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/permissibleValues;4;0;downloads.docs:permissibleValue/valueMeaningversion;1;0" TO="/DataElementList;4;0;downloads.cde.docs:xmlDocType/DataElementsList;2;0/DataElement;4;0;downloads.cde.docs:xmlDataElement/VALUEDOMAIN;2;0/PermissibleValues;2;0/PermissibleValues_ITEM;2;0/VMVERSION;1;0">
+</MAPCOPY>
 </MAP>
 </LOOP>
 

@@ -113,5 +113,5 @@
    		<option value="Designation">designationCollection (gov.nih.nci.cadsr.domain.Designation)</option>
  	    </select></td>
         %include submit.dsp%
-    <input type="hidden" name="selectedDomain" value="AdministeredComponent" id="selectedDomain">
+    <input type="hidden" name="selectedDomain" value="ClassificationSchemeItem" id="selectedDomain">
 %include footer.dsp%

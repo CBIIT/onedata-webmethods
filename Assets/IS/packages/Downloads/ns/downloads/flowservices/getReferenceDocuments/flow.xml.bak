@@ -1373,9 +1373,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/selectREFOutput;2;0/results;2;0/REF_DESC;1;0" TO="/referenceDocuments;4;0;downloads.docs:referenceDocument/document;1;0">
-</MAPCOPY>
-
 <MAPCOPY FROM="/selectREFOutput;2;0/results;2;0/REF_NM;1;0" TO="/referenceDocuments;4;0;downloads.docs:referenceDocument/documentName;1;0">
 </MAPCOPY>
 
@@ -1390,6 +1387,92 @@
 
 <MAPCOPY FROM="/selectREFOutput;2;0/results;2;0/URL;1;0" TO="/referenceDocuments;4;0;downloads.docs:referenceDocument/url;1;0">
 </MAPCOPY>
+
+<MAPINVOKE SERVICE="pub.string:HTMLDecode" VALIDATE-IN="$none" VALIDATE-OUT="$none" INVOKE-ORDER="0">
+
+  <!-- nodes -->
+
+<MAP MODE="INVOKEINPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/selectREFOutput;2;0/results;2;0/REF_DESC;1;0" TO="/inString;1;0">
+</MAPCOPY>
+</MAP>
+
+<MAP MODE="INVOKEOUTPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/value;1;0" TO="/referenceDocuments;4;0;downloads.docs:referenceDocument/document;1;0">
+</MAPCOPY>
+</MAP>
+</MAPINVOKE>
+
+<MAPINVOKE SERVICE="onedata.jdbc:selectREF_DOC" VALIDATE-IN="$none" VALIDATE-OUT="$none" INVOKE-ORDER="0">
+
+  <!-- nodes -->
+
+<MAP MODE="INVOKEINPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/selectREFOutput;2;0/results;2;0/REF_ID;1;0" TO="/selectREF_DOCInput;2;0/NCI_REF_ID;1;0">
+</MAPCOPY>
+</MAP>
+
+<MAP MODE="INVOKEOUTPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/selectREF_DOCOutput;2;0/results[0];2;1/FILE_NM;1;0" TO="/referenceDocuments;4;0;downloads.docs:referenceDocument/attachments;2;0/name;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/selectREF_DOCOutput;2;0/results[0];2;1/NCI_MIME_TYPE;1;0" TO="/referenceDocuments;4;0;downloads.docs:referenceDocument/attachments;2;0/mimeType;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/selectREF_DOCOutput;2;0/results[0];2;1/NCI_DOC_SIZE;1;0" TO="/referenceDocuments;4;0;downloads.docs:referenceDocument/attachments;2;0/size;1;0">
+</MAPCOPY>
+</MAP>
+</MAPINVOKE>
+
+<MAPINVOKE SERVICE="onedata.jdbc:selectADMIN_ITEM" VALIDATE-IN="$none" VALIDATE-OUT="$none" INVOKE-ORDER="0">
+
+  <!-- nodes -->
+
+<MAP MODE="INVOKEINPUT">
+
+  <!-- nodes -->
+
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="true" GLOBALVARIABLES="false" FIELD="/selectADMIN_ITEMInput;2;0/whereclause;1;0">
+  <DATA ENCODING="XMLValues" I18N="true">
+
+<Values version="2.0">
+  <value name="xml">ITEM_ID=%selectREFOutput/results/NCI_CNTXT_ITEM_ID% AND VER_NR=%selectREFOutput/results/NCI_CNTXT_VER_NR%</value>
+  <record name="type" javaclass="com.wm.util.Values">
+    <value name="node_type">unknown</value>
+    <value name="node_subtype">unknown</value>
+    <value name="is_public">false</value>
+    <value name="field_name">whereclause</value>
+    <value name="field_type">string</value>
+    <value name="field_dim">0</value>
+    <value name="nillable">true</value>
+    <value name="form_qualified">false</value>
+    <value name="is_global">false</value>
+  </record>
+</Values>
+</DATA>
+</MAPSET>
+</MAP>
+
+<MAP MODE="INVOKEOUTPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/selectADMIN_ITEMOutput;2;0/results[0];2;1/ITEM_NM;1;0" TO="/referenceDocuments;4;0;downloads.docs:referenceDocument/context;1;0">
+</MAPCOPY>
+</MAP>
+</MAPINVOKE>
 </MAP>
 </LOOP>
 

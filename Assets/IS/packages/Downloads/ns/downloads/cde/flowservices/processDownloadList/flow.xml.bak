@@ -1921,6 +1921,9 @@
 
 <MAPCOPY FROM="/dataElements;4;1;downloads.docs:DataElement" TO="/toList;2;1">
 </MAPCOPY>
+
+<MAPCOPY FROM="/repsonse;4;0;downloads.cde.docs:cde_dnld_response/dataElement;4;0;downloads.docs:DataElement" TO="/fromItem;2;0">
+</MAPCOPY>
 </MAP>
 
 <MAP MODE="OUTPUT">
@@ -2212,11 +2215,11 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/repsonse;4;0;downloads.cde.docs:cde_dnld_response/dataelement;4;0;downloads.docs:DataElement" TO="/dataElementDerived;4;0;downloads.docs:DataElement">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/repsonse;4;0;downloads.cde.docs:cde_dnld_response">
 </MAPDELETE>
+
+<MAPCOPY FROM="/repsonse;4;0;downloads.cde.docs:cde_dnld_response/dataElement;4;0;downloads.docs:DataElement" TO="/dataElementDerived;4;0;downloads.docs:DataElement">
+</MAPCOPY>
 </MAP>
 
 <LOOP TIMEOUT="" IN-ARRAY="/dataElementDerived/derivedDataElements">
