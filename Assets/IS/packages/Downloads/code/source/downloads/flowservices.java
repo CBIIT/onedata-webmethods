@@ -63,7 +63,7 @@ public final class flowservices
 				IDataCursor permissibleValuesInputCursor = permissibleValuesInput[i].getCursor();
 				//String	VAL_ID = IDataUtil.getString( validValuesInputCursor, "VAL_ID" );
 				String NCI_ORD = IDataUtil.getString( permissibleValuesInputCursor, "NCI_ORD" );
-				if( NCI_ORD.equals("0") ){
+				if( (NCI_ORD == null) || NCI_ORD.equals("0") ){
 					vMC.addElement(IDataUtil.getString( permissibleValuesInputCursor, "ITEM_LONG_NM" ));
 					vMCO.addElement( IDataUtil.getString( permissibleValuesInputCursor, "ORIGIN_ID_DN" ));
 					vMCDO.addElement(NCI_ORD);
