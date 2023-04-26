@@ -1778,16 +1778,10 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/ITEM_LONG_NM;1;0" TO="/classifications;4;0;downloads.docs:classification/schemeShortName;1;0">
-</MAPCOPY>
-
 <MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/VER_NR;1;0" TO="/classifications;4;0;downloads.docs:classification/schemeVersion;1;0">
 </MAPCOPY>
 
 <MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/CNTXT_VER_NR;1;0" TO="/classifications;4;0;downloads.docs:classification/schemeContextVersion;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/CNTXT_NM_DN;1;0" TO="/classifications;4;0;downloads.docs:classification/schemeContextName;1;0">
 </MAPCOPY>
 
 <MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/ITEM_ID;1;0" TO="/classifications;4;0;downloads.docs:classification/schemePublicId;1;0">
@@ -1795,6 +1789,48 @@
 
 <MAPDELETE FIELD="/selectAdministeredItemOutput;2;0">
 </MAPDELETE>
+
+<MAPINVOKE SERVICE="pub.string:HTMLDecode" VALIDATE-IN="$none" VALIDATE-OUT="$none" INVOKE-ORDER="0">
+
+  <!-- nodes -->
+
+<MAP MODE="INVOKEINPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/ITEM_LONG_NM;1;0" TO="/inString;1;0">
+</MAPCOPY>
+</MAP>
+
+<MAP MODE="INVOKEOUTPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/value;1;0" TO="/classifications;4;0;downloads.docs:classification/schemeShortName;1;0">
+</MAPCOPY>
+</MAP>
+</MAPINVOKE>
+
+<MAPINVOKE SERVICE="pub.string:HTMLDecode" VALIDATE-IN="$none" VALIDATE-OUT="$none" INVOKE-ORDER="0">
+
+  <!-- nodes -->
+
+<MAP MODE="INVOKEINPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/CNTXT_NM_DN;1;0" TO="/inString;1;0">
+</MAPCOPY>
+</MAP>
+
+<MAP MODE="INVOKEOUTPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/value;1;0" TO="/classifications;4;0;downloads.docs:classification/schemeContextName;1;0">
+</MAPCOPY>
+</MAP>
+</MAPINVOKE>
 </MAP>
 
 <INVOKE TIMEOUT="" SERVICE="onedata.jdbc:selectAdministeredItemByItem_IDandVER_NR" VALIDATE-IN="$none" VALIDATE-OUT="$none">
@@ -3769,9 +3805,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/ITEM_NM;1;0" TO="/classifications;4;0;downloads.docs:classification/schemeItemName;1;0">
-</MAPCOPY>
-
 <MAPCOPY FROM="/selectOBJ_KEYOutput;2;0/results[0];2;1/OBJ_KEY_DESC;1;0" TO="/classifications;4;0;downloads.docs:classification/schemeItemTypeName;1;0">
 </MAPCOPY>
 
@@ -3780,6 +3813,27 @@
 
 <MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/VER_NR;1;0" TO="/classifications;4;0;downloads.docs:classification/schemeItemVersion;1;0">
 </MAPCOPY>
+
+<MAPINVOKE SERVICE="pub.string:HTMLDecode" VALIDATE-IN="$none" VALIDATE-OUT="$none" INVOKE-ORDER="0">
+
+  <!-- nodes -->
+
+<MAP MODE="INVOKEINPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/selectAdministeredItemOutput;2;0/results[0];2;1/ITEM_NM;1;0" TO="/inString;1;0">
+</MAPCOPY>
+</MAP>
+
+<MAP MODE="INVOKEOUTPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/value;1;0" TO="/classifications;4;0;downloads.docs:classification/schemeItemName;1;0">
+</MAPCOPY>
+</MAP>
+</MAPINVOKE>
 </MAP>
 </LOOP>
 
