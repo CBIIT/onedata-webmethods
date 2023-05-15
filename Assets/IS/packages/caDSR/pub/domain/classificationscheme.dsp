@@ -118,6 +118,7 @@
    		<option value="ClassSchemeClassSchemeItem">classSchemeClassSchemeItemCollection (gov.nih.nci.cadsr.domain.ClassSchemeClassSchemeItem)</option>
    		<option value="ReferenceDocument">referenceDocumentCollection (gov.nih.nci.cadsr.domain.ReferenceDocument)</option>
    		<option value="Designation">designationCollection (gov.nih.nci.cadsr.domain.Designation)</option>
+                <optin value="DataElement">dataElementCollection (gov.nih.nci.cadsr.domain.DataElement)</option>
             </select>
           </td>
         </tr>

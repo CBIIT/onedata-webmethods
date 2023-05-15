@@ -5,6 +5,11 @@
 
   <!-- nodes -->
 
+<LOOP TIMEOUT="" IN-ARRAY="/form">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
 <MAP TIMEOUT="" MODE="STANDALONE">
   <COMMENT></COMMENT>
   <MAPTARGET>
@@ -91,6 +96,17 @@
         <value name="modifiable">true</value>
         <value name="rec_ref">downloads.docs:form</value>
       </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">$iteration</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
     </array>
     <value name="modifiable">true</value>
   </record>
@@ -108,34 +124,6 @@
 <MAPCOPY FROM="/form;4;0;downloads.docs:form/longName;1;0" TO="/result;4;0;REDCap.docs:formrecapResultRec/FORM_LONG_NAME;1;0">
 </MAPCOPY>
 
-<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/result;4;0;REDCap.docs:formrecapResultRec/QUEST_SHORT_NAME;1;0">
-  <DATA ENCODING="XMLValues" I18N="true">
-
-<Values version="2.0">
-  <value name="xml">FORM_OID</value>
-  <record name="type" javaclass="com.wm.util.Values">
-    <value name="node_type">unknown</value>
-    <value name="node_subtype">unknown</value>
-    <value name="node_comment"></value>
-    <record name="node_hints" javaclass="com.wm.util.Values">
-      <value name="field_usereditable">true</value>
-      <value name="field_largerEditor">false</value>
-      <value name="field_password">false</value>
-    </record>
-    <value name="is_public">false</value>
-    <value name="field_name">QUEST_SHORT_NAME</value>
-    <value name="field_type">string</value>
-    <value name="field_dim">0</value>
-    <array name="field_options" type="value" depth="1">
-    </array>
-    <value name="nillable">true</value>
-    <value name="form_qualified">false</value>
-    <value name="is_global">false</value>
-  </record>
-</Values>
-</DATA>
-</MAPSET>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/result;4;0;REDCap.docs:formrecapResultRec/CDE_SHORT_NAME;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -152,6 +140,110 @@
     </record>
     <value name="is_public">false</value>
     <value name="field_name">CDE_SHORT_NAME</value>
+    <value name="field_type">string</value>
+    <value name="field_dim">0</value>
+    <array name="field_options" type="value" depth="1">
+    </array>
+    <value name="nillable">true</value>
+    <value name="form_qualified">false</value>
+    <value name="is_global">false</value>
+  </record>
+</Values>
+</DATA>
+</MAPSET>
+
+<MAPINVOKE SERVICE="REDCap.utils:createNull" VALIDATE-IN="$none" VALIDATE-OUT="$none" INVOKE-ORDER="0">
+
+  <!-- nodes -->
+
+<MAP MODE="INVOKEINPUT">
+</MAP>
+
+<MAP MODE="INVOKEOUTPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/null;1;0" TO="/result;4;0;REDCap.docs:formrecapResultRec/MODULE_DISPLAY_ORDER;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/null;1;0" TO="/result;4;0;REDCap.docs:formrecapResultRec/QUEST_DISP_ORD;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/null;1;0" TO="/result;4;0;REDCap.docs:formrecapResultRec/VV_DISP_ORD;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/null;1;0" TO="/result;4;0;REDCap.docs:formrecapResultRec/VAL_DOM_TYP_ID;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/null;1;0" TO="/result;4;0;REDCap.docs:formrecapResultRec/QUEST_INSTR;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/null;1;0" TO="/result;4;0;REDCap.docs:formrecapResultRec/VALID_VALUE;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/null;1;0" TO="/result;4;0;REDCap.docs:formrecapResultRec/VD_DISPLAY_FORMAT;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/null;1;0" TO="/result;4;0;REDCap.docs:formrecapResultRec/VD_LONG_NAME;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/null;1;0" TO="/result;4;0;REDCap.docs:formrecapResultRec/VD_MIN_LENGTH;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/null;1;0" TO="/result;4;0;REDCap.docs:formrecapResultRec/VAL_DOM_MAX_CHAR;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/null;1;0" TO="/result;4;0;REDCap.docs:formrecapResultRec/DE_PUB_ID;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/null;1;0" TO="/result;4;0;REDCap.docs:formrecapResultRec/DE_VERSION;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/null;1;0" TO="/result;4;0;REDCap.docs:formrecapResultRec/VV_NUMBERS_IN_QUEST;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/null;1;0" TO="/result;4;0;REDCap.docs:formrecapResultRec/GR_QVV_VALUE;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/null;1;0" TO="/result;4;0;REDCap.docs:formrecapResultRec/MODULE_LONG_NAME;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/null;1;0" TO="/result;4;0;REDCap.docs:formrecapResultRec/VV_VM_DEF;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/null;1;0" TO="/result;4;0;REDCap.docs:formrecapResultRec/PROTOCOL;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/null;1;0" TO="/result;4;0;REDCap.docs:formrecapResultRec/COLLECT_ID;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/null;1;0" TO="/result;4;0;REDCap.docs:formrecapResultRec/COLLECT_TYPE;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/null;1;0" TO="/result;4;0;REDCap.docs:formrecapResultRec/COLLECT_NAME;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/null;1;0" TO="/result;4;0;REDCap.docs:formrecapResultRec/QUEST_SHORT_NAME;1;0">
+</MAPCOPY>
+</MAP>
+</MAPINVOKE>
+
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/result;4;0;REDCap.docs:formrecapResultRec/QUEST_LONG_NAME;1;0">
+  <DATA ENCODING="XMLValues" I18N="true">
+
+<Values version="2.0">
+  <value name="xml">FORM_OID</value>
+  <record name="type" javaclass="com.wm.util.Values">
+    <value name="node_type">unknown</value>
+    <value name="node_subtype">unknown</value>
+    <value name="node_comment"></value>
+    <record name="node_hints" javaclass="com.wm.util.Values">
+      <value name="field_usereditable">true</value>
+      <value name="field_largerEditor">false</value>
+      <value name="field_password">false</value>
+    </record>
+    <value name="is_public">false</value>
+    <value name="field_name">QUEST_LONG_NAME</value>
     <value name="field_type">string</value>
     <value name="field_dim">0</value>
     <array name="field_options" type="value" depth="1">
@@ -310,6 +402,17 @@
           </record>
         </array>
         <value name="modifiable">true</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">$iteration</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
       </record>
     </array>
     <value name="modifiable">true</value>
@@ -737,6 +840,46 @@
 
 <MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/instruction;4;0;downloads.docs:instruction/text;1;0" TO="/result;4;0;REDCap.docs:formrecapResultRec/QUEST_INSTR;1;0">
 </MAPCOPY>
+
+<MAPINVOKE SERVICE="REDCap.utils:createNull" VALIDATE-IN="$none" VALIDATE-OUT="$none" INVOKE-ORDER="0">
+
+  <!-- nodes -->
+
+<MAP MODE="INVOKEINPUT">
+</MAP>
+
+<MAP MODE="INVOKEOUTPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/null;1;0" TO="/result;4;0;REDCap.docs:formrecapResultRec/COLLECT_ID;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/null;1;0" TO="/result;4;0;REDCap.docs:formrecapResultRec/COLLECT_TYPE;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/null;1;0" TO="/result;4;0;REDCap.docs:formrecapResultRec/COLLECT_NAME;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/null;1;0" TO="/result;4;0;REDCap.docs:formrecapResultRec/PROTOCOL;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/null;1;0" TO="/result;4;0;REDCap.docs:formrecapResultRec/VV_DISP_ORD;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/null;1;0" TO="/result;4;0;REDCap.docs:formrecapResultRec/VALID_VALUE;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/null;1;0" TO="/result;4;0;REDCap.docs:formrecapResultRec/VV_NUMBERS_IN_QUEST;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/null;1;0" TO="/result;4;0;REDCap.docs:formrecapResultRec/GR_QVV_VALUE;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/null;1;0" TO="/result;4;0;REDCap.docs:formrecapResultRec/VV_VM_DEF;1;0">
+</MAPCOPY>
+</MAP>
+</MAPINVOKE>
 </MAP>
 
 <BRANCH TIMEOUT="" SWITCH="/form/module/question/validValues">
@@ -1407,6 +1550,7 @@
 </INVOKE>
 </SEQUENCE>
 </BRANCH>
+</LOOP>
 </LOOP>
 </LOOP>
 

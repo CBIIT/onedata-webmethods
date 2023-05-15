@@ -60,6 +60,7 @@
    	      <option value="Context">gov.nih.nci.cadsr.domain.Context</option>
    	      <option value="AdministeredComponent">administeredComponentCollection (gov.nih.nci.cadsr.domain.AdministeredComponent)</option>
    	      <option value="ReferenceDocument">referenceDocumentCollection (gov.nih.nci.cadsr.domain.ReferenceDocument)</option>
+   	      <option value="DataElement">DataElementDocumentCollection (gov.nih.nci.cadsr.domain.DataElement)</option>
    	      <option value="Definition">definitionCollection (gov.nih.nci.cadsr.domain.Definition)</option>
    	      <option value="Designation">designationCollection (gov.nih.nci.cadsr.domain.Designation)</option>
             </select>

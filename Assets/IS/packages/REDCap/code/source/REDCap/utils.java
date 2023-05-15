@@ -98,6 +98,25 @@ public final class utils
 
 
 
+	public static final void createNull (IData pipeline)
+        throws ServiceException
+	{
+		// --- <<IS-START(createNull)>> ---
+		// @sigtype java 3.5
+		// pipeline
+		String s = null;
+		// pipeline
+		IDataCursor pipelineCursor = pipeline.getCursor();
+		IDataUtil.put( pipelineCursor, "null", s );
+		pipelineCursor.destroy();
+			
+		// --- <<IS-END>> ---
+
+                
+	}
+
+
+
 	public static final void formatChoices (IData pipeline)
         throws ServiceException
 	{

@@ -1,3 +1,4 @@
+
 <html>
 <head>
   <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -8,10 +9,10 @@
   <table height="100%" width="100%" border="0" cellspacing="0" cellpadding="0" summary="">
     <tr>
       <td valign="center">
-        <table cellpadding="0" cellspacing="0" border="0" width="100%"> 
+        <table cellpadding="0" cellspacing="0" border="0" width="100%">
           <tr>
             <td valign="center" align="left" height="37" width="283"><a href="http://www.cancer.gov" target="_blank"><img border="0" height="37" width="283" src="%value serverInfo/protocol%://%value serverInfo/host%/caDSR/images/CBIIT-36px-Logo-COLOR_contrast.png" alt="National Cancer Institute"></a></td><td valign="center" align="right" height="37" width="295"><a href="http://www.nih.gov/" target="_blank">U.S. National Institutes of Health</a></td>
-          </tr> 
+          </tr>
         </table>
       </td>
     </tr>
@@ -35,7 +36,7 @@
                     <table width="100%" height="100%" class="contentBegins" bordercolor="blue" border="0" cellspacing="0" cellpadding="0">
                       %ifvar getXMLDocnew/xlink:httpQuery/queryResponse/Errors%
                       <tr>
-			<td align="top" class="error">
+                        <td align="top" class="error">
                           <em>%value getXMLDocnew/xlink:httpQuery/queryResponse/Errors/Error[0]/ErrorMessage%</em>
                         </td>
                       </tr>
@@ -45,39 +46,51 @@
                           <table cellspacing="0" cellpadding="0" summary="" bordercolor="orange" border="0">
                             <tr>
                               <td align="left" height="20" class="dataTablePrimaryLabel">
-				Criteria: %value getXMLDocnew/xlink:httpQuery/queryRequest/criteria%<br>
+                                Criteria: %value getXMLDocnew/xlink:httpQuery/queryRequest/criteria%<br>
                                 Result Class: %value getXMLDocnew/xlink:httpQuery/queryRequest/query/class%
-			      </td>
+                              </td>
                             </tr>
                             <tr>
                               <td height="20" class="dataPagingSection" align="right">
                                 <table width="100%" cellspacing="0" cellpadding="0" bordercolor="purple" border="0">
                                   <tr>
                                     <td align="right" class="dataPagingText">
-				      | 1 - %value getXMLDocnew/xlink:httpQuery/queryResponse/recordCounter% of %value getXMLDocnew/xlink:httpQuery/queryResponse/recordCounter% |
-				    </td>
+                                      | 1 - %value getXMLDocnew/xlink:httpQuery/queryResponse/recordCounter% of %value getXMLDocnew/xlink:httpQuery/queryResponse/recordCounter% |
+                                    </td>
                                   </tr>
                                 </table>
                               </td>
                             </tr>
                             <tr>
                               <td>
-                                <table width="100%" class="dataTable" border="0" cellspacing="0" cellpadding="3" summary="Data Summary">
-                                  <tr>
-                                    <th colspan="100%" align="left" scope="col" class="dataTableHeader">%value getXMLDocnew/xlink:httpQuery/queryResponse/class[0]/@name%</th>
+				%loop /getXMLDocnew/xlink:httpQuery/queryResponse/class%
+				  %ifvar @recordNumber equals('1')%
+                                  <table width="100%" class="dataTable" border="0" cellspacing="0" cellpadding="3" summary="Data Summary">
+                                    <tr>
+                                      <th colspan="100%" align="left" scope="col" class="dataTableHeader">%value @name%</th>
+                                    </tr>
+                                    <tr>
+                                    %loop field%
+                                      <th align="center" scope="col" class="dataTableHeader">%value @name%</th>
+                                    %endloop%
+                                    </tr>
+                                    <tr class="dataRowLight">
+                                    %loop field%
+                                       <td nowrap="off" class="dataCellText">%ifvar @xlink:href%<a href="%value @xlink:href%">%endif%%value *body%%ifvar @xlink:href%</a>%endif%</td>
+                                    %endloop%
+                                    </tr>
+                                  %else%
+                                    <tr class="dataRowLight">
+                                      %loop field%
+                                       <td nowrap="off" class="dataCellText">%ifvar @xlink:href%<a href="%value @xlink:href%">%endif%%value *body%%ifvar @xlink:href%</a>%endif%</td>
+                                      %endloop%
                                   </tr>
-                                  <tr>
-				  %loop /getXMLDocnew/xlink:httpQuery/queryResponse/class[0]/field%
-                                    <th align="center" scope="col" class="dataTableHeader">%value @name%</th>
-                                  %endloop%
-                                  </tr>
+                                  %endif% 
+                                %endloop%
+                                </table>
+
                                   %loop /getXMLDocnew/xlink:httpQuery/queryResponse/class%
-				  <tr class="dataRowLight">
-                                     %loop field%
-				       <td nowrap="off" class="dataCellText">%ifvar @xlink:href%<a href="%value @xlink:href%">%endif%%value *body%%ifvar @xlink:href%</a>%endif%</td>
-                                     %endloop%
-				  </tr>
-				  %endloop%
+                                  %endloop%
                                 </table>
                               </td>
                             </tr>
@@ -114,3 +127,4 @@
   </table>
 </body>
 </html>
+
