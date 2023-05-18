@@ -6,6 +6,20 @@
   <body>
     %invoke downloads.form:direct%
       <textarea name="data" id="data" hidden>%value xmldata encode(none)%</textarea>
+    %onerror%
+      <HR>
+      <P><FONT COLOR="#FF0000">The Server could not process your request because the following error occurred. Contact your server administrator.</FONT></P>
+      <TABLE WIDTH="50%" BORDER="1">
+        <TR>
+          <TD><B>Service</B></TD>
+          <TD>%value errorService%</TD>
+        </TR>
+        <TR>
+          <TD><B>Error</B></TD>
+          <TD>%value error%<br>%value errorMessage%</TD>
+        </TR>
+      </TABLE>
+
     %endinvoke%
     <script type="text/javascript">
       const b64toBlob = (b64Data, contentType='', sliceSize=512) => {
