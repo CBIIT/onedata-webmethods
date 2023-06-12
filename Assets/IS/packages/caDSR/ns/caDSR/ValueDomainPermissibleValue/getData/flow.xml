@@ -1855,6 +1855,9 @@
 
 <MAPCOPY FROM="/selectPERM_VALOutput;2;0/results;2;0/VAL_ID;1;0" TO="/keys;4;0;caDSR.docs:keys/ITEM_ID;1;0">
 </MAPCOPY>
+
+<MAPCOPY FROM="/selectPERM_VALOutput;2;0/results;2;0/VAL_ID;1;0" TO="/keys;4;0;caDSR.docs:keys/searchKey;1;0">
+</MAPCOPY>
 </MAP>
 </LOOP>
 
@@ -2539,6 +2542,25 @@
         <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
         <value name="rec_ref">caDSR.docs:fields</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="node_comment"></value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_usereditable">true</value>
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+        </record>
+        <value name="is_public">false</value>
+        <value name="field_name">whereclause</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <array name="field_options" type="value" depth="1">
+        </array>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
       </record>
     </array>
     <value name="modifiable">true</value>
@@ -3759,6 +3781,9 @@
 </Values>
 </DATA>
 </MAPSET>
+
+<MAPCOPY FROM="/selectPERM_VALOutput;2;0/results;2;0/VAL_ID;1;0" TO="/key;4;0;caDSR.docs:keys/searchKey;1;0">
+</MAPCOPY>
 </MAP>
 
 <INVOKE TIMEOUT="" SERVICE="pub.list:appendToDocumentList" VALIDATE-IN="$none" VALIDATE-OUT="$none">
@@ -5236,6 +5261,9 @@ NCI_VAL_MEAN_VER_NR = %selectPERM_VALOutput/results[0]/NCI_VAL_MEAN_VER_NR%</val
 </Values>
 </DATA>
 </MAPSET>
+
+<MAPCOPY FROM="/selectPERM_VALOutput;2;0/results;2;0/VAL_ID;1;0" TO="/key;4;0;caDSR.docs:keys/searchKey;1;0">
+</MAPCOPY>
 </MAP>
 
 <INVOKE TIMEOUT="" SERVICE="pub.list:appendToDocumentList" VALIDATE-IN="$none" VALIDATE-OUT="$none">
@@ -7354,6 +7382,9 @@ NCI_VAL_MEAN_VER_NR = %selectPERM_VALOutput/results[0]/NCI_VAL_MEAN_VER_NR%</val
 
 <MAPCOPY FROM="/selectPERM_VALOutput;2;0/results;2;0/VAL_ID;1;0" TO="/key;4;0;caDSR.docs:keys/ITEM_ID;1;0">
 </MAPCOPY>
+
+<MAPCOPY FROM="/selectPERM_VALOutput;2;0/results;2;0/VAL_ID;1;0" TO="/key;4;0;caDSR.docs:keys/searchKey;1;0">
+</MAPCOPY>
 </MAP>
 
 <INVOKE TIMEOUT="" SERVICE="pub.list:appendToDocumentList" VALIDATE-IN="$none" VALIDATE-OUT="$none">
@@ -8616,6 +8647,9 @@ NCI_VAL_MEAN_VER_NR = %selectPERM_VALOutput/results[0]/NCI_VAL_MEAN_VER_NR%</val
 
 <MAPCOPY FROM="/selectPERM_VALOutput;2;0/results;2;0/VAL_ID;1;0" TO="/key;4;0;caDSR.docs:keys/ITEM_ID;1;0">
 </MAPCOPY>
+
+<MAPCOPY FROM="/selectPERM_VALOutput;2;0/results;2;0/VAL_ID;1;0" TO="/key;4;0;caDSR.docs:keys/searchKey;1;0">
+</MAPCOPY>
 </MAP>
 
 <INVOKE TIMEOUT="" SERVICE="pub.list:appendToDocumentList" VALIDATE-IN="$none" VALIDATE-OUT="$none">
@@ -9399,11 +9433,11 @@ NCI_VAL_MEAN_VER_NR = %selectPERM_VALOutput/results[0]/NCI_VAL_MEAN_VER_NR%</val
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/keys;4;1;caDSR.docs:keys" TO="/filter;4;0;caDSR.docs:filter/keys;4;1;caDSR.docs:keys">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/keys;4;1;caDSR.docs:keys">
 </MAPDELETE>
+
+<MAPCOPY FROM="/keys;4;1;caDSR.docs:keys" TO="/filter;4;0;caDSR.docs:filter/keys;4;1;caDSR.docs:keys">
+</MAPCOPY>
 </MAP>
 </SEQUENCE>
 </BRANCH>

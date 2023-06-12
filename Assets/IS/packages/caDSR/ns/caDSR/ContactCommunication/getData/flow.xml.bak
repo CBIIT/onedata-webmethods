@@ -430,7 +430,7 @@
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
-  <value name="xml">CREAT_DT %filter/fieldFilters/operator% '%filter/fieldFilters/value%'</value>
+  <value name="xml">CREAT_DT %filter/fieldFilters/operator% TO_DATE('%filter/fieldFilters/value%', 'mm-dd-yyyy')</value>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">field</value>
     <value name="node_subtype">unknown</value>
@@ -701,7 +701,7 @@
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
-  <value name="xml">LST_UPD_DT %filter/fieldFilters/operator% '%filter/fieldFilters/value%'</value>
+  <value name="xml">LST_UPD_DT %filter/fieldFilters/operator% TO_DATE('%filter/fieldFilters/value%', 'mm-dd-yyyy')</value>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">field</value>
     <value name="node_subtype">unknown</value>
@@ -3397,6 +3397,9 @@
 
 <MAPCOPY FROM="/selectNCI_ENTTY_COMMOutput;2;0/results;2;0/ENTTY_ID;1;0" TO="/keys;4;0;caDSR.docs:keys/ITEM_ID;1;0">
 </MAPCOPY>
+
+<MAPCOPY FROM="/selectNCI_ENTTY_COMMOutput;2;0/results;2;0/ENTTY_ID;1;0" TO="/keys;4;0;caDSR.docs:keys/searchKey;1;0">
+</MAPCOPY>
 </MAP>
 </LOOP>
 
@@ -3593,8 +3596,26 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/keys;4;1;caDSR.docs:keys" TO="/filter;4;0;caDSR.docs:filter/keys;4;1;caDSR.docs:keys">
+<MAPINVOKE SERVICE="caDSR.utils:removeDups" VALIDATE-IN="$none" VALIDATE-OUT="$none" INVOKE-ORDER="0">
+
+  <!-- nodes -->
+
+<MAP MODE="INVOKEINPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/keys;4;1;caDSR.docs:keys" TO="/tempKeys;4;1;caDSR.docs:keys">
 </MAPCOPY>
+</MAP>
+
+<MAP MODE="INVOKEOUTPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/newKeys;4;1;caDSR.docs:keys" TO="/filter;4;0;caDSR.docs:filter/keys;4;1;caDSR.docs:keys">
+</MAPCOPY>
+</MAP>
+</MAPINVOKE>
 </MAP>
 
 <LOOP TIMEOUT="" IN-ARRAY="/filter/collectionFilters">
@@ -4316,6 +4337,25 @@
         <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
         <value name="rec_ref">caDSR.docs:fields</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="node_comment"></value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_usereditable">true</value>
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+        </record>
+        <value name="is_public">false</value>
+        <value name="field_name">whereclause</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <array name="field_options" type="value" depth="1">
+        </array>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
       </record>
     </array>
     <value name="modifiable">true</value>
@@ -5225,6 +5265,9 @@
 </Values>
 </DATA>
 </MAPSET>
+
+<MAPCOPY FROM="/tempkeys;4;0;caDSR.docs:keys/ITEM_ID;1;0" TO="/key;4;0;caDSR.docs:keys/searchKey;1;0">
+</MAPCOPY>
 </MAP>
 
 <INVOKE TIMEOUT="" SERVICE="pub.list:appendToDocumentList" VALIDATE-IN="$none" VALIDATE-OUT="$none">
@@ -5964,6 +6007,9 @@
 </Values>
 </DATA>
 </MAPSET>
+
+<MAPCOPY FROM="/tempkeys;4;0;caDSR.docs:keys/ITEM_ID;1;0" TO="/key;4;0;caDSR.docs:keys/searchKey;1;0">
+</MAPCOPY>
 </MAP>
 
 <INVOKE TIMEOUT="" SERVICE="pub.list:appendToDocumentList" VALIDATE-IN="$none" VALIDATE-OUT="$none">
@@ -6648,8 +6694,26 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/keys;4;1;caDSR.docs:keys" TO="/filter;4;0;caDSR.docs:filter/keys;4;1;caDSR.docs:keys">
+<MAPINVOKE SERVICE="caDSR.utils:removeDups" VALIDATE-IN="$none" VALIDATE-OUT="$none" INVOKE-ORDER="0">
+
+  <!-- nodes -->
+
+<MAP MODE="INVOKEINPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/keys;4;1;caDSR.docs:keys" TO="/tempKeys;4;1;caDSR.docs:keys">
 </MAPCOPY>
+</MAP>
+
+<MAP MODE="INVOKEOUTPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/newKeys;4;1;caDSR.docs:keys" TO="/filter;4;0;caDSR.docs:filter/keys;4;1;caDSR.docs:keys">
+</MAPCOPY>
+</MAP>
+</MAPINVOKE>
 </MAP>
 </SEQUENCE>
 </BRANCH>

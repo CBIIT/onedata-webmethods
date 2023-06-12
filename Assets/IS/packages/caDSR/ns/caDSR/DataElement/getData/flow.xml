@@ -1284,6 +1284,50 @@
 
 <MAPCOPY FROM="/selectADMIN_ITEMOutput;2;0/results;2;0/VER_NR;1;0" TO="/keys;4;0;caDSR.docs:keys/VER_NR;1;0">
 </MAPCOPY>
+
+<MAPINVOKE SERVICE="pub.string:messageFormat" VALIDATE-IN="$none" VALIDATE-OUT="$none" INVOKE-ORDER="0">
+
+  <!-- nodes -->
+
+<MAP MODE="INVOKEINPUT">
+
+  <!-- nodes -->
+
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/pattern;1;0">
+  <DATA ENCODING="XMLValues" I18N="true">
+
+<Values version="2.0">
+  <value name="xml">{0}v{1}</value>
+  <record name="type" javaclass="com.wm.util.Values">
+    <value name="node_type">field</value>
+    <value name="node_subtype">unknown</value>
+    <value name="is_public">false</value>
+    <value name="field_name">pattern</value>
+    <value name="field_type">string</value>
+    <value name="field_dim">0</value>
+    <value name="nillable">true</value>
+    <value name="form_qualified">false</value>
+    <value name="is_global">false</value>
+  </record>
+</Values>
+</DATA>
+</MAPSET>
+
+<MAPCOPY FROM="/selectADMIN_ITEMOutput;2;0/results;2;0/ITEM_ID;1;0" TO="/argumentList[0];1;1">
+</MAPCOPY>
+
+<MAPCOPY FROM="/selectADMIN_ITEMOutput;2;0/results;2;0/VER_NR;1;0" TO="/argumentList[1];1;1">
+</MAPCOPY>
+</MAP>
+
+<MAP MODE="INVOKEOUTPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/value;1;0" TO="/keys;4;0;caDSR.docs:keys/searchKey;1;0">
+</MAPCOPY>
+</MAP>
+</MAPINVOKE>
 </MAP>
 </LOOP>
 

@@ -1284,6 +1284,34 @@
 </Values>
 </DATA>
 </MAPSET>
+
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="true" GLOBALVARIABLES="false" FIELD="/keys;4;0;caDSR.docs:keys/searchKey;1;0">
+  <DATA ENCODING="XMLValues" I18N="true">
+
+<Values version="2.0">
+  <value name="xml">%selectADMIN_ITEMOutput/results/ITEM_ID%v%selectADMIN_ITEMOutput/results/VER_NR%</value>
+  <record name="type" javaclass="com.wm.util.Values">
+    <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
+    <value name="node_comment"></value>
+    <record name="node_hints" javaclass="com.wm.util.Values">
+      <value name="field_usereditable">true</value>
+      <value name="field_largerEditor">false</value>
+      <value name="field_password">false</value>
+    </record>
+    <value name="is_public">false</value>
+    <value name="field_name">searchKey</value>
+    <value name="field_type">string</value>
+    <value name="field_dim">0</value>
+    <array name="field_options" type="value" depth="1">
+    </array>
+    <value name="nillable">true</value>
+    <value name="form_qualified">false</value>
+    <value name="is_global">false</value>
+  </record>
+</Values>
+</DATA>
+</MAPSET>
 </MAP>
 </LOOP>
 
@@ -1462,8 +1490,26 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/keys;4;1;caDSR.docs:keys" TO="/filter;4;0;caDSR.docs:filter/keys;4;1;caDSR.docs:keys">
+<MAPINVOKE SERVICE="caDSR.utils:removeDups" VALIDATE-IN="$none" VALIDATE-OUT="$none" INVOKE-ORDER="0">
+
+  <!-- nodes -->
+
+<MAP MODE="INVOKEINPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/keys;4;1;caDSR.docs:keys" TO="/tempKeys;4;1;caDSR.docs:keys">
 </MAPCOPY>
+</MAP>
+
+<MAP MODE="INVOKEOUTPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/newKeys;4;1;caDSR.docs:keys" TO="/filter;4;0;caDSR.docs:filter/keys;4;1;caDSR.docs:keys">
+</MAPCOPY>
+</MAP>
+</MAPINVOKE>
 </MAP>
 
 <LOOP TIMEOUT="" IN-ARRAY="/filter/collectionFilters">
@@ -2149,6 +2195,25 @@
         <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
         <value name="rec_ref">caDSR.docs:fields</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="node_comment"></value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_usereditable">true</value>
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+        </record>
+        <value name="is_public">false</value>
+        <value name="field_name">whereclause</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <array name="field_options" type="value" depth="1">
+        </array>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
       </record>
     </array>
     <value name="modifiable">true</value>
@@ -3398,7 +3463,7 @@
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
-  <value name="xml">DataElement</value>
+  <value name="xml">DataElementDerivation</value>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
     <value name="node_subtype">unknown</value>
@@ -3410,6 +3475,34 @@
     </record>
     <value name="is_public">false</value>
     <value name="field_name">TYPE</value>
+    <value name="field_type">string</value>
+    <value name="field_dim">0</value>
+    <array name="field_options" type="value" depth="1">
+    </array>
+    <value name="nillable">true</value>
+    <value name="form_qualified">false</value>
+    <value name="is_global">false</value>
+  </record>
+</Values>
+</DATA>
+</MAPSET>
+
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="true" GLOBALVARIABLES="false" FIELD="/key;4;0;caDSR.docs:keys/searchKey;1;0">
+  <DATA ENCODING="XMLValues" I18N="true">
+
+<Values version="2.0">
+  <value name="xml">%selectNCI_ADMIN_ITEM_RELOutput/results/P_ITEM_ID%v%selectNCI_ADMIN_ITEM_RELOutput/results/P_ITEM_VER_NR%</value>
+  <record name="type" javaclass="com.wm.util.Values">
+    <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
+    <value name="node_comment"></value>
+    <record name="node_hints" javaclass="com.wm.util.Values">
+      <value name="field_usereditable">true</value>
+      <value name="field_largerEditor">false</value>
+      <value name="field_password">false</value>
+    </record>
+    <value name="is_public">false</value>
+    <value name="field_name">searchKey</value>
     <value name="field_type">string</value>
     <value name="field_dim">0</value>
     <array name="field_options" type="value" depth="1">
@@ -4207,8 +4300,26 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/keys;4;1;caDSR.docs:keys" TO="/filter;4;0;caDSR.docs:filter/keys;4;1;caDSR.docs:keys">
+<MAPINVOKE SERVICE="caDSR.utils:removeDups" VALIDATE-IN="$none" VALIDATE-OUT="$none" INVOKE-ORDER="0">
+
+  <!-- nodes -->
+
+<MAP MODE="INVOKEINPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/keys;4;1;caDSR.docs:keys" TO="/tempKeys;4;1;caDSR.docs:keys">
 </MAPCOPY>
+</MAP>
+
+<MAP MODE="INVOKEOUTPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/newKeys;4;1;caDSR.docs:keys" TO="/filter;4;0;caDSR.docs:filter/keys;4;1;caDSR.docs:keys">
+</MAPCOPY>
+</MAP>
+</MAPINVOKE>
 </MAP>
 </SEQUENCE>
 </BRANCH>
