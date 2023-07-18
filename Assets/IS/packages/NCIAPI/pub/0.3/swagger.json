@@ -1,0 +1,413 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "API for caDSR object structures.",
+    "version" : "0.3",
+    "title" : "NCI API"
+  },
+  "host" : "cadsrapi-dev.cancer.gov",
+  "basePath" : "/rad/NCIAPI/0.3/api",
+  "tags" : [ {
+    "name" : "Data Element",
+    "description" : "A unit of data for which the definition, identification, representation and permissible values are specified by means of a set of attributes."
+  } ],
+  "schemes" : [ "https" ],
+  "consumes" : [ "application/json" ],
+  "produces" : [ "application/json", "application/xml" ],
+  "paths" : {
+    "/DataElement/{publicId}" : {
+      "get" : {
+        "tags" : [ "Data Element" ],
+        "description" : "GET full representation of Data Element object.\r\n\r\nExamples:\r\n\r\n- To get the latest version of Data Element with publicID of 62:\r\n        /DataElement/62\r\n\r\n\r\n- To get specific version (e.g. version 4) of Data Element with publicId of 62:\r\n        /DataElement/62?version=4",
+        "operationId" : "DataElementpublicId_GET_1",
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "publicId",
+          "in" : "path",
+          "description" : "The unique identifier for an Administered Item within a Registration Authority. Example: 62",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "version",
+          "in" : "query",
+          "description" : "The unique version identifier of the Administered Item.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/DataElementpublicId_GET_response"
+            }
+          },
+          "401" : {
+            "description" : "Access Denied"
+          }
+        }
+      }
+    },
+    "/DataElement/Query" : {
+      "get" : {
+        "tags" : [ "Data Element" ],
+        "description" : "GET list of Data Element objects with top level properties.\r\n\r\nExamples:\r\n\r\n- To get all versions of Data Element with publicID of 62:\r\n        /DataElement?publicId=62",
+        "operationId" : "DataElementQuery_GET_2",
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "publicId",
+          "in" : "query",
+          "description" : "The unique identifier for an Administered Item within a Registration Authority. Example: 62",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/DataElementQuery_GET_response"
+            }
+          },
+          "401" : {
+            "description" : "Access Denied"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "DataElementpublicId_GET_response" : {
+      "required" : [ "DataElement" ],
+      "properties" : {
+        "DataElement" : {
+          "$ref" : "#/definitions/DataElement"
+        }
+      }
+    },
+    "DataElementQuery_GET_response" : {
+      "required" : [ "DataElementQueryResults", "numRecords" ],
+      "properties" : {
+        "numRecords" : {
+          "type" : "string"
+        },
+        "DataElementQueryResults" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/DataElementQuery"
+          }
+        }
+      }
+    },
+    "Context" : {
+      "required" : [ "name", "publicId", "version" ],
+      "properties" : {
+        "publicId" : {
+          "type" : "string",
+          "description" : "The unique identifier for an Administered Item within a Registration Authority."
+        },
+        "version" : {
+          "type" : "string",
+          "description" : "The unique version identifier of the Administered Item."
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "A 30 character limit name by which an Administered Item is designated within a specific Context."
+        },
+        "description" : {
+          "type" : "string",
+          "description" : "The text of the most desirable meaning for the Administered Item."
+        },
+        "languageName" : {
+          "type" : "string",
+          "description" : "A 255 character limit name for an item in the registry."
+        },
+        "id" : {
+          "type" : "string"
+        },
+        "createdBy" : {
+          "type" : "string",
+          "description" : "This is a description of createdBy."
+        },
+        "dateCreated" : {
+          "type" : "string",
+          "description" : "The date the Administered Item was created."
+        },
+        "modifiedBy" : {
+          "type" : "string",
+          "description" : "Username of the person who modified the record"
+        },
+        "dateModified" : {
+          "type" : "string",
+          "description" : "Date on which the record was modified; last date the object was modified"
+        }
+      }
+    },
+    "Concept" : {
+      "required" : [ "publicId", "version" ],
+      "properties" : {
+        "publicId" : {
+          "type" : "string",
+          "description" : "The unique identifier for an Administered Item within a Registration Authority."
+        },
+        "version" : {
+          "type" : "string",
+          "description" : "The unique version identifier of the Administered Item."
+        },
+        "preferredName" : {
+          "type" : "string",
+          "description" : "A 30 character limit name by which an Administered Item is designated within a specific Context."
+        },
+        "preferredDefinition" : {
+          "type" : "string",
+          "description" : "A 255 character limit name for an item in the registry."
+        },
+        "longName" : {
+          "type" : "string",
+          "description" : "A 255 character limit name for an item in the registry."
+        },
+        "origin" : {
+          "type" : "string",
+          "description" : "The source (document, project, discipline or model) for the Administered Item."
+        },
+        "workflowStatus" : {
+          "type" : "string"
+        },
+        "registrationStatus" : {
+          "type" : "string",
+          "description" : "A designation of the status in the registration life-cycle of an Administered Item."
+        },
+        "beginDate" : {
+          "type" : "string",
+          "description" : "The particular day, month and year this item became allowed."
+        },
+        "endDate" : {
+          "type" : "string",
+          "description" : "The day, month and year this item becomes no longer allowed."
+        },
+        "id" : {
+          "type" : "string"
+        },
+        "latestVersionIndicator" : {
+          "type" : "string"
+        },
+        "createdBy" : {
+          "type" : "string",
+          "description" : "This is a description of createdBy."
+        },
+        "dateCreated" : {
+          "type" : "string",
+          "description" : "The date the Administered Item was created."
+        },
+        "modifiedBy" : {
+          "type" : "string",
+          "description" : "Username of the person who modified the record"
+        },
+        "dateModified" : {
+          "type" : "string",
+          "description" : "Date on which the record was modified; last date the object was modified"
+        },
+        "changeNote" : {
+          "type" : "string",
+          "description" : "The description of what has changed in the Administered Item since the prior version of the Administered Item."
+        },
+        "unresolvedIssues" : {
+          "type" : "string"
+        },
+        "context" : {
+          "$ref" : "#/definitions/Context"
+        }
+      }
+    },
+    "DataElementQuery" : {
+      "required" : [ "publicId", "version" ],
+      "properties" : {
+        "publicId" : {
+          "type" : "string",
+          "description" : "The unique identifier for an Administered Item within a Registration Authority."
+        },
+        "version" : {
+          "type" : "string",
+          "description" : "The unique version identifier of the Administered Item."
+        },
+        "preferredName" : {
+          "type" : "string",
+          "description" : "A 30 character limit name by which an Administered Item is designated within a specific Context."
+        },
+        "preferredDefinition" : {
+          "type" : "string",
+          "description" : "The text of the most desirable meaning for the Administered Item."
+        },
+        "longName" : {
+          "type" : "string",
+          "description" : "A 255 character limit name for an item in the registry."
+        },
+        "contextName" : {
+          "type" : "string",
+          "description" : "A 30 character limit name by which an Administered Item is designated within a specific Context."
+        },
+        "contextVersion" : {
+          "type" : "string",
+          "description" : "The unique version identifier of the Administered Item."
+        },
+        "conceptPublicId" : {
+          "type" : "string",
+          "description" : "The unique identifier for an Administered Item within a Registration Authority."
+        },
+        "conceptVersion" : {
+          "type" : "string",
+          "description" : "The unique version identifier of the Administered Item."
+        },
+        "valueDomainPublicId" : {
+          "type" : "string",
+          "description" : "The unique identifier for an Administered Item within a Registration Authority."
+        },
+        "valueDomainVersion" : {
+          "type" : "string",
+          "description" : "The unique version identifier of the Administered Item."
+        },
+        "origin" : {
+          "type" : "string",
+          "description" : "The source (document, project, discipline or model) for the Administered Item."
+        },
+        "workflowStatus" : {
+          "type" : "string",
+          "description" : "A name of a designation of the status in the administrative life-cycle of a Context Owner for handling new administered items."
+        },
+        "registrationStatus" : {
+          "type" : "string",
+          "description" : "A designation of the status in the registration life-cycle of an Administered Item."
+        },
+        "id" : {
+          "type" : "string",
+          "description" : "The 36 character caDSR database identifier."
+        },
+        "latestVersionIndicator" : {
+          "type" : "string",
+          "description" : "The present form of an Administered Item."
+        },
+        "beginDate" : {
+          "type" : "string",
+          "description" : "The particular day, month and year this item became allowed."
+        },
+        "endDate" : {
+          "type" : "string",
+          "description" : "The day, month and year this item becomes no longer allowed."
+        },
+        "createdBy" : {
+          "type" : "string",
+          "description" : "This is a description of createdBy."
+        },
+        "dateCreated" : {
+          "type" : "string",
+          "description" : "The date the Administered Item was created."
+        },
+        "modifiedBy" : {
+          "type" : "string",
+          "description" : "Username of the person who modified the record"
+        },
+        "dateModified" : {
+          "type" : "string",
+          "description" : "Date on which the record was modified; last date the object was modified"
+        },
+        "changeNote" : {
+          "type" : "string",
+          "description" : "The description of what has changed in the Administered Item since the prior version of the Administered Item."
+        },
+        "unresolvedIssues" : {
+          "type" : "string",
+          "description" : "Any problem that remains unresolved regarding proper documentation of the Administered Item."
+        },
+        "deletedIndicator" : {
+          "type" : "string",
+          "description" : "An indicator that characterizes the item as eliminated from the registry, thought the physical record still exists."
+        }
+      }
+    },
+    "DataElement" : {
+      "required" : [ "concept", "context", "preferredName", "publicId", "version" ],
+      "properties" : {
+        "publicId" : {
+          "type" : "string",
+          "description" : "The unique identifier for an Administered Item within a Registration Authority."
+        },
+        "version" : {
+          "type" : "string",
+          "description" : "The unique version identifier of the Administered Item."
+        },
+        "preferredName" : {
+          "type" : "string",
+          "description" : "A 30 character limit name by which an Administered Item is designated within a specific Context."
+        },
+        "preferredDefinition" : {
+          "type" : "string",
+          "description" : "The text of the most desirable meaning for the Administered Item."
+        },
+        "longName" : {
+          "type" : "string",
+          "description" : "A 255 character limit name for an item in the registry."
+        },
+        "origin" : {
+          "type" : "string",
+          "description" : "The source (document, project, discipline or model) for the Administered Item."
+        },
+        "workflowStatus" : {
+          "type" : "string",
+          "description" : "A name of a designation of the status in the administrative life-cycle of a Context Owner for handling new administered items."
+        },
+        "registrationStatus" : {
+          "type" : "string",
+          "description" : "A designation of the status in the registration life-cycle of an Administered Item."
+        },
+        "beginDate" : {
+          "type" : "string",
+          "description" : "The particular day, month and year this item became allowed."
+        },
+        "endDate" : {
+          "type" : "string",
+          "description" : "The day, month and year this item becomes no longer allowed."
+        },
+        "id" : {
+          "type" : "string",
+          "description" : "The 36 character caDSR database identifier."
+        },
+        "latestVersionIndicator" : {
+          "type" : "string",
+          "description" : "The present form of an Administered Item."
+        },
+        "createdBy" : {
+          "type" : "string",
+          "description" : "This is a description of createdBy."
+        },
+        "dateCreated" : {
+          "type" : "string",
+          "description" : "The date the Administered Item was created."
+        },
+        "modifiedBy" : {
+          "type" : "string",
+          "description" : "Username of the person who modified the record"
+        },
+        "dateModified" : {
+          "type" : "string",
+          "description" : "Date on which the record was modified; last date the object was modified"
+        },
+        "changeNote" : {
+          "type" : "string",
+          "description" : "The description of what has changed in the Administered Item since the prior version of the Administered Item."
+        },
+        "unresolvedIssues" : {
+          "type" : "string",
+          "description" : "Any problem that remains unresolved regarding proper documentation of the Administered Item."
+        },
+        "deletedIndicator" : {
+          "type" : "string",
+          "description" : "An indicator that characterizes the item as eliminated from the registry, thought the physical record still exists."
+        },
+        "context" : {
+          "$ref" : "#/definitions/Context"
+        },
+        "concept" : {
+          "$ref" : "#/definitions/Concept"
+        }
+      }
+    }
+  }
+}
