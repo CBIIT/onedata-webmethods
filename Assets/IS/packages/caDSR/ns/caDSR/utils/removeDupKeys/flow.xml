@@ -59,14 +59,14 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">newKey</value>
+        <value name="field_name">newkey</value>
         <value name="field_type">recref</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">brad:keys</value>
+        <value name="rec_ref">caDSR.docs:keys</value>
       </record>
     </array>
     <value name="modifiable">true</value>
@@ -125,7 +125,7 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/tempKeys;4;0;brad:keys" TO="/newKey;4;0;brad:keys">
+<MAPCOPY FROM="/tempKeys;4;0;caDSR.docs:keys" TO="/newkey;4;0;caDSR.docs:keys">
 </MAPCOPY>
 </MAP>
 
@@ -238,6 +238,19 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
+        <value name="field_name">newkey</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">caDSR.docs:keys</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
         <value name="field_name">newKeys</value>
         <value name="field_type">recref</value>
         <value name="field_dim">1</value>
@@ -246,20 +259,7 @@
         <value name="is_global">false</value>
         <value name="is_soap_array_encoding_used">false</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">brad:keys</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">newKey</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">brad:keys</value>
+        <value name="rec_ref">caDSR.docs:keys</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
@@ -280,10 +280,10 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/newKeys;4;1;brad:keys" TO="/toList;2;1">
+<MAPCOPY FROM="/newkey;4;0;caDSR.docs:keys" TO="/fromItem;2;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/newKey;4;0;brad:keys" TO="/fromItem;2;0">
+<MAPCOPY FROM="/newKeys;4;1;caDSR.docs:keys" TO="/toList;2;1">
 </MAPCOPY>
 </MAP>
 
@@ -354,6 +354,19 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
+        <value name="field_name">newkey</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">caDSR.docs:keys</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
         <value name="field_name">newKeys</value>
         <value name="field_type">recref</value>
         <value name="field_dim">1</value>
@@ -362,20 +375,7 @@
         <value name="is_global">false</value>
         <value name="is_soap_array_encoding_used">false</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">brad:keys</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">newKey</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">brad:keys</value>
+        <value name="rec_ref">caDSR.docs:keys</value>
       </record>
     </array>
     <value name="modifiable">true</value>
@@ -419,17 +419,17 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/toList;2;1" TO="/newKeys;4;1;brad:keys">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/toList;2;1">
-</MAPDELETE>
-
-<MAPDELETE FIELD="/newKey;4;0;brad:keys">
 </MAPDELETE>
 
 <MAPDELETE FIELD="/fromItem;2;0">
 </MAPDELETE>
+
+<MAPDELETE FIELD="/newkey;4;0;caDSR.docs:keys">
+</MAPDELETE>
+
+<MAPCOPY FROM="/toList;2;1" TO="/newKeys;4;1;caDSR.docs:keys">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 </SEQUENCE>
@@ -605,7 +605,7 @@
         <value name="is_global">false</value>
         <value name="is_soap_array_encoding_used">false</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">brad:keys</value>
+        <value name="rec_ref">caDSR.docs:keys</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
@@ -626,7 +626,7 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/newKeys;4;1;brad:keys" TO="/documents;2;1">
+<MAPCOPY FROM="/newKeys;4;1;caDSR.docs:keys" TO="/documents;2;1">
 </MAPCOPY>
 
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/searchCriteria;2;0/key;1;0">
@@ -649,7 +649,7 @@
 </DATA>
 </MAPSET>
 
-<MAPCOPY FROM="/tempKeys;4;0;brad:keys/searchKey;1;0" TO="/searchCriteria;2;0/value;1;0">
+<MAPCOPY FROM="/tempKeys;4;0;caDSR.docs:keys/searchKey;1;0" TO="/searchCriteria;2;0/value;1;0">
 </MAPCOPY>
 </MAP>
 
@@ -750,7 +750,7 @@
         <value name="is_global">false</value>
         <value name="is_soap_array_encoding_used">false</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">brad:keys</value>
+        <value name="rec_ref">caDSR.docs:keys</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
@@ -942,7 +942,7 @@
         <value name="is_global">false</value>
         <value name="is_soap_array_encoding_used">false</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">brad:keys</value>
+        <value name="rec_ref">caDSR.docs:keys</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
@@ -1040,7 +1040,7 @@
         <value name="is_global">false</value>
         <value name="is_soap_array_encoding_used">false</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">brad:keys</value>
+        <value name="rec_ref">caDSR.docs:keys</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
@@ -1180,7 +1180,7 @@
         <value name="is_global">false</value>
         <value name="is_soap_array_encoding_used">false</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">brad:keys</value>
+        <value name="rec_ref">caDSR.docs:keys</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
@@ -1212,14 +1212,14 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">newKey</value>
+        <value name="field_name">newkey</value>
         <value name="field_type">recref</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">brad:keys</value>
+        <value name="rec_ref">caDSR.docs:keys</value>
       </record>
     </array>
     <value name="modifiable">true</value>
@@ -1271,7 +1271,7 @@
         <value name="is_global">false</value>
         <value name="is_soap_array_encoding_used">false</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">brad:keys</value>
+        <value name="rec_ref">caDSR.docs:keys</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
@@ -1318,7 +1318,7 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/tempKeys;4;0;brad:keys" TO="/newKey;4;0;brad:keys">
+<MAPCOPY FROM="/tempKeys;4;0;caDSR.docs:keys" TO="/newkey;4;0;caDSR.docs:keys">
 </MAPCOPY>
 </MAP>
 
@@ -1439,7 +1439,7 @@
         <value name="is_global">false</value>
         <value name="is_soap_array_encoding_used">false</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">brad:keys</value>
+        <value name="rec_ref">caDSR.docs:keys</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
@@ -1471,14 +1471,14 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">newKey</value>
+        <value name="field_name">newkey</value>
         <value name="field_type">recref</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">brad:keys</value>
+        <value name="rec_ref">caDSR.docs:keys</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
@@ -1499,10 +1499,10 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/newKeys;4;1;brad:keys" TO="/toList;2;1">
+<MAPCOPY FROM="/newkey;4;0;caDSR.docs:keys" TO="/fromItem;2;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/newKey;4;0;brad:keys" TO="/fromItem;2;0">
+<MAPCOPY FROM="/newKeys;4;1;caDSR.docs:keys" TO="/toList;2;1">
 </MAPCOPY>
 </MAP>
 
@@ -1581,7 +1581,7 @@
         <value name="is_global">false</value>
         <value name="is_soap_array_encoding_used">false</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">brad:keys</value>
+        <value name="rec_ref">caDSR.docs:keys</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
@@ -1613,14 +1613,14 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">newKey</value>
+        <value name="field_name">newkey</value>
         <value name="field_type">recref</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">brad:keys</value>
+        <value name="rec_ref">caDSR.docs:keys</value>
       </record>
     </array>
     <value name="modifiable">true</value>
@@ -1664,17 +1664,17 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/toList;2;1" TO="/newKeys;4;1;brad:keys">
-</MAPCOPY>
-
 <MAPDELETE FIELD="/toList;2;1">
-</MAPDELETE>
-
-<MAPDELETE FIELD="/newKey;4;0;brad:keys">
 </MAPDELETE>
 
 <MAPDELETE FIELD="/fromItem;2;0">
 </MAPDELETE>
+
+<MAPDELETE FIELD="/newkey;4;0;caDSR.docs:keys">
+</MAPDELETE>
+
+<MAPCOPY FROM="/toList;2;1" TO="/newKeys;4;1;caDSR.docs:keys">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 </SEQUENCE>

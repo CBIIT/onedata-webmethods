@@ -25,6 +25,43 @@ public final class NIHstring
 
 
 
+	public static final void HTMLDecodeplusEncodingXML (IData pipeline)
+        throws ServiceException
+	{
+		// --- <<IS-START(HTMLDecodeplusEncodingXML)>> ---
+		// @sigtype java 3.5
+		// [i] field:0:required inString
+		// [o] field:0:required value
+		try{
+			
+			IDataCursor pipelineCursor = pipeline.getCursor();
+			String inString = IDataUtil.getString( pipelineCursor, "inString" );
+			String value = null;
+			if( inString != null ){
+				IData output = IDataFactory.create();
+				output = Service.doInvoke("pub.string","HTMLDecode", pipeline);
+		
+			// pipeline
+				IDataCursor outputCursor = output.getCursor(); 
+				value = IDataUtil.getString( outputCursor, "value" );
+				outputCursor.destroy();
+				value = value.replace("<", "&lt;").replace(">","&gt;").replace("\"","&quot;").replace("'","&#39");
+			}
+			// pipeline
+			if( value != null )
+				IDataUtil.put( pipelineCursor, "value", value );
+			pipelineCursor.destroy();
+		
+		} catch( Exception e){
+			throw new ServiceException(e.toString() );
+		}
+		// --- <<IS-END>> ---
+
+                
+	}
+
+
+
 	public static final void contains (IData pipeline)
         throws ServiceException
 	{
