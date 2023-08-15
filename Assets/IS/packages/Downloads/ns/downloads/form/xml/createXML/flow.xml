@@ -225,8 +225,12 @@
 
   <!-- nodes -->
 
-<MAP TIMEOUT="" MODE="STANDALONE">
+<INVOKE TIMEOUT="" SERVICE="downloads.form.xml:createForm" VALIDATE-IN="$none" VALIDATE-OUT="$none">
   <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<MAP MODE="INPUT">
   <MAPTARGET>
 
 <Values version="2.0">
@@ -236,6 +240,7 @@
     <value name="is_public">false</value>
     <value name="field_type">record</value>
     <value name="field_dim">0</value>
+    <value name="wrapper_type">IData</value>
     <value name="nillable">true</value>
     <value name="form_qualified">false</value>
     <value name="is_global">false</value>
@@ -245,49 +250,11 @@
         <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
         <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_usereditable">true</value>
           <value name="field_largerEditor">false</value>
           <value name="field_password">false</value>
         </record>
         <value name="is_public">false</value>
-        <value name="field_name">formCollectionName</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <array name="field_options" type="value" depth="1">
-        </array>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_usereditable">true</value>
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
-        <value name="field_name">formCollectionDescription</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <array name="field_options" type="value" depth="1">
-        </array>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
-        <value name="field_name">form</value>
+        <value name="field_name">canonicalForm</value>
         <value name="field_type">recref</value>
         <value name="field_dim">0</value>
         <value name="wrapper_type">IData</value>
@@ -297,19 +264,6 @@
         <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
         <value name="rec_ref">downloads.docs:form</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">formXML</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">downloads.form.xml.docs:formXML</value>
       </record>
     </array>
     <value name="modifiable">true</value>
@@ -419,85 +373,214 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/context;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/context;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/createdBy;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/createdBy;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/dateCreated;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/dateCreated;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/dateModified;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/dateModified;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/modifiedBy;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/modifiedBy;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/longName;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/longName;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/changeNote;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/changeNote;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/preferredDefinition;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/preferredDefinition;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/cadsrRAI;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/cadsrRAI;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/publicID;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/publicID;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/version;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/version;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/workflowStatusName;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/workflowStatusName;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/categoryName;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/categoryName;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/type;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/type;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/headerInstruction;4;0;downloads.docs:instruction/text;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/headerInstruction;4;0;downloads.docs:instruction/text;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/footerInstruction;4;0;downloads.docs:instruction/text;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/footerInstruction;4;0;downloads.docs:instruction/text;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/protocol;4;1;downloads.docs:protocol" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/protocol;4;1;downloads.docs:protocol">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/referenceDocument;4;0;downloads.docs:referenceDocument/documentName;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/referenceDocument;2;0/name;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/referenceDocument;4;0;downloads.docs:referenceDocument/documentType;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/referenceDocument;2;0/type;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/referenceDocument;4;0;downloads.docs:referenceDocument/context;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/referenceDocument;2;0/context;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/referenceDocument;4;0;downloads.docs:referenceDocument/document;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/referenceDocument;2;0/doctext;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/referenceDocument;4;0;downloads.docs:referenceDocument/url;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/referenceDocument;2;0/URL;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/referenceDocument;4;0;downloads.docs:referenceDocument/languageName;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/referenceDocument;2;0/languageName;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/referenceDocument;4;0;downloads.docs:referenceDocument/attachments;2;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/referenceDocument;2;0/attachments;2;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form" TO="/canonicalForm;4;0;downloads.docs:form">
 </MAPCOPY>
 </MAP>
 
-<LOOP TIMEOUT="" IN-ARRAY="/form/classification" OUT-ARRAY="/formXML/forms/form/classification">
-  <COMMENT></COMMENT>
+<MAP MODE="OUTPUT">
+  <MAPTARGET>
+
+<Values version="2.0">
+  <record name="xml" javaclass="com.wm.util.Values">
+    <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
+    <value name="is_public">false</value>
+    <value name="field_type">record</value>
+    <value name="field_dim">0</value>
+    <value name="nillable">true</value>
+    <value name="form_qualified">false</value>
+    <value name="is_global">false</value>
+    <array name="rec_fields" type="record" depth="1">
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">canonicalForm</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">downloads.docs:form</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="node_comment"></value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_usereditable">true</value>
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+        </record>
+        <value name="is_public">false</value>
+        <value name="field_name">formCollectionName</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <array name="field_options" type="value" depth="1">
+        </array>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="node_comment"></value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_usereditable">true</value>
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+        </record>
+        <value name="is_public">false</value>
+        <value name="field_name">formCollectionDescription</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <array name="field_options" type="value" depth="1">
+        </array>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="node_comment"></value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+        </record>
+        <value name="is_public">false</value>
+        <value name="field_name">form</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="wrapper_type">IData</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">downloads.docs:form</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">formXML</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">downloads.form.xml.docs:formXML</value>
+      </record>
+    </array>
+    <value name="modifiable">true</value>
+  </record>
+</Values>
+</MAPTARGET>
+  <MAPSOURCE>
+
+<Values version="2.0">
+  <record name="xml" javaclass="com.wm.util.Values">
+    <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
+    <value name="is_public">false</value>
+    <value name="field_type">record</value>
+    <value name="field_dim">0</value>
+    <value name="wrapper_type">IData</value>
+    <value name="nillable">true</value>
+    <value name="form_qualified">false</value>
+    <value name="is_global">false</value>
+    <array name="rec_fields" type="record" depth="1">
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="node_comment"></value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+        </record>
+        <value name="is_public">false</value>
+        <value name="field_name">form</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="wrapper_type">IData</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">downloads.form.xml.docs:form</value>
+      </record>
+    </array>
+    <value name="modifiable">true</value>
+  </record>
+</Values>
+</MAPSOURCE>
 
   <!-- nodes -->
 
-<MAP TIMEOUT="" MODE="STANDALONE">
+<MAPCOPY FROM="/form;4;0;downloads.form.xml.docs:form" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms">
+</MAPCOPY>
+
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/form;4;0;downloads.docs:form">
+  <DATA ENCODING="XMLValues" I18N="true">
+
+<Values version="2.0">
+  <record name="xml" javaclass="com.wm.util.Values">
+    <value name="context"></value>
+    <value name="createdBy"></value>
+    <value name="dateCreated"></value>
+    <value name="dateModified"></value>
+    <value name="modifiedBy"></value>
+    <value name="longName"></value>
+    <value name="changeNote"></value>
+    <value name="preferredDefinition"></value>
+    <value name="cadsrRAI"></value>
+    <value name="publicID"></value>
+    <value name="version"></value>
+    <value name="workflowStatusName"></value>
+    <value name="categoryName"></value>
+    <value name="type"></value>
+    <record name="headerInstruction" javaclass="com.wm.util.Values">
+      <value name="text"></value>
+    </record>
+    <record name="footerInstruction" javaclass="com.wm.util.Values">
+      <value name="text"></value>
+    </record>
+    <array name="module" type="record" depth="1">
+    </array>
+    <array name="protocol" type="record" depth="1">
+    </array>
+    <record name="referenceDocument" javaclass="com.wm.util.Values">
+      <value name="document"></value>
+      <value name="documentName"></value>
+      <value name="documentType"></value>
+      <value name="url"></value>
+      <value name="displayOrder"></value>
+      <record name="attachments" javaclass="com.wm.util.Values">
+        <value name="name"></value>
+        <value name="mimeType"></value>
+        <value name="size"></value>
+      </record>
+      <value name="context"></value>
+      <value name="languageName"></value>
+    </record>
+    <array name="classification" type="record" depth="1">
+    </array>
+  </record>
+</Values>
+</DATA>
+</MAPSET>
+
+<MAPDELETE FIELD="/canonicalForm;4;0;downloads.docs:form">
+</MAPDELETE>
+</MAP>
+</INVOKE>
+
+<MAP TIMEOUT="" MODE="STANDALONE" DISABLED="true">
   <COMMENT></COMMENT>
   <MAPTARGET>
 
@@ -691,13 +774,218 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/classification;4;0;downloads.docs:classification/schemeShortName;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/classification;2;0/name;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/context;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/context;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/classification;4;0;downloads.docs:classification/schemePublicId;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/classification;2;0/publicID;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/createdBy;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/createdBy;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPINVOKE SERVICE="pub.string:numericFormat" VALIDATE-IN="$none" VALIDATE-OUT="$none" INVOKE-ORDER="0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/dateCreated;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/dateCreated;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/dateModified;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/dateModified;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/modifiedBy;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/modifiedBy;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/longName;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/longName;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/changeNote;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/changeNote;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/preferredDefinition;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/preferredDefinition;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/cadsrRAI;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/cadsrRAI;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/publicID;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/publicID;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/version;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/version;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/workflowStatusName;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/workflowStatusName;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/categoryName;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/categoryName;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/type;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/type;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/headerInstruction;4;0;downloads.docs:instruction/text;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/headerInstruction;4;0;downloads.docs:instruction/text;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/footerInstruction;4;0;downloads.docs:instruction/text;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/footerInstruction;4;0;downloads.docs:instruction/text;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/protocol;4;1;downloads.docs:protocol" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/protocol;4;1;downloads.docs:protocol" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/referenceDocument;4;0;downloads.docs:referenceDocument/document;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/referenceDocument;2;0/doctext;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/referenceDocument;4;0;downloads.docs:referenceDocument/documentName;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/referenceDocument;2;0/name;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/referenceDocument;4;0;downloads.docs:referenceDocument/documentType;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/referenceDocument;2;0/type;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/referenceDocument;4;0;downloads.docs:referenceDocument/context;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/referenceDocument;2;0/context;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/referenceDocument;4;0;downloads.docs:referenceDocument/url;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/referenceDocument;2;0/URL;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/referenceDocument;4;0;downloads.docs:referenceDocument/attachments;2;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/referenceDocument;2;0/attachments;2;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/referenceDocument;4;0;downloads.docs:referenceDocument/languageName;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/referenceDocument;2;0/languageName;1;0" DISABLED="true">
+</MAPCOPY>
+</MAP>
+
+<LOOP TIMEOUT="" IN-ARRAY="/form/classification" OUT-ARRAY="/formXML/forms/form/classification" DISABLED="true">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<MAP TIMEOUT="" MODE="STANDALONE" DISABLED="true">
+  <COMMENT></COMMENT>
+  <MAPTARGET>
+
+<Values version="2.0">
+  <record name="xml" javaclass="com.wm.util.Values">
+    <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
+    <value name="is_public">false</value>
+    <value name="field_type">record</value>
+    <value name="field_dim">0</value>
+    <value name="nillable">true</value>
+    <value name="form_qualified">false</value>
+    <value name="is_global">false</value>
+    <array name="rec_fields" type="record" depth="1">
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="node_comment"></value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+        </record>
+        <value name="is_public">false</value>
+        <value name="field_name">formXML</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="wrapper_type">IData</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">downloads.form.xml.docs:formXML</value>
+      </record>
+    </array>
+    <value name="modifiable">true</value>
+  </record>
+</Values>
+</MAPTARGET>
+  <MAPSOURCE>
+
+<Values version="2.0">
+  <record name="xml" javaclass="com.wm.util.Values">
+    <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
+    <value name="is_public">false</value>
+    <value name="field_type">record</value>
+    <value name="field_dim">0</value>
+    <value name="nillable">true</value>
+    <value name="form_qualified">false</value>
+    <value name="is_global">false</value>
+    <array name="rec_fields" type="record" depth="1">
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="node_comment"></value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_usereditable">true</value>
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+        </record>
+        <value name="is_public">false</value>
+        <value name="field_name">formCollectionName</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <array name="field_options" type="value" depth="1">
+        </array>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="node_comment"></value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_usereditable">true</value>
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+        </record>
+        <value name="is_public">false</value>
+        <value name="field_name">formCollectionDescription</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <array name="field_options" type="value" depth="1">
+        </array>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="node_comment"></value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+        </record>
+        <value name="is_public">false</value>
+        <value name="field_name">form</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">1</value>
+        <value name="wrapper_type">IData</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <value name="is_soap_array_encoding_used">false</value>
+        <value name="rec_closed">true</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">downloads.docs:form</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">formXML</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">downloads.form.xml.docs:formXML</value>
+      </record>
+    </array>
+    <value name="modifiable">true</value>
+  </record>
+</Values>
+</MAPSOURCE>
+
+  <!-- nodes -->
+
+<MAPINVOKE SERVICE="pub.string:numericFormat" VALIDATE-IN="$none" VALIDATE-OUT="$none" DISABLED="true" INVOKE-ORDER="0">
 
   <!-- nodes -->
 
@@ -733,12 +1021,12 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/value;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/classification;2;0/version;1;0">
+<MAPCOPY FROM="/value;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/classification;2;0/version;1;0">
 </MAPCOPY>
 </MAP>
 </MAPINVOKE>
 
-<MAPINVOKE SERVICE="pub.string:numericFormat" VALIDATE-IN="$none" VALIDATE-OUT="$none" INVOKE-ORDER="0">
+<MAPINVOKE SERVICE="pub.string:numericFormat" VALIDATE-IN="$none" VALIDATE-OUT="$none" DISABLED="true" INVOKE-ORDER="0">
 
   <!-- nodes -->
 
@@ -774,31 +1062,37 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/value;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/classification;2;0/classificationSchemeItem;2;0/version;1;0">
+<MAPCOPY FROM="/value;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/classification;2;0/classificationSchemeItem;2;0/version;1;0">
 </MAPCOPY>
 </MAP>
 </MAPINVOKE>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/classification;4;0;downloads.docs:classification/schemeItemName;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/classification;2;0/classificationSchemeItem;2;0/name;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/classification;4;0;downloads.docs:classification/schemeShortName;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/classification;2;0/name;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/classification;4;0;downloads.docs:classification/schemeItemPublicId;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/classification;2;0/classificationSchemeItem;2;0/publicID;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/classification;4;0;downloads.docs:classification/schemePublicId;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/classification;2;0/publicID;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/classification;4;0;downloads.docs:classification/schemeItemTypeName;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/classification;2;0/classificationSchemeItem;2;0/type;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/classification;4;0;downloads.docs:classification/schemeDefinition;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/classification;2;0/preferredDefinition;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/classification;4;0;downloads.docs:classification/schemeDefinition;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/classification;2;0/preferredDefinition;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/classification;4;0;downloads.docs:classification/schemeItemPublicId;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/classification;2;0/classificationSchemeItem;2;0/publicID;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/classification;4;0;downloads.docs:classification/schemeItemName;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/classification;2;0/classificationSchemeItem;2;0/name;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/classification;4;0;downloads.docs:classification/schemeItemTypeName;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/classification;2;0/classificationSchemeItem;2;0/type;1;0" DISABLED="true">
 </MAPCOPY>
 </MAP>
 </LOOP>
 
-<LOOP TIMEOUT="" IN-ARRAY="/form/module" OUT-ARRAY="/formXML/forms/form/module">
+<LOOP TIMEOUT="" IN-ARRAY="/form/module" OUT-ARRAY="/formXML/forms/form/module" DISABLED="true">
   <COMMENT></COMMENT>
 
   <!-- nodes -->
 
-<MAP TIMEOUT="" MODE="STANDALONE">
+<MAP TIMEOUT="" MODE="STANDALONE" DISABLED="true">
   <COMMENT></COMMENT>
   <MAPTARGET>
 
@@ -818,49 +1112,11 @@
         <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
         <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_usereditable">true</value>
           <value name="field_largerEditor">false</value>
           <value name="field_password">false</value>
         </record>
         <value name="is_public">false</value>
-        <value name="field_name">formCollectionName</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <array name="field_options" type="value" depth="1">
-        </array>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_usereditable">true</value>
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
-        <value name="field_name">formCollectionDescription</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <array name="field_options" type="value" depth="1">
-        </array>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
-        <value name="field_name">form</value>
+        <value name="field_name">formXML</value>
         <value name="field_type">recref</value>
         <value name="field_dim">0</value>
         <value name="wrapper_type">IData</value>
@@ -868,19 +1124,6 @@
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
         <value name="rec_closed">true</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">downloads.docs:form</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">formXML</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
         <value name="modifiable">true</value>
         <value name="rec_ref">downloads.form.xml.docs:formXML</value>
       </record>
@@ -951,11 +1194,12 @@
         <value name="is_public">false</value>
         <value name="field_name">form</value>
         <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
+        <value name="field_dim">1</value>
         <value name="wrapper_type">IData</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
+        <value name="is_soap_array_encoding_used">false</value>
         <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
         <value name="rec_ref">downloads.docs:form</value>
@@ -973,17 +1217,6 @@
         <value name="modifiable">true</value>
         <value name="rec_ref">downloads.form.xml.docs:formXML</value>
       </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">$iteration</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
     </array>
     <value name="modifiable">true</value>
   </record>
@@ -992,40 +1225,40 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/displayOrder;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/displayOrder;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/displayOrder;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/module;2;0/displayOrder;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/maximumModuleRepeat;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/maximumModuleRepeat;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/maximumModuleRepeat;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/module;2;0/maximumModuleRepeat;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/longName;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/longName;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/longName;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/module;2;0/longName;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/instruction;4;0;downloads.docs:instruction/text;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/instruction;4;0;downloads.docs:instruction/text;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/instruction;4;0;downloads.docs:instruction/text;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/module;2;0/instruction;4;0;downloads.docs:instruction/text;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/preferredDefinition;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/preferredDefinition;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/preferredDefinition;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/module;2;0/preferredDefinition;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/publicID;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/publicID;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/publicID;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/module;2;0/publicID;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/version;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/version;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/version;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/module;2;0/version;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/usageCategory;2;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/usageCategory;2;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/usageCategory;2;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/module;2;0/usageCategory;2;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/triggerAction;4;0;downloads.docs:triggerAction" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/triggerAction;4;0;downloads.docs:triggerAction">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/triggerAction;4;0;downloads.docs:triggerAction" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form(0);4;0;downloads.form.xml.docs:form/module;2;0/triggerAction;4;0;downloads.docs:triggerAction" DISABLED="true">
 </MAPCOPY>
 </MAP>
 
-<LOOP TIMEOUT="" IN-ARRAY="/form/module/question" OUT-ARRAY="/formXML/forms/form/module/question">
+<LOOP TIMEOUT="" IN-ARRAY="/form/module/question" OUT-ARRAY="/formXML/forms/form/module/question" DISABLED="true">
   <COMMENT></COMMENT>
 
   <!-- nodes -->
 
-<MAP TIMEOUT="" MODE="STANDALONE">
+<MAP TIMEOUT="" MODE="STANDALONE" DISABLED="true">
   <COMMENT></COMMENT>
   <MAPTARGET>
 
@@ -1045,49 +1278,11 @@
         <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
         <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_usereditable">true</value>
           <value name="field_largerEditor">false</value>
           <value name="field_password">false</value>
         </record>
         <value name="is_public">false</value>
-        <value name="field_name">formCollectionName</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <array name="field_options" type="value" depth="1">
-        </array>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_usereditable">true</value>
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
-        <value name="field_name">formCollectionDescription</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <array name="field_options" type="value" depth="1">
-        </array>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
-        <value name="field_name">form</value>
+        <value name="field_name">formXML</value>
         <value name="field_type">recref</value>
         <value name="field_dim">0</value>
         <value name="wrapper_type">IData</value>
@@ -1095,19 +1290,6 @@
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
         <value name="rec_closed">true</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">downloads.docs:form</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">formXML</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
         <value name="modifiable">true</value>
         <value name="rec_ref">downloads.form.xml.docs:formXML</value>
       </record>
@@ -1178,11 +1360,12 @@
         <value name="is_public">false</value>
         <value name="field_name">form</value>
         <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
+        <value name="field_dim">1</value>
         <value name="wrapper_type">IData</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
+        <value name="is_soap_array_encoding_used">false</value>
         <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
         <value name="rec_ref">downloads.docs:form</value>
@@ -1200,17 +1383,6 @@
         <value name="modifiable">true</value>
         <value name="rec_ref">downloads.form.xml.docs:formXML</value>
       </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">$iteration</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
     </array>
     <value name="modifiable">true</value>
   </record>
@@ -1219,52 +1391,7 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/publicID;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/publicID;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/version;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/version;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/isDerived;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/isDerived;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/displayOrder;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/displayOrder;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dateCreated;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dateCreated;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dateModified;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dateModified;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/questionText;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/questionText;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/questionShortName;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/questionShortName;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/instruction;4;0;downloads.docs:instruction/text;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/instruction;4;0;downloads.docs:instruction/text;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/isEditable;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/isEditable;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/isMandatory;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/isMandatory;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/multiValue;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/multiValue;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/shortname;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dataElement;2;0/shortName;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/longname;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dataElement;2;0/longName;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/publicId;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dataElement;2;0/publicID;1;0">
-</MAPCOPY>
-
-<MAPINVOKE SERVICE="pub.string:numericFormat" VALIDATE-IN="$none" VALIDATE-OUT="$none" INVOKE-ORDER="0">
+<MAPINVOKE SERVICE="pub.string:numericFormat" VALIDATE-IN="$none" VALIDATE-OUT="$none" DISABLED="true" INVOKE-ORDER="0">
 
   <!-- nodes -->
 
@@ -1300,24 +1427,12 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/value;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dataElement;2;0/version;1;0">
+<MAPCOPY FROM="/value;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dataElement;2;0/version;1;0">
 </MAPCOPY>
 </MAP>
 </MAPINVOKE>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/contextName;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dataElement;2;0/context;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/WorkflowStatus;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dataElement;2;0/workflowStatusName;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/preferredDefinition;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dataElement;2;0/preferredDefinition;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/publicId;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/publicID;1;0">
-</MAPCOPY>
-
-<MAPINVOKE SERVICE="pub.string:numericFormat" VALIDATE-IN="$none" VALIDATE-OUT="$none" INVOKE-ORDER="0">
+<MAPINVOKE SERVICE="pub.string:numericFormat" VALIDATE-IN="$none" VALIDATE-OUT="$none" DISABLED="true" INVOKE-ORDER="0">
 
   <!-- nodes -->
 
@@ -1353,48 +1468,105 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/value;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/version;1;0">
+<MAPCOPY FROM="/value;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/version;1;0">
 </MAPCOPY>
 </MAP>
 </MAPINVOKE>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/Type;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/type;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/publicID;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/publicID;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/dataType;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/datatypeName;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/version;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/version;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/minlength;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/minimumLengthNumber;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/isDerived;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/isDerived;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/maxlength;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/maximumLengthNumber;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/displayOrder;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/displayOrder;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/longName;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/longName;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dateCreated;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dateCreated;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/workflowStatus;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/workflowStatusName;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dateModified;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dateModified;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/cdeBrowserLink;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dataElement;2;0/cdeBrowserLink;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/questionText;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/questionText;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/decimalPlace;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/decimalPlaces;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/questionShortName;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/questionShortName;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/format;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/displayFormat;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/instruction;4;0;downloads.docs:instruction/text;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/instruction;4;0;downloads.docs:instruction/text;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/unitOfMeasure;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/uom;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/isEditable;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/isEditable;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/isMandatory;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/isMandatory;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/multiValue;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/multiValue;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/shortname;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dataElement;2;0/shortName;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/longname;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dataElement;2;0/longName;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/publicId;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dataElement;2;0/publicID;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/contextName;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dataElement;2;0/context;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/preferredDefinition;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dataElement;2;0/preferredDefinition;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/WorkflowStatus;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dataElement;2;0/workflowStatusName;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/cdeBrowserLink;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dataElement;2;0/cdeBrowserLink;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/longName;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/longName;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/publicId;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/publicID;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/Type;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/type;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/workflowStatus;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/workflowStatusName;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/dataType;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/datatypeName;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/minlength;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/minimumLengthNumber;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/maxlength;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/maximumLengthNumber;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/unitOfMeasure;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/uom;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/format;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/displayFormat;1;0" DISABLED="true">
+</MAPCOPY>
+
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/decimalPlace;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/decimalPlaces;1;0" DISABLED="true">
 </MAPCOPY>
 </MAP>
 
-<LOOP TIMEOUT="" IN-ARRAY="/form/module/question/dataElement/valueDomain/permissibleValues" OUT-ARRAY="/formXML/forms/form/module/question/dataElement/valueDomain/permissibleValue">
+<LOOP TIMEOUT="" IN-ARRAY="/form/module/question/dataElement/valueDomain/permissibleValues" OUT-ARRAY="/formXML/forms/form/module/question/dataElement/valueDomain/permissibleValue" DISABLED="true">
   <COMMENT></COMMENT>
 
   <!-- nodes -->
 
-<MAP TIMEOUT="" MODE="STANDALONE">
+<MAP TIMEOUT="" MODE="STANDALONE" DISABLED="true">
   <COMMENT></COMMENT>
   <MAPTARGET>
 
@@ -1414,49 +1586,11 @@
         <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
         <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_usereditable">true</value>
           <value name="field_largerEditor">false</value>
           <value name="field_password">false</value>
         </record>
         <value name="is_public">false</value>
-        <value name="field_name">formCollectionName</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <array name="field_options" type="value" depth="1">
-        </array>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_usereditable">true</value>
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
-        <value name="field_name">formCollectionDescription</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <array name="field_options" type="value" depth="1">
-        </array>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
-        <value name="field_name">form</value>
+        <value name="field_name">formXML</value>
         <value name="field_type">recref</value>
         <value name="field_dim">0</value>
         <value name="wrapper_type">IData</value>
@@ -1464,19 +1598,6 @@
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
         <value name="rec_closed">true</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">downloads.docs:form</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">formXML</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
         <value name="modifiable">true</value>
         <value name="rec_ref">downloads.form.xml.docs:formXML</value>
       </record>
@@ -1547,11 +1668,12 @@
         <value name="is_public">false</value>
         <value name="field_name">form</value>
         <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
+        <value name="field_dim">1</value>
         <value name="wrapper_type">IData</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
+        <value name="is_soap_array_encoding_used">false</value>
         <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
         <value name="rec_ref">downloads.docs:form</value>
@@ -1569,17 +1691,6 @@
         <value name="modifiable">true</value>
         <value name="rec_ref">downloads.form.xml.docs:formXML</value>
       </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">$iteration</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
     </array>
     <value name="modifiable">true</value>
   </record>
@@ -1588,32 +1699,32 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/permissibleValues;4;0;downloads.docs:permissibleValue/validValue;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/permissibleValue;2;0/value;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/permissibleValues;4;0;downloads.docs:permissibleValue/validValue;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/permissibleValue;2;0/value;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/permissibleValues;4;0;downloads.docs:permissibleValue/ValueMeaningName;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/permissibleValue;2;0/valueMeaning;4;0;downloads.docs:valueMeaning/longName;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/permissibleValues;4;0;downloads.docs:permissibleValue/valueMeaningpublicId;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/permissibleValue;2;0/valueMeaning;4;0;downloads.docs:valueMeaning/publicID;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/permissibleValues;4;0;downloads.docs:permissibleValue/valueMeaningDescription;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/permissibleValue;2;0/valueMeaning;4;0;downloads.docs:valueMeaning/preferredDefinition;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/permissibleValues;4;0;downloads.docs:permissibleValue/valueMeaningversion;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/permissibleValue;2;0/valueMeaning;4;0;downloads.docs:valueMeaning/version;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/permissibleValues;4;0;downloads.docs:permissibleValue/valueMeaningpublicId;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/permissibleValue;2;0/valueMeaning;4;0;downloads.docs:valueMeaning/publicID;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/permissibleValues;4;0;downloads.docs:permissibleValue/ValueMeaningName;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/permissibleValue;2;0/valueMeaning;4;0;downloads.docs:valueMeaning/longName;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/permissibleValues;4;0;downloads.docs:permissibleValue/valueMeaningversion;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/permissibleValue;2;0/valueMeaning;4;0;downloads.docs:valueMeaning/version;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/permissibleValues;4;0;downloads.docs:permissibleValue/valueMeaningDescription;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/permissibleValue;2;0/valueMeaning;4;0;downloads.docs:valueMeaning/preferredDefinition;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/permissibleValues;4;0;downloads.docs:permissibleValue/designation;4;1;downloads.docs:designation" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/permissibleValue;2;0/valueMeaning;4;0;downloads.docs:valueMeaning/designation;4;1;downloads.docs:designation">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/valueDomain;4;0;downloads.docs:valueDomain/permissibleValues;4;0;downloads.docs:permissibleValue/designation;4;1;downloads.docs:designation" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dataElement;2;0/valueDomain;2;0/permissibleValue;2;0/valueMeaning;4;0;downloads.docs:valueMeaning/designation;4;1;downloads.docs:designation" DISABLED="true">
 </MAPCOPY>
 </MAP>
 </LOOP>
 
-<LOOP TIMEOUT="" IN-ARRAY="/form/module/question/dataElement/referenceDocuments" OUT-ARRAY="/formXML/forms/form/module/question/dataElement/referenceDocument">
+<LOOP TIMEOUT="" IN-ARRAY="/form/module/question/dataElement/referenceDocuments" OUT-ARRAY="/formXML/forms/form/module/question/dataElement/referenceDocument" DISABLED="true">
   <COMMENT></COMMENT>
 
   <!-- nodes -->
 
-<MAP TIMEOUT="" MODE="STANDALONE">
+<MAP TIMEOUT="" MODE="STANDALONE" DISABLED="true">
   <COMMENT></COMMENT>
   <MAPTARGET>
 
@@ -1633,49 +1744,11 @@
         <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
         <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_usereditable">true</value>
           <value name="field_largerEditor">false</value>
           <value name="field_password">false</value>
         </record>
         <value name="is_public">false</value>
-        <value name="field_name">formCollectionName</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <array name="field_options" type="value" depth="1">
-        </array>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_usereditable">true</value>
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
-        <value name="field_name">formCollectionDescription</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <array name="field_options" type="value" depth="1">
-        </array>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
-        <value name="field_name">form</value>
+        <value name="field_name">formXML</value>
         <value name="field_type">recref</value>
         <value name="field_dim">0</value>
         <value name="wrapper_type">IData</value>
@@ -1683,19 +1756,6 @@
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
         <value name="rec_closed">true</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">downloads.docs:form</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">formXML</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
         <value name="modifiable">true</value>
         <value name="rec_ref">downloads.form.xml.docs:formXML</value>
       </record>
@@ -1766,11 +1826,12 @@
         <value name="is_public">false</value>
         <value name="field_name">form</value>
         <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
+        <value name="field_dim">1</value>
         <value name="wrapper_type">IData</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
+        <value name="is_soap_array_encoding_used">false</value>
         <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
         <value name="rec_ref">downloads.docs:form</value>
@@ -1788,17 +1849,6 @@
         <value name="modifiable">true</value>
         <value name="rec_ref">downloads.form.xml.docs:formXML</value>
       </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">$iteration</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
     </array>
     <value name="modifiable">true</value>
   </record>
@@ -1807,35 +1857,35 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/referenceDocuments;4;0;downloads.docs:referenceDocument/document;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dataElement;2;0/referenceDocument;2;0/doctext;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/referenceDocuments;4;0;downloads.docs:referenceDocument/document;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dataElement;2;0/referenceDocument;2;0/doctext;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/referenceDocuments;4;0;downloads.docs:referenceDocument/documentName;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dataElement;2;0/referenceDocument;2;0/name;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/referenceDocuments;4;0;downloads.docs:referenceDocument/documentName;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dataElement;2;0/referenceDocument;2;0/name;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/referenceDocuments;4;0;downloads.docs:referenceDocument/documentType;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dataElement;2;0/referenceDocument;2;0/type;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/referenceDocuments;4;0;downloads.docs:referenceDocument/documentType;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dataElement;2;0/referenceDocument;2;0/type;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/referenceDocuments;4;0;downloads.docs:referenceDocument/url;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dataElement;2;0/referenceDocument;2;0/URL;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/referenceDocuments;4;0;downloads.docs:referenceDocument/context;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dataElement;2;0/referenceDocument;2;0/context;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/referenceDocuments;4;0;downloads.docs:referenceDocument/context;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dataElement;2;0/referenceDocument;2;0/context;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/referenceDocuments;4;0;downloads.docs:referenceDocument/url;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dataElement;2;0/referenceDocument;2;0/URL;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/referenceDocuments;4;0;downloads.docs:referenceDocument/languageName;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dataElement;2;0/referenceDocument;2;0/languageName;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/referenceDocuments;4;0;downloads.docs:referenceDocument/attachments;2;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dataElement;2;0/referenceDocument;2;0/attachments;2;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/referenceDocuments;4;0;downloads.docs:referenceDocument/attachments;2;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/dataElement;2;0/referenceDocument;2;0/attachments;2;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/dataElement;4;0;downloads.docs:DataElement/referenceDocuments;4;0;downloads.docs:referenceDocument/languageName;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/dataElement;2;0/referenceDocument;2;0/languageName;1;0" DISABLED="true">
 </MAPCOPY>
 </MAP>
 </LOOP>
 
-<LOOP TIMEOUT="" IN-ARRAY="/form/module/question/validValues" OUT-ARRAY="/formXML/forms/form/module/question/validValue">
+<LOOP TIMEOUT="" IN-ARRAY="/form/module/question/validValues" OUT-ARRAY="/formXML/forms/form/module/question/validValue" DISABLED="true">
   <COMMENT></COMMENT>
 
   <!-- nodes -->
 
-<MAP TIMEOUT="" MODE="STANDALONE">
+<MAP TIMEOUT="" MODE="STANDALONE" DISABLED="true">
   <COMMENT></COMMENT>
   <MAPTARGET>
 
@@ -1855,49 +1905,11 @@
         <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
         <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_usereditable">true</value>
           <value name="field_largerEditor">false</value>
           <value name="field_password">false</value>
         </record>
         <value name="is_public">false</value>
-        <value name="field_name">formCollectionName</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <array name="field_options" type="value" depth="1">
-        </array>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_usereditable">true</value>
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
-        <value name="field_name">formCollectionDescription</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <array name="field_options" type="value" depth="1">
-        </array>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
-        <value name="field_name">form</value>
+        <value name="field_name">formXML</value>
         <value name="field_type">recref</value>
         <value name="field_dim">0</value>
         <value name="wrapper_type">IData</value>
@@ -1905,19 +1917,6 @@
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
         <value name="rec_closed">true</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">downloads.docs:form</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">formXML</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
         <value name="modifiable">true</value>
         <value name="rec_ref">downloads.form.xml.docs:formXML</value>
       </record>
@@ -1988,11 +1987,12 @@
         <value name="is_public">false</value>
         <value name="field_name">form</value>
         <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
+        <value name="field_dim">1</value>
         <value name="wrapper_type">IData</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
+        <value name="is_soap_array_encoding_used">false</value>
         <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
         <value name="rec_ref">downloads.docs:form</value>
@@ -2010,17 +2010,6 @@
         <value name="modifiable">true</value>
         <value name="rec_ref">downloads.form.xml.docs:formXML</value>
       </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">$iteration</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
     </array>
     <value name="modifiable">true</value>
   </record>
@@ -2029,34 +2018,34 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/validValues;4;0;downloads.docs:validValue/displayOrder;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/validValue;4;0;downloads.docs:validValue/displayOrder;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/validValues;4;0;downloads.docs:validValue/displayOrder;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/validValue;4;0;downloads.docs:validValue/displayOrder;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/validValues;4;0;downloads.docs:validValue/value;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/validValue;4;0;downloads.docs:validValue/value;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/validValues;4;0;downloads.docs:validValue/value;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/validValue;4;0;downloads.docs:validValue/value;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/validValues;4;0;downloads.docs:validValue/meaningText;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/validValue;4;0;downloads.docs:validValue/meaningText;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/validValues;4;0;downloads.docs:validValue/meaningText;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/validValue;4;0;downloads.docs:validValue/meaningText;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/validValues;4;0;downloads.docs:validValue/description;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/validValue;4;0;downloads.docs:validValue/description;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/validValues;4;0;downloads.docs:validValue/description;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/validValue;4;0;downloads.docs:validValue/description;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/validValues;4;0;downloads.docs:validValue/instruction;4;0;downloads.docs:instruction" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/validValue;4;0;downloads.docs:validValue/instruction;4;0;downloads.docs:instruction">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/validValues;4;0;downloads.docs:validValue/instruction;4;0;downloads.docs:instruction" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/validValue;4;0;downloads.docs:validValue/instruction;4;0;downloads.docs:instruction" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/validValues;4;0;downloads.docs:validValue/valueMeaning;4;0;downloads.docs:valueMeaning/publicID;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/validValue;4;0;downloads.docs:validValue/valueMeaning;4;0;downloads.docs:valueMeaning/publicID;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/validValues;4;0;downloads.docs:validValue/valueMeaning;4;0;downloads.docs:valueMeaning/publicID;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/validValue;4;0;downloads.docs:validValue/valueMeaning;4;0;downloads.docs:valueMeaning/publicID;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/validValues;4;0;downloads.docs:validValue/valueMeaning;4;0;downloads.docs:valueMeaning/version;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/validValue;4;0;downloads.docs:validValue/valueMeaning;4;0;downloads.docs:valueMeaning/version;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/validValues;4;0;downloads.docs:validValue/valueMeaning;4;0;downloads.docs:valueMeaning/version;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/validValue;4;0;downloads.docs:validValue/valueMeaning;4;0;downloads.docs:valueMeaning/version;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/validValues;4;0;downloads.docs:validValue/valueMeaning;4;0;downloads.docs:valueMeaning/longName;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/validValue;4;0;downloads.docs:validValue/valueMeaning;4;0;downloads.docs:valueMeaning/longName;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/validValues;4;0;downloads.docs:validValue/valueMeaning;4;0;downloads.docs:valueMeaning/preferredDefinition;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/validValue;4;0;downloads.docs:validValue/valueMeaning;4;0;downloads.docs:valueMeaning/preferredDefinition;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/validValues;4;0;downloads.docs:validValue/valueMeaning;4;0;downloads.docs:valueMeaning/preferredDefinition;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/validValue;4;0;downloads.docs:validValue/valueMeaning;4;0;downloads.docs:valueMeaning/preferredDefinition;1;0">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/validValues;4;0;downloads.docs:validValue/valueMeaning;4;0;downloads.docs:valueMeaning/longName;1;0" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/validValue;4;0;downloads.docs:validValue/valueMeaning;4;0;downloads.docs:valueMeaning/longName;1;0" DISABLED="true">
 </MAPCOPY>
 
-<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/validValues;4;0;downloads.docs:validValue/valueMeaning;4;0;downloads.docs:valueMeaning/designation;4;1;downloads.docs:designation" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;2;0/module;2;0/question;2;0/validValue;4;0;downloads.docs:validValue/valueMeaning;4;0;downloads.docs:valueMeaning/designation;4;1;downloads.docs:designation">
+<MAPCOPY FROM="/form;4;0;downloads.docs:form/module;4;0;downloads.docs:module/question;4;0;downloads.docs:question/validValues;4;0;downloads.docs:validValue/valueMeaning;4;0;downloads.docs:valueMeaning/designation;4;1;downloads.docs:designation" TO="/formXML;4;0;downloads.form.xml.docs:formXML/forms;4;0;downloads.form.xml.docs:forms/form;4;0;downloads.form.xml.docs:form/module;2;0/question;2;0/validValue;4;0;downloads.docs:validValue/valueMeaning;4;0;downloads.docs:valueMeaning/designation;4;1;downloads.docs:designation" DISABLED="true">
 </MAPCOPY>
 </MAP>
 </LOOP>

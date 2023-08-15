@@ -283,7 +283,7 @@
 </MAP>
 </INVOKE>
 
-<LOOP TIMEOUT="" IN-ARRAY="/selectNCI_QUEST_VALID_VALUEOutput/results" OUT-ARRAY="/validValue">
+<LOOP TIMEOUT="" IN-ARRAY="/selectNCI_QUEST_VALID_VALUEOutput/results" OUT-ARRAY="/validValues">
   <COMMENT></COMMENT>
 
   <!-- nodes -->
@@ -331,15 +331,22 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
+        <value name="node_comment"></value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+        </record>
         <value name="is_public">false</value>
-        <value name="field_name">validValue</value>
+        <value name="field_name">validValues</value>
         <value name="field_type">recref</value>
         <value name="field_dim">0</value>
+        <value name="wrapper_type">IData</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">FormDownload.docs.canonical:validValue</value>
+        <value name="rec_ref">downloads.docs:validValue</value>
       </record>
     </array>
     <value name="modifiable">true</value>
@@ -696,6 +703,26 @@
         <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="node_comment"></value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+        </record>
+        <value name="is_public">false</value>
+        <value name="field_name">validValues</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="wrapper_type">IData</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">downloads.docs:validValue</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
@@ -774,16 +801,10 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/value;1;0" TO="/validValue;4;0;FormDownload.docs.canonical:validValue/valueMeaning;4;0;FormDownload.docs.canonical:valueMeaning/version;1;0">
+<MAPCOPY FROM="/value;1;0" TO="/validValues;4;0;downloads.docs:validValue/valueMeaning;4;0;downloads.docs:valueMeaning/version;1;0">
 </MAPCOPY>
 </MAP>
 </MAPINVOKE>
-
-<MAPCOPY FROM="/selectNCI_QUEST_VALID_VALUEOutput;2;0/results;2;0/VAL_MEAN_ITEM_ID;1;0" TO="/validValue;4;0;FormDownload.docs.canonical:validValue/valueMeaning;4;0;FormDownload.docs.canonical:valueMeaning/publicID;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/selectNCI_QUEST_VALID_VALUEOutput;2;0/results;2;0/DIS_ORD;1;0" TO="/validValue;4;0;FormDownload.docs.canonical:validValue/displayOrder;1;0">
-</MAPCOPY>
 
 <MAPINVOKE SERVICE="pub.string:HTMLDecode" VALIDATE-IN="$none" VALIDATE-OUT="$none" INVOKE-ORDER="0">
 
@@ -801,7 +822,7 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/value;1;0" TO="/validValue;4;0;FormDownload.docs.canonical:validValue/instruction;4;0;downloads.docs:instruction/text;1;0">
+<MAPCOPY FROM="/value;1;0" TO="/validValues;4;0;downloads.docs:validValue/instruction;4;0;downloads.docs:instruction/text;1;0">
 </MAPCOPY>
 </MAP>
 </MAPINVOKE>
@@ -822,7 +843,7 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/value;1;0" TO="/validValue;4;0;FormDownload.docs.canonical:validValue/description;1;0">
+<MAPCOPY FROM="/value;1;0" TO="/validValues;4;0;downloads.docs:validValue/description;1;0">
 </MAPCOPY>
 </MAP>
 </MAPINVOKE>
@@ -843,7 +864,7 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/value;1;0" TO="/validValue;4;0;FormDownload.docs.canonical:validValue/meaningText;1;0">
+<MAPCOPY FROM="/value;1;0" TO="/validValues;4;0;downloads.docs:validValue/meaningText;1;0">
 </MAPCOPY>
 </MAP>
 </MAPINVOKE>
@@ -864,10 +885,16 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/value;1;0" TO="/validValue;4;0;FormDownload.docs.canonical:validValue/value;1;0">
+<MAPCOPY FROM="/value;1;0" TO="/validValues;4;0;downloads.docs:validValue/value;1;0">
 </MAPCOPY>
 </MAP>
 </MAPINVOKE>
+
+<MAPCOPY FROM="/selectNCI_QUEST_VALID_VALUEOutput;2;0/results;2;0/DIS_ORD;1;0" TO="/validValues;4;0;downloads.docs:validValue/displayOrder;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/selectNCI_QUEST_VALID_VALUEOutput;2;0/results;2;0/VAL_MEAN_ITEM_ID;1;0" TO="/validValues;4;0;downloads.docs:validValue/valueMeaning;4;0;downloads.docs:valueMeaning/publicID;1;0">
+</MAPCOPY>
 </MAP>
 
 <INVOKE TIMEOUT="" SERVICE="onedata.jdbc:selectNCI_FORM_TA" VALIDATE-IN="$none" VALIDATE-OUT="$none">
@@ -1055,15 +1082,22 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
+        <value name="node_comment"></value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+        </record>
         <value name="is_public">false</value>
-        <value name="field_name">validValue</value>
+        <value name="field_name">validValues</value>
         <value name="field_type">recref</value>
         <value name="field_dim">0</value>
+        <value name="wrapper_type">IData</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">FormDownload.docs.canonical:validValue</value>
+        <value name="rec_ref">downloads.docs:validValue</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
@@ -1164,15 +1198,22 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
+        <value name="node_comment"></value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+        </record>
         <value name="is_public">false</value>
-        <value name="field_name">validValue</value>
+        <value name="field_name">validValues</value>
         <value name="field_type">recref</value>
         <value name="field_dim">0</value>
+        <value name="wrapper_type">IData</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">FormDownload.docs.canonical:validValue</value>
+        <value name="rec_ref">downloads.docs:validValue</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
@@ -1363,15 +1404,22 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
+        <value name="node_comment"></value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+        </record>
         <value name="is_public">false</value>
-        <value name="field_name">validValue</value>
+        <value name="field_name">validValues</value>
         <value name="field_type">recref</value>
         <value name="field_dim">0</value>
+        <value name="wrapper_type">IData</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">FormDownload.docs.canonical:validValue</value>
+        <value name="rec_ref">downloads.docs:validValue</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
@@ -1488,15 +1536,22 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
+        <value name="node_comment"></value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+        </record>
         <value name="is_public">false</value>
-        <value name="field_name">validValue</value>
+        <value name="field_name">validValues</value>
         <value name="field_type">recref</value>
         <value name="field_dim">0</value>
+        <value name="wrapper_type">IData</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">FormDownload.docs.canonical:validValue</value>
+        <value name="rec_ref">downloads.docs:validValue</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
@@ -1652,15 +1707,22 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
+        <value name="node_comment"></value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+        </record>
         <value name="is_public">false</value>
-        <value name="field_name">validValue</value>
+        <value name="field_name">validValues</value>
         <value name="field_type">recref</value>
         <value name="field_dim">0</value>
+        <value name="wrapper_type">IData</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">FormDownload.docs.canonical:validValue</value>
+        <value name="rec_ref">downloads.docs:validValue</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
@@ -1719,15 +1781,22 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
+        <value name="node_comment"></value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+        </record>
         <value name="is_public">false</value>
-        <value name="field_name">validValue</value>
+        <value name="field_name">validValues</value>
         <value name="field_type">recref</value>
         <value name="field_dim">0</value>
+        <value name="wrapper_type">IData</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">FormDownload.docs.canonical:validValue</value>
+        <value name="rec_ref">downloads.docs:validValue</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
@@ -1906,7 +1975,7 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/DE_VER_NR;1;0" TO="/num1;1;0">
+<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/DE_VER_NR;1;0" TO="/num1;1;0" CONDITION="%selectVW_NCI_FORM_FLATOutput/results[0]/DE_VER_NR% != $null">
 </MAPCOPY>
 
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/num2;1;0">
@@ -1949,13 +2018,16 @@
 </Values>
 </DATA>
 </MAPSET>
+
+<MAPCOPY FROM="/one;1;0" TO="/num1;1;0" CONDITION="%selectVW_NCI_FORM_FLATOutput/results[0]/DE_VER_NR% == $null">
+</MAPCOPY>
 </MAP>
 
 <MAP MODE="INVOKEOUTPUT">
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/value;1;0" TO="/validValue;4;0;FormDownload.docs.canonical:validValue/triggerAction;4;0;downloads.docs:triggerAction/targetDataElementVersion;1;0">
+<MAPCOPY FROM="/value;1;0" TO="/validValues;4;0;downloads.docs:validValue/triggerAction;4;0;downloads.docs:triggerAction/targetDataElementVersion;1;0">
 </MAPCOPY>
 </MAP>
 </MAPINVOKE>
@@ -1963,19 +2035,19 @@
 <MAPDELETE FIELD="/selectVW_NCI_FORM_FLATOutput;2;0">
 </MAPDELETE>
 
-<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/MOD_ITEM_NM;1;0" TO="/validValue;4;0;FormDownload.docs.canonical:validValue/triggerAction;4;0;downloads.docs:triggerAction/targetModuleName;1;0">
+<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/MOD_DISP_ORD;1;0" TO="/validValues;4;0;downloads.docs:validValue/triggerAction;4;0;downloads.docs:triggerAction/targetModuleDisplayOrder;1;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/MOD_DISP_ORD;1;0" TO="/validValue;4;0;FormDownload.docs.canonical:validValue/triggerAction;4;0;downloads.docs:triggerAction/targetModuleDisplayOrder;1;0">
+<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/MOD_ITEM_NM;1;0" TO="/validValues;4;0;downloads.docs:validValue/triggerAction;4;0;downloads.docs:triggerAction/targetModuleName;1;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/QUEST_DISP_ORD;1;0" TO="/validValue;4;0;FormDownload.docs.canonical:validValue/triggerAction;4;0;downloads.docs:triggerAction/targetQuestionDisplayOrder;1;0">
+<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/MOD_ITEM_ID;1;0" TO="/validValues;4;0;downloads.docs:validValue/triggerAction;4;0;downloads.docs:triggerAction/targetModulePublicId;1;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/DE_ITEM_ID;1;0" TO="/validValue;4;0;FormDownload.docs.canonical:validValue/triggerAction;4;0;downloads.docs:triggerAction/targetDataElementPublicID;1;0">
+<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/QUEST_DISP_ORD;1;0" TO="/validValues;4;0;downloads.docs:validValue/triggerAction;4;0;downloads.docs:triggerAction/targetQuestionDisplayOrder;1;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/MOD_ITEM_ID;1;0" TO="/validValue;4;0;FormDownload.docs.canonical:validValue/triggerAction;4;0;downloads.docs:triggerAction/targetModulePublicId;1;0">
+<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/DE_ITEM_ID;1;0" TO="/validValues;4;0;downloads.docs:validValue/triggerAction;4;0;downloads.docs:triggerAction/targetDataElementPublicID;1;0">
 </MAPCOPY>
 </MAP>
 </SEQUENCE>
@@ -2028,15 +2100,22 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
+        <value name="node_comment"></value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+        </record>
         <value name="is_public">false</value>
-        <value name="field_name">validValue</value>
+        <value name="field_name">validValues</value>
         <value name="field_type">recref</value>
         <value name="field_dim">0</value>
+        <value name="wrapper_type">IData</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">FormDownload.docs.canonical:validValue</value>
+        <value name="rec_ref">downloads.docs:validValue</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
@@ -2213,15 +2292,22 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
+        <value name="node_comment"></value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+        </record>
         <value name="is_public">false</value>
-        <value name="field_name">validValue</value>
+        <value name="field_name">validValues</value>
         <value name="field_type">recref</value>
         <value name="field_dim">0</value>
+        <value name="wrapper_type">IData</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">FormDownload.docs.canonical:validValue</value>
+        <value name="rec_ref">downloads.docs:validValue</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
@@ -2324,15 +2410,22 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
+        <value name="node_comment"></value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+        </record>
         <value name="is_public">false</value>
-        <value name="field_name">validValue</value>
+        <value name="field_name">validValues</value>
         <value name="field_type">recref</value>
         <value name="field_dim">0</value>
+        <value name="wrapper_type">IData</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">FormDownload.docs.canonical:validValue</value>
+        <value name="rec_ref">downloads.docs:validValue</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
@@ -2451,15 +2544,22 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
+        <value name="node_comment"></value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+        </record>
         <value name="is_public">false</value>
-        <value name="field_name">validValue</value>
+        <value name="field_name">validValues</value>
         <value name="field_type">recref</value>
         <value name="field_dim">0</value>
+        <value name="wrapper_type">IData</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">FormDownload.docs.canonical:validValue</value>
+        <value name="rec_ref">downloads.docs:validValue</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
@@ -2518,15 +2618,22 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
+        <value name="node_comment"></value>
+        <record name="node_hints" javaclass="com.wm.util.Values">
+          <value name="field_largerEditor">false</value>
+          <value name="field_password">false</value>
+        </record>
         <value name="is_public">false</value>
-        <value name="field_name">validValue</value>
+        <value name="field_name">validValues</value>
         <value name="field_type">recref</value>
         <value name="field_dim">0</value>
+        <value name="wrapper_type">IData</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">FormDownload.docs.canonical:validValue</value>
+        <value name="rec_ref">downloads.docs:validValue</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
@@ -2705,7 +2812,7 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/DE_VER_NR;1;0" TO="/num1;1;0">
+<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/DE_VER_NR;1;0" TO="/num1;1;0" CONDITION="%selectVW_NCI_FORM_FLATOutput/results[0]/DE_VER_NR% != $null">
 </MAPCOPY>
 
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/num2;1;0">
@@ -2748,13 +2855,16 @@
 </Values>
 </DATA>
 </MAPSET>
+
+<MAPCOPY FROM="/one;1;0" TO="/num1;1;0" CONDITION="%selectVW_NCI_FORM_FLATOutput/results[0]/DE_VER_NR% == $null">
+</MAPCOPY>
 </MAP>
 
 <MAP MODE="INVOKEOUTPUT">
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/value;1;0" TO="/validValue;4;0;FormDownload.docs.canonical:validValue/triggerAction;4;0;downloads.docs:triggerAction/targetDataElementVersion;1;0">
+<MAPCOPY FROM="/value;1;0" TO="/validValues;4;0;downloads.docs:validValue/triggerAction;4;0;downloads.docs:triggerAction/targetDataElementVersion;1;0">
 </MAPCOPY>
 </MAP>
 </MAPINVOKE>
@@ -2762,19 +2872,19 @@
 <MAPDELETE FIELD="/selectVW_NCI_FORM_FLATOutput;2;0">
 </MAPDELETE>
 
-<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/MOD_ITEM_ID;1;0" TO="/validValue;4;0;FormDownload.docs.canonical:validValue/triggerAction;4;0;downloads.docs:triggerAction/targetModulePublicId;1;0">
+<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/MOD_DISP_ORD;1;0" TO="/validValues;4;0;downloads.docs:validValue/triggerAction;4;0;downloads.docs:triggerAction/targetModuleDisplayOrder;1;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/MOD_DISP_ORD;1;0" TO="/validValue;4;0;FormDownload.docs.canonical:validValue/triggerAction;4;0;downloads.docs:triggerAction/targetModuleDisplayOrder;1;0">
+<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/MOD_ITEM_NM;1;0" TO="/validValues;4;0;downloads.docs:validValue/triggerAction;4;0;downloads.docs:triggerAction/targetModuleName;1;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/MOD_ITEM_NM;1;0" TO="/validValue;4;0;FormDownload.docs.canonical:validValue/triggerAction;4;0;downloads.docs:triggerAction/targetModuleName;1;0">
+<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/MOD_ITEM_ID;1;0" TO="/validValues;4;0;downloads.docs:validValue/triggerAction;4;0;downloads.docs:triggerAction/targetModulePublicId;1;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/QUEST_DISP_ORD;1;0" TO="/validValue;4;0;FormDownload.docs.canonical:validValue/triggerAction;4;0;downloads.docs:triggerAction/targetQuestionDisplayOrder;1;0">
+<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/QUEST_DISP_ORD;1;0" TO="/validValues;4;0;downloads.docs:validValue/triggerAction;4;0;downloads.docs:triggerAction/targetQuestionDisplayOrder;1;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/DE_ITEM_ID;1;0" TO="/validValue;4;0;FormDownload.docs.canonical:validValue/triggerAction;4;0;downloads.docs:triggerAction/targetDataElementPublicID;1;0">
+<MAPCOPY FROM="/selectVW_NCI_FORM_FLATOutput;2;0/results[0];2;1/DE_ITEM_ID;1;0" TO="/validValues;4;0;downloads.docs:validValue/triggerAction;4;0;downloads.docs:triggerAction/targetDataElementPublicID;1;0">
 </MAPCOPY>
 </MAP>
 </SEQUENCE>
@@ -2845,7 +2955,7 @@
 
 <Values version="2.0">
   <array name="xml" type="value" depth="1">
-    <value>validValue</value>
+    <value>validValues</value>
   </array>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">field</value>
