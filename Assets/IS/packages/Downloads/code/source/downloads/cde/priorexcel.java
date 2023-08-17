@@ -216,7 +216,7 @@ public final class priorexcel
 	public static void OuputConcepts( IData[] concepts, int row, int col, int origin){
 		for ( int c = 0; c < concepts.length; c++ ){
 			IDataCursor conceptsCursor = concepts[c].getCursor();
-			StringToCell(row+c, col, IDataUtil.getString( conceptsCursor, "longName" ));
+			StringToCell(row+c, col++, IDataUtil.getString( conceptsCursor, "longName" ));
 			StringToCell(row+c, col++, IDataUtil.getString( conceptsCursor, "shortName" ));
 			StringToCell(row+c, col++, IDataUtil.getString( conceptsCursor, "publicId" ));
 			StringToCell(row+c, col++, IDataUtil.getString( conceptsCursor, "definitionSource" ));
@@ -250,6 +250,7 @@ public final class priorexcel
 	
 	public static Object sheet;
 	public static int maxRows;
+		
 	// --- <<IS-END-SHARED>> ---
 }
 
