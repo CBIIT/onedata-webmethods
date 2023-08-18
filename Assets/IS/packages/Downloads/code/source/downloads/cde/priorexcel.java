@@ -213,8 +213,11 @@ public final class priorexcel
 	}
 
 	// --- <<IS-START-SHARED>> ---
-	public static void OuputConcepts( IData[] concepts, int row, int col, int origin){
+	public static void OuputConcepts( IData[] concepts, int row, int column, int origin){
+		int col;
+		
 		for ( int c = 0; c < concepts.length; c++ ){
+			col = column;
 			IDataCursor conceptsCursor = concepts[c].getCursor();
 			StringToCell(row+c, col++, IDataUtil.getString( conceptsCursor, "longName" ));
 			StringToCell(row+c, col++, IDataUtil.getString( conceptsCursor, "shortName" ));
@@ -228,6 +231,7 @@ public final class priorexcel
 		}
 		if( maxRows < concepts.length ) maxRows = concepts.length;
 	}
+	
 	public static void StringToCell( int row, int col, String value ){
 		// input
 		IData input = IDataFactory.create();
