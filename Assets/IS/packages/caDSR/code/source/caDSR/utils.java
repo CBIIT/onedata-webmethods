@@ -83,5 +83,30 @@ public final class utils
 
                 
 	}
+
+
+
+	public static final void splitFilterString (IData pipeline)
+        throws ServiceException
+	{
+		// --- <<IS-START(splitFilterString)>> ---
+		// @sigtype java 3.5
+		// [i] field:0:required filterString
+		// [o] field:1:required filterObjects
+		// pipeline
+		IDataCursor pipelineCursor = pipeline.getCursor();
+		String	filterString = IDataUtil.getString( pipelineCursor, "filterString" );
+		String[] filterObjects = filterString.split(",@");
+		
+		for(int i=1;i<filterObjects.length;i++){
+			filterObjects[i]="@".concat(filterObjects[i]);
+		}
+		IDataUtil.put( pipelineCursor, "filterObjects", filterObjects );
+		pipelineCursor.destroy();
+			
+		// --- <<IS-END>> ---
+
+                
+	}
 }
 

@@ -3380,26 +3380,8 @@
 
   <!-- nodes -->
 
-<MAPINVOKE SERVICE="caDSR.utils:removeDups" VALIDATE-IN="$none" VALIDATE-OUT="$none" INVOKE-ORDER="0">
-
-  <!-- nodes -->
-
-<MAP MODE="INVOKEINPUT">
-
-  <!-- nodes -->
-
-<MAPCOPY FROM="/keys;4;1;caDSR.docs:keys" TO="/tempKeys;4;1;caDSR.docs:keys">
+<MAPCOPY FROM="/keys;4;1;caDSR.docs:keys" TO="/filter;4;0;caDSR.docs:filter/keys;4;1;caDSR.docs:keys">
 </MAPCOPY>
-</MAP>
-
-<MAP MODE="INVOKEOUTPUT">
-
-  <!-- nodes -->
-
-<MAPCOPY FROM="/newKeys;4;1;caDSR.docs:keys" TO="/filter;4;0;caDSR.docs:filter/keys;4;1;caDSR.docs:keys">
-</MAPCOPY>
-</MAP>
-</MAPINVOKE>
 </MAP>
 
 <LOOP TIMEOUT="" IN-ARRAY="/filter/collectionFilters">
@@ -15739,26 +15721,8 @@
 
   <!-- nodes -->
 
-<MAPINVOKE SERVICE="caDSR.utils:removeDups" VALIDATE-IN="$none" VALIDATE-OUT="$none" INVOKE-ORDER="0">
-
-  <!-- nodes -->
-
-<MAP MODE="INVOKEINPUT">
-
-  <!-- nodes -->
-
-<MAPCOPY FROM="/keys;4;1;caDSR.docs:keys" TO="/tempKeys;4;1;caDSR.docs:keys">
+<MAPCOPY FROM="/keys;4;1;caDSR.docs:keys" TO="/filter;4;0;caDSR.docs:filter/keys;4;1;caDSR.docs:keys">
 </MAPCOPY>
-</MAP>
-
-<MAP MODE="INVOKEOUTPUT">
-
-  <!-- nodes -->
-
-<MAPCOPY FROM="/newKeys;4;1;caDSR.docs:keys" TO="/filter;4;0;caDSR.docs:filter/keys;4;1;caDSR.docs:keys">
-</MAPCOPY>
-</MAP>
-</MAPINVOKE>
 </MAP>
 </SEQUENCE>
 </BRANCH>
