@@ -6611,7 +6611,7 @@
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
-  <value name="xml">a.ORIGIN_ID %filter/fieldFilters/operator% '%filter/fieldFilters/value%'</value>
+  <value name="xml">a.ORIGIN_ID_DN %filter/fieldFilters/operator% '%filter/fieldFilters/value%'</value>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">field</value>
     <value name="node_subtype">unknown</value>
@@ -10387,7 +10387,7 @@
 </INVOKE>
 
 <INVOKE NAME="@workflowStatusDescription" TIMEOUT="" SERVICE="pub.list:appendToStringList" VALIDATE-IN="$none" VALIDATE-OUT="$none">
-  <COMMENT></COMMENT>
+  <COMMENT>DO NOT CHANGE THIS CODE</COMMENT>
 
   <!-- nodes -->
 
@@ -10561,7 +10561,7 @@
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
-  <value name="xml">UPPER(a.ADMIN_STUS_NM_DN) %filter/fieldFilters/operator% UPPER('%filter/fieldFilters/value%')</value>
+  <value name="xml">a.ADMIN_STUS_ID IN (SELECT ADMIN_STUS_ID FROM STUS_MSTR WHERE UPPER(STUS_DESC) like UPPER('%filter/fieldFilters/value%'))</value>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">field</value>
     <value name="node_subtype">unknown</value>
