@@ -4744,13 +4744,7 @@
 <MAPCOPY FROM="/selectRetiredOutput;2;0/results;2;0/CNTXT_NM_DN;1;0" TO="/argumentList[5];1;1">
 </MAPCOPY>
 
-<MAPCOPY FROM="/selectRetiredOutput;2;0/results;2;0/CREAT_USR_ID;1;0" TO="/argumentList[6];1;1">
-</MAPCOPY>
-
 <MAPCOPY FROM="/selectRetiredOutput;2;0/results;2;0/UPDATE_USR_NM;1;0" TO="/argumentList[7];1;1">
-</MAPCOPY>
-
-<MAPCOPY FROM="/selectRetiredOutput;2;0/results;2;0/ITEM_LONG_NM;1;0" TO="/argumentList[2];1;1">
 </MAPCOPY>
 
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/pattern;1;0">
@@ -4772,6 +4766,12 @@
 </Values>
 </DATA>
 </MAPSET>
+
+<MAPCOPY FROM="/selectRetiredOutput;2;0/results;2;0/ITEM_NM;1;0" TO="/argumentList[2];1;1">
+</MAPCOPY>
+
+<MAPCOPY FROM="/selectRetiredOutput;2;0/results;2;0/LST_UPD_USR_ID;1;0" TO="/argumentList[6];1;1">
+</MAPCOPY>
 </MAP>
 
 <MAP MODE="INVOKEOUTPUT">
@@ -5324,9 +5324,6 @@
 <MAPCOPY FROM="/selectRetiredOutput;2;0/results;2;0/CNTXT_NM_DN;1;0" TO="/argumentList[5];1;1">
 </MAPCOPY>
 
-<MAPCOPY FROM="/selectRetiredOutput;2;0/results;2;0/ITEM_LONG_NM;1;0" TO="/argumentList[2];1;1">
-</MAPCOPY>
-
 <MAPCOPY FROM="/selectRetiredOutput;2;0/results;2;0/LST_UPD_USR_ID;1;0" TO="/argumentList[6];1;1">
 </MAPCOPY>
 
@@ -5349,6 +5346,9 @@
 </Values>
 </DATA>
 </MAPSET>
+
+<MAPCOPY FROM="/selectRetiredOutput;2;0/results;2;0/ITEM_NM;1;0" TO="/argumentList[2];1;1">
+</MAPCOPY>
 </MAP>
 
 <MAP MODE="INVOKEOUTPUT">
@@ -18523,12 +18523,6 @@ Related Administered Items:
 <MAPCOPY FROM="/selectRetiredOutput;2;0/results;2;0/CNTXT_NM_DN;1;0" TO="/argumentList[5];1;1">
 </MAPCOPY>
 
-<MAPCOPY FROM="/selectRetiredOutput;2;0/results;2;0/CREAT_USR_ID;1;0" TO="/argumentList[6];1;1">
-</MAPCOPY>
-
-<MAPCOPY FROM="/selectRetiredOutput;2;0/results;2;0/ITEM_LONG_NM;1;0" TO="/argumentList[2];1;1">
-</MAPCOPY>
-
 <MAPCOPY FROM="/selectRetiredOutput;2;0/results;2;0/CREAT_USR_NM;1;0" TO="/argumentList[7];1;1">
 </MAPCOPY>
 
@@ -18551,6 +18545,12 @@ Related Administered Items:
 </Values>
 </DATA>
 </MAPSET>
+
+<MAPCOPY FROM="/selectRetiredOutput;2;0/results;2;0/ITEM_NM;1;0" TO="/argumentList[2];1;1">
+</MAPCOPY>
+
+<MAPCOPY FROM="/selectRetiredOutput;2;0/results;2;0/LST_UPD_USR_ID;1;0" TO="/argumentList[6];1;1">
+</MAPCOPY>
 </MAP>
 
 <MAP MODE="INVOKEOUTPUT">
@@ -19103,12 +19103,6 @@ Related Administered Items:
 <MAPCOPY FROM="/selectRetiredOutput;2;0/results;2;0/CNTXT_NM_DN;1;0" TO="/argumentList[5];1;1">
 </MAPCOPY>
 
-<MAPCOPY FROM="/selectRetiredOutput;2;0/results;2;0/CREAT_USR_ID;1;0" TO="/argumentList[6];1;1">
-</MAPCOPY>
-
-<MAPCOPY FROM="/selectRetiredOutput;2;0/results;2;0/ITEM_LONG_NM;1;0" TO="/argumentList[2];1;1">
-</MAPCOPY>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/pattern;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -19128,6 +19122,12 @@ Related Administered Items:
 </Values>
 </DATA>
 </MAPSET>
+
+<MAPCOPY FROM="/selectRetiredOutput;2;0/results;2;0/ITEM_NM;1;0" TO="/argumentList[2];1;1">
+</MAPCOPY>
+
+<MAPCOPY FROM="/selectRetiredOutput;2;0/results;2;0/LST_UPD_USR_ID;1;0" TO="/argumentList[6];1;1">
+</MAPCOPY>
 </MAP>
 
 <MAP MODE="INVOKEOUTPUT">
@@ -21893,7 +21893,7 @@ Related Administered Items:
   <!-- nodes -->
 
 <INVOKE TIMEOUT="" SERVICE="NCIModel.services:queryAdministeredItem" VALIDATE-IN="$none" VALIDATE-OUT="$none">
-  <COMMENT>ADMIN_STUS_ID = 75 (RELEASED)</COMMENT>
+  <COMMENT>ADMIN_STUS_ID != 77 (NOT RETIRED ARCHIVED)</COMMENT>
 
   <!-- nodes -->
 
@@ -22150,11 +22150,17 @@ Related Administered Items:
 
   <!-- nodes -->
 
+<MAPCOPY FROM="/adminItemIdVersionList;2;0/itemId;1;0" TO="/itemId;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/adminItemIdVersionList;2;0/version;1;0" TO="/version;1;0">
+</MAPCOPY>
+
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/whereClauseExt;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
-  <value name="xml">ADMIN_STUS_ID = 75</value>
+  <value name="xml">ADMIN_STUS_ID != 77</value>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
     <value name="node_subtype">unknown</value>
@@ -22178,12 +22184,6 @@ Related Administered Items:
 </Values>
 </DATA>
 </MAPSET>
-
-<MAPCOPY FROM="/adminItemIdVersionList;2;0/itemId;1;0" TO="/itemId;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/adminItemIdVersionList;2;0/version;1;0" TO="/version;1;0">
-</MAPCOPY>
 </MAP>
 
 <MAP MODE="OUTPUT">
