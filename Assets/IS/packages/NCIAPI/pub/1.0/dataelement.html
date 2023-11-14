@@ -209,6 +209,28 @@
           "_basicAuth" : [ ]
         } ]
       }
+    },
+    "/DataElement/getCRDCList" : {
+      "get" : {
+        "tags" : [ "Data Element" ],
+        "description" : "GET full representation of CRDC Data Elements.\r\n\r\nThere are no input parameters.",
+        "operationId" : "DataElementgetCRDCList_GET_4",
+        "parameters" : [ ],
+        "security" : [ {
+          "_basicAuth" : [ ]
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/DataElementgetCRDCList_GET_response"
+            }
+          },
+          "401" : {
+            "description" : "Access Denied"
+          }
+        }
+      }
     }
   },
   "securityDefinitions" : {
@@ -313,6 +335,17 @@
       "properties" : {
         "DataElement" : {
           "$ref" : "#/definitions/DataElement"
+        }
+      }
+    },
+    "DataElementgetCRDCList_GET_response" : {
+      "required" : [ "CRDCDataElements" ],
+      "properties" : {
+        "CRDCDataElements" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/CRDCDataElement"
+          }
         }
       }
     },
@@ -1215,6 +1248,120 @@
           "description" : "An indicator that characterizes the item as eliminated from the registry, thought the physical record still exists."
         }
       }
+    },
+    "DataElementgetCRDCList_GET_response" : {
+      "required" : [ "CRDCDataElements" ],
+      "properties" : {
+        "CRDCDataElements" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/CRDCDataElement"
+          }
+        }
+      }
+    },
+    "CRDCDataElement" : {
+      "required" : [ "CDE Long Name", "CDE Public ID", "CRD Domain", "CRDC Definition", "CRDC Name", "Coding Instruction", "Deep Link", "Example", "Instructions", "Owned By", "Registration Status", "Used By", "VD Type", "Version", "Workflow Status", "permissibleValues" ],
+      "properties" : {
+        "CDE Public ID" : {
+          "type" : "string",
+          "description" : "The unique identifier for an Administered Item within a Registration Authority."
+        },
+        "Version" : {
+          "type" : "string",
+          "description" : "The unique version identifier of the Administered Item."
+        },
+        "CRDC Name" : {
+          "type" : "string",
+          "description" : "CRDC Name"
+        },
+        "CRD Domain" : {
+          "type" : "string",
+          "description" : "CRDC Domain"
+        },
+        "Example" : {
+          "type" : "string",
+          "description" : "CRDC Example"
+        },
+        "VD Type" : {
+          "type" : "string",
+          "description" : "Value Domain type"
+        },
+        "Coding Instruction" : {
+          "type" : "string",
+          "description" : "CRDC Coding Instructions"
+        },
+        "Instructions" : {
+          "type" : "string",
+          "description" : "CRDC Instructions"
+        },
+        "CRDC Definition" : {
+          "type" : "string",
+          "description" : "CRD Definition"
+        },
+        "CDE Long Name" : {
+          "type" : "string",
+          "description" : "A 255 character limit name for an item in the registry."
+        },
+        "Registration Status" : {
+          "type" : "string",
+          "description" : "A designation of the status in the registration life-cycle of an Administered Item."
+        },
+        "Workflow Status" : {
+          "type" : "string",
+          "description" : "A name of a designation of the status in the administrative life-cycle of a Context Owner for handling new administered items."
+        },
+        "Owned By" : {
+          "type" : "string",
+          "description" : "Who owns the Data Element"
+        },
+        "Used By" : {
+          "type" : "string",
+          "description" : "Who is using the Data Element"
+        },
+        "Deep Link" : {
+          "type" : "string"
+        },
+        "permissibleValues" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/permissibleValue"
+          }
+        }
+      }
+    },
+    "permissibleValue" : {
+      "required" : [ "Begin Date", "Concept Code", "End Date", "Permissible Value", "VM Description", "VM Long Name", "VM Public ID" ],
+      "properties" : {
+        "Permissible Value" : {
+          "type" : "string",
+          "description" : "A representation of a Value Meaning in a specific Value Domain the actual Value."
+        },
+        "VM Long Name" : {
+          "type" : "string",
+          "description" : "A 255 character limit name for an item in the registry."
+        },
+        "VM Public ID" : {
+          "type" : "string",
+          "description" : "The unique identifier for an Administered Item within a Registration Authority."
+        },
+        "Concept Code" : {
+          "type" : "string"
+        },
+        "VM Description" : {
+          "type" : "string",
+          "description" : "The text of the most desirable meaning for the Administered Item."
+        },
+        "Begin Date" : {
+          "type" : "string",
+          "description" : "The particular day, month and year this item became allowed."
+        },
+        "End Date" : {
+          "type" : "string",
+          "description" : "The day, month and year this item becomes no longer allowed."
+        }
+      },
+      "description" : "List of Permissible Values"
     }
   }
 } ;

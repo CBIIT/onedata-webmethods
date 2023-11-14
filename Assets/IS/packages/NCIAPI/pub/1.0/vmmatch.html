@@ -119,13 +119,13 @@
         "operationId" : "vmMatch_POST_1",
         "parameters" : [ {
           "name" : "matchType",
-          "enum" : [ "VM", "DEC" ],
+          "enum" : [ "Restricted", "Unrestricted" ],
           "in" : "header",
           "required" : true,
           "type" : "string"
         }, {
           "name" : "function",
-          "enum" : [ "Restricted", "Unrestricted", "Fuzzy" ],
+          "enum" : [ "VM's Only", "Concepts Only", "Both VM's and Concepts" ],
           "in" : "header",
           "required" : true,
           "type" : "string"
@@ -164,55 +164,19 @@
   },
   "definitions" : {
     "entities" : {
-      "required" : [ "entityName" ],
+      "required" : [ "name" ],
       "properties" : {
-        "entityName" : {
-          "type" : "string"
-        },
-        "entityNameUser" : {
-          "type" : "string"
-        }
-      }
-    },
-    "matches" : {
-      "properties" : {
-        "ITEM_ID" : {
-          "type" : "number"
-        },
-        "VER_NR" : {
-          "type" : "number"
-        },
-        "RULE_DESC" : {
-          "type" : "string"
-        },
-        "USR_CMNTS" : {
-          "type" : "string"
-        },
-        "CREAT_DT" : {
+        "name" : {
           "type" : "string",
-          "format" : "date-time"
+          "description" : "Information you want to match"
         },
-        "CREAT_USR_ID" : {
-          "type" : "string"
-        },
-        "LST_UPD_USR_ID" : {
-          "type" : "string"
-        },
-        "FLD_DELETE" : {
-          "type" : "number"
-        },
-        "LST_UPD_DT" : {
+        "userTip" : {
           "type" : "string",
-          "format" : "date-time"
-        },
-        "MTCH_DESC_TXT" : {
-          "type" : "string"
-        },
-        "MTCH_TYP" : {
-          "type" : "string"
+          "description" : "User Tip to help with matching"
         }
-      }
-    },
+      },
+      "description" : "List of Names and User tips to match"
+   },
     "vmMatch_POST_response" : {
       "required" : [ "matchResults" ],
       "properties" : {
@@ -224,17 +188,100 @@
         }
       }
     },
-    "matchResults" : {
-      "required" : [ "entityName", "numberOfMatches" ],
+    "matches" : {
+      "required" : [ "concept", "context", "createdBy", "dateCreated", "dateLastModified", "evsSource", "importedVMName", "itemId", "itemType", "lastModifiedBy", "matchedDefinition", "matchedName", "registrationStatus", "ruleDescription", "userComment", "userTip", "version", "workflowStatus" ],
       "properties" : {
-        "entityName" : {
-          "type" : "string"
+        "ruleDescription" : {
+          "type" : "string",
+          "description" : "Description of the Rule being used"
         },
-        "entityNameUser" : {
-          "type" : "string"
+        "importedVMName" : {
+          "type" : "string",
+          "description" : "Imported VM Name"
+        },
+        "userTip" : {
+          "type" : "string",
+          "description" : "Imorted User Tip"
+        },
+        "itemType" : {
+          "type" : "string",
+          "description" : "Administered Item Type"
+        },
+        "itemId" : {
+          "type" : "string",
+          "description" : "Administered Item ID"
+        },
+        "version" : {
+          "type" : "string",
+          "description" : "Administered Item Version"
+        },
+        "concept" : {
+          "type" : "string",
+          "description" : "Concept"
+        },
+        "matchedName" : {
+          "type" : "string",
+          "description" : "Administered Items Matched Name"
+        },
+        "evsSource" : {
+          "type" : "string",
+          "description" : "EVS Source"
+        },
+        "matchedDefinition" : {
+          "type" : "string",
+          "description" : "Administered Items matched definition"
+        },
+        "context" : {
+          "type" : "string",
+          "description" : "Context Name"
+        },
+        "workflowStatus" : {
+          "type" : "string",
+          "description" : "Workflow Status"
+        },
+        "registrationStatus" : {
+          "type" : "string",
+          "description" : "Registration Status"
+        },
+        "userComment" : {
+          "type" : "string",
+          "description" : "User comments"
+        },
+        "dateCreated" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Date this entry was created"
+        },
+        "createdBy" : {
+          "type" : "string",
+          "description" : "User who created the vm match result"
+        },
+        "lastModifiedBy" : {
+          "type" : "string",
+          "description" : "Last user to modify the VM match result will be the same as created by."
+        },
+        "dateLastModified" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Date this result was modified will be the same as dateCreated"
+        }
+      },
+      "description" : "List of matches sorted by Rule Description"
+    },
+    "matchResults" : {
+      "required" : [ "matches", "name", "numberOfMatches" ],
+      "properties" : {
+        "name" : {
+          "type" : "string",
+          "description" : "Imported VM Name"
+        },
+        "userTip" : {
+          "type" : "string",
+          "description" : "Imported User Tip"
         },
         "numberOfMatches" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Number of matches found"
         },
         "matches" : {
           "type" : "array",
@@ -245,8 +292,7 @@
       }
     }
   }
-} ;
-
+};
             const ui = SwaggerUIBundle({
                 url: "",
                 spec: sagSwagger,

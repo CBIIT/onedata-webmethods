@@ -36,7 +36,7 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="node_comment">What match do you want to perform Value Meaning (VM ) or Data Elelment Concept (DEC).</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">false</value>
           <value name="field_largerEditor">false</value>
@@ -47,9 +47,8 @@
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <array name="field_options" type="value" depth="1">
-          <value>VM</value>
-          <value>DEC</value>
-          <value></value>
+          <value>Unrestricted</value>
+          <value>Restricted</value>
         </array>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
@@ -58,7 +57,7 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="node_comment">Type of Match (Restricted, Unrestricted, Fuzzy)</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
           <value name="field_largerEditor">false</value>
@@ -69,9 +68,9 @@
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <array name="field_options" type="value" depth="1">
-          <value>Restricted</value>
-          <value>Unrestricted</value>
-          <value>Fuzzy</value>
+          <value>VM's Only</value>
+          <value>Concepts Only</value>
+          <value>Both VM's and Concepts</value>
         </array>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
@@ -80,24 +79,45 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="node_comment">List of Names and User tips to match</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_largerEditor">false</value>
           <value name="field_password">false</value>
         </record>
         <value name="is_public">false</value>
         <value name="field_name">entities</value>
-        <value name="field_type">record</value>
+        <value name="field_type">recref</value>
         <value name="field_dim">1</value>
         <value name="wrapper_type">IData</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
         <value name="is_soap_array_encoding_used">false</value>
-        <array name="rec_fields" type="record" depth="1">
-        </array>
         <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
+        <value name="rec_ref">NCIAPI.v1_0.vmmatch.docs:entities</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">VM</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">v_pref</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
@@ -131,7 +151,7 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="node_comment">What match do you want to perform Value Meaning (VM ) or Data Elelment Concept (DEC).</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">false</value>
           <value name="field_largerEditor">false</value>
@@ -142,9 +162,8 @@
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <array name="field_options" type="value" depth="1">
-          <value>VM</value>
-          <value>DEC</value>
-          <value></value>
+          <value>Unrestricted</value>
+          <value>Restricted</value>
         </array>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
@@ -153,7 +172,7 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="node_comment">Type of Match (Restricted, Unrestricted, Fuzzy)</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
           <value name="field_largerEditor">false</value>
@@ -164,9 +183,9 @@
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <array name="field_options" type="value" depth="1">
-          <value>Restricted</value>
-          <value>Unrestricted</value>
-          <value>Fuzzy</value>
+          <value>VM's Only</value>
+          <value>Concepts Only</value>
+          <value>Both VM's and Concepts</value>
         </array>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
@@ -175,24 +194,23 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="node_comment">List of Names and User tips to match</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_largerEditor">false</value>
           <value name="field_password">false</value>
         </record>
         <value name="is_public">false</value>
         <value name="field_name">entities</value>
-        <value name="field_type">record</value>
+        <value name="field_type">recref</value>
         <value name="field_dim">1</value>
         <value name="wrapper_type">IData</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
         <value name="is_soap_array_encoding_used">false</value>
-        <array name="rec_fields" type="record" depth="1">
-        </array>
         <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
+        <value name="rec_ref">NCIAPI.v1_0.vmmatch.docs:entities</value>
       </record>
     </array>
     <value name="modifiable">true</value>
@@ -658,40 +676,6 @@
 
   <!-- nodes -->
 
-<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/lookupTable;1;2">
-  <DATA ENCODING="XMLValues" I18N="true">
-
-<Values version="2.0">
-  <array name="xml" type="value" depth="2">
-    <array type="value" depth="1">
-      <value>Restricted</value>
-      <value>R</value>
-    </array>
-    <array type="value" depth="1">
-      <value>Unrestricted</value>
-      <value>U</value>
-    </array>
-    <array type="value" depth="1">
-      <value>Fuzzy</value>
-      <value>F</value>
-    </array>
-  </array>
-  <record name="type" javaclass="com.wm.util.Values">
-    <value name="node_type">field</value>
-    <value name="node_subtype">unknown</value>
-    <value name="is_public">false</value>
-    <value name="field_name">lookupTable</value>
-    <value name="field_type">string</value>
-    <value name="field_dim">2</value>
-    <value name="nillable">true</value>
-    <value name="form_qualified">false</value>
-    <value name="is_global">false</value>
-    <value name="is_soap_array_encoding_used">false</value>
-  </record>
-</Values>
-</DATA>
-</MAPSET>
-
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/keyColumnIndex;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
@@ -734,6 +718,101 @@
 
 <MAPCOPY FROM="/function;1;0" TO="/key;1;0">
 </MAPCOPY>
+
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/lookupTable;1;2">
+  <DATA ENCODING="XMLValues" I18N="true">
+
+<Values version="2.0">
+  <array name="xml" type="value" depth="2">
+    <array type="value" depth="1">
+      <value>VM's Only</value>
+      <value>V</value>
+    </array>
+    <array type="value" depth="1">
+      <value>Concepts Only</value>
+      <value>C</value>
+    </array>
+    <array type="value" depth="1">
+      <value>Both VM's and Concepts</value>
+      <value>A</value>
+    </array>
+  </array>
+  <record name="type" javaclass="com.wm.util.Values">
+    <value name="node_type">field</value>
+    <value name="node_subtype">unknown</value>
+    <value name="is_public">false</value>
+    <value name="field_name">lookupTable</value>
+    <value name="field_type">string</value>
+    <value name="field_dim">2</value>
+    <value name="nillable">true</value>
+    <value name="form_qualified">false</value>
+    <value name="is_global">false</value>
+    <value name="is_soap_array_encoding_used">false</value>
+  </record>
+</Values>
+</DATA>
+</MAPSET>
+</MAP>
+
+<MAP MODE="INVOKEOUTPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/value;1;0" TO="/v_pref;1;0">
+</MAPCOPY>
+</MAP>
+</MAPINVOKE>
+
+<MAPINVOKE SERVICE="pub.string:substring" VALIDATE-IN="$none" VALIDATE-OUT="$none" INVOKE-ORDER="0">
+
+  <!-- nodes -->
+
+<MAP MODE="INVOKEINPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/matchType;1;0" TO="/inString;1;0">
+</MAPCOPY>
+
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/beginIndex;1;0">
+  <DATA ENCODING="XMLValues" I18N="true">
+
+<Values version="2.0">
+  <value name="xml">0</value>
+  <record name="type" javaclass="com.wm.util.Values">
+    <value name="node_type">field</value>
+    <value name="node_subtype">unknown</value>
+    <value name="is_public">false</value>
+    <value name="field_name">beginIndex</value>
+    <value name="field_type">string</value>
+    <value name="field_dim">0</value>
+    <value name="nillable">true</value>
+    <value name="form_qualified">false</value>
+    <value name="is_global">false</value>
+  </record>
+</Values>
+</DATA>
+</MAPSET>
+
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/endIndex;1;0">
+  <DATA ENCODING="XMLValues" I18N="true">
+
+<Values version="2.0">
+  <value name="xml">1</value>
+  <record name="type" javaclass="com.wm.util.Values">
+    <value name="node_type">field</value>
+    <value name="node_subtype">unknown</value>
+    <value name="is_public">false</value>
+    <value name="field_name">endIndex</value>
+    <value name="field_type">string</value>
+    <value name="field_dim">0</value>
+    <value name="nillable">true</value>
+    <value name="form_qualified">false</value>
+    <value name="is_global">false</value>
+  </record>
+</Values>
+</DATA>
+</MAPSET>
 </MAP>
 
 <MAP MODE="INVOKEOUTPUT">
@@ -744,6 +823,26 @@
 </MAPCOPY>
 </MAP>
 </MAPINVOKE>
+
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/VM;1;0">
+  <DATA ENCODING="XMLValues" I18N="true">
+
+<Values version="2.0">
+  <value name="xml">VM</value>
+  <record name="type" javaclass="com.wm.util.Values">
+    <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
+    <value name="is_public">false</value>
+    <value name="field_name">VM</value>
+    <value name="field_type">string</value>
+    <value name="field_dim">0</value>
+    <value name="nillable">true</value>
+    <value name="form_qualified">false</value>
+    <value name="is_global">false</value>
+  </record>
+</Values>
+</DATA>
+</MAPSET>
 </MAP>
 
 <LOOP TIMEOUT="" IN-ARRAY="/entities" OUT-ARRAY="/input/OnedataInteractiveHookInput/OriginalRowset/Row">
@@ -782,7 +881,7 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="node_comment">What match do you want to perform Value Meaning (VM ) or Data Elelment Concept (DEC).</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">false</value>
           <value name="field_largerEditor">false</value>
@@ -793,9 +892,8 @@
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <array name="field_options" type="value" depth="1">
-          <value>VM</value>
-          <value>DEC</value>
-          <value></value>
+          <value>Unrestricted</value>
+          <value>Restricted</value>
         </array>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
@@ -804,7 +902,7 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="node_comment">Type of Match (Restricted, Unrestricted, Fuzzy)</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
           <value name="field_largerEditor">false</value>
@@ -815,9 +913,9 @@
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <array name="field_options" type="value" depth="1">
-          <value>Restricted</value>
-          <value>Unrestricted</value>
-          <value>Fuzzy</value>
+          <value>VM's Only</value>
+          <value>Concepts Only</value>
+          <value>Both VM's and Concepts</value>
         </array>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
@@ -826,23 +924,44 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="node_comment">List of Names and User tips to match</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_largerEditor">false</value>
           <value name="field_password">false</value>
         </record>
         <value name="is_public">false</value>
         <value name="field_name">entities</value>
-        <value name="field_type">record</value>
+        <value name="field_type">recref</value>
         <value name="field_dim">0</value>
         <value name="wrapper_type">IData</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
-        <array name="rec_fields" type="record" depth="1">
-        </array>
         <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
+        <value name="rec_ref">NCIAPI.v1_0.vmmatch.docs:entities</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">VM</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">v_pref</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
@@ -1058,7 +1177,7 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="node_comment">What match do you want to perform Value Meaning (VM ) or Data Elelment Concept (DEC).</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">false</value>
           <value name="field_largerEditor">false</value>
@@ -1069,9 +1188,8 @@
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <array name="field_options" type="value" depth="1">
-          <value>VM</value>
-          <value>DEC</value>
-          <value></value>
+          <value>Unrestricted</value>
+          <value>Restricted</value>
         </array>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
@@ -1080,7 +1198,7 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="node_comment">Type of Match (Restricted, Unrestricted, Fuzzy)</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
           <value name="field_largerEditor">false</value>
@@ -1091,9 +1209,9 @@
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <array name="field_options" type="value" depth="1">
-          <value>Restricted</value>
-          <value>Unrestricted</value>
-          <value>Fuzzy</value>
+          <value>VM's Only</value>
+          <value>Concepts Only</value>
+          <value>Both VM's and Concepts</value>
         </array>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
@@ -1102,23 +1220,44 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="node_comment">List of Names and User tips to match</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_largerEditor">false</value>
           <value name="field_password">false</value>
         </record>
         <value name="is_public">false</value>
         <value name="field_name">entities</value>
-        <value name="field_type">record</value>
+        <value name="field_type">recref</value>
         <value name="field_dim">0</value>
         <value name="wrapper_type">IData</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
-        <array name="rec_fields" type="record" depth="1">
-        </array>
         <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
+        <value name="rec_ref">NCIAPI.v1_0.vmmatch.docs:entities</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">VM</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">v_pref</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
@@ -1165,7 +1304,7 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="node_comment">What match do you want to perform Value Meaning (VM ) or Data Elelment Concept (DEC).</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">false</value>
           <value name="field_largerEditor">false</value>
@@ -1176,9 +1315,8 @@
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <array name="field_options" type="value" depth="1">
-          <value>VM</value>
-          <value>DEC</value>
-          <value></value>
+          <value>Unrestricted</value>
+          <value>Restricted</value>
         </array>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
@@ -1187,7 +1325,7 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="node_comment">Type of Match (Restricted, Unrestricted, Fuzzy)</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
           <value name="field_largerEditor">false</value>
@@ -1198,9 +1336,9 @@
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <array name="field_options" type="value" depth="1">
-          <value>Restricted</value>
-          <value>Unrestricted</value>
-          <value>Fuzzy</value>
+          <value>VM's Only</value>
+          <value>Concepts Only</value>
+          <value>Both VM's and Concepts</value>
         </array>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
@@ -1209,62 +1347,44 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="node_comment">List of Names and User tips to match</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_largerEditor">false</value>
           <value name="field_password">false</value>
         </record>
         <value name="is_public">false</value>
         <value name="field_name">entities</value>
-        <value name="field_type">record</value>
+        <value name="field_type">recref</value>
         <value name="field_dim">0</value>
         <value name="wrapper_type">IData</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
-        <array name="rec_fields" type="record" depth="1">
-          <record javaclass="com.wm.util.Values">
-            <value name="node_type">record</value>
-            <value name="node_subtype">unknown</value>
-            <value name="node_comment"></value>
-            <record name="node_hints" javaclass="com.wm.util.Values">
-              <value name="field_usereditable">true</value>
-              <value name="field_largerEditor">false</value>
-              <value name="field_password">false</value>
-            </record>
-            <value name="is_public">false</value>
-            <value name="field_name">entityName</value>
-            <value name="field_type">string</value>
-            <value name="field_dim">0</value>
-            <array name="field_options" type="value" depth="1">
-            </array>
-            <value name="nillable">true</value>
-            <value name="form_qualified">false</value>
-            <value name="is_global">false</value>
-          </record>
-          <record javaclass="com.wm.util.Values">
-            <value name="node_type">record</value>
-            <value name="node_subtype">unknown</value>
-            <value name="node_comment"></value>
-            <record name="node_hints" javaclass="com.wm.util.Values">
-              <value name="field_usereditable">true</value>
-              <value name="field_largerEditor">false</value>
-              <value name="field_password">false</value>
-            </record>
-            <value name="is_public">false</value>
-            <value name="field_name">entityNameUser</value>
-            <value name="field_type">string</value>
-            <value name="field_dim">0</value>
-            <value name="field_opt">true</value>
-            <array name="field_options" type="value" depth="1">
-            </array>
-            <value name="nillable">true</value>
-            <value name="form_qualified">false</value>
-            <value name="is_global">false</value>
-          </record>
-        </array>
         <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
+        <value name="rec_ref">NCIAPI.v1_0.vmmatch.docs:entities</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">VM</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">v_pref</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
@@ -1296,9 +1416,6 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/matchType;1;0" TO="/input;4;0;NCIAPI.v1_0.vmmatch.docs:input/OnedataInteractiveHookInput;2;0/OriginalRowset;2;0/Row;2;0/Column[0];2;1/*body;1;0">
-</MAPCOPY>
-
 <MAPINVOKE SERVICE="NCIAPI.v1_0.vmmatch.adptr:nextVal_od_seq_DS_HDR" VALIDATE-IN="$none" VALIDATE-OUT="$none" INVOKE-ORDER="0">
 
   <!-- nodes -->
@@ -1315,10 +1432,13 @@
 </MAP>
 </MAPINVOKE>
 
-<MAPCOPY FROM="/entities;2;0/entityName;1;0" TO="/input;4;0;NCIAPI.v1_0.vmmatch.docs:input/OnedataInteractiveHookInput;2;0/OriginalRowset;2;0/Row;2;0/Column[1];2;1/*body;1;0">
+<MAPCOPY FROM="/entities;4;0;NCIAPI.v1_0.vmmatch.docs:entities/name;1;0" TO="/input;4;0;NCIAPI.v1_0.vmmatch.docs:input/OnedataInteractiveHookInput;2;0/OriginalRowset;2;0/Row;2;0/Column[1];2;1/*body;1;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/entities;2;0/entityNameUser;1;0" TO="/input;4;0;NCIAPI.v1_0.vmmatch.docs:input/OnedataInteractiveHookInput;2;0/OriginalRowset;2;0/Row;2;0/Column[2];2;1/*body;1;0">
+<MAPCOPY FROM="/entities;4;0;NCIAPI.v1_0.vmmatch.docs:entities/userTip;1;0" TO="/input;4;0;NCIAPI.v1_0.vmmatch.docs:input/OnedataInteractiveHookInput;2;0/OriginalRowset;2;0/Row;2;0/Column[2];2;1/*body;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/VM;1;0" TO="/input;4;0;NCIAPI.v1_0.vmmatch.docs:input/OnedataInteractiveHookInput;2;0/OriginalRowset;2;0/Row;2;0/Column[0];2;1/*body;1;0">
 </MAPCOPY>
 </MAP>
 </LOOP>
@@ -1569,7 +1689,7 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="node_comment">What match do you want to perform Value Meaning (VM ) or Data Elelment Concept (DEC).</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">false</value>
           <value name="field_largerEditor">false</value>
@@ -1580,9 +1700,8 @@
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <array name="field_options" type="value" depth="1">
-          <value>VM</value>
-          <value>DEC</value>
-          <value></value>
+          <value>Unrestricted</value>
+          <value>Restricted</value>
         </array>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
@@ -1591,7 +1710,7 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="node_comment">Type of Match (Restricted, Unrestricted, Fuzzy)</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
           <value name="field_largerEditor">false</value>
@@ -1602,9 +1721,9 @@
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <array name="field_options" type="value" depth="1">
-          <value>Restricted</value>
-          <value>Unrestricted</value>
-          <value>Fuzzy</value>
+          <value>VM's Only</value>
+          <value>Concepts Only</value>
+          <value>Both VM's and Concepts</value>
         </array>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
@@ -1613,24 +1732,45 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="node_comment">List of Names and User tips to match</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_largerEditor">false</value>
           <value name="field_password">false</value>
         </record>
         <value name="is_public">false</value>
         <value name="field_name">entities</value>
-        <value name="field_type">record</value>
+        <value name="field_type">recref</value>
         <value name="field_dim">1</value>
         <value name="wrapper_type">IData</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
         <value name="is_soap_array_encoding_used">false</value>
-        <array name="rec_fields" type="record" depth="1">
-        </array>
         <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
+        <value name="rec_ref">NCIAPI.v1_0.vmmatch.docs:entities</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">VM</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">v_pref</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
@@ -1770,7 +1910,7 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="node_comment">What match do you want to perform Value Meaning (VM ) or Data Elelment Concept (DEC).</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">false</value>
           <value name="field_largerEditor">false</value>
@@ -1781,9 +1921,8 @@
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <array name="field_options" type="value" depth="1">
-          <value>VM</value>
-          <value>DEC</value>
-          <value></value>
+          <value>Unrestricted</value>
+          <value>Restricted</value>
         </array>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
@@ -1814,7 +1953,7 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="node_comment">Type of Match (Restricted, Unrestricted, Fuzzy)</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
           <value name="field_largerEditor">false</value>
@@ -1825,9 +1964,9 @@
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <array name="field_options" type="value" depth="1">
-          <value>Restricted</value>
-          <value>Unrestricted</value>
-          <value>Fuzzy</value>
+          <value>VM's Only</value>
+          <value>Concepts Only</value>
+          <value>Both VM's and Concepts</value>
         </array>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
@@ -1836,69 +1975,51 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="node_comment">List of Names and User tips to match</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_largerEditor">false</value>
           <value name="field_password">false</value>
         </record>
         <value name="is_public">false</value>
         <value name="field_name">entities</value>
-        <value name="field_type">record</value>
+        <value name="field_type">recref</value>
         <value name="field_dim">1</value>
         <value name="wrapper_type">IData</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
         <value name="is_soap_array_encoding_used">false</value>
-        <array name="rec_fields" type="record" depth="1">
-          <record javaclass="com.wm.util.Values">
-            <value name="node_type">record</value>
-            <value name="node_subtype">unknown</value>
-            <value name="node_comment"></value>
-            <record name="node_hints" javaclass="com.wm.util.Values">
-              <value name="field_usereditable">true</value>
-              <value name="field_largerEditor">false</value>
-              <value name="field_password">false</value>
-            </record>
-            <value name="is_public">false</value>
-            <value name="field_name">entityName</value>
-            <value name="field_type">string</value>
-            <value name="field_dim">0</value>
-            <array name="field_options" type="value" depth="1">
-            </array>
-            <value name="nillable">true</value>
-            <value name="form_qualified">false</value>
-            <value name="is_global">false</value>
-          </record>
-          <record javaclass="com.wm.util.Values">
-            <value name="node_type">record</value>
-            <value name="node_subtype">unknown</value>
-            <value name="node_comment"></value>
-            <record name="node_hints" javaclass="com.wm.util.Values">
-              <value name="field_usereditable">true</value>
-              <value name="field_largerEditor">false</value>
-              <value name="field_password">false</value>
-            </record>
-            <value name="is_public">false</value>
-            <value name="field_name">entityNameUser</value>
-            <value name="field_type">string</value>
-            <value name="field_dim">0</value>
-            <value name="field_opt">true</value>
-            <array name="field_options" type="value" depth="1">
-            </array>
-            <value name="nillable">true</value>
-            <value name="form_qualified">false</value>
-            <value name="is_global">false</value>
-          </record>
-        </array>
         <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
+        <value name="rec_ref">NCIAPI.v1_0.vmmatch.docs:entities</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">documentTypeName</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">VM</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">v_pref</value>
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -1969,7 +2090,7 @@
 <MAPDELETE FIELD="/matchType;1;0">
 </MAPDELETE>
 
-<MAPDELETE FIELD="/entities;2;1">
+<MAPDELETE FIELD="/entities;4;1;NCIAPI.v1_0.vmmatch.docs:entities">
 </MAPDELETE>
 </MAP>
 </INVOKE>
@@ -2039,7 +2160,7 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="node_comment">Type of Match (Restricted, Unrestricted, Fuzzy)</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
           <value name="field_largerEditor">false</value>
@@ -2050,10 +2171,32 @@
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <array name="field_options" type="value" depth="1">
-          <value>Restricted</value>
-          <value>Unrestricted</value>
-          <value>Fuzzy</value>
+          <value>VM's Only</value>
+          <value>Concepts Only</value>
+          <value>Both VM's and Concepts</value>
         </array>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">VM</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">v_pref</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
@@ -2148,7 +2291,7 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="node_comment">Type of Match (Restricted, Unrestricted, Fuzzy)</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
           <value name="field_largerEditor">false</value>
@@ -2159,9 +2302,9 @@
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <array name="field_options" type="value" depth="1">
-          <value>Restricted</value>
-          <value>Unrestricted</value>
-          <value>Fuzzy</value>
+          <value>VM's Only</value>
+          <value>Concepts Only</value>
+          <value>Both VM's and Concepts</value>
         </array>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
@@ -2173,6 +2316,28 @@
         <value name="is_public">false</value>
         <value name="field_name">inputReader</value>
         <value name="field_type">object</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">VM</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">v_pref</value>
+        <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
@@ -2266,7 +2431,7 @@
 </MAP>
 </INVOKE>
 
-<INVOKE TIMEOUT="" SERVICE="NCIAPI.v1_0.vmmatch.adptr:procedureNCI_DS_spVMMAtch" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+<INVOKE TIMEOUT="" SERVICE="NCIAPI.v1_0.vmmatch.adptr:procedureNCI_DS_spVMMatchDyn" VALIDATE-IN="$none" VALIDATE-OUT="$none">
   <COMMENT></COMMENT>
 
   <!-- nodes -->
@@ -2279,7 +2444,7 @@
     <value name="node_type">record</value>
     <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
-    <value name="field_name">procedureNCI_DS_spVMMAtchInput</value>
+    <value name="field_name">procedureNCI_DS_spVMMatchDynInput</value>
     <value name="field_type">record</value>
     <value name="field_dim">0</value>
     <value name="nillable">true</value>
@@ -2290,7 +2455,7 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">procedureNCI_DS_spVMMAtchInput</value>
+        <value name="field_name">procedureNCI_DS_spVMMatchDynInput</value>
         <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
@@ -2338,6 +2503,28 @@
             <value name="node_subtype">unknown</value>
             <value name="is_public">false</value>
             <value name="field_name">V_TYP</value>
+            <value name="field_type">string</value>
+            <value name="field_dim">0</value>
+            <value name="nillable">true</value>
+            <value name="form_qualified">false</value>
+            <value name="is_global">false</value>
+          </record>
+          <record javaclass="com.wm.util.Values">
+            <value name="node_type">unknown</value>
+            <value name="node_subtype">unknown</value>
+            <value name="is_public">false</value>
+            <value name="field_name">V_PREF</value>
+            <value name="field_type">string</value>
+            <value name="field_dim">0</value>
+            <value name="nillable">true</value>
+            <value name="form_qualified">false</value>
+            <value name="is_global">false</value>
+          </record>
+          <record javaclass="com.wm.util.Values">
+            <value name="node_type">unknown</value>
+            <value name="node_subtype">unknown</value>
+            <value name="is_public">false</value>
+            <value name="field_name">V_EXT</value>
             <value name="field_type">string</value>
             <value name="field_dim">0</value>
             <value name="nillable">true</value>
@@ -2393,7 +2580,7 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="node_comment">Type of Match (Restricted, Unrestricted, Fuzzy)</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
           <value name="field_largerEditor">false</value>
@@ -2404,9 +2591,9 @@
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <array name="field_options" type="value" depth="1">
-          <value>Restricted</value>
-          <value>Unrestricted</value>
-          <value>Fuzzy</value>
+          <value>VM's Only</value>
+          <value>Concepts Only</value>
+          <value>Both VM's and Concepts</value>
         </array>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
@@ -2418,6 +2605,28 @@
         <value name="is_public">false</value>
         <value name="field_name">inputReader</value>
         <value name="field_type">object</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">VM</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">v_pref</value>
+        <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
@@ -2442,11 +2651,14 @@
 
   <!-- nodes -->
 
-<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/procedureNCI_DS_spVMMAtchInput;2;0/V_USER_ID;1;0">
+<MAPCOPY FROM="/inputReader;3;0" TO="/procedureNCI_DS_spVMMatchDynInput;2;0/V_DATA_IN;3;0">
+</MAPCOPY>
+
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/procedureNCI_DS_spVMMatchDynInput;2;0/V_USER_ID;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
-  <value name="xml">bbiggers</value>
+  <value name="xml">API</value>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">unknown</value>
     <value name="node_subtype">unknown</value>
@@ -2462,213 +2674,31 @@
 </DATA>
 </MAPSET>
 
-<MAPCOPY FROM="/inputReader;3;0" TO="/procedureNCI_DS_spVMMAtchInput;2;0/V_DATA_IN;3;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/p_type;1;0" TO="/procedureNCI_DS_spVMMAtchInput;2;0/V_TYP;1;0">
-</MAPCOPY>
-</MAP>
-
-<MAP MODE="OUTPUT">
-  <MAPTARGET>
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/procedureNCI_DS_spVMMatchDynInput;2;0/V_EXT;1;0">
+  <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
-  <record name="xml" javaclass="com.wm.util.Values">
-    <value name="node_type">record</value>
+  <value name="xml"></value>
+  <record name="type" javaclass="com.wm.util.Values">
+    <value name="node_type">unknown</value>
     <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
-    <value name="field_type">record</value>
+    <value name="field_name">V_EXT</value>
+    <value name="field_type">string</value>
     <value name="field_dim">0</value>
     <value name="nillable">true</value>
     <value name="form_qualified">false</value>
     <value name="is_global">false</value>
-    <array name="rec_fields" type="record" depth="1">
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">procedureNCI_DS_spVMMAtchInput</value>
-        <value name="field_type">record</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <array name="rec_fields" type="record" depth="1">
-          <record javaclass="com.wm.util.Values">
-            <value name="node_type">unknown</value>
-            <value name="node_subtype">unknown</value>
-            <value name="is_public">false</value>
-            <value name="field_name">V_DATA_IN</value>
-            <value name="field_type">object</value>
-            <value name="field_dim">0</value>
-            <value name="nillable">true</value>
-            <value name="form_qualified">false</value>
-            <value name="is_global">false</value>
-          </record>
-          <record javaclass="com.wm.util.Values">
-            <value name="node_type">unknown</value>
-            <value name="node_subtype">unknown</value>
-            <value name="is_public">false</value>
-            <value name="field_name">V_USER_ID</value>
-            <value name="field_type">string</value>
-            <value name="field_dim">0</value>
-            <value name="nillable">true</value>
-            <value name="form_qualified">false</value>
-            <value name="is_global">false</value>
-          </record>
-          <record javaclass="com.wm.util.Values">
-            <value name="node_type">unknown</value>
-            <value name="node_subtype">unknown</value>
-            <value name="is_public">false</value>
-            <value name="field_name">V_TYP</value>
-            <value name="field_type">string</value>
-            <value name="field_dim">0</value>
-            <value name="nillable">true</value>
-            <value name="form_qualified">false</value>
-            <value name="is_global">false</value>
-          </record>
-        </array>
-        <value name="modifiable">true</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">input</value>
-        <value name="field_type">recref</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <value name="modifiable">true</value>
-        <value name="rec_ref">NCIAPI.v1_0.vmmatch.docs:input</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
-        <record name="node_hints" javaclass="com.wm.util.Values">
-          <value name="field_usereditable">true</value>
-          <value name="field_largerEditor">false</value>
-          <value name="field_password">false</value>
-        </record>
-        <value name="is_public">false</value>
-        <value name="field_name">function</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <array name="field_options" type="value" depth="1">
-          <value>Restricted</value>
-          <value>Unrestricted</value>
-          <value>Fuzzy</value>
-        </array>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">inputReader</value>
-        <value name="field_type">object</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">p_type</value>
-        <value name="field_type">string</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-      </record>
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">procedureNCI_DS_spVMMAtchOutput</value>
-        <value name="field_type">record</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <array name="rec_fields" type="record" depth="1">
-          <record javaclass="com.wm.util.Values">
-            <value name="node_type">unknown</value>
-            <value name="node_subtype">unknown</value>
-            <value name="is_public">false</value>
-            <value name="field_name">V_DATA_OUT</value>
-            <value name="field_type">string</value>
-            <value name="field_dim">0</value>
-            <value name="nillable">true</value>
-            <value name="form_qualified">false</value>
-            <value name="is_global">false</value>
-          </record>
-        </array>
-        <value name="modifiable">true</value>
-      </record>
-    </array>
-    <value name="modifiable">true</value>
   </record>
 </Values>
-</MAPTARGET>
-  <MAPSOURCE>
+</DATA>
+</MAPSET>
 
-<Values version="2.0">
-  <record name="xml" javaclass="com.wm.util.Values">
-    <value name="node_type">record</value>
-    <value name="node_subtype">unknown</value>
-    <value name="is_public">false</value>
-    <value name="field_name">procedureNCI_DS_spVMMAtchOutput</value>
-    <value name="field_type">record</value>
-    <value name="field_dim">0</value>
-    <value name="nillable">true</value>
-    <value name="form_qualified">false</value>
-    <value name="is_global">false</value>
-    <array name="rec_fields" type="record" depth="1">
-      <record javaclass="com.wm.util.Values">
-        <value name="node_type">record</value>
-        <value name="node_subtype">unknown</value>
-        <value name="is_public">false</value>
-        <value name="field_name">procedureNCI_DS_spVMMAtchOutput</value>
-        <value name="field_type">record</value>
-        <value name="field_dim">0</value>
-        <value name="nillable">true</value>
-        <value name="form_qualified">false</value>
-        <value name="is_global">false</value>
-        <array name="rec_fields" type="record" depth="1">
-          <record javaclass="com.wm.util.Values">
-            <value name="node_type">unknown</value>
-            <value name="node_subtype">unknown</value>
-            <value name="is_public">false</value>
-            <value name="field_name">V_DATA_OUT</value>
-            <value name="field_type">string</value>
-            <value name="field_dim">0</value>
-            <value name="nillable">true</value>
-            <value name="form_qualified">false</value>
-            <value name="is_global">false</value>
-          </record>
-        </array>
-        <value name="modifiable">true</value>
-      </record>
-    </array>
-    <value name="modifiable">true</value>
-  </record>
-</Values>
-</MAPSOURCE>
+<MAPCOPY FROM="/p_type;1;0" TO="/procedureNCI_DS_spVMMatchDynInput;2;0/V_TYP;1;0">
+</MAPCOPY>
 
-  <!-- nodes -->
-
-<MAPDELETE FIELD="/procedureNCI_DS_spVMMAtchInput;2;0">
-</MAPDELETE>
-
-<MAPDELETE FIELD="/procedureNCI_DS_spVMMAtchOutput;2;0">
-</MAPDELETE>
+<MAPCOPY FROM="/v_pref;1;0" TO="/procedureNCI_DS_spVMMatchDynInput;2;0/V_PREF;1;0">
+</MAPCOPY>
 </MAP>
 </INVOKE>
 
@@ -2738,6 +2768,20 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
+        <value name="field_name">procedureNCI_DS_spVMMatchDynInput</value>
+        <value name="field_type">record</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <array name="rec_fields" type="record" depth="1">
+        </array>
+        <value name="modifiable">true</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
         <value name="field_name">input</value>
         <value name="field_type">recref</value>
         <value name="field_dim">0</value>
@@ -2750,7 +2794,7 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="node_comment">Type of Match (Restricted, Unrestricted, Fuzzy)</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
           <value name="field_largerEditor">false</value>
@@ -2761,9 +2805,9 @@
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <array name="field_options" type="value" depth="1">
-          <value>Restricted</value>
-          <value>Unrestricted</value>
-          <value>Fuzzy</value>
+          <value>VM's Only</value>
+          <value>Concepts Only</value>
+          <value>Both VM's and Concepts</value>
         </array>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
@@ -2784,12 +2828,48 @@
         <value name="node_type">unknown</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
+        <value name="field_name">VM</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">v_pref</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
         <value name="field_name">p_type</value>
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">procedureNCI_DS_spVMMatchDynOutput</value>
+        <value name="field_type">record</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <array name="rec_fields" type="record" depth="1">
+        </array>
+        <value name="modifiable">true</value>
       </record>
     </array>
     <value name="modifiable">true</value>
@@ -2821,14 +2901,15 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
-        <value name="field_name">input</value>
-        <value name="field_type">recref</value>
+        <value name="field_name">procedureNCI_DS_spVMMatchDynInput</value>
+        <value name="field_type">record</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
+        <array name="rec_fields" type="record" depth="1">
+        </array>
         <value name="modifiable">true</value>
-        <value name="rec_ref">NCIAPI.v1_0.vmmatch.docs:input</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
@@ -2844,7 +2925,20 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="is_public">false</value>
+        <value name="field_name">input</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">NCIAPI.v1_0.vmmatch.docs:input</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="node_comment">Type of Match (Restricted, Unrestricted, Fuzzy)</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
           <value name="field_largerEditor">false</value>
@@ -2855,9 +2949,9 @@
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <array name="field_options" type="value" depth="1">
-          <value>Restricted</value>
-          <value>Unrestricted</value>
-          <value>Fuzzy</value>
+          <value>VM's Only</value>
+          <value>Concepts Only</value>
+          <value>Both VM's and Concepts</value>
         </array>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
@@ -2878,12 +2972,48 @@
         <value name="node_type">unknown</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
+        <value name="field_name">VM</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">v_pref</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
         <value name="field_name">p_type</value>
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">procedureNCI_DS_spVMMatchDynOutput</value>
+        <value name="field_type">record</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <array name="rec_fields" type="record" depth="1">
+        </array>
+        <value name="modifiable">true</value>
       </record>
     </array>
     <value name="modifiable">true</value>
@@ -2943,6 +3073,20 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
+        <value name="field_name">procedureNCI_DS_spVMMatchDynInput</value>
+        <value name="field_type">record</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <array name="rec_fields" type="record" depth="1">
+        </array>
+        <value name="modifiable">true</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
         <value name="field_name">input</value>
         <value name="field_type">recref</value>
         <value name="field_dim">0</value>
@@ -2955,7 +3099,7 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="node_comment">Type of Match (Restricted, Unrestricted, Fuzzy)</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
           <value name="field_largerEditor">false</value>
@@ -2966,10 +3110,32 @@
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <array name="field_options" type="value" depth="1">
-          <value>Restricted</value>
-          <value>Unrestricted</value>
-          <value>Fuzzy</value>
+          <value>VM's Only</value>
+          <value>Concepts Only</value>
+          <value>Both VM's and Concepts</value>
         </array>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">VM</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">v_pref</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
@@ -2984,6 +3150,20 @@
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">procedureNCI_DS_spVMMatchDynOutput</value>
+        <value name="field_type">record</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <array name="rec_fields" type="record" depth="1">
+        </array>
+        <value name="modifiable">true</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
@@ -3027,6 +3207,20 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
+        <value name="field_name">procedureNCI_DS_spVMMatchDynInput</value>
+        <value name="field_type">record</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <array name="rec_fields" type="record" depth="1">
+        </array>
+        <value name="modifiable">true</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
         <value name="field_name">input</value>
         <value name="field_type">recref</value>
         <value name="field_dim">0</value>
@@ -3039,7 +3233,7 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="node_comment">Type of Match (Restricted, Unrestricted, Fuzzy)</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
           <value name="field_largerEditor">false</value>
@@ -3050,10 +3244,32 @@
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <array name="field_options" type="value" depth="1">
-          <value>Restricted</value>
-          <value>Unrestricted</value>
-          <value>Fuzzy</value>
+          <value>VM's Only</value>
+          <value>Concepts Only</value>
+          <value>Both VM's and Concepts</value>
         </array>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">VM</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">v_pref</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
@@ -3068,6 +3284,20 @@
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">procedureNCI_DS_spVMMatchDynOutput</value>
+        <value name="field_type">record</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <array name="rec_fields" type="record" depth="1">
+        </array>
+        <value name="modifiable">true</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
@@ -3108,10 +3338,10 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/input;4;0;NCIAPI.v1_0.vmmatch.docs:input/OnedataInteractiveHookInput;2;0/OriginalRowset;2;0/Row;2;0/Column[1];2;1/*body;1;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/entityName;1;0">
+<MAPCOPY FROM="/input;4;0;NCIAPI.v1_0.vmmatch.docs:input/OnedataInteractiveHookInput;2;0/OriginalRowset;2;0/Row;2;0/Column[2];2;1/*body;1;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/userTip;1;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/input;4;0;NCIAPI.v1_0.vmmatch.docs:input/OnedataInteractiveHookInput;2;0/OriginalRowset;2;0/Row;2;0/Column[2];2;1/*body;1;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/entityNameUser;1;0">
+<MAPCOPY FROM="/input;4;0;NCIAPI.v1_0.vmmatch.docs:input/OnedataInteractiveHookInput;2;0/OriginalRowset;2;0/Row;2;0/Column[1];2;1/*body;1;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/name;1;0">
 </MAPCOPY>
 </MAP>
 
@@ -3208,6 +3438,20 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
+        <value name="field_name">procedureNCI_DS_spVMMatchDynInput</value>
+        <value name="field_type">record</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <array name="rec_fields" type="record" depth="1">
+        </array>
+        <value name="modifiable">true</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
         <value name="field_name">input</value>
         <value name="field_type">recref</value>
         <value name="field_dim">0</value>
@@ -3220,7 +3464,7 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="node_comment">Type of Match (Restricted, Unrestricted, Fuzzy)</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
           <value name="field_largerEditor">false</value>
@@ -3231,10 +3475,32 @@
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <array name="field_options" type="value" depth="1">
-          <value>Restricted</value>
-          <value>Unrestricted</value>
-          <value>Fuzzy</value>
+          <value>VM's Only</value>
+          <value>Concepts Only</value>
+          <value>Both VM's and Concepts</value>
         </array>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">VM</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">v_pref</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
@@ -3249,6 +3515,20 @@
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">procedureNCI_DS_spVMMatchDynOutput</value>
+        <value name="field_type">record</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <array name="rec_fields" type="record" depth="1">
+        </array>
+        <value name="modifiable">true</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
@@ -3336,6 +3616,20 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
+        <value name="field_name">procedureNCI_DS_spVMMatchDynInput</value>
+        <value name="field_type">record</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <array name="rec_fields" type="record" depth="1">
+        </array>
+        <value name="modifiable">true</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
         <value name="field_name">input</value>
         <value name="field_type">recref</value>
         <value name="field_dim">0</value>
@@ -3348,7 +3642,7 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="node_comment">Type of Match (Restricted, Unrestricted, Fuzzy)</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
           <value name="field_largerEditor">false</value>
@@ -3359,10 +3653,32 @@
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <array name="field_options" type="value" depth="1">
-          <value>Restricted</value>
-          <value>Unrestricted</value>
-          <value>Fuzzy</value>
+          <value>VM's Only</value>
+          <value>Concepts Only</value>
+          <value>Both VM's and Concepts</value>
         </array>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">VM</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">v_pref</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
@@ -3377,6 +3693,20 @@
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">procedureNCI_DS_spVMMatchDynOutput</value>
+        <value name="field_type">record</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <array name="rec_fields" type="record" depth="1">
+        </array>
+        <value name="modifiable">true</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
@@ -3511,6 +3841,20 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
+        <value name="field_name">procedureNCI_DS_spVMMatchDynInput</value>
+        <value name="field_type">record</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <array name="rec_fields" type="record" depth="1">
+        </array>
+        <value name="modifiable">true</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
         <value name="field_name">input</value>
         <value name="field_type">recref</value>
         <value name="field_dim">0</value>
@@ -3523,7 +3867,7 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="node_comment">Type of Match (Restricted, Unrestricted, Fuzzy)</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
           <value name="field_largerEditor">false</value>
@@ -3534,10 +3878,32 @@
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <array name="field_options" type="value" depth="1">
-          <value>Restricted</value>
-          <value>Unrestricted</value>
-          <value>Fuzzy</value>
+          <value>VM's Only</value>
+          <value>Concepts Only</value>
+          <value>Both VM's and Concepts</value>
         </array>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">VM</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">v_pref</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
@@ -3552,6 +3918,20 @@
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">procedureNCI_DS_spVMMatchDynOutput</value>
+        <value name="field_type">record</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <array name="rec_fields" type="record" depth="1">
+        </array>
+        <value name="modifiable">true</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
@@ -3609,6 +3989,20 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
+        <value name="field_name">procedureNCI_DS_spVMMatchDynInput</value>
+        <value name="field_type">record</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <array name="rec_fields" type="record" depth="1">
+        </array>
+        <value name="modifiable">true</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
         <value name="field_name">input</value>
         <value name="field_type">recref</value>
         <value name="field_dim">0</value>
@@ -3621,7 +4015,7 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="node_comment">Type of Match (Restricted, Unrestricted, Fuzzy)</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
           <value name="field_largerEditor">false</value>
@@ -3632,10 +4026,32 @@
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <array name="field_options" type="value" depth="1">
-          <value>Restricted</value>
-          <value>Unrestricted</value>
-          <value>Fuzzy</value>
+          <value>VM's Only</value>
+          <value>Concepts Only</value>
+          <value>Both VM's and Concepts</value>
         </array>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">VM</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">v_pref</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
@@ -3650,6 +4066,20 @@
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">procedureNCI_DS_spVMMatchDynOutput</value>
+        <value name="field_type">record</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <array name="rec_fields" type="record" depth="1">
+        </array>
+        <value name="modifiable">true</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
@@ -3698,9 +4128,8 @@
                 <value name="node_subtype">unknown</value>
                 <value name="is_public">false</value>
                 <value name="field_name">HDR_ID</value>
-                <value name="field_type">object</value>
+                <value name="field_type">string</value>
                 <value name="field_dim">0</value>
-                <value name="wrapper_type">java.math.BigDecimal</value>
                 <value name="nillable">true</value>
                 <value name="form_qualified">false</value>
                 <value name="is_global">false</value>
@@ -3710,9 +4139,8 @@
                 <value name="node_subtype">unknown</value>
                 <value name="is_public">false</value>
                 <value name="field_name">ITEM_ID</value>
-                <value name="field_type">object</value>
+                <value name="field_type">string</value>
                 <value name="field_dim">0</value>
-                <value name="wrapper_type">java.math.BigDecimal</value>
                 <value name="nillable">true</value>
                 <value name="form_qualified">false</value>
                 <value name="is_global">false</value>
@@ -3722,43 +4150,8 @@
                 <value name="node_subtype">unknown</value>
                 <value name="is_public">false</value>
                 <value name="field_name">VER_NR</value>
-                <value name="field_type">object</value>
+                <value name="field_type">string</value>
                 <value name="field_dim">0</value>
-                <value name="wrapper_type">java.math.BigDecimal</value>
-                <value name="nillable">true</value>
-                <value name="form_qualified">false</value>
-                <value name="is_global">false</value>
-              </record>
-              <record javaclass="com.wm.util.Values">
-                <value name="node_type">unknown</value>
-                <value name="node_subtype">unknown</value>
-                <value name="node_comment"></value>
-                <record name="node_hints" javaclass="com.wm.util.Values">
-                  <value name="field_largerEditor">false</value>
-                  <value name="field_password">false</value>
-                </record>
-                <value name="is_public">false</value>
-                <value name="field_name">RULE_ID</value>
-                <value name="field_type">object</value>
-                <value name="field_dim">0</value>
-                <value name="wrapper_type">java.math.BigDecimal</value>
-                <value name="nillable">true</value>
-                <value name="form_qualified">false</value>
-                <value name="is_global">false</value>
-              </record>
-              <record javaclass="com.wm.util.Values">
-                <value name="node_type">unknown</value>
-                <value name="node_subtype">unknown</value>
-                <value name="node_comment"></value>
-                <record name="node_hints" javaclass="com.wm.util.Values">
-                  <value name="field_largerEditor">false</value>
-                  <value name="field_password">false</value>
-                </record>
-                <value name="is_public">false</value>
-                <value name="field_name">SCORE</value>
-                <value name="field_type">object</value>
-                <value name="field_dim">0</value>
-                <value name="wrapper_type">java.math.BigDecimal</value>
                 <value name="nillable">true</value>
                 <value name="form_qualified">false</value>
                 <value name="is_global">false</value>
@@ -3797,91 +4190,6 @@
                 <value name="field_dim">0</value>
                 <array name="field_options" type="value" depth="1">
                 </array>
-                <value name="nillable">true</value>
-                <value name="form_qualified">false</value>
-                <value name="is_global">false</value>
-              </record>
-              <record javaclass="com.wm.util.Values">
-                <value name="node_type">unknown</value>
-                <value name="node_subtype">unknown</value>
-                <value name="node_comment"></value>
-                <record name="node_hints" javaclass="com.wm.util.Values">
-                  <value name="field_largerEditor">false</value>
-                  <value name="field_password">false</value>
-                </record>
-                <value name="is_public">false</value>
-                <value name="field_name">NUM_PV_IN_SRC</value>
-                <value name="field_type">object</value>
-                <value name="field_dim">0</value>
-                <value name="wrapper_type">java.math.BigDecimal</value>
-                <value name="nillable">true</value>
-                <value name="form_qualified">false</value>
-                <value name="is_global">false</value>
-              </record>
-              <record javaclass="com.wm.util.Values">
-                <value name="node_type">unknown</value>
-                <value name="node_subtype">unknown</value>
-                <value name="node_comment"></value>
-                <record name="node_hints" javaclass="com.wm.util.Values">
-                  <value name="field_largerEditor">false</value>
-                  <value name="field_password">false</value>
-                </record>
-                <value name="is_public">false</value>
-                <value name="field_name">NUM_PV_IN_CDE</value>
-                <value name="field_type">object</value>
-                <value name="field_dim">0</value>
-                <value name="wrapper_type">java.math.BigDecimal</value>
-                <value name="nillable">true</value>
-                <value name="form_qualified">false</value>
-                <value name="is_global">false</value>
-              </record>
-              <record javaclass="com.wm.util.Values">
-                <value name="node_type">unknown</value>
-                <value name="node_subtype">unknown</value>
-                <value name="node_comment"></value>
-                <record name="node_hints" javaclass="com.wm.util.Values">
-                  <value name="field_largerEditor">false</value>
-                  <value name="field_password">false</value>
-                </record>
-                <value name="is_public">false</value>
-                <value name="field_name">NUM_PV_MTCH</value>
-                <value name="field_type">object</value>
-                <value name="field_dim">0</value>
-                <value name="wrapper_type">java.math.BigDecimal</value>
-                <value name="nillable">true</value>
-                <value name="form_qualified">false</value>
-                <value name="is_global">false</value>
-              </record>
-              <record javaclass="com.wm.util.Values">
-                <value name="node_type">unknown</value>
-                <value name="node_subtype">unknown</value>
-                <value name="node_comment"></value>
-                <record name="node_hints" javaclass="com.wm.util.Values">
-                  <value name="field_largerEditor">false</value>
-                  <value name="field_password">false</value>
-                </record>
-                <value name="is_public">false</value>
-                <value name="field_name">NM_MTCH_PRCNT</value>
-                <value name="field_type">object</value>
-                <value name="field_dim">0</value>
-                <value name="wrapper_type">java.math.BigDecimal</value>
-                <value name="nillable">true</value>
-                <value name="form_qualified">false</value>
-                <value name="is_global">false</value>
-              </record>
-              <record javaclass="com.wm.util.Values">
-                <value name="node_type">unknown</value>
-                <value name="node_subtype">unknown</value>
-                <value name="node_comment"></value>
-                <record name="node_hints" javaclass="com.wm.util.Values">
-                  <value name="field_largerEditor">false</value>
-                  <value name="field_password">false</value>
-                </record>
-                <value name="is_public">false</value>
-                <value name="field_name">NUM_PV_MTCH_FUZZY</value>
-                <value name="field_type">object</value>
-                <value name="field_dim">0</value>
-                <value name="wrapper_type">java.math.BigDecimal</value>
                 <value name="nillable">true</value>
                 <value name="form_qualified">false</value>
                 <value name="is_global">false</value>
@@ -3950,57 +4258,6 @@
                   <value name="field_password">false</value>
                 </record>
                 <value name="is_public">false</value>
-                <value name="field_name">FLD_DELETE</value>
-                <value name="field_type">object</value>
-                <value name="field_dim">0</value>
-                <value name="wrapper_type">java.math.BigDecimal</value>
-                <value name="nillable">true</value>
-                <value name="form_qualified">false</value>
-                <value name="is_global">false</value>
-              </record>
-              <record javaclass="com.wm.util.Values">
-                <value name="node_type">unknown</value>
-                <value name="node_subtype">unknown</value>
-                <value name="node_comment"></value>
-                <record name="node_hints" javaclass="com.wm.util.Values">
-                  <value name="field_largerEditor">false</value>
-                  <value name="field_password">false</value>
-                </record>
-                <value name="is_public">false</value>
-                <value name="field_name">LST_DEL_DT</value>
-                <value name="field_type">object</value>
-                <value name="field_dim">0</value>
-                <value name="wrapper_type">java.util.Date</value>
-                <value name="nillable">true</value>
-                <value name="form_qualified">false</value>
-                <value name="is_global">false</value>
-              </record>
-              <record javaclass="com.wm.util.Values">
-                <value name="node_type">unknown</value>
-                <value name="node_subtype">unknown</value>
-                <value name="node_comment"></value>
-                <record name="node_hints" javaclass="com.wm.util.Values">
-                  <value name="field_largerEditor">false</value>
-                  <value name="field_password">false</value>
-                </record>
-                <value name="is_public">false</value>
-                <value name="field_name">S2P_TRN_DT</value>
-                <value name="field_type">object</value>
-                <value name="field_dim">0</value>
-                <value name="wrapper_type">java.util.Date</value>
-                <value name="nillable">true</value>
-                <value name="form_qualified">false</value>
-                <value name="is_global">false</value>
-              </record>
-              <record javaclass="com.wm.util.Values">
-                <value name="node_type">unknown</value>
-                <value name="node_subtype">unknown</value>
-                <value name="node_comment"></value>
-                <record name="node_hints" javaclass="com.wm.util.Values">
-                  <value name="field_largerEditor">false</value>
-                  <value name="field_password">false</value>
-                </record>
-                <value name="is_public">false</value>
                 <value name="field_name">LST_UPD_DT</value>
                 <value name="field_type">object</value>
                 <value name="field_dim">0</value>
@@ -4012,18 +4269,10 @@
               <record javaclass="com.wm.util.Values">
                 <value name="node_type">unknown</value>
                 <value name="node_subtype">unknown</value>
-                <value name="node_comment"></value>
-                <record name="node_hints" javaclass="com.wm.util.Values">
-                  <value name="field_usereditable">true</value>
-                  <value name="field_largerEditor">false</value>
-                  <value name="field_password">false</value>
-                </record>
                 <value name="is_public">false</value>
-                <value name="field_name">MTCH_DESC_TXT</value>
+                <value name="field_name">ADMIN_ITEM_TYP_ID</value>
                 <value name="field_type">string</value>
                 <value name="field_dim">0</value>
-                <array name="field_options" type="value" depth="1">
-                </array>
                 <value name="nillable">true</value>
                 <value name="form_qualified">false</value>
                 <value name="is_global">false</value>
@@ -4031,18 +4280,76 @@
               <record javaclass="com.wm.util.Values">
                 <value name="node_type">unknown</value>
                 <value name="node_subtype">unknown</value>
-                <value name="node_comment"></value>
-                <record name="node_hints" javaclass="com.wm.util.Values">
-                  <value name="field_usereditable">true</value>
-                  <value name="field_largerEditor">false</value>
-                  <value name="field_password">false</value>
-                </record>
                 <value name="is_public">false</value>
-                <value name="field_name">MTCH_TYP</value>
+                <value name="field_name">ITEM_NM</value>
                 <value name="field_type">string</value>
                 <value name="field_dim">0</value>
-                <array name="field_options" type="value" depth="1">
-                </array>
+                <value name="nillable">true</value>
+                <value name="form_qualified">false</value>
+                <value name="is_global">false</value>
+              </record>
+              <record javaclass="com.wm.util.Values">
+                <value name="node_type">unknown</value>
+                <value name="node_subtype">unknown</value>
+                <value name="is_public">false</value>
+                <value name="field_name">ITEM_DESC</value>
+                <value name="field_type">string</value>
+                <value name="field_dim">0</value>
+                <value name="nillable">true</value>
+                <value name="form_qualified">false</value>
+                <value name="is_global">false</value>
+              </record>
+              <record javaclass="com.wm.util.Values">
+                <value name="node_type">unknown</value>
+                <value name="node_subtype">unknown</value>
+                <value name="is_public">false</value>
+                <value name="field_name">CNTXT_NM_DM</value>
+                <value name="field_type">string</value>
+                <value name="field_dim">0</value>
+                <value name="nillable">true</value>
+                <value name="form_qualified">false</value>
+                <value name="is_global">false</value>
+              </record>
+              <record javaclass="com.wm.util.Values">
+                <value name="node_type">unknown</value>
+                <value name="node_subtype">unknown</value>
+                <value name="is_public">false</value>
+                <value name="field_name">REGSTR_STUS_NM_DN</value>
+                <value name="field_type">string</value>
+                <value name="field_dim">0</value>
+                <value name="nillable">true</value>
+                <value name="form_qualified">false</value>
+                <value name="is_global">false</value>
+              </record>
+              <record javaclass="com.wm.util.Values">
+                <value name="node_type">unknown</value>
+                <value name="node_subtype">unknown</value>
+                <value name="is_public">false</value>
+                <value name="field_name">ADMIN_STUS_NM_DN</value>
+                <value name="field_type">string</value>
+                <value name="field_dim">0</value>
+                <value name="nillable">true</value>
+                <value name="form_qualified">false</value>
+                <value name="is_global">false</value>
+              </record>
+              <record javaclass="com.wm.util.Values">
+                <value name="node_type">unknown</value>
+                <value name="node_subtype">unknown</value>
+                <value name="is_public">false</value>
+                <value name="field_name">CNCPT_CONCAT</value>
+                <value name="field_type">string</value>
+                <value name="field_dim">0</value>
+                <value name="nillable">true</value>
+                <value name="form_qualified">false</value>
+                <value name="is_global">false</value>
+              </record>
+              <record javaclass="com.wm.util.Values">
+                <value name="node_type">unknown</value>
+                <value name="node_subtype">unknown</value>
+                <value name="is_public">false</value>
+                <value name="field_name">CNCPT_CONCAT_SRC_TYP</value>
+                <value name="field_type">string</value>
+                <value name="field_dim">0</value>
                 <value name="nillable">true</value>
                 <value name="form_qualified">false</value>
                 <value name="is_global">false</value>
@@ -4083,38 +4390,77 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/selectNCI_DS_RSLTOutput;2;0/results;2;0/ITEM_ID;3.11;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/matches;2;0/ITEM_ID;3.11;0">
+<MAPCOPY FROM="/selectNCI_DS_RSLTOutput;2;0/results;2;0/LST_UPD_DT;3.9;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/matches;4;0;NCIAPI.v1_0.vmmatch.docs:matches/dateLastModified;3.9;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/selectNCI_DS_RSLTOutput;2;0/results;2;0/VER_NR;3.11;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/matches;2;0/VER_NR;3.11;0">
+<MAPCOPY FROM="/selectNCI_DS_RSLTOutput;2;0/results;2;0/CREAT_DT;3.9;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/matches;4;0;NCIAPI.v1_0.vmmatch.docs:matches/dateCreated;3.9;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/selectNCI_DS_RSLTOutput;2;0/results;2;0/RULE_DESC;1;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/matches;2;0/RULE_DESC;1;0">
+<MAPCOPY FROM="/selectNCI_DS_RSLTOutput;2;0/results;2;0/CREAT_USR_ID;1;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/matches;4;0;NCIAPI.v1_0.vmmatch.docs:matches/createdBy;1;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/selectNCI_DS_RSLTOutput;2;0/results;2;0/USR_CMNTS;1;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/matches;2;0/USR_CMNTS;1;0">
+<MAPCOPY FROM="/selectNCI_DS_RSLTOutput;2;0/results;2;0/LST_UPD_USR_ID;1;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/matches;4;0;NCIAPI.v1_0.vmmatch.docs:matches/lastModifiedBy;1;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/selectNCI_DS_RSLTOutput;2;0/results;2;0/CREAT_DT;3;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/matches;2;0/CREAT_DT;3;0">
+<MAPCOPY FROM="/selectNCI_DS_RSLTOutput;2;0/results;2;0/RULE_DESC;1;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/matches;4;0;NCIAPI.v1_0.vmmatch.docs:matches/ruleDescription;1;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/selectNCI_DS_RSLTOutput;2;0/results;2;0/CREAT_USR_ID;1;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/matches;2;0/CREAT_USR_ID;1;0">
+<MAPCOPY FROM="/input;4;0;NCIAPI.v1_0.vmmatch.docs:input/OnedataInteractiveHookInput;2;0/OriginalRowset;2;0/Row;2;0/Column[1];2;1/*body;1;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/matches;4;0;NCIAPI.v1_0.vmmatch.docs:matches/importedVMName;1;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/selectNCI_DS_RSLTOutput;2;0/results;2;0/LST_UPD_USR_ID;1;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/matches;2;0/LST_UPD_USR_ID;1;0">
+<MAPCOPY FROM="/input;4;0;NCIAPI.v1_0.vmmatch.docs:input/OnedataInteractiveHookInput;2;0/OriginalRowset;2;0/Row;2;0/Column[2];2;1/*body;1;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/matches;4;0;NCIAPI.v1_0.vmmatch.docs:matches/userTip;1;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/selectNCI_DS_RSLTOutput;2;0/results;2;0/FLD_DELETE;3.11;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/matches;2;0/FLD_DELETE;3.11;0">
+<MAPCOPY FROM="/selectNCI_DS_RSLTOutput;2;0/results;2;0/ITEM_ID;1;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/matches;4;0;NCIAPI.v1_0.vmmatch.docs:matches/itemId;1;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/selectNCI_DS_RSLTOutput;2;0/results;2;0/LST_UPD_DT;3;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/matches;2;0/LST_UPD_DT;3;0">
+<MAPCOPY FROM="/selectNCI_DS_RSLTOutput;2;0/results;2;0/VER_NR;1;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/matches;4;0;NCIAPI.v1_0.vmmatch.docs:matches/version;1;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/selectNCI_DS_RSLTOutput;2;0/results;2;0/MTCH_DESC_TXT;1;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/matches;2;0/MTCH_DESC_TXT;1;0">
+<MAPCOPY FROM="/selectNCI_DS_RSLTOutput;2;0/results;2;0/USR_CMNTS;1;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/matches;4;0;NCIAPI.v1_0.vmmatch.docs:matches/userComment;1;0">
 </MAPCOPY>
 
-<MAPCOPY FROM="/selectNCI_DS_RSLTOutput;2;0/results;2;0/MTCH_TYP;1;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/matches;2;0/MTCH_TYP;1;0">
+<MAPCOPY FROM="/selectNCI_DS_RSLTOutput;2;0/results;2;0/ITEM_NM;1;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/matches;4;0;NCIAPI.v1_0.vmmatch.docs:matches/matchedName;1;0">
 </MAPCOPY>
+
+<MAPCOPY FROM="/selectNCI_DS_RSLTOutput;2;0/results;2;0/CNCPT_CONCAT;1;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/matches;4;0;NCIAPI.v1_0.vmmatch.docs:matches/concept;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/selectNCI_DS_RSLTOutput;2;0/results;2;0/CNCPT_CONCAT_SRC_TYP;1;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/matches;4;0;NCIAPI.v1_0.vmmatch.docs:matches/evsSource;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/selectNCI_DS_RSLTOutput;2;0/results;2;0/ITEM_DESC;1;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/matches;4;0;NCIAPI.v1_0.vmmatch.docs:matches/matchedDefinition;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/selectNCI_DS_RSLTOutput;2;0/results;2;0/CNTXT_NM_DM;1;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/matches;4;0;NCIAPI.v1_0.vmmatch.docs:matches/context;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/selectNCI_DS_RSLTOutput;2;0/results;2;0/REGSTR_STUS_NM_DN;1;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/matches;4;0;NCIAPI.v1_0.vmmatch.docs:matches/registrationStatus;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/selectNCI_DS_RSLTOutput;2;0/results;2;0/ADMIN_STUS_NM_DN;1;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/matches;4;0;NCIAPI.v1_0.vmmatch.docs:matches/workflowStatus;1;0">
+</MAPCOPY>
+
+<MAPINVOKE SERVICE="caDSR.utils:getDataTypebyAdminItemType" VALIDATE-IN="$none" VALIDATE-OUT="$none" INVOKE-ORDER="0">
+
+  <!-- nodes -->
+
+<MAP MODE="INVOKEINPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/selectNCI_DS_RSLTOutput;2;0/results;2;0/ADMIN_ITEM_TYP_ID;1;0" TO="/ADMIN_ITEM_TYP_ID;1;0">
+</MAPCOPY>
+</MAP>
+
+<MAP MODE="INVOKEOUTPUT">
+
+  <!-- nodes -->
+
+<MAPCOPY FROM="/table;1;0" TO="/matchResults;4;0;NCIAPI.v1_0.vmmatch.docs:matchResults/matches;4;0;NCIAPI.v1_0.vmmatch.docs:matches/itemType;1;0">
+</MAPCOPY>
+</MAP>
+</MAPINVOKE>
 </MAP>
 </LOOP>
 
@@ -4211,6 +4557,20 @@
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
+        <value name="field_name">procedureNCI_DS_spVMMatchDynInput</value>
+        <value name="field_type">record</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <array name="rec_fields" type="record" depth="1">
+        </array>
+        <value name="modifiable">true</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
         <value name="field_name">input</value>
         <value name="field_type">recref</value>
         <value name="field_dim">0</value>
@@ -4223,7 +4583,7 @@
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
         <value name="node_subtype">unknown</value>
-        <value name="node_comment"></value>
+        <value name="node_comment">Type of Match (Restricted, Unrestricted, Fuzzy)</value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
           <value name="field_largerEditor">false</value>
@@ -4234,10 +4594,32 @@
         <value name="field_type">string</value>
         <value name="field_dim">0</value>
         <array name="field_options" type="value" depth="1">
-          <value>Restricted</value>
-          <value>Unrestricted</value>
-          <value>Fuzzy</value>
+          <value>VM's Only</value>
+          <value>Concepts Only</value>
+          <value>Both VM's and Concepts</value>
         </array>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">VM</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">v_pref</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
@@ -4252,6 +4634,20 @@
         <value name="nillable">true</value>
         <value name="form_qualified">false</value>
         <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">procedureNCI_DS_spVMMatchDynOutput</value>
+        <value name="field_type">record</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <array name="rec_fields" type="record" depth="1">
+        </array>
+        <value name="modifiable">true</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>

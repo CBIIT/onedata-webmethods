@@ -1107,6 +1107,20 @@
 </MAP>
 </INVOKE>
 
+<BRANCH TIMEOUT="" SWITCH="/filterString">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<SEQUENCE NAME="$null" TIMEOUT="" EXIT-ON="FAILURE">
+  <COMMENT></COMMENT>
+</SEQUENCE>
+
+<SEQUENCE NAME="$default" TIMEOUT="" EXIT-ON="FAILURE">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
 <INVOKE TIMEOUT="" SERVICE="caDSR.utils:splitFilterString" VALIDATE-IN="$none" VALIDATE-OUT="$none">
   <COMMENT></COMMENT>
 
@@ -1255,10 +1269,6 @@
 </MAPDELETE>
 </MAP>
 </INVOKE>
-
-<MAP TIMEOUT="" MODE="STANDALONE">
-  <COMMENT></COMMENT>
-</MAP>
 
 <LOOP TIMEOUT="" IN-ARRAY="/filterObjects" OUT-ARRAY="/filter/fieldFilters">
   <COMMENT></COMMENT>
@@ -3730,6 +3740,8 @@
 </MAP>
 </INVOKE>
 </LOOP>
+</SEQUENCE>
+</BRANCH>
 
 <BRANCH TIMEOUT="" SWITCH="/filterString">
   <COMMENT></COMMENT>
