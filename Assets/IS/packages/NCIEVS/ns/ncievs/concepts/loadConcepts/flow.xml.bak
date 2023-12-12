@@ -3472,7 +3472,7 @@
 </MAP>
 </INVOKE>
 
-<INVOKE TIMEOUT="" SERVICE="ncievs.concepts:getEVSFile" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+<INVOKE TIMEOUT="" SERVICE="ncievs.concepts.formatServices:getFile" VALIDATE-IN="$none" VALIDATE-OUT="$none">
   <COMMENT></COMMENT>
 
   <!-- nodes -->
@@ -3683,11 +3683,20 @@
 
   <!-- nodes -->
 
+<MAPCOPY FROM="/filename;1;0" TO="/filename;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/targetDir;1;0" TO="/targetDir;1;0">
+</MAPCOPY>
+
+<MAPCOPY FROM="/searchFileName;1;0" TO="/searchFileName;1;0">
+</MAPCOPY>
+
 <MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="true" GLOBALVARIABLES="false" FIELD="/url;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
-  <value name="xml">%page%/%filename%</value>
+  <value name="xml">%page%/NCI_Thesaurus/%filename%</value>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
     <value name="node_subtype">unknown</value>
@@ -3710,15 +3719,6 @@
 </Values>
 </DATA>
 </MAPSET>
-
-<MAPCOPY FROM="/filename;1;0" TO="/filename;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/targetDir;1;0" TO="/targetDir;1;0">
-</MAPCOPY>
-
-<MAPCOPY FROM="/searchFileName;1;0" TO="/searchFileName;1;0">
-</MAPCOPY>
 </MAP>
 </INVOKE>
 
@@ -3742,7 +3742,7 @@
 
   <!-- nodes -->
 
-<INVOKE TIMEOUT="" SERVICE="ncievs.concepts:loadEVSFile" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+<INVOKE TIMEOUT="" SERVICE="ncievs.concepts.formatServices:loadData" VALIDATE-IN="$none" VALIDATE-OUT="$none">
   <COMMENT></COMMENT>
 
   <!-- nodes -->
