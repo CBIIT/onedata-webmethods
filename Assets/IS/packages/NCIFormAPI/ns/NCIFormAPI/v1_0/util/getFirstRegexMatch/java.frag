@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="name">getFirstRegexMatch</value>
+  <value name="encodeutf8">true</value>
+  <value name="body">SURhdGFDdXJzb3IgcGlwZWxpbmVDdXJzb3IgPSBwaXBlbGluZS5nZXRDdXJzb3IoKTsgDQoNClN0
+cmluZyBpbnB1dFN0cmluZyA9IElEYXRhVXRpbC5nZXRTdHJpbmcoIHBpcGVsaW5lQ3Vyc29yLCAi
+aW5wdXRTdHJpbmciICk7DQpTdHJpbmcgcmVnZXhQYXR0ZXJuID0gSURhdGFVdGlsLmdldFN0cmlu
+ZyggcGlwZWxpbmVDdXJzb3IsICJyZWdleFBhdHRlcm4iICk7DQoNClN0cmluZyBtYXRjaFN0cmlu
+ZyA9IG51bGw7DQoNClBhdHRlcm4gcGF0dGVybiA9IFBhdHRlcm4uY29tcGlsZShyZWdleFBhdHRl
+cm4pOw0KTWF0Y2hlciBtYXRjaGVyID0gcGF0dGVybi5tYXRjaGVyKGlucHV0U3RyaW5nKTsNCg0K
+d2hpbGUgKG1hdGNoZXIuZmluZCgpKSB7DQoJbWF0Y2hTdHJpbmcgPSBtYXRjaGVyLmdyb3VwKDAp
+Ow0KfQ0KDQovLyBwaXBlbGluZQ0KSURhdGFVdGlsLnB1dCggcGlwZWxpbmVDdXJzb3IsICJtYXRj
+aFN0cmluZyIsIG1hdGNoU3RyaW5nICk7DQo=</value>
+</Values>

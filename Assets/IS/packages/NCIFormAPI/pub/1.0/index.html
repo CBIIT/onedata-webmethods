@@ -1,0 +1,944 @@
+<!-- HTML for static distribution bundle build -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Swagger UI</title>
+    <link rel="stylesheet" type="text/css" href="../swaggerview/resources/swaggerui/swagger-ui.css">
+    <link rel="icon" type="image/png" href="../swaggerview/resources/swaggerui/favicon-32x32.png"
+        sizes="32x32" />
+    <link rel="icon" type="image/png" href="../swaggerview/resources/swaggerui/favicon-16x16.png"
+        sizes="16x16" />
+    <style>
+        html {
+            box-sizing: border-box;
+            overflow: -moz-scrollbars-vertical;
+            overflow-y: scroll;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        body {
+            margin: 0;
+            background: #fafafa;
+        }
+    </style>
+    <style>
+        div.navbar {
+            display: none;
+        }
+
+        div.page-header {
+            display: none;
+        }
+
+        body {
+            padding-top: 4px !important;
+            min-height: auto !important;
+        }
+
+        .col-md-3 {
+            display: none;
+        }
+
+        div#doc-error {
+            position: fixed;
+            left: 50px;
+            top: 10px;
+            right: 50px;
+            z-index: 1060;
+        }
+    </style>
+
+</head>
+
+<body>
+   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position:absolute;width:0;height:0">
+        <defs>
+            <symbol viewBox="0 0 20 20" id="unlocked">
+                <path d="M15.8 8H14V5.6C14 2.703 12.665 1 10 1 7.334 1 6 2.703 6 5.6V6h2v-.801C8 3.754 8.797 3 10 3c1.203 0 2 .754 2 2.199V8H4c-.553 0-1 .646-1 1.199V17c0 .549.428 1.139.951 1.307l1.197.387C5.672 18.861 6.55 19 7.1 19h5.8c.549 0 1.428-.139 1.951-.307l1.196-.387c.524-.167.953-.757.953-1.306V9.199C17 8.646 16.352 8 15.8 8z"></path>
+            </symbol>
+
+            <symbol viewBox="0 0 20 20" id="locked">
+                <path d="M15.8 8H14V5.6C14 2.703 12.665 1 10 1 7.334 1 6 2.703 6 5.6V8H4c-.553 0-1 .646-1 1.199V17c0 .549.428 1.139.951 1.307l1.197.387C5.672 18.861 6.55 19 7.1 19h5.8c.549 0 1.428-.139 1.951-.307l1.196-.387c.524-.167.953-.757.953-1.306V9.199C17 8.646 16.352 8 15.8 8zM12 8H8V5.199C8 3.754 8.797 3 10 3c1.203 0 2 .754 2 2.199V8z"
+                />
+            </symbol>
+
+            <symbol viewBox="0 0 20 20" id="close">
+                <path d="M14.348 14.849c-.469.469-1.229.469-1.697 0L10 11.819l-2.651 3.029c-.469.469-1.229.469-1.697 0-.469-.469-.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-.469-.469-.469-1.228 0-1.697.469-.469 1.228-.469 1.697 0L10 8.183l2.651-3.031c.469-.469 1.228-.469 1.697 0 .469.469.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c.469.469.469 1.229 0 1.698z"
+                />
+            </symbol>
+
+            <symbol viewBox="0 0 20 20" id="large-arrow">
+                <path d="M13.25 10L6.109 2.58c-.268-.27-.268-.707 0-.979.268-.27.701-.27.969 0l7.83 7.908c.268.271.268.709 0 .979l-7.83 7.908c-.268.271-.701.27-.969 0-.268-.269-.268-.707 0-.979L13.25 10z"
+                />
+            </symbol>
+
+            <symbol viewBox="0 0 20 20" id="large-arrow-down">
+                <path d="M17.418 6.109c.272-.268.709-.268.979 0s.271.701 0 .969l-7.908 7.83c-.27.268-.707.268-.979 0l-7.908-7.83c-.27-.268-.27-.701 0-.969.271-.268.709-.268.979 0L10 13.25l7.418-7.141z"
+                />
+            </symbol>
+
+
+            <symbol viewBox="0 0 24 24" id="jump-to">
+                <path d="M19 7v4H5.83l3.58-3.59L8 6l-6 6 6 6 1.41-1.41L5.83 13H21V7z" />
+            </symbol>
+
+            <symbol viewBox="0 0 24 24" id="expand">
+                <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z" />
+            </symbol>
+
+        </defs>
+    </svg>
+    <div id="swagger-ui"></div>
+
+    <script src="../swaggerview/resources/swaggerui/swagger-ui-bundle.js"> </script>
+    <script src="../swaggerview/resources/swaggerui/swagger-ui-standalone-preset.js"> </script>
+    <script>
+        window.onload = function () {
+        	sagSwagger = {
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "API for caDSR form object structures. \n\nSwagger JSON: [swagger.json](https://cadsrapi-dev.cancer.gov/invoke/NCIAPI.v1_0.swagger:getSwaggerJsonDoc?radName=NCIFormAPI.v1_0:NciFormApiRad)",
+    "version" : "1.0",
+    "title" : "NCI Form API"
+  },
+  "host" : "cadsrapi-dev.cancer.gov",
+  "basePath" : "/rad/NCIFormAPI/1.0/api",
+  "tags" : [ {
+    "name" : "Form",
+    "description" : "A questionnaire that documents all the patient data stipulated in the protocol and used by clinicians to record information about patient's visits while on the clinical trial."
+  } ],
+  "schemes" : [ "https" ],
+  "consumes" : [ "application/json" ],
+  "produces" : [ "application/json", "application/xml" ],
+  "paths" : {
+    "/Form/{publicId}" : {
+      "get" : {
+        "tags" : [ "Form" ],
+        "description" : "GET a particular Form object.\r\nExamples:\r\n• To get a form object and version with publicID of 3281897 and version 2:\r\n /Form/3281897?version=2\r\n• Note: if a version is not provided, the latest version will be returned.\r\n",
+        "operationId" : "FormpublicId_GET_1",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "publicId",
+          "in" : "path",
+          "description" : "The unique identifier for an Administered Item within a Registration Authority. Example: 10388046",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "version",
+          "in" : "query",
+          "description" : "The unique version identifier of the Administered Item.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/FormpublicId_GET_response"
+            }
+          },
+          "401" : {
+            "description" : "Access Denied"
+          }
+        },
+        "security" : [ {
+          "_basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/Form/query" : {
+      "get" : {
+        "tags" : [ "Form" ],
+        "description" : "GET list of Form objects.\r\n\r\nExamples:\r\n\r\n- To get all versions of a Form with publicID of 3281897:\r\n        /Form/query?publicId=3281897",
+        "operationId" : "Formquery_GET_2",
+        "parameters" : [ {
+          "name" : "publicId",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Formquery_GET_response"
+            }
+          },
+          "401" : {
+            "description" : "Access Denied"
+          }
+        },
+        "security" : [ {
+          "_basicAuth" : [ ]
+        } ]
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "_basicAuth" : {
+      "type" : "basic"
+    }
+  },
+  "definitions" : {
+    "triggerAction" : {
+      "required" : [ "createdBy", "dateCreated", "dateModified", "deletedIndicator", "instructions", "modifiedBy", "source", "sourceModule", "sourcePUB_ID", "sourceQuestion", "sourceVER_NR", "sourceValidValue", "target", "targetModule", "targetPUB_ID", "targetQuestion", "targetVER_NR", "targetValidValue", "triggerActionId" ],
+      "properties" : {
+        "sourcePUB_ID" : {
+          "type" : "string"
+        },
+        "sourceVER_NR" : {
+          "type" : "string"
+        },
+        "source" : {
+          "type" : "string"
+        },
+        "sourceModule" : {
+          "type" : "string"
+        },
+        "sourceQuestion" : {
+          "type" : "string"
+        },
+        "sourceValidValue" : {
+          "type" : "string"
+        },
+        "targetPUB_ID" : {
+          "type" : "string"
+        },
+        "targetVER_NR" : {
+          "type" : "string"
+        },
+        "target" : {
+          "type" : "string"
+        },
+        "targetModule" : {
+          "type" : "string"
+        },
+        "targetQuestion" : {
+          "type" : "string"
+        },
+        "targetValidValue" : {
+          "type" : "string"
+        },
+        "dateCreated" : {
+          "type" : "string"
+        },
+        "createdBy" : {
+          "type" : "string"
+        },
+        "modifiedBy" : {
+          "type" : "string"
+        },
+        "dateModified" : {
+          "type" : "string"
+        },
+        "deletedIndicator" : {
+          "type" : "string"
+        },
+        "triggerActionId" : {
+          "type" : "string"
+        },
+        "instructions" : {
+          "$ref" : "#/definitions/instruction"
+        }
+      }
+    },
+    "Formquery_GET_response" : {
+      "required" : [ "Forms", "numRecords" ],
+      "properties" : {
+        "numRecords" : {
+          "type" : "string"
+        },
+        "Forms" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/form"
+          }
+        }
+      }
+    },
+    "FormpublicId_GET_response" : {
+      "required" : [ "Form" ],
+      "properties" : {
+        "Form" : {
+          "$ref" : "#/definitions/form"
+        }
+      }
+    },
+    "valueDomain" : {
+      "required" : [ "UOMName", "beginDate", "changeNote", "context", "createdBy", "datatypeName", "dateCreated", "dateModified", "decimalPlace", "deletedIndicator", "endDate", "formatName", "highValueNumber", "latestVersionIndicator", "longName", "lowValueNumber", "maximumLengthNumber", "minimumLengthNumber", "modifiedBy", "origin", "permissibleValues", "preferredDefinition", "preferredName", "publicID", "triggerActions", "version" ],
+      "properties" : {
+        "beginDate" : {
+          "type" : "string",
+          "description" : "The particular day, month and year this item became allowed."
+        },
+        "changeNote" : {
+          "type" : "string",
+          "description" : "The description of what has changed in the Administered Item since the prior version of the Administered Item."
+        },
+        "createdBy" : {
+          "type" : "string",
+          "description" : "Username of the person who created the record"
+        },
+        "dateCreated" : {
+          "type" : "string",
+          "description" : "The date the Administered Item was created."
+        },
+        "dateModified" : {
+          "type" : "string",
+          "description" : "Date on which the record was modified; last date the object was modified"
+        },
+        "deletedIndicator" : {
+          "type" : "string",
+          "description" : "An indicator that characterizes the item as eliminated from the registry, thought the physical record still exists."
+        },
+        "endDate" : {
+          "type" : "string",
+          "description" : "The day, month and year this item becomes no longer allowed."
+        },
+        "latestVersionIndicator" : {
+          "type" : "string",
+          "description" : "The present form of an Administered Item."
+        },
+        "longName" : {
+          "type" : "string",
+          "description" : "A 255 character limit name for an item in the registry."
+        },
+        "modifiedBy" : {
+          "type" : "string",
+          "description" : "Username of the person who modified the record"
+        },
+        "publicID" : {
+          "type" : "string",
+          "description" : "The unique identifier for an Administered Item within a Registration Authority."
+        },
+        "version" : {
+          "type" : "string",
+          "description" : "The unique version identifier of the Administered Item."
+        },
+        "preferredDefinition" : {
+          "type" : "string",
+          "description" : "The text of the most desirable meaning for the Administered Item."
+        },
+        "preferredName" : {
+          "type" : "string",
+          "description" : "A 30 character limit name by which an Administered Item is designated within a specific Context."
+        },
+        "datatypeName" : {
+          "type" : "string",
+          "description" : "The words by which the datatype for an item is known. "
+        },
+        "decimalPlace" : {
+          "type" : "string",
+          "description" : "An indication of the specific number of digits to be expected to the right of the decimal point in a line of numbers."
+        },
+        "formatName" : {
+          "type" : "string",
+          "description" : "The words by which a template for the structure of the presentation of the Value(s) is known."
+        },
+        "highValueNumber" : {
+          "type" : "string",
+          "description" : "The upper limit of a range"
+        },
+        "lowValueNumber" : {
+          "type" : "string",
+          "description" : "The lower limit of a range"
+        },
+        "maximumLengthNumber" : {
+          "type" : "string",
+          "description" : "The maximum number of characters to represent the Data Element value."
+        },
+        "minimumLengthNumber" : {
+          "type" : "string",
+          "description" : "The minimum number of characters to represent the Data Element value."
+        },
+        "UOMName" : {
+          "type" : "string",
+          "description" : "The name of the actual units in which the associated values are measured."
+        },
+        "context" : {
+          "type" : "string",
+          "description" : "An associated gov.nih.nci.cadsr.domain.Context object"
+        },
+        "origin" : {
+          "type" : "string",
+          "description" : "The source (document, project, discipline or model) for the Administered Item."
+        },
+        "triggerActions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/triggerAction"
+          }
+        },
+        "permissibleValues" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/permissibleValue"
+          }
+        }
+      }
+    },
+    "module" : {
+      "required" : [ "displayOrder", "instructions", "longName", "maximumQuestionRepeat", "publicID", "questions", "referenceDocuments", "triggerActions", "version" ],
+      "properties" : {
+        "longName" : {
+          "type" : "string",
+          "description" : "A 255 character limit name for an item in the registry."
+        },
+        "displayOrder" : {
+          "type" : "string",
+          "description" : "The logical arrangement of items for viewing in a user interface."
+        },
+        "maximumQuestionRepeat" : {
+          "type" : "string",
+          "description" : "The maximum number of times a question may repeat within a module"
+        },
+        "publicID" : {
+          "type" : "string",
+          "description" : "The unique identifier for an Administered Item within a Registration Authority."
+        },
+        "version" : {
+          "type" : "string",
+          "description" : "The unique version identifier of the Administered Item."
+        },
+        "questions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/question"
+          }
+        },
+        "instructions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/instruction"
+          }
+        },
+        "referenceDocuments" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/referenceDocument"
+          }
+        },
+        "triggerActions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/triggerAction"
+          }
+        }
+      }
+    },
+    "designation" : {
+      "required" : [ "contextName", "language", "name", "type" ],
+      "properties" : {
+        "name" : {
+          "type" : "string",
+          "description" : "The words by which an item is known."
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "A particular kind of designation."
+        },
+        "language" : {
+          "type" : "string",
+          "description" : "The name of the language in which the item is represented."
+        },
+        "contextName" : {
+          "type" : "string",
+          "description" : "An associated gov.nih.nci.cadsr.domain.Context object"
+        }
+      }
+    },
+    "question" : {
+      "required" : [ "dataElement", "defaultValue", "displayOrder", "instructions", "isEditable", "isMandatory", "questionShortName", "questionText", "triggerActions", "validValues", "valueDomain" ],
+      "properties" : {
+        "displayOrder" : {
+          "type" : "string",
+          "description" : "The logical arrangement of items for viewing in a user interface."
+        },
+        "defaultValue" : {
+          "type" : "string",
+          "description" : "default value for the question when it is non enumerated"
+        },
+        "isEditable" : {
+          "type" : "string",
+          "description" : "Is the default valid value editable"
+        },
+        "isMandatory" : {
+          "type" : "string",
+          "description" : "Is the question mandatory"
+        },
+        "questionShortName" : {
+          "type" : "string"
+        },
+        "questionText" : {
+          "type" : "string"
+        },
+        "dataElement" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/dataElement"
+          }
+        },
+        "instructions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/instruction"
+          }
+        },
+        "valueDomain" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/valueDomain"
+          }
+        },
+        "validValues" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/validValues"
+          }
+        },
+        "triggerActions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/triggerAction"
+          }
+        }
+      }
+    },
+    "permissibleValue" : {
+      "required" : [ "beginDate", "endDate", "meaningConceptDisplayOrder", "meaningConceptOrigin", "meaningConcepts", "meaningDescription", "publicID", "validValue", "valueMeaning", "version" ],
+      "properties" : {
+        "validValue" : {
+          "type" : "string",
+          "description" : "A representation of a Value Meaning in a specific Value Domain the actual Value."
+        },
+        "valueMeaning" : {
+          "type" : "string",
+          "description" : "An associated gov.nih.nci.cadsr.domain.ValueMeaning object"
+        },
+        "meaningDescription" : {
+          "type" : "string",
+          "description" : "A statement in words representing the item."
+        },
+        "meaningConcepts" : {
+          "type" : "string"
+        },
+        "meaningConceptOrigin" : {
+          "type" : "string"
+        },
+        "meaningConceptDisplayOrder" : {
+          "type" : "string"
+        },
+        "beginDate" : {
+          "type" : "string",
+          "description" : "The particular day, month and year this item became allowed."
+        },
+        "endDate" : {
+          "type" : "string",
+          "description" : "The day, month and year this item becomes no longer allowed."
+        },
+        "publicID" : {
+          "type" : "string",
+          "description" : "The unique identifier for an Administered Item within a Registration Authority."
+        },
+        "version" : {
+          "type" : "string",
+          "description" : "The unique version identifier of the Administered Item."
+        }
+      }
+    },
+    "protocol" : {
+      "required" : [ "beginDate", "changeNote", "createdBy", "dateCreated", "dateModified", "deletedIndicator", "endDate", "id", "latestVersionIndicator", "longName", "modifiedBy", "organizationName", "origin", "preferredDefinition", "preferredName", "protocolId", "publicID", "version" ],
+      "properties" : {
+        "protocolId" : {
+          "type" : "string",
+          "description" : "The set of characters used to identify this Protocol."
+        },
+        "longName" : {
+          "type" : "string",
+          "description" : "A 255 character limit name for an item in the registry."
+        },
+        "organizationName" : {
+          "type" : "string",
+          "description" : "The organization in charge of this Protocol."
+        },
+        "beginDate" : {
+          "type" : "string",
+          "description" : "The particular day, month and year this item became allowed."
+        },
+        "changeNote" : {
+          "type" : "string",
+          "description" : "The description of what has changed in the Administered Item since the prior version of the Administered Item."
+        },
+        "createdBy" : {
+          "type" : "string",
+          "description" : "Username of the person who created the record"
+        },
+        "dateCreated" : {
+          "type" : "string",
+          "description" : "The date the Administered Item was created."
+        },
+        "dateModified" : {
+          "type" : "string",
+          "description" : "Date on which the record was modified; last date the object was modified"
+        },
+        "deletedIndicator" : {
+          "type" : "string",
+          "description" : "An indicator that characterizes the item as eliminated from the registry, thought the physical record still exists."
+        },
+        "endDate" : {
+          "type" : "string",
+          "description" : "The day, month and year this item becomes no longer allowed."
+        },
+        "id" : {
+          "type" : "string",
+          "description" : "The 36 character caDSR database identifier."
+        },
+        "modifiedBy" : {
+          "type" : "string",
+          "description" : "Username of the person who modified the record"
+        },
+        "origin" : {
+          "type" : "string",
+          "description" : "The source (document, project, discipline or model) for the Administered Item."
+        },
+        "preferredDefinition" : {
+          "type" : "string",
+          "description" : "The text of the most desirable meaning for the Administered Item."
+        },
+        "preferredName" : {
+          "type" : "string",
+          "description" : "A 30 character limit name by which an Administered Item is designated within a specific Context."
+        },
+        "publicID" : {
+          "type" : "string",
+          "description" : "The unique identifier for an Administered Item within a Registration Authority."
+        },
+        "version" : {
+          "type" : "string",
+          "description" : "The unique version identifier of the Administered Item."
+        },
+        "latestVersionIndicator" : {
+          "type" : "string",
+          "description" : "The present form of an Administered Item."
+        }
+      }
+    },
+    "referenceDocument" : {
+      "required" : [ "context", "docText", "name", "type", "url" ],
+      "properties" : {
+        "name" : {
+          "type" : "string",
+          "description" : "The words by which the item is known."
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The particular type of reference document."
+        },
+        "docText" : {
+          "type" : "string",
+          "description" : "The description of the reference document."
+        },
+        "context" : {
+          "type" : "string",
+          "description" : "An associated gov.nih.nci.cadsr.domain.Context object"
+        },
+        "url" : {
+          "type" : "string",
+          "description" : "A Uniform Resource Locator is an Internet address which tells a browser where to find an Internet resource."
+        }
+      }
+    },
+    "form" : {
+      "required" : [ "beginDate", "category", "changeNote", "context", "createdBy", "dateCreated", "dateModified", "definition", "deletedIndicator", "endDate", "instructions", "latestVersionIndicator", "longName", "modifiedBy", "modules", "preferredDefinition", "protocols", "publicID", "referenceDocuments", "triggerActions", "type", "version" ],
+      "properties" : {
+        "publicID" : {
+          "type" : "string",
+          "description" : "The unique identifier for an Administered Item within a Registration Authority."
+        },
+        "version" : {
+          "type" : "string",
+          "description" : "The unique version identifier of the Administered Item."
+        },
+        "longName" : {
+          "type" : "string",
+          "description" : "A 255 character limit name for an item in the registry."
+        },
+        "context" : {
+          "type" : "string",
+          "description" : "An associated gov.nih.nci.cadsr.domain.Context object"
+        },
+        "latestVersionIndicator" : {
+          "type" : "string",
+          "description" : "The present form of an Administered Item."
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The type of form."
+        },
+        "definition" : {
+          "type" : "string",
+          "description" : "The text of the most desirable meaning for the Administered Item."
+        },
+        "beginDate" : {
+          "type" : "string",
+          "description" : "The particular day, month and year this item became allowed."
+        },
+        "changeNote" : {
+          "type" : "string",
+          "description" : "The description of what has changed in the Administered Item since the prior version of the Administered Item."
+        },
+        "createdBy" : {
+          "type" : "string",
+          "description" : "Username of the person who created the record"
+        },
+        "dateCreated" : {
+          "type" : "string",
+          "description" : "The date the Administered Item was created."
+        },
+        "dateModified" : {
+          "type" : "string",
+          "description" : "Date on which the record was modified; last date the object was modified"
+        },
+        "deletedIndicator" : {
+          "type" : "string",
+          "description" : "An indicator that characterizes the item as eliminated from the registry, thought the physical record still exists."
+        },
+        "endDate" : {
+          "type" : "string",
+          "description" : "The day, month and year this item becomes no longer allowed."
+        },
+        "modifiedBy" : {
+          "type" : "string",
+          "description" : "Username of the person who modified the record"
+        },
+        "preferredDefinition" : {
+          "type" : "string",
+          "description" : "The text of the most desirable meaning for the Administered Item."
+        },
+        "category" : {
+          "type" : "string"
+        },
+        "modules" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/module"
+          }
+        },
+        "protocols" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/protocol"
+          }
+        },
+        "instructions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/instruction"
+          }
+        },
+        "referenceDocuments" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/referenceDocument"
+          }
+        },
+        "triggerActions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/triggerAction"
+          }
+        }
+      }
+    },
+    "valueMeaning" : {
+      "required" : [ "meaningConceptDisplayOrder", "meaningConceptOrigin", "meaningConcepts", "publicID", "version" ],
+      "properties" : {
+        "publicID" : {
+          "type" : "string",
+          "description" : "The unique identifier for an Administered Item within a Registration Authority."
+        },
+        "version" : {
+          "type" : "string",
+          "description" : "The unique version identifier of the Administered Item."
+        },
+        "meaningConcepts" : {
+          "type" : "string"
+        },
+        "meaningConceptOrigin" : {
+          "type" : "string"
+        },
+        "meaningConceptDisplayOrder" : {
+          "type" : "string"
+        }
+      }
+    },
+    "instruction" : {
+      "required" : [ "instruction" ],
+      "properties" : {
+        "instruction" : {
+          "type" : "string",
+          "description" : "An instruction."
+        }
+      }
+    },
+    "dataElement" : {
+      "required" : [ "beginDate", "changeNote", "createdBy", "dateCreated", "dateModified", "deletedIndicator", "designations", "endDate", "latestVersionIndicator", "longName", "modifiedBy", "origin", "preferredDefinition", "publicID", "referenceDocuments", "shortName", "version" ],
+      "properties" : {
+        "beginDate" : {
+          "type" : "string",
+          "description" : "The particular day, month and year this item became allowed."
+        },
+        "changeNote" : {
+          "type" : "string",
+          "description" : "The description of what has changed in the Administered Item since the prior version of the Administered Item."
+        },
+        "createdBy" : {
+          "type" : "string",
+          "description" : "Username of the person who created the record"
+        },
+        "dateCreated" : {
+          "type" : "string",
+          "description" : "The date the Administered Item was created."
+        },
+        "dateModified" : {
+          "type" : "string",
+          "description" : "Date on which the record was modified; last date the object was modified"
+        },
+        "deletedIndicator" : {
+          "type" : "string",
+          "description" : "An indicator that characterizes the item as eliminated from the registry, thought the physical record still exists."
+        },
+        "endDate" : {
+          "type" : "string",
+          "description" : "The day, month and year this item becomes no longer allowed."
+        },
+        "latestVersionIndicator" : {
+          "type" : "string",
+          "description" : "The present form of an Administered Item."
+        },
+        "longName" : {
+          "type" : "string",
+          "description" : "A 255 character limit name for an item in the registry."
+        },
+        "modifiedBy" : {
+          "type" : "string",
+          "description" : "Username of the person who modified the record"
+        },
+        "publicID" : {
+          "type" : "string",
+          "description" : "The unique identifier for an Administered Item within a Registration Authority."
+        },
+        "version" : {
+          "type" : "string",
+          "description" : "The unique version identifier of the Administered Item."
+        },
+        "shortName" : {
+          "type" : "string",
+          "description" : "A 30 character name by which an Administered Item is designated within a specific Context."
+        },
+        "preferredDefinition" : {
+          "type" : "string",
+          "description" : "The text of the most desirable meaning for the Administered Item."
+        },
+        "origin" : {
+          "type" : "string",
+          "description" : "The source (document, project, discipline or model) for the Administered Item."
+        },
+        "referenceDocuments" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/referenceDocument"
+          }
+        },
+        "designations" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/designation"
+          }
+        }
+      }
+    },
+    "validValues" : {
+      "required" : [ "description", "dipslayOrder", "instructions", "meaningText", "triggerActions", "value", "valueMeaning" ],
+      "properties" : {
+        "value" : {
+          "type" : "string",
+          "description" : "A valid value."
+        },
+        "description" : {
+          "type" : "string",
+          "description" : "the description associated with the valid value"
+        },
+        "dipslayOrder" : {
+          "type" : "string",
+          "description" : "The logical arrangement of items for viewing in a user interface."
+        },
+        "meaningText" : {
+          "type" : "string",
+          "description" : "the meaning associated with the valid value"
+        },
+        "valueMeaning" : {
+          "$ref" : "#/definitions/valueMeaning"
+        },
+        "instructions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/instruction"
+          }
+        },
+        "triggerActions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/triggerAction"
+          }
+        }
+      }
+    }
+  }
+} ;
+           
+            const ui = SwaggerUIBundle({
+                url: "",
+                spec: sagSwagger,
+                dom_id: '#swagger-ui',
+                presets: [
+                    SwaggerUIBundle.presets.apis,
+                    SwaggerUIStandalonePreset
+                ],
+                plugins: [
+                    SwaggerUIBundle.plugins.DownloadUrl
+                ],
+                layout: "StandaloneLayout",
+                validatorUrl: null,
+                tagsSorter: null,
+                operationsSorter: null,
+                defaultModelRendering: "example",
+                defaultModelExpandDepth: 1,
+                docExpansion: "list",
+                displayOperationId: false,
+                displayRequestDuration: false,
+                maxDisplayedTags: -1,
+                filter: false,
+                deepLinking: false,
+                showMutatedRequest: false
+            })
+
+            window.ui = ui;
+            var exploreElement = document.getElementsByClassName("topbar")[0];
+            exploreElement.parentNode.removeChild(exploreElement);
+        }
+    </script>
+    <script src='../swaggerview/resources/jquery/jquery.min.js' type='text/javascript'></script>
+    <script src='../swaggerview/resources/bootstrap/bootstrap-3.3.7.min.js' type='text/javascript'></script>
+    <div id="errors-placeholder"></div>
+</body>
+
+</html>

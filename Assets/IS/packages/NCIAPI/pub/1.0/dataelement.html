@@ -216,9 +216,6 @@
         "description" : "GET full representation of CRDC Data Elements.\r\n\r\nThere are no input parameters.",
         "operationId" : "DataElementgetCRDCList_GET_4",
         "parameters" : [ ],
-        "security" : [ {
-          "_basicAuth" : [ ]
-        } ],
         "responses" : {
           "200" : {
             "description" : "OK",
@@ -229,7 +226,38 @@
           "401" : {
             "description" : "Access Denied"
           }
-        }
+        },
+        "security" : [ {
+          "_basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/DataElement/query/Context" : {
+      "get" : {
+        "tags" : [ "Data Element" ],
+        "description" : "GET list of Data Element objects by Context name with top level properties.\r\n\r\nExamples:\r\n\r\n- To get all versions of Data Element with context: NCI Standards\r\n        /DataElement?contextName=NCI Standards",
+        "operationId" : "DataElementqueryContext_GET_5",
+        "parameters" : [ {
+          "name" : "contextName",
+          "in" : "query",
+          "description" : "The name of a Context object. Example: NCI Standards",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/DataElementqueryContext_GET_response"
+            }
+          },
+          "401" : {
+            "description" : "Access Denied"
+          }
+        },
+        "security" : [ {
+          "_basicAuth" : [ ]
+        } ]
       }
     }
   },
@@ -349,6 +377,89 @@
         }
       }
     },
+    "DataElementqueryContext_GET_response" : {
+      "required" : [ "DataElementQueryResults", "numRecords" ],
+      "properties" : {
+        "numRecords" : {
+          "type" : "string"
+        },
+        "DataElementQueryResults" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/DataElementQuery"
+          }
+        }
+      }
+    },
+    "CRDCDataElement" : {
+      "properties" : {
+        "CDE Public ID" : {
+          "type" : "string",
+          "description" : "The unique identifier for an Administered Item within a Registration Authority."
+        },
+        "Version" : {
+          "type" : "string",
+          "description" : "The unique version identifier of the Administered Item."
+        },
+        "CRDC Name" : {
+          "type" : "string",
+          "description" : "CRDC Name"
+        },
+        "CRD Domain" : {
+          "type" : "string",
+          "description" : "CRDC Domain"
+        },
+        "Example" : {
+          "type" : "string",
+          "description" : "CRDC Example"
+        },
+        "VD Type" : {
+          "type" : "string",
+          "description" : "Value Domain type"
+        },
+        "Coding Instruction" : {
+          "type" : "string",
+          "description" : "CRDC Coding Instructions"
+        },
+        "Instructions" : {
+          "type" : "string",
+          "description" : "CRDC Instructions"
+        },
+        "CRDC Definition" : {
+          "type" : "string",
+          "description" : "CRD Definition"
+        },
+        "CDE Long Name" : {
+          "type" : "string",
+          "description" : "A 255 character limit name for an item in the registry."
+        },
+        "Registration Status" : {
+          "type" : "string",
+          "description" : "A designation of the status in the registration life-cycle of an Administered Item."
+        },
+        "Workflow Status" : {
+          "type" : "string",
+          "description" : "A name of a designation of the status in the administrative life-cycle of a Context Owner for handling new administered items."
+        },
+        "Owned By" : {
+          "type" : "string",
+          "description" : "Who owns the Data Element"
+        },
+        "Used By" : {
+          "type" : "string",
+          "description" : "Who is using the Data Element"
+        },
+        "Deep Link" : {
+          "type" : "string"
+        },
+        "permissibleValues" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/permissibleValue"
+          }
+        }
+      }
+    },
     "ConceptualDomain" : {
       "required" : [ "publicId", "version" ],
       "properties" : {
@@ -440,114 +551,6 @@
         }
       }
     },
-    "DataElementQuery" : {
-      "required" : [ "publicId", "version" ],
-      "properties" : {
-        "publicId" : {
-          "type" : "string",
-          "description" : "The unique identifier for an Administered Item within a Registration Authority."
-        },
-        "version" : {
-          "type" : "string",
-          "description" : "The unique version identifier of the Administered Item."
-        },
-        "preferredName" : {
-          "type" : "string",
-          "description" : "A 30 character limit name by which an Administered Item is designated within a specific Context. Referred to as Short Name."
-        },
-        "preferredDefinition" : {
-          "type" : "string",
-          "description" : "The text of the most desirable meaning for the Administered Item."
-        },
-        "longName" : {
-          "type" : "string",
-          "description" : "A 255 character limit name for an item in the registry."
-        },
-        "contextName" : {
-          "type" : "string",
-          "description" : "A 30 character limit name by which an Administered Item is designated within a specific Context."
-        },
-        "contextVersion" : {
-          "type" : "string",
-          "description" : "The unique version identifier of the Administered Item."
-        },
-        "conceptPublicId" : {
-          "type" : "string",
-          "description" : "The unique identifier for an Administered Item within a Registration Authority."
-        },
-        "conceptVersion" : {
-          "type" : "string",
-          "description" : "The unique version identifier of the Administered Item."
-        },
-        "valueDomainPublicId" : {
-          "type" : "string",
-          "description" : "The unique identifier for an Administered Item within a Registration Authority."
-        },
-        "valueDomainVersion" : {
-          "type" : "string",
-          "description" : "The unique version identifier of the Administered Item."
-        },
-        "origin" : {
-          "type" : "string",
-          "description" : "The source (document, project, discipline or model) for the Administered Item."
-        },
-        "workflowStatus" : {
-          "type" : "string",
-          "description" : "A name of a designation of the status in the administrative life-cycle of a Context Owner for handling new administered items."
-        },
-        "registrationStatus" : {
-          "type" : "string",
-          "description" : "A designation of the status in the registration life-cycle of an Administered Item."
-        },
-        "id" : {
-          "type" : "string",
-          "description" : "The 36 character caDSR database identifier."
-        },
-        "latestVersionIndicator" : {
-          "type" : "string",
-          "description" : "The present form of an Administered Item."
-        },
-        "beginDate" : {
-          "type" : "string",
-          "description" : "The particular day, month and year this item became allowed."
-        },
-        "endDate" : {
-          "type" : "string",
-          "description" : "The day, month and year this item becomes no longer allowed."
-        },
-        "createdBy" : {
-          "type" : "string",
-          "description" : "This is a description of createdBy."
-        },
-        "dateCreated" : {
-          "type" : "string",
-          "description" : "The date the Administered Item was created."
-        },
-        "modifiedBy" : {
-          "type" : "string",
-          "description" : "Username of the person who modified the record"
-        },
-        "dateModified" : {
-          "type" : "string",
-          "description" : "Date on which the record was modified; last date the object was modified"
-        },
-        "changeNote" : {
-          "type" : "string",
-          "description" : "The description of what has changed in the Administered Item since the prior version of the Administered Item."
-        },
-        "administrativeNotes" : {
-          "type" : "string"
-        },
-        "unresolvedIssues" : {
-          "type" : "string",
-          "description" : "Any problem that remains unresolved regarding proper documentation of the Administered Item."
-        },
-        "deletedIndicator" : {
-          "type" : "string",
-          "description" : "An indicator that characterizes the item as eliminated from the registry, thought the physical record still exists."
-        }
-      }
-    },
     "DataElementqueryConcept_GET_response" : {
       "required" : [ "DataElementQueryResults", "numRecords" ],
       "properties" : {
@@ -557,13 +560,13 @@
         "DataElementQueryResults" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/DataElementQuery_1"
+            "$ref" : "#/definitions/DataElementQuery"
           }
         }
       }
     },
     "DataElement" : {
-      "required" : [ "DataElementConcept", "ValueDomain", "context", "contextVersion", "longName", "preferredDefinition", "preferredName", "publicId", "version" ],
+      "required" : [ "DataElementConcept", "ValueDomain", "publicId", "version" ],
       "properties" : {
         "publicId" : {
           "type" : "string",
@@ -1086,19 +1089,19 @@
       }
     },
     "PermissibleValue" : {
-      "required" : [ "ValueMeaning", "publicId", "valueDescription", "valueName" ],
+      "required" : [ "ValueMeaning", "publicId", "value", "valueDescription" ],
       "properties" : {
         "publicId" : {
           "type" : "string",
           "description" : "The unique identifier for a Permissible Value"
         },
-        "valueName" : {
+        "value" : {
           "type" : "string",
-          "description" : "A 30 character limit name by which an Administered Item is designated within a specific Context."
+          "description" : "A representation of a Value Meaning in a specific Value Domain the actual Value."
         },
         "valueDescription" : {
           "type" : "string",
-          "description" : "The text of the most desirable meaning for the Administered Item."
+          "description" : "The text of the most desirable meaning for Value"
         },
         "ValueMeaning" : {
           "$ref" : "#/definitions/ValueMeaning"
@@ -1141,7 +1144,7 @@
         }
       }
     },
-    "DataElementQuery_1" : {
+    "DataElementQuery" : {
       "required" : [ "publicId", "version" ],
       "properties" : {
         "publicId" : {
@@ -1249,89 +1252,7 @@
         }
       }
     },
-    "DataElementgetCRDCList_GET_response" : {
-      "required" : [ "CRDCDataElements" ],
-      "properties" : {
-        "CRDCDataElements" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/CRDCDataElement"
-          }
-        }
-      }
-    },
-    "CRDCDataElement" : {
-      "required" : [ "CDE Long Name", "CDE Public ID", "CRD Domain", "CRDC Definition", "CRDC Name", "Coding Instruction", "Deep Link", "Example", "Instructions", "Owned By", "Registration Status", "Used By", "VD Type", "Version", "Workflow Status", "permissibleValues" ],
-      "properties" : {
-        "CDE Public ID" : {
-          "type" : "string",
-          "description" : "The unique identifier for an Administered Item within a Registration Authority."
-        },
-        "Version" : {
-          "type" : "string",
-          "description" : "The unique version identifier of the Administered Item."
-        },
-        "CRDC Name" : {
-          "type" : "string",
-          "description" : "CRDC Name"
-        },
-        "CRD Domain" : {
-          "type" : "string",
-          "description" : "CRDC Domain"
-        },
-        "Example" : {
-          "type" : "string",
-          "description" : "CRDC Example"
-        },
-        "VD Type" : {
-          "type" : "string",
-          "description" : "Value Domain type"
-        },
-        "Coding Instruction" : {
-          "type" : "string",
-          "description" : "CRDC Coding Instructions"
-        },
-        "Instructions" : {
-          "type" : "string",
-          "description" : "CRDC Instructions"
-        },
-        "CRDC Definition" : {
-          "type" : "string",
-          "description" : "CRD Definition"
-        },
-        "CDE Long Name" : {
-          "type" : "string",
-          "description" : "A 255 character limit name for an item in the registry."
-        },
-        "Registration Status" : {
-          "type" : "string",
-          "description" : "A designation of the status in the registration life-cycle of an Administered Item."
-        },
-        "Workflow Status" : {
-          "type" : "string",
-          "description" : "A name of a designation of the status in the administrative life-cycle of a Context Owner for handling new administered items."
-        },
-        "Owned By" : {
-          "type" : "string",
-          "description" : "Who owns the Data Element"
-        },
-        "Used By" : {
-          "type" : "string",
-          "description" : "Who is using the Data Element"
-        },
-        "Deep Link" : {
-          "type" : "string"
-        },
-        "permissibleValues" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/permissibleValue"
-          }
-        }
-      }
-    },
     "permissibleValue" : {
-      "required" : [ "Begin Date", "Concept Code", "End Date", "Permissible Value", "VM Description", "VM Long Name", "VM Public ID" ],
       "properties" : {
         "Permissible Value" : {
           "type" : "string",
@@ -1398,7 +1319,7 @@
         }
     </script>
     <script src='../swaggerview/resources/jquery/jquery.min.js' type='text/javascript'></script>
-    <script src='../swaggerview/resources/bootstrap/bootstrap.min.js' type='text/javascript'></script>
+    <script src='../swaggerview/resources/bootstrap/bootstrap-3.3.7.min.js' type='text/javascript'></script>
     <div id="errors-placeholder"></div>
 </body>
 
