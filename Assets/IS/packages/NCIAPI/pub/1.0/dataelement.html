@@ -121,7 +121,7 @@
     "/DataElement/{publicId}" : {
       "get" : {
         "tags" : [ "Data Element" ],
-        "description" : "GET full representation of Data Element object.\r\n\r\nExamples:\r\n\r\n- To get the latest version of Data Element with publicID of 62:\r\n        /DataElement/62\r\n\r\n\r\n- To get specific version (e.g. version 4) of Data Element with publicId of 62:\r\n        /DataElement/62?version=4",
+        "description" : "GET full representation of Data Element object including all of it's lower level objects such as Value Domain, Data Element Concept, and Classifications, Reference Documents including Question Texts.\r\n\r\nExamples:\r\n\r\n- To get the latest version of Data Element with publicID of 62:\r\n        /DataElement/62\r\n\r\n\r\n- To get specific version (e.g. version 4) of Data Element with publicId of 62:\r\n        /DataElement/62?version=4",
         "operationId" : "DataElementpublicId_GET_1",
         "parameters" : [ {
           "name" : "publicId",
@@ -155,7 +155,7 @@
     "/DataElement/query" : {
       "get" : {
         "tags" : [ "Data Element" ],
-        "description" : "GET list of Data Element objects with top level properties.\r\n\r\nExamples:\r\n\r\n- To get all versions of Data Element with publicID of 62:\r\n        /DataElement?publicId=62",
+        "description" : "GET list of Data Element objects with top level properties ONLY. \r\n\r\nExamples:\r\n\r\n- To get all versions of Data Element with publicID of 62:\r\n        /DataElement?publicId=62",
         "operationId" : "DataElementquery_GET_2",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json", "application/xml" ],
@@ -185,12 +185,50 @@
     "/DataElement/query/Concept" : {
       "get" : {
         "tags" : [ "Data Element" ],
-        "description" : "A specialized service to GET list of Data Element objects with top level properties by Concept Code. \r\n\r\nA Concept Code is not a direct attribute of Data Element however child objects of Data Element may be associated with a concept code. This query will return all Data Elements that have these child associations.\r\n\r\nExamples:\r\n\r\n- To get the latest versions of all Data Elements associated with Concept Code of C37987:\r\n        /DataElement/query/Concept?conceptCode=C37987",
+        "description" : "Search for Data Element objects by Concept fields. User may search by either Concept Name (conceptLongName) or Concept Code (conceptCode). \r\n<br>\r\nConcept search may also utilize the exactMatch flag. For example if \"Gender\" is the search term and exactMatch is set to false, the search will return wildcard concept names that CONTAIN \"*Gender*\". If exactMatch is set to true the search will return concept names that ONLY match \"Gender\". The same rules apply to conceptCode as well.\r\n<br>\r\nConcept searches are not case sensitive. For example, search terms \"Gender\" and \"geNdEr\" will return the same results.\r\n<br>\r\nThe user may also \"filter\" the initial results by fields such as Primary Indicator, Order, Status, etc. At a minimum, either conceptLongName or conceptCode must be provided in the search query or no results will be returned. \r\n<br>\r\nThe maximum number of results per query is 1000. Please refine your search to bring back fewer results.",
         "operationId" : "DataElementqueryConcept_GET_3",
         "parameters" : [ {
+          "name" : "conceptLongName",
+          "in" : "query",
+          "description" : "A name by which an Administered Item (e.g. Concept) is designated within a specific Context. Example: \"Gender\".",
+          "required" : false,
+          "type" : "string"
+        }, {
           "name" : "conceptCode",
           "in" : "query",
-          "description" : "A code representing a concept.",
+          "description" : "A code by which a Concept is designated. An example code would be \"C17357\".",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "exactMatch",
+          "in" : "query",
+          "description" : "A flag to indicate the search term should look for an exact match. The default value is \"false\".",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "conceptPrimaryIndicatorFilter",
+          "in" : "query",
+          "description" : "Filter results on the Primary Indicator field. Examples are 1 for true, 0 for false. If no value is specified, all results will be returned.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "conceptDisplayOrderFilter",
+          "in" : "query",
+          "description" : "Filter results on the Display Order field. Examples are ordered values 0, 1, 2, etc. If no value is specified, all results will be returned.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "itemTypeFilter",
+          "in" : "query",
+          "enum" : ["Object Class", "Property", "Value Meaning", "Representation Term"],
+          "description" : "Filter results returning only the parent objects the Concept is attributed to. Examples are \"Object Class\", \"Property\", \"Value Meaning\" or \"Representation Term\". If no value is specified, all results will be returned.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "workflowStatusFilter",
+          "in" : "query",
+          "enum" : ["RELEASED"],
+          "description" : "Filter results on the Workflow Status of the Data Element. Example is \"RELEASED\". If no value is specified, all results will be returned.",
           "required" : false,
           "type" : "string"
         } ],
@@ -267,6 +305,30 @@
     }
   },
   "definitions" : {
+    "ClassificationScheme" : {
+      "required" : [ "context", "longName", "publicId", "version" ],
+      "properties" : {
+        "publicId" : {
+          "type" : "string",
+          "description" : "The unique identifier for an Administered Item within a Registration Authority."
+        },
+        "version" : {
+          "type" : "string"
+        },
+        "longName" : {
+          "type" : "string"
+        },
+        "context" : {
+          "type" : "string"
+        },
+        "ClassificationSchemeItems" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ClassificationSchemeItem"
+          }
+        }
+      }
+    },
     "Property" : {
       "required" : [ "publicId", "version" ],
       "properties" : {
@@ -296,6 +358,12 @@
         },
         "contextVersion" : {
           "type" : "string"
+        },
+        "Concepts" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Concept"
+          }
         },
         "origin" : {
           "type" : "string",
@@ -388,6 +456,20 @@
           "items" : {
             "$ref" : "#/definitions/DataElementQuery"
           }
+        }
+      }
+    },
+    "AlternateName" : {
+      "required" : [ "context", "name", "type" ],
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "string"
+        },
+        "context" : {
+          "type" : "string"
         }
       }
     },
@@ -551,6 +633,24 @@
         }
       }
     },
+    "ClassificationSchemeItem" : {
+      "required" : [ "context", "longName", "publicId", "version" ],
+      "properties" : {
+        "publicId" : {
+          "type" : "string",
+          "description" : "The unique identifier for an Administered Item within a Registration Authority."
+        },
+        "version" : {
+          "type" : "string"
+        },
+        "longName" : {
+          "type" : "string"
+        },
+        "context" : {
+          "type" : "string"
+        }
+      }
+    },
     "DataElementqueryConcept_GET_response" : {
       "required" : [ "DataElementQueryResults", "numRecords" ],
       "properties" : {
@@ -566,7 +666,7 @@
       }
     },
     "DataElement" : {
-      "required" : [ "DataElementConcept", "ValueDomain", "publicId", "version" ],
+      "required" : [ "AlternateNames", "ClassificationSchemes", "DataElementConcept", "ReferenceDocuments", "ValueDomain", "publicId", "version" ],
       "properties" : {
         "publicId" : {
           "type" : "string",
@@ -600,6 +700,24 @@
         },
         "ValueDomain" : {
           "$ref" : "#/definitions/ValueDomain"
+        },
+        "ClassificationSchemes" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ClassificationScheme"
+          }
+        },
+        "AlternateNames" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/AlternateName"
+          }
+        },
+        "ReferenceDocuments" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ReferenceDocument"
+          }
         },
         "origin" : {
           "type" : "string",
@@ -663,7 +781,7 @@
       }
     },
     "ValueDomain" : {
-      "required" : [ "ConceptualDomain", "PermissibleValues", "characterSet", "context", "contextVersion", "dataType", "decimalPlace", "format", "longName", "maxLength", "maxValue", "minLength", "minValue", "preferredDefinition", "preferredName", "publicId", "type", "unitOfMeasure", "version" ],
+      "required" : [ "ConceptualDomain", "PermissibleValues", "RepresentationTerm", "characterSet", "context", "contextVersion", "dataType", "decimalPlace", "format", "longName", "maxLength", "maxValue", "minLength", "minValue", "preferredDefinition", "preferredName", "publicId", "type", "unitOfMeasure", "version" ],
       "properties" : {
         "publicId" : {
           "type" : "string",
@@ -730,6 +848,9 @@
         },
         "ConceptualDomain" : {
           "$ref" : "#/definitions/ConceptualDomain"
+        },
+        "RepresentationTerm" : {
+          "$ref" : "#/definitions/RepresentationTerm"
         },
         "origin" : {
           "type" : "string",
@@ -822,6 +943,12 @@
         "contextVersion" : {
           "type" : "string"
         },
+        "Concepts" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Concept"
+          }
+        },
         "origin" : {
           "type" : "string",
           "description" : "The source (document, project, discipline or model) for the Administered Item."
@@ -894,6 +1021,30 @@
           "items" : {
             "$ref" : "#/definitions/DataElementQuery"
           }
+        }
+      }
+    },
+    "Concept" : {
+      "properties" : {
+        "longName" : {
+          "type" : "string",
+          "description" : "A 255 character limit name for an item in the registry."
+        },
+        "conceptCode" : {
+          "type" : "string"
+        },
+        "definition" : {
+          "type" : "string"
+        },
+        "evsSource" : {
+          "type" : "string",
+          "description" : "The name of the EVS concept code that was the source for the concept identifier."
+        },
+        "primaryIndicator" : {
+          "type" : "string"
+        },
+        "displayOrder" : {
+          "type" : "string"
         }
       }
     },
@@ -1027,6 +1178,12 @@
         "contextVersion" : {
           "type" : "string"
         },
+        "Concepts" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Concept"
+          }
+        },
         "origin" : {
           "type" : "string",
           "description" : "The source (document, project, discipline or model) for the Administered Item."
@@ -1085,6 +1242,122 @@
         "deletedIndicator" : {
           "type" : "string",
           "description" : "An indicator that characterizes the item as eliminated from the registry, thought the physical record still exists."
+        }
+      }
+    },
+    "RepresentationTerm" : {
+      "required" : [ "publicId", "version" ],
+      "properties" : {
+        "publicId" : {
+          "type" : "string",
+          "description" : "The unique identifier for an Administered Item within a Registration Authority."
+        },
+        "version" : {
+          "type" : "string",
+          "description" : "The unique version identifier of the Administered Item."
+        },
+        "preferredName" : {
+          "type" : "string",
+          "description" : "A 30 character limit name by which an Administered Item is designated within a specific Context."
+        },
+        "preferredDefinition" : {
+          "type" : "string",
+          "description" : "The text of the most desirable meaning for the Administered Item."
+        },
+        "longName" : {
+          "type" : "string",
+          "description" : "A 255 character limit name for an item in the registry."
+        },
+        "context" : {
+          "type" : "string",
+          "description" : "An associated gov.nih.nci.cadsr.domain.Context object"
+        },
+        "contextVersion" : {
+          "type" : "string"
+        },
+        "Concepts" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Concept"
+          }
+        },
+        "origin" : {
+          "type" : "string",
+          "description" : "The source (document, project, discipline or model) for the Administered Item."
+        },
+        "workflowStatus" : {
+          "type" : "string",
+          "description" : "A name of a designation of the status in the administrative life-cycle of a Context Owner for handling new administered items."
+        },
+        "registrationStatus" : {
+          "type" : "string",
+          "description" : "A designation of the status in the registration life-cycle of an Administered Item."
+        },
+        "id" : {
+          "type" : "string",
+          "description" : "The 36 character caDSR database identifier."
+        },
+        "latestVersionIndicator" : {
+          "type" : "string",
+          "description" : "The present form of an Administered Item."
+        },
+        "beginDate" : {
+          "type" : "string",
+          "description" : "The particular day, month and year this item became allowed."
+        },
+        "endDate" : {
+          "type" : "string",
+          "description" : "The day, month and year this item becomes no longer allowed."
+        },
+        "createdBy" : {
+          "type" : "string",
+          "description" : "This is a description of createdBy."
+        },
+        "dateCreated" : {
+          "type" : "string",
+          "description" : "The date the Administered Item was created."
+        },
+        "modifiedBy" : {
+          "type" : "string",
+          "description" : "Username of the person who modified the record"
+        },
+        "dateModified" : {
+          "type" : "string",
+          "description" : "Date on which the record was modified; last date the object was modified"
+        },
+        "changeDescription" : {
+          "type" : "string",
+          "description" : "The description of what has changed in the Administered Item since the prior version of the Administered Item."
+        },
+        "administrativeNotes" : {
+          "type" : "string"
+        },
+        "unresolvedIssues" : {
+          "type" : "string",
+          "description" : "Any problem that remains unresolved regarding proper documentation of the Administered Item."
+        },
+        "deletedIndicator" : {
+          "type" : "string",
+          "description" : "An indicator that characterizes the item as eliminated from the registry, thought the physical record still exists."
+        }
+      }
+    },
+    "ReferenceDocument" : {
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "url" : {
+          "type" : "string"
+        },
+        "context" : {
+          "type" : "string"
         }
       }
     },
